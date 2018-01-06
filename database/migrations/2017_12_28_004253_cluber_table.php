@@ -15,13 +15,11 @@ class CluberTable extends Migration
     {
         Schema::create('clubers', function (Blueprint $table) {
             $table->increments('id')->comment(" field to store cluber's number idenfifier");
-            $table->integer('usersId')->comment("field to store user's number idenfifier, it's a foreign key")->unsigned();
+            $table->integer('usersId')->comment("field to store user's number idenfifier, it's a foreign key")->unsigned()->unique();
             $table->timestamps();
 
             $table->foreign('usersId')->references('id')->on('users')->onDelete('cascade');
         });
-
-
     }
 
     /**
