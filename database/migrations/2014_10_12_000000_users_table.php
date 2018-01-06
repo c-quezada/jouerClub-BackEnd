@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class UsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -17,7 +17,6 @@ class CreateUsersTable extends Migration
             $table->increments('id')->comment("field to store user's number idenfifier");
             $table->string('name', 25)->comment("field to store user's name, limit 25");
             $table->string('lastname', 25)->comment("field to store user's lastname, limit 25");
-            $table->string('nickname', 25)->comment("field to store user's nickname, limimt 25")->unique();
             $table->string('email', 30)->comment("field to store user's email that must be unique, limimt 30")->unique();
             $table->string('phone', 12)->comment("field to store user's phone with his area code, must be unique, limimt 12")->unique();
             $table->string('password')->comment("field to store user's encrypted password, whit bcrypt helper function - LARAVEL");

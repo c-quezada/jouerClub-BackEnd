@@ -13,13 +13,12 @@ class UserCluberSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'name' => ucfirst('ChristoPher PierRe'),
-            'lastname' => ucfirst('QueZada Montesinos'),
-            'nickname' => 'CPQM07',
-            'email' => ucfirst('cpqm07@gmail.com'),
-            'phone' => '962245462',
-            'password' => bcrypt('2112Aeqdlf'),
-            'pictureProfile' => strtolower('image195492263'),
+            'name'             => ucfirst('ChristoPher PierRe'),
+            'lastname'         => ucfirst('QueZada Montesinos'),
+            'email'            => ucfirst('cpqm07@gmail.com'),
+            'phone'            => '962245462',
+            'password'         => bcrypt('2112Aeqdlf'),
+            'pictureProfile'   => strtolower('image195492263'),
             'codeVerification' => '123456'
         ]);
 
@@ -28,18 +27,19 @@ class UserCluberSeeder extends Seeder
         ]);
 
         DB::table('users')->insert([
-            'name' => ucfirst('DannA JAiera'),
-            'lastname' => ucfirst('Gonalez Ibañez'),
-            'nickname' => 'Donna',
-            'email' => strtolower('danna.gonzalez@gmail.com'),
-            'phone' => '90308914',
-            'password' => bcrypt('2112Aeqdlf'),
-            'pictureProfile' => strtolower('image186776996'),
+            'name'             => ucfirst('DannA JAiera'),
+            'lastname'         => ucfirst('Gonalez Ibañez'),
+            'email'            => strtolower('danna.gonzalez@gmail.com'),
+            'phone'            => '90308914',
+            'password'         => bcrypt('2112Aeqdlf'),
+            'pictureProfile'   => strtolower('image186776996'),
             'codeVerification' => '654321'
         ]);
 
         DB::table('clubers')->insert([
             'usersId' => '2'
         ]);
+
+
     }
 }
