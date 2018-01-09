@@ -14,10 +14,12 @@ class RegionsTable extends Migration
     public function up()
     {
         Schema::create('regions', function (Blueprint $table) {
-            $table->increments('id')->comment(" field to store region's number idenfifier");
-            $table->string('number', 6)->comment(" field to store region's number")->unique();
+            $table->integer('code', 6)->comment(" field to store region's code")->unique();
             $table->string('name', 50)->comment("field to store region's name")->unique();
-            $table->string('ISO_3166_2_CL', 6)->comment("field to store region's ISO_3166_2_CL")->unique();
+            $table->string('codeName', 6)->comment("field to store region's ISO_3166_2_CL")->unique();
+            $table->string('lat')->comment("field to store region's lat");
+            $table->string('lng')->comment("field to store region's lng");
+
         });
     }
 

@@ -14,11 +14,13 @@ class ProvincesTable extends Migration
     public function up()
     {
         Schema::create('provinces', function (Blueprint $table) {
-            $table->increments('id')->comment(" field to store province's number idenfifier");
+            $table->integer('code', 6)->comment(" field to store province's code")->unique();
             $table->string('name', 30)->comment(" field to store province's name")->unique();
-            $table->integer('regionId')->comment(" field to store provinces's region Id")->unsigned();
+            $table->string('lat')->comment("field to store province's lat");
+            $table->string('lng')->comment("field to store province's lng");
+            $table->integer('regionCode')->comment(" field to store provinces's region code")->unsigned();
 
-            $table->foreign('regionId')->references('id')->on('regions')->onDelete('cascade');
+            $table->foreign('regionCode')->references('code')->on('regions')->onDelete('cascade');
         });
     }
 

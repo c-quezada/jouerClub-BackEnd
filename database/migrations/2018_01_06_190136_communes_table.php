@@ -14,11 +14,13 @@ class CommunesTable extends Migration
     public function up()
     {
         Schema::create('communes', function (Blueprint $table) {
-            $table->increments('id')->comment(" field to store commune's number idenfifier");
+            $table->increments('code', 6)->comment(" field to store commune's code")->unique();
             $table->string('name', 30)->comment(" field to store commune's name")->unique();
-            $table->integer('provinceId')->comment(" field to store commune's province Id")->unsigned();
+            $table->string('lat')->comment("field to store commune's lat");
+            $table->string('lng')->comment("field to store commune's lng");
+            $table->integer('provinceCode')->comment(" field to store commune's province code")->unsigned();
 
-            $table->foreign('provinceId')->references('id')->on('provinces')->onDelete('cascade');
+            $table->foreign('provinceCode')->references('code')->on('provinces')->onDelete('cascade');
         });
     }
 
