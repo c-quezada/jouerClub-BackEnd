@@ -36,10 +36,12 @@ class UserCluberSeeder extends Seeder
 
         DB::table('clubers')->insert([
             [
-            'usersId' => '1'
+            'userid'  => 1,
+            'nickName' => 'cpqm07'
             ],
             [
-            'usersId' => '2'
+            'userid'  => 2,
+            'nickName' => 'donnna'
             ]
         ]);
 

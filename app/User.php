@@ -27,4 +27,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    public function cluber(){
+        return $this->hasOne('App\Cluber');
+    }
 }

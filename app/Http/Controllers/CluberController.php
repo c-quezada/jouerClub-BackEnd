@@ -14,7 +14,8 @@ class CluberController extends Controller
      */
     public function index()
     {
-        //
+        $Clubers = App\Cluber::all();
+        dd($Cluber);
     }
 
     /**

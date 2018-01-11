@@ -31,7 +31,7 @@ class SportFieldTable extends Migration
             $table->integer('sportFieldId')->comment("field to store sportField's number idenfifier, it's a foreign key")->unsigned();
             $table->timestamps();
 
-            $table->foreign('cluberId')->references('id')->on('clubers')->onDelete('cascade');
+            $table->foreign('cluberId')->references('userid')->on('clubers')->onDelete('cascade');
             $table->foreign('sportFieldId')->references('id')->on('sportsFields')->onDelete('cascade');
         });
     }
