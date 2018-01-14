@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\SportField;
 
-use App\SportField;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class SportFieldController extends Controller
 {
@@ -41,10 +41,10 @@ class SportFieldController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\SportField  $sportField
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(SportField $sportField)
+    public function show($id)
     {
         //
     }
@@ -52,10 +52,10 @@ class SportFieldController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\SportField  $sportField
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(SportField $sportField)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +64,10 @@ class SportFieldController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\SportField  $sportField
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SportField $sportField)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +75,10 @@ class SportFieldController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\SportField  $sportField
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SportField $sportField)
+    public function destroy($id)
     {
         //
     }

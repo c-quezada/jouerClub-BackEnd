@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Cluber;
 
-use App\Cluber;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class CluberController extends Controller
 {
@@ -14,8 +14,7 @@ class CluberController extends Controller
      */
     public function index()
     {
-        $Clubers = App\Cluber::all();
-        dd($Cluber);
+        //
     }
 
     /**
@@ -42,10 +41,10 @@ class CluberController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Cluber  $cluber
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Cluber $cluber)
+    public function show($id)
     {
         //
     }
@@ -53,10 +52,10 @@ class CluberController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Cluber  $cluber
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cluber $cluber)
+    public function edit($id)
     {
         //
     }
@@ -65,10 +64,10 @@ class CluberController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Cluber  $cluber
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cluber $cluber)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -76,10 +75,10 @@ class CluberController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Cluber  $cluber
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cluber $cluber)
+    public function destroy($id)
     {
         //
     }

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Coach;
 
-use App\Court;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class CourtController extends Controller
+class CoachController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class CourtController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Court  $court
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Court $court)
+    public function show($id)
     {
         //
     }
@@ -52,10 +52,10 @@ class CourtController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Court  $court
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Court $court)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +64,10 @@ class CourtController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Court  $court
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Court $court)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +75,10 @@ class CourtController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Court  $court
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Court $court)
+    public function destroy($id)
     {
         //
     }

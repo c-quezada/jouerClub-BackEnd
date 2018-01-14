@@ -12,11 +12,11 @@ class Cluber extends User
 
     //campos que pueden ser mostrados
     protected $fillable = [
-    	'userId'
+    	'user_id'
     ];
 
 
-    public function user(){
-        return $this->belongsTo('App\User');
-    }
+	public function user(){
+	  return $this->belongsTo(User::class);
+	}
 }

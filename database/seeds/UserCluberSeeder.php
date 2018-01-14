@@ -2,14 +2,11 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class UserCluberSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+
     public function run()
     {
         DB::table('users')->insert([
@@ -20,7 +17,10 @@ class UserCluberSeeder extends Seeder
             'phone'            => '962245462',
             'password'         => bcrypt('2112Aeqdlf'),
             'pictureProfile'   => strtolower('image195492263'),
-            'codeVerification' => '123456'
+            'codeVerification' => '123456', 
+            'remember_token'   => rand(10000000,900000000),
+            'created_at'       => Carbon::now(),
+            'updated_at'        => Carbon::yesterday()
             ],
 
             [
@@ -30,20 +30,22 @@ class UserCluberSeeder extends Seeder
             'phone'            => '90308914',
             'password'         => bcrypt('2112Aeqdlf'),
             'pictureProfile'   => strtolower('image186776996'),
-            'codeVerification' => '654321'
+            'codeVerification' => '654321',
+            'remember_token'   => rand(10000000,900000000),
+            'created_at'       => Carbon::now(),
+            'updated_at'        => Carbon::yesterday()
             ]
         ]);
 
         DB::table('clubers')->insert([
             [
-            'userid'  => 1,
+            'user_id' => 1,
             'nickName' => 'cpqm07'
             ],
             [
-            'userid'  => 2,
+            'user_id' => 2,
             'nickName' => 'donnna'
             ]
         ]);
-
     }
 }
