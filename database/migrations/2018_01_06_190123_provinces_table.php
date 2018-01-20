@@ -18,9 +18,9 @@ class ProvincesTable extends Migration
             $table->string('name', 30)->comment(" field to store province's name")->unique();
             $table->string('lat')->comment("field to store province's lat");
             $table->string('lng')->comment("field to store province's lng");
-            $table->integer('regionCode')->comment(" field to store provinces's region code")->unsigned();
+            $table->integer('region_code')->comment(" field to store provinces's region code")->unsigned();
 
-            $table->foreign('regionCode')->references('code')->on('regions')->onDelete('cascade');
+            $table->foreign('region_code')->references('code')->on('regions')->onDelete('cascade');
         });
     }
 

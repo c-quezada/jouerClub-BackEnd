@@ -16,27 +16,27 @@ Primer parametro: Nombre del recurso, Segundo parametro: Ubicacion del controlad
 /**
  * Users
  */
-Route::resource('users', 'User\UserController', ['only' => ['index', 'show']]); 
+Route::resource('users', 'User\UserController'); 
 
 
 /**
  * Clubers
  */
-Route::resource('clubers', 'Cluber\CluberController', ['only' => ['index', 'show']]); 
+Route::resource('clubers', 'Cluber\CluberController'); 
 
 /**
  * Coaches
  */
-Route::resource('coaches', 'Coach\CoachController', ['only' => ['index', 'show']]); 
+Route::resource('coaches', 'Coach\CoachController'); 
 
 /**
  * Curts
  */
-Route::resource('curts', 'Curt\CurtController', ['only' => ['index', 'show']]); 
+Route::resource('curts', 'Curt\CurtController'); 
 
 
 /**
  * SportFields
  */
-Route::resource('sportfields', 'SportField\SportFieldController', ['only' => ['index', 'show']]); 
+Route::resource('sportfields', 'SportField\SportFieldController'); 
 

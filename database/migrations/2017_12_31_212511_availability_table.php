@@ -15,14 +15,14 @@ class AvailabilityTable extends Migration
     {
         Schema::create('availabilies', function (Blueprint $table) {
             $table->increments('id')->comment("field to store availability's number idenfifier");
-            $table->integer('courtId')->comment("field to store court's number idenfifier, it's a foreign key")->unsigned();
-            $table->integer('jouerId')->comment("field to store user's number idenfifier of 'JOUER' type, it's a foreign key")->unsigned();
-            $table->dateTime('timeBegin')->comment("field to store when the sporting match starts");
-            $table->dateTime('timeEnd')->comment("field to store when the sporting match ends");
+            $table->integer('court_id')->comment("field to store court's number idenfifier, it's a foreign key")->unsigned();
+            $table->integer('jouer_id')->comment("field to store user's number idenfifier of 'JOUER' type, it's a foreign key")->unsigned();
+            $table->dateTime('time_begin')->comment("field to store when the sporting match starts");
+            $table->dateTime('time_end')->comment("field to store when the sporting match ends");
             $table->timestamps();
 
-            $table->foreign('courtId')->references('id')->on('courts')->onDelete('cascade');
-            $table->foreign('jouerId')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('court_id')->references('id')->on('courts')->onDelete('cascade');
+            $table->foreign('jouer_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

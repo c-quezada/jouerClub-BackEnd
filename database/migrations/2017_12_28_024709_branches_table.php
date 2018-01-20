@@ -21,12 +21,11 @@ class BranchesTable extends Migration
 
         Schema::create('courtBranches', function (Blueprint $table) {
             $table->increments('id')->comment("field to store sportFieldCourt's number idenfifier");
-            $table->integer('courtId')->comment("field to store court's number idenfifier, it's a foreign key")->unsigned();
-            $table->integer('branchId')->comment("field to store branch's number idenfifier, it's a foreign key")->unsigned();
-            $table->timestamps();
+            $table->integer('court_id')->comment("field to store court's number idenfifier, it's a foreign key")->unsigned();
+            $table->integer('branch_id')->comment("field to store branch's number idenfifier, it's a foreign key")->unsigned();
 
-            $table->foreign('courtId')->references('id')->on('courts')->onDelete('cascade');
-            $table->foreign('branchId')->references('id')->on('branches')->onDelete('cascade');
+            $table->foreign('court_id')->references('id')->on('courts')->onDelete('cascade');
+            $table->foreign('branch_id')->references('id')->on('branches')->onDelete('cascade');
         });
     }
 

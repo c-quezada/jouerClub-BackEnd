@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\SportField;
 use App\Branch;
+use App\Facility;
 
 class Court extends Model
 {
@@ -21,6 +22,10 @@ class Court extends Model
     }
 
     public function branches(){
-    	return $this->belongsToMany(Branch::class)
+    	return $this->belongsToMany(Branch::class);
+    }
+
+    public function facilities(){
+        return $this->hasMany(Facility::class);
     }
 }

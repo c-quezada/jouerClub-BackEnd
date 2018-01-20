@@ -11,26 +11,26 @@ class UserCluberSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
-            'name'             => ucfirst('Christopher Pierre'),
-            'lastname'         => ucfirst('Quezada Montesinos'),
-            'email'            => ucfirst('cpqm07@gmail.com'),
+            'name'             => 'Christopher Pierre',
+            'lastname'         => 'Quezada Montesinos',
+            'email'            => 'cpqm07@gmail.com',
             'phone'            => '962245462',
             'password'         => bcrypt('2112Aeqdlf'),
-            'pictureProfile'   => strtolower('image195492263'),
-            'codeVerification' => '123456', 
+            'picture_profile'   => 'image195492263',
+            'code_verification' => '123456', 
             'remember_token'   => rand(10000000,900000000),
             'created_at'       => Carbon::now(),
             'updated_at'        => Carbon::yesterday()
             ],
 
             [
-            'name'             => ucfirst('Danna Javiera'),
-            'lastname'         => ucfirst('Gonalez Ibañez'),
-            'email'            => strtolower('danna.gonzalez@gmail.com'),
+            'name'             => 'Danna Javiera',
+            'lastname'         => 'Gonalez Ibañez',
+            'email'            => 'danna.gonzalez@gmail.com',
             'phone'            => '90308914',
             'password'         => bcrypt('2112Aeqdlf'),
-            'pictureProfile'   => strtolower('image186776996'),
-            'codeVerification' => '654321',
+            'picture_profile'   => 'image186776996',
+            'code_verification' => '654321',
             'remember_token'   => rand(10000000,900000000),
             'created_at'       => Carbon::now(),
             'updated_at'        => Carbon::yesterday()
@@ -40,11 +40,11 @@ class UserCluberSeeder extends Seeder
         DB::table('clubers')->insert([
             [
             'user_id' => 1,
-            'nickName' => 'cpqm07'
+            'nickname' => 'cpqm07'
             ],
             [
             'user_id' => 2,
-            'nickName' => 'donnna'
+            'nickname' => 'donnna'
             ]
         ]);
     }

@@ -10,32 +10,34 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    const userVerified = 'verified';
-    const userNotVerified = 'pending';
+    const USERVERIFIED = 'verified';
+    const USERNOTVERIFIED = 'pending';
 
     protected $table = 'users';
 
     //Atributos que se pueden almacenar de manera masiva
     protected $fillable = [
-        'name', 'lastname', 'email', 'phone', 'password', 'pictureProfile', 'status'
+        'name', 'lastname', 'email', 'phone', 'password', 'picture_profile', 'status', 'code_verification'
     ];
 
 
     //oculta estos atributos del modelo al tranformarlo al array y posteriormente a json para ser enviado a traves de la api
     protected $hidden = [
-        'password', 'remember_token', 'codeVerification'
+        'password', 'remember_token'
     ];
 
     public function isVerified(){
-        return $this->status == User::userVerified;
+        return $this->status == User::USERVERIFIED;
     }
 
     public static function setCodeVerification(){
-        return rand(1000,9999);
+        return str_random(40);
     }
 
 
     public function cluber(){
         return $this->hasOne('App\Cluber');
     }
+
+    //mutadores, se utiliza para modificar un valor actual de un atributo antes de hacer la insercion a la base de datos 
 }

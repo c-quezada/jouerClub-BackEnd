@@ -20,9 +20,9 @@ class UsersTable extends Migration
             $table->string('email', 50)->comment("field to store user's email that must be unique, limimt 30")->unique();
             $table->string('phone', 12)->comment("field to store user's phone with his area code, must be unique, limimt 12")->unique();
             $table->string('password')->comment("field to store user's encrypted password, whit bcrypt helper function - LARAVEL");
-            $table->string('pictureProfile')->comment("field to store user's picture profile");
+            $table->string('picture_profile')->comment("field to store user's picture profile")->default('profile');
             $table->enum('status', ['verified', 'pending'])->comment("field to store user's status")->default('pending');
-            $table->string('codeVerification', 6)->comment("field to store user's verification code, this define the user's status");
+            $table->string('code_verification', 40)->comment("field to store user's verification code, this define the user's status");
             $table->rememberToken();
             $table->timestamps();
         });

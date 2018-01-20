@@ -18,9 +18,9 @@ class CommunesTable extends Migration
             $table->string('name', 30)->comment(" field to store commune's name")->unique();
             $table->string('lat')->comment("field to store commune's lat");
             $table->string('lng')->comment("field to store commune's lng");
-            $table->integer('provinceCode')->comment(" field to store commune's province code")->unsigned();
+            $table->integer('province_code')->comment(" field to store commune's province code")->unsigned();
 
-            $table->foreign('provinceCode')->references('code')->on('provinces')->onDelete('cascade');
+            $table->foreign('province_code')->references('code')->on('provinces')->onDelete('cascade');
         });
     }
 

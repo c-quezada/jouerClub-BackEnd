@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(UserCluberSeeder::class);
         $this->call(RegionSeeder::class);
+        $this->call(SportFieldSeeder::class);
     }
 
     protected function truncateDB (array $tables){

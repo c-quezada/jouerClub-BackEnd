@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Curt;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\ApiController;
 
-class CurtController extends Controller
+class CurtController extends ApiController
 {
     /**
      * Display a listing of the resource.

@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\SportField;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\ApiController;
 
-class SportFieldController extends ApiController
+class FacilitiesController extends Controller
 {
     /**
      * Display a listing of the resource.

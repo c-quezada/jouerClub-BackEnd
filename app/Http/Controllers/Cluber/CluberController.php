@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Cluber;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\ApiController;
 
-class CluberController extends Controller
+class CluberController extends ApiController
 {
     /**
      * Display a listing of the resource.

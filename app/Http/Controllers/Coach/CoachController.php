@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Coach;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\ApiController;
 
-class CoachController extends Controller
+class CoachController extends ApiController
 {
     /**
      * Display a listing of the resource.
