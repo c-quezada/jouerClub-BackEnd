@@ -15,6 +15,7 @@ class UserController extends ApiController
 
     public function store(Request $request)
     {
+        //Setea reglas de validacion de los formularios. NOTA: DEBO SIMPLOFICAR ESTO CON UN UserRequest
         $rules = [
             'name' => 'required',
             'email' => 'required|email|unique:users',
@@ -34,9 +35,8 @@ class UserController extends ApiController
         return $this->showOne($user, 201);
     }
 
-    public function show($id)
+    public function show(User $user)
     {
-        $user = User::findOrFail($id);
         return $this->showOne($user);        
     }
 
@@ -75,9 +75,9 @@ class UserController extends ApiController
         return $this->showOne($user);
     }
 
-    public function destroy(User $id)
+    public function destroy(User $user)
     {
         $user->delete();
-        return $this->showOne($id);
+        return $this->showOne($user);
     }
 }

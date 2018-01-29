@@ -3,51 +3,102 @@
 namespace App\Exceptions;
 
 use Exception;
+use App\Traits\ApiResponser;
+use Illuminate\Database\QueryException;
+use Illuminate\Auth\AuthenticationException;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
+
 
 class Handler extends ExceptionHandler
 {
-    /**
-     * A list of the exception types that are not reported.
-     *
-     * @var array
-     */
+    use ApiResponser;
+    
     protected $dontReport = [
         //
     ];
 
-    /**
-     * A list of the inputs that are never flashed for validation exceptions.
-     *
-     * @var array
-     */
     protected $dontFlash = [
         'password',
         'password_confirmation',
     ];
 
-    /**
-     * Report or log an exception.
-     *
-     * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
-     *
-     * @param  \Exception  $exception
-     * @return void
-     */
     public function report(Exception $exception)
     {
         parent::report($exception);
     }
-
-    /**
-     * Render an exception into an HTTP response.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Exception  $exception
-     * @return \Illuminate\Http\Response
-     */
     public function render($request, Exception $exception)
     {
+        if ($exception instanceof ValidationException) { 
+            //si la excepcion es una instancia de ValidationException, se ejecuta:
+            return $this->convertValidationExceptionToResponse($exception, $request);
+        }
+
+        if ($exception instanceof ModelNotFoundException) {
+            //si la excepcion es una instancia de ModelNotFoundException (quiere decir que no existe ID asociado a la peticion HTTP GET), se ejecuta:
+            $model = strtoupper(class_basename($exception->getModel())); //strtoupper -> modifica el string a mayusculas / class_basename -> captura el nombre de la clase
+            return $this->errorResponse("No hemos podido encontrar ningun resultado para su busqueda -  {$model}", 404);
+        }
+
+        if ($exception instanceof AuthenticationException) {
+            return $this->unauthenticated($request, $exception);
+        }
+
+        if ($exception instanceof AuthorizationException) {
+            return $this->errorResponse('Usted no está autorizado', 403);
+        }
+
+        if ($exception instanceof NotFoundHttpException) {
+            return $this->errorResponse('Lo sentimos, no hemos podido encontrar la URL especificada, revise minuciosamente si esta correctamente escrita.', 404);
+        }
+
+        if ($exception instanceof MethodNotAllowedHttpException) {
+            return $this->errorResponse('El metodo especificado no es válido', 405);
+        }
+
+        if ($exception instanceof HttpException) {
+            return $this->errorResponse($exception->getMessage(), $exception->getStatusCode());
+        }
+
+        if ($exception instanceof QueryException) {
+            $code = $exception->errorInfo[1];
+
+            if (code == 1451) {
+                return $this->errorResponse('No se puede eliminar este recurso ya que esta relacionado con otro - Foreign KEY', 409);
+            }
+        }
+
+        if (config('app.debug') {
+            return $this->errorResponse('Lo sentimos, problema inesperado, intente mas tarde', 500);
+        }
+        
         return parent::render($request, $exception);
     }
+
+    
+    protected function unauthenticated($request, AuthenticationException $exception)
+    {
+        return $this->errorResponse('Usted no está autentificado', 401);
+    }
+
+    protected function convertValidationExceptionToResponse(ValidationException $e, $request)
+    {
+        /*if ($e->response) {
+            return $e->response;
+        }
+
+        return $request->expectsJson()
+                    ? $this->invalidJson($request, $e)
+                    : $this->invalid($request, $e);
+        */
+        $errors = $e->validator->errors()->getMessages();
+
+        return $this->errorResponse($errors, 422);
+    }
+
 }
