@@ -2,12 +2,17 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 use App\Province;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Commune extends Model
 {
+	use SoftDeletes;
+	
 	protected $table = 'communes';
+
+	protected $dates = ['deleted_at'];
 	
     protected $fillable = [
     	'name', 'lat', 'lng', 'provinceCode'

@@ -20,6 +20,7 @@ class AvailabilityTable extends Migration
             $table->dateTime('time_begin')->comment("field to store when the sporting match starts");
             $table->dateTime('time_end')->comment("field to store when the sporting match ends");
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('court_id')->references('id')->on('courts')->onDelete('cascade');
             $table->foreign('jouer_id')->references('id')->on('users')->onDelete('cascade');

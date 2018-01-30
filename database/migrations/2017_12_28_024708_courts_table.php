@@ -18,6 +18,7 @@ class CourtsTable extends Migration
             $table->string('name', 20)->comment("field to store court's name");
             $table->enum('status', ['available', 'notAvailable', 'maintenance'])->comment("field to store user's status")->default('available');
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::create('sportFieldCourt', function (Blueprint $table) {

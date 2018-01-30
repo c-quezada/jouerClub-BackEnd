@@ -17,8 +17,8 @@ class UserController extends ApiController
     {
         //Setea reglas de validacion de los formularios. NOTA: DEBO SIMPLOFICAR ESTO CON UN UserRequest
         $rules = [
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
+            'name'     => 'required',
+            'email'    => 'required|email|unique:users',
             'password' => 'required|min:6|confirmed'
         ];
 
@@ -43,7 +43,7 @@ class UserController extends ApiController
     public function update(Request $request, User $user)
     {
         $rules = [
-            'email' => 'email|unique:users,email,' . $user->id,
+            'email'    => 'email|unique:users,email,' . $user->id,
             'password' => 'min:6|confirmed',
         ];
 
@@ -75,7 +75,7 @@ class UserController extends ApiController
         return $this->showOne($user);
     }
 
-    public function destroy(User $user)
+    public function destroy(User $user) //User seria una inyeccion de dependencias, con esto nos ahorramos codear: $user = findOrFail($id);
     {
         $user->delete();
         return $this->showOne($user);

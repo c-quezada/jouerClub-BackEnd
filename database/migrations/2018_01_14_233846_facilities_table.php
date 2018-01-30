@@ -19,6 +19,7 @@ class FacilitiesTable extends Migration
             $table->string('brand')->comment("field to store falicity's brand");
             $table->dateTimeTz('purchased_at')->comment("field to store when the court was bought");
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::create('courtFacilities', function (Blueprint $table) {

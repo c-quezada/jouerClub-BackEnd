@@ -17,6 +17,7 @@ class BranchesTable extends Migration
             $table->increments('id')->comment("field to store branch's number idenfifier");
             $table->string('name')->comment("field to store branch's name")->unique();
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::create('courtBranches', function (Blueprint $table) {

@@ -25,6 +25,7 @@ class UsersTable extends Migration
             $table->string('code_verification', 40)->comment("field to store user's verification code, this define the user's status");
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

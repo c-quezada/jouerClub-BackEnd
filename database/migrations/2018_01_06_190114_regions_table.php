@@ -19,7 +19,7 @@ class RegionsTable extends Migration
             $table->string('code_name', 6)->comment("field to store region's ISO_3166_2_CL")->unique();
             $table->string('lat')->comment("field to store region's lat");
             $table->string('lng')->comment("field to store region's lng");
-
+            $table->softDeletes();
         });
     }
 

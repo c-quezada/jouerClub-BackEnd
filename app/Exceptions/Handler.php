@@ -73,9 +73,9 @@ class Handler extends ExceptionHandler
             }
         }
 
-        if (config('app.debug') {
-            return $this->errorResponse('Lo sentimos, problema inesperado, intente mas tarde', 500);
-        }
+        /*if (config('app.debug') {
+            return $this->errorResponse('Lo sentimos, error inesperado, intente mas tarde', 500);
+        }*/
         
         return parent::render($request, $exception);
     }

@@ -2,18 +2,21 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Cluber;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, SoftDeletes; //nos proporciona una fecha de eliminacion, para no eliminar el registro si no que ignorarlo, si es que este campo != nukl
 
     const USERVERIFIED = 'verified';
     const USERNOTVERIFIED = 'pending';
 
     protected $table = 'users';
+
+    protected $dates = ['deleted_at'];
 
     //Atributos que se pueden almacenar de manera masiva
     protected $fillable = [

@@ -27,6 +27,7 @@ class SportFieldTable extends Migration
             $table->time('time_begin')->comment("field to store when the sportfield's it's open");
             $table->time('time_end')->comment("field to store when the sportfield's it's close");
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::create('cluberSportField', function (Blueprint $table) {

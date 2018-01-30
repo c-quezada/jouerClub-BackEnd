@@ -20,7 +20,7 @@ class CoachesTable extends Migration
             $table->string('expericence')->comment("field to store coach's history / about me");
             $table->string('rut', 8)->comment("field to store coach's rut")->unique();
             $table->string('dv', 1)->comment("field to store coach's dv")->unique();
-            $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
         });

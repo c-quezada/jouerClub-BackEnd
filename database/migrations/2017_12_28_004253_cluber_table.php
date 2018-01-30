@@ -17,7 +17,6 @@ class CluberTable extends Migration
             $table->integer('user_id')->comment("field to store cluber's number idenfifier, it's a foreign key")->unsigned();
             $table->primary('user_id');
             $table->string('nickname')->comment(" field to store cluber's nickName")->unique();
-            $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
