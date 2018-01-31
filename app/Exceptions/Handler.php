@@ -68,7 +68,7 @@ class Handler extends ExceptionHandler
         if ($exception instanceof QueryException) {
             $code = $exception->errorInfo[1];
 
-            if (code == 1451) {
+            if ($code == 1451) {
                 return $this->errorResponse('No se puede eliminar este recurso ya que esta relacionado con otro - Foreign KEY', 409);
             }
         }

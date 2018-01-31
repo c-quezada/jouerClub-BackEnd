@@ -27,8 +27,9 @@ class UserRequest extends FormRequest
             'name'     => 'alpha|required|max:25|min:4',
             'lastname' => 'alpha|required|max:25|min:6',
             'nickname' => 'required|max:30|min:unique',
-            'email'    => 'email|unique:users,email,',
-            'password' => 'required|min:6|confirmed'
+            'email'    => 'required|email|unique:users',
+            'password' => 'required|min:6',
+            'type'     => 'required|min:4',
         ];
     }
 }

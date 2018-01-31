@@ -23,6 +23,7 @@ Route::resource('users', 'User\UserController');
  * Clubers
  */
 Route::resource('clubers', 'Cluber\CluberController'); 
+Route::resource('clubers.sportfields', 'Cluber\CluberSportFieldsController'); 
 
 /**
  * Coaches
@@ -30,13 +31,21 @@ Route::resource('clubers', 'Cluber\CluberController');
 Route::resource('coaches', 'Coach\CoachController'); 
 
 /**
- * Curts
+ * Courts
  */
-Route::resource('curts', 'Curt\CurtController'); 
+Route::resource('courts', 'Court\CourtController'); 
+Route::resource('courts.facilities', 'Court\CourtFacilitiesController'); 
 
 
 /**
  * SportFields
  */
 Route::resource('sportfields', 'SportField\SportFieldController'); 
+Route::resource('sportfields.courts', 'SportField\SportFieldCourtsController'); 
+
+
+/**
+ * Facilities
+ */
+Route::resource('facilities', 'Facility\FacilityController');
 

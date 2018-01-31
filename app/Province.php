@@ -19,11 +19,13 @@ class Province extends Model
     	'name', 'lat', 'lng', 'regionCode'
     ];
 
-    public function region(){
+    public function region()
+    {
     	return $this->belongsTo(Region::class);
     }
 
-    public function communes(){
+    public function communes()
+    {
     	return $this->hasMany(Commune::class);
     }
 }

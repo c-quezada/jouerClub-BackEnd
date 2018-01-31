@@ -25,7 +25,16 @@ class User extends Authenticatable
 
     //Atributos que se pueden almacenar de manera masiva
     protected $fillable = [
-        'name', 'lastname', 'email', 'phone', 'password', 'picture_profile', 'status', 'code_verification'
+        'name', 
+        'lastname',
+        'nickname',
+        'email',
+        'phone',
+        'password',
+        'picture_profile',
+        'status',
+        'type',
+        'code_verification'
     ];
 
 
@@ -34,17 +43,20 @@ class User extends Authenticatable
         'password', 'remember_token'
     ];
 
-    public function isVerified(){
+    public function isVerified()
+    {
         return $this->status == User::USERVERIFIED;
     }
 
-    public static function setCodeVerification(){
+    public static function setCodeVerification()
+    {
         return str_random(40);
     }
 
 
-    public function cluber(){
-        return $this->hasOne('App\Cluber');
+    public function cluber()
+    {
+        return $this->hasOne(Cluber::class);
     }
 
     //mutadores, se utiliza para modificar un valor actual de un atributo antes de hacer la insercion a la base de datos 

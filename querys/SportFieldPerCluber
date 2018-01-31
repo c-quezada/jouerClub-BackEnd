@@ -1,0 +1,1 @@
+﻿select * from "sportsFields" where "sportsFields"."cluber_id" = 2

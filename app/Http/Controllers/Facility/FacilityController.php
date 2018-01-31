@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Curt;
+namespace App\Http\Controllers\Facility;
 
+use App\Facility;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
 
-class CurtController extends ApiController
+class FacilityController extends ApiController
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,8 @@ class CurtController extends ApiController
      */
     public function index()
     {
-        //
+        $facilities = Facility::all();
+        return $this->showAll($facilities);
     }
 
     /**
@@ -41,10 +43,10 @@ class CurtController extends ApiController
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Facility  $facility
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Facility $facility)
     {
         //
     }
@@ -52,10 +54,10 @@ class CurtController extends ApiController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Facility  $facility
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Facility $facility)
     {
         //
     }
@@ -64,10 +66,10 @@ class CurtController extends ApiController
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Facility  $facility
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Facility $facility)
     {
         //
     }
@@ -75,10 +77,10 @@ class CurtController extends ApiController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Facility  $facility
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Facility $facility)
     {
         //
     }

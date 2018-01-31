@@ -18,10 +18,15 @@ class UserController extends ApiController
     {
         $fields                      = $request->all();
         $fields['name']              = ucwords($request->name);
-        $fields['lastname']          = ucwords($request->name);
+        $fields['lastname']          = ucwords($request->lastname);
+        $fields['nickname']          = ucwords($request->nickname);
         $fields['password']          = bcrypt($request->password);
+        $fields['email']              = ucwords($request->email);
         $fields['status']            = User::USERNOTVERIFIED;
+        $fields['type']              = $request->type;
         $fields['code_verification'] = User::setCodeVerification();
+
+        //dd($fields); die();
 
         $user = User::create($fields);
         return $this->showOne($user, 201);

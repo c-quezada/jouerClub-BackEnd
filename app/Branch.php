@@ -18,7 +18,8 @@ class Branch extends Model
     	'name'
     ];
 
-    public function curts(){
+    public function curts()
+    {
     	return $this->belongsToMany(Court::class);
     }
 }

@@ -14,10 +14,11 @@ class Facility extends Model
     protected $dates = ['deleted_at'];
 
     protected $fillable = [
-    	'name', 'brand', 'purchasedAt'
+    	'name', 'brand', 'purchased_at', 'court_id'
     ];
 
-    public function court(){
-    	return $this->belongsTo(Court::class)
+    public function court()
+    {
+    	return $this->belongsTo(Court::class);
     }
 }

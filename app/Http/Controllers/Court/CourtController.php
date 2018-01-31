@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Court;
 
+use App\Court;
 use Illuminate\Http\Request;
+use App\Http\Controllers\ApiController;
 
-class FacilitiesController extends Controller
+class CourtController extends ApiController
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,8 @@ class FacilitiesController extends Controller
      */
     public function index()
     {
-        //
+        $courts = Court::all();
+        return $this->showAll($courts);
     }
 
     /**

@@ -17,7 +17,8 @@ class Region extends Model
 		'name', 'codeName', 'lat', 'lng'
     ];
 
-    public function provinces(){
+    public function provinces()
+    {
     	return $this->hasMany(Provinces::class);
     }
 }

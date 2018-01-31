@@ -18,7 +18,8 @@ class Commune extends Model
     	'name', 'lat', 'lng', 'provinceCode'
     ];
 
-    public function province(){
+    public function province()
+    {
     	return $this->belongsTo(Province::class);
     }
 }
