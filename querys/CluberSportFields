@@ -1,0 +1,1 @@
+﻿select * from "users" where exists (select * from "sportsFields" where "users"."id" = "sportsFields"."cluber_id" and "sportsFields"."deleted_at" is null) and "users"."deleted_at" is null

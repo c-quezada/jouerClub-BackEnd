@@ -13,9 +13,4 @@ class Coach extends User
     protected $fillable = [
     	'experience', 'rut', 'dv'
     ];
-
-
-	public function user(){
-	  return $this->belongsTo(User::class);
-	}
 }

@@ -2,8 +2,6 @@
 
 namespace App;
 
-use App\User;
-use App\SportField;
 use Illuminate\Database\Eloquent\Model;
 
 class Cluber extends User
@@ -16,12 +14,7 @@ class Cluber extends User
     	'something', 'rut', 'dv'
     ];
 
-
-	public function user(){
-		return $this->belongsTo(User::class);
-	}
-
 	public function sportfields(){
-		return $this->hasMany(SportField::class);
+		return $this->hasMany('App\SportField');
 	}
 }

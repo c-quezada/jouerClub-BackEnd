@@ -23,6 +23,7 @@ class SportField extends Model
     public function cluber(){
         return $this->belongsTo(Cluber::class);
     }
+
     public function curts(){
     	return $this->hasMany(Court::class);
     }

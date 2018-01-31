@@ -2,6 +2,7 @@
 
 use App\User;
 use App\Court;
+use App\Cluber;
 use App\SportField;
 use Faker\Generator as Faker;
 /*
@@ -35,6 +36,7 @@ $factory->define(User::class, function (Faker $faker) {
 
 
 $factory->define(SportField::class, function (Faker $faker) {
+	//$cluber = Cluber::has('sportfields')->get()->ramdon();
     return [
 		'name'        => $faker->unique()->word,
 		'description' => $faker->paragraph(1),
@@ -42,9 +44,9 @@ $factory->define(SportField::class, function (Faker $faker) {
 		'lat'         => $faker->latitude,
 		'lng'         => $faker->longitude,
 		'website'     => 'www.jouer-club.com',
-		'cluber_id'   => User::inRandomOrder()->first()->id,
-		'time_begin' => $faker->dateTime,
-		'time_end' => $faker->dateTime
+		'cluber_id'   => User::where('type', 'cluber')->get()->random()->id,
+		'time_begin'  => $faker->dateTime,
+		'time_end'    => $faker->dateTime
     ];
 });
 
