@@ -14,11 +14,9 @@ class CluberTable extends Migration
     public function up()
     {
         Schema::create('clubers', function (Blueprint $table) {
-            $table->integer('user_id')->comment("field to store cluber's number idenfifier, it's a foreign key")->unsigned();
-            $table->primary('user_id');
-            $table->string('nickname')->comment(" field to store cluber's nickName")->unique();
-
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('something')->comment(" field to store cluber's nickName")->unique();
+            $table->string('rut', 8)->comment("field to store coach's rut")->unique();
+            $table->string('dv', 1)->comment("field to store coach's dv");
         });
     }
 

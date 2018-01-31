@@ -3,6 +3,7 @@ namespace App\Http\Controllers\User;
 
 use App\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
 use App\Http\Controllers\ApiController;
 
 class UserController extends ApiController
@@ -13,17 +14,8 @@ class UserController extends ApiController
         return $this->showAll($users);
     }
 
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        //Setea reglas de validacion de los formularios. NOTA: DEBO SIMPLOFICAR ESTO CON UN UserRequest
-        $rules = [
-            'name'     => 'required',
-            'email'    => 'required|email|unique:users',
-            'password' => 'required|min:6|confirmed'
-        ];
-
-        $this->validate($request, $rules);
-
         $fields                      = $request->all();
         $fields['name']              = ucwords($request->name);
         $fields['lastname']          = ucwords($request->name);

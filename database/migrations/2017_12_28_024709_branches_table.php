@@ -20,7 +20,7 @@ class BranchesTable extends Migration
             $table->softDeletes();
         });
 
-        Schema::create('courtBranches', function (Blueprint $table) {
+        Schema::create('branch_court', function (Blueprint $table) {
             $table->increments('id')->comment("field to store sportFieldCourt's number idenfifier");
             $table->integer('court_id')->comment("field to store court's number idenfifier, it's a foreign key")->unsigned();
             $table->integer('branch_id')->comment("field to store branch's number idenfifier, it's a foreign key")->unsigned();

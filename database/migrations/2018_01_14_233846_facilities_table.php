@@ -22,8 +22,7 @@ class FacilitiesTable extends Migration
             $table->softDeletes();
         });
 
-        Schema::create('courtFacilities', function (Blueprint $table) {
-            $table->increments('id')->comment("field to store cluberSportField's number idenfifier");
+        Schema::create('court_facility', function (Blueprint $table) {
             $table->integer('court_id')->comment("field to store court's number idenfifier, it's a foreign key")->unsigned();
             $table->integer('faciity_id')->comment("field to store facility's number idenfifier, it's a foreign key")->unsigned();
 

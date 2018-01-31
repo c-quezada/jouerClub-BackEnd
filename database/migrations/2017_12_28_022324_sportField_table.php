@@ -24,20 +24,24 @@ class SportFieldTable extends Migration
             $table->string('facebook')->comment("field to store sportField's facebook")->nullable();
             $table->string('instagram')->comment("field to store sportField's instagram")->nullable();
             $table->string('twitter')->comment("field to store sportField's twitter")->nullable();
-            $table->time('time_begin')->comment("field to store when the sportfield's it's open");
-            $table->time('time_end')->comment("field to store when the sportfield's it's close");
+            $table->dateTime('time_begin')->comment("field to store when the sportfield's it's open");
+            $table->dateTime('time_end')->comment("field to store when the sportfield's it's close");
+            $table->integer('cluber_id')->comment("field to store cluber's number idenfifier, it's a foreign key")->unsigned();
             $table->timestamps();
             $table->softDeletes();
+            
+            $table->foreign('cluber_id')->references('id')->on('users')->onDelete('cascade');
+
         });
 
-        Schema::create('cluberSportField', function (Blueprint $table) {
+        /*Schema::create('cluberSportField', function (Blueprint $table) {
             $table->increments('id')->comment("field to store cluberSportField's number idenfifier");
             $table->integer('cluber_id')->comment("field to store cluber's number idenfifier, it's a foreign key")->unsigned();
             $table->integer('sport_field_id')->comment("field to store sportField's number idenfifier, it's a foreign key")->unsigned();
 
             $table->foreign('cluber_id')->references('user_id')->on('clubers')->onDelete('cascade');
             $table->foreign('sport_field_id')->references('id')->on('sportsFields')->onDelete('cascade');
-        });
+        });*/
 
     }
 

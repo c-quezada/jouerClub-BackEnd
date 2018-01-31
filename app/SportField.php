@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Court;
+use App\Cluber;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -19,7 +20,12 @@ class SportField extends Model
     	'name', 'description', 'address', 'lat', 'lng', 'website', 'facebook', 'instagram', 'twitter', 'timeBegin', 'timeEnd'
     ];
 
+    public function cluber(){
+        return $this->belongsTo(Cluber::class);
+    }
     public function curts(){
     	return $this->hasMany(Court::class);
     }
+
+    
 }

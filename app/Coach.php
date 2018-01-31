@@ -11,7 +11,7 @@ class Coach extends User
 
     //campos que pueden ser mostrados
     protected $fillable = [
-    	'user_id'
+    	'experience', 'rut', 'dv'
     ];
 
 

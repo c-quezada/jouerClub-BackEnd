@@ -2,8 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 use App\User;
+use App\SportField;
+use Illuminate\Database\Eloquent\Model;
 
 class Cluber extends User
 {
@@ -12,11 +13,15 @@ class Cluber extends User
 
     //campos que pueden ser mostrados
     protected $fillable = [
-    	'user_id'
+    	'something', 'rut', 'dv'
     ];
 
 
 	public function user(){
-	  return $this->belongsTo(User::class);
+		return $this->belongsTo(User::class);
+	}
+
+	public function sportfields(){
+		return $this->hasMany(SportField::class);
 	}
 }

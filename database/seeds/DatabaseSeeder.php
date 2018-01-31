@@ -1,32 +1,43 @@
 <?php
 
+use App\User;
+use App\Court;
+use App\SportField;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use App\User;
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+
     public function run()
     {
         /*$this->truncateDB([
             'users',
-            'clubers'
+            'sportsFields',
+            'courts'
         ]);*/
 
-        $this->call(UserCluberSeeder::class);
+
+
+        $users = 100; $sportfields = 50; $courts = 200;
+
+        factory(User::class, $users)->create();
+        factory(SportField::class, $sportfields)->create();
+        factory(Court::class, $courts)->create();
         $this->call(RegionSeeder::class);
-        //$this->call(SportFieldSeeder::class);
     }
 
     protected function truncateDB (array $tables){
-        DB::statement('SET FOREIGN_KEY_CHECKS= 0'); // Desactivamos la revisión de claves foráneas
+
+        foreach ($tables as $table) {
+            DB::statement("ALTER TABLE {$table} DISABLE TRIGGER ALL;"); // Desactivamos la revisión de claves foráneas        
+        }
+
         foreach ($tables as $table) {
             DB::table($table)->truncate();
         }
-        DB::statement('SET FOREIGN_KEY_CHECKS= 1'); // Reactivamos la revisión de claves foráneas
+
+        foreach ($tables as $table) {
+            DB::statement("ALTER TABLE {$table} ENABLE TRIGGER ALL;"); // Activamos la revisión de claves foráneas        
+        }
     }
 }

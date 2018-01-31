@@ -10,9 +10,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     use Notifiable, SoftDeletes; //nos proporciona una fecha de eliminacion, para no eliminar el registro si no que ignorarlo, si es que este campo != nukl
-
-    const USERVERIFIED = 'verified';
+    
+    const USERVERIFIED    = 'verified';
     const USERNOTVERIFIED = 'pending';
+    const JOUER           = 'jouer';
+    const CLUBER          = 'cluber';
+    const COACH           = 'coach';
+    const ADMIN           = 'admin';
+
 
     protected $table = 'users';
 
