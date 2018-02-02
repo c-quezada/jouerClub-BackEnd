@@ -6,11 +6,11 @@ use App\Court;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
 
-class CourtFacilitiesController extends ApiController
-{
+class CourtBranchesController extends ApiController
+{    
     public function index(Court $court)
     {
-        $facilities = $court->facilities;
-        return $this->showAll($facilities);
+        $branches = $court->branches;
+        return $this->showAll($branches);
     }
 }

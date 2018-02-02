@@ -36,6 +36,7 @@ Route::resource('coaches.workshops', 'Coach\CoachWorkshopsController', ['only' =
  */
 Route::resource('courts', 'Court\CourtController', ['except' => ['create', 'edit']]); 
 Route::resource('courts.facilities', 'Court\CourtFacilitiesController', ['only' => ['index']]); 
+Route::resource('courts.branches', 'Court\CourtBranchesController', ['only' => ['index']]); 
 
 
 /**

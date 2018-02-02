@@ -10,7 +10,7 @@ class Branch extends Model
 {
 	use SoftDeletes;
 	
-	protected $table = 'brances';
+	protected $table = 'branches';
 
 	protected $dates = ['deleted_at'];
 	
@@ -18,7 +18,11 @@ class Branch extends Model
     	'name'
     ];
 
-    public function curts()
+    protected $hidden = [
+        'pivot'
+    ];
+
+    public function courts()
     {
     	return $this->belongsToMany(Court::class);
     }

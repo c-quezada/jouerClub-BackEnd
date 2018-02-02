@@ -28,6 +28,10 @@ class Court extends Model
     ];
 
 
+    protected $hidden = [
+        'pivot'
+    ];
+
     public function sportField()
     {
     	return $this->belongsTo(SportField::class);

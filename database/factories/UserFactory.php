@@ -2,6 +2,7 @@
 
 use App\User;
 use App\Court;
+use App\Branch;
 use App\Cluber;
 use App\Facility;
 use App\Workshop;
@@ -56,6 +57,12 @@ $factory->define(Court::class, function (Faker $faker) {
 		'name'           => $faker->word,
 		'status'         => $faker->randomElement(['available', 'notAvailable', 'maintenance']),
 		'sport_field_id' => SportField::inRandomOrder()->first()->id
+    ];
+});
+
+$factory->define(Branch::class, function (Faker $faker) {
+    return [
+		'name'           => $faker->word
     ];
 });
 
