@@ -8,7 +8,6 @@ use App\Http\Controllers\ApiController;
 
 class CluberController extends ApiController
 {
-
     public function index()
     {
         $clubers = Cluber::has('sportfields')->get();

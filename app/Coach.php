@@ -2,17 +2,20 @@
 
 namespace App;
 
+use App\Workshop;
+use App\Scopes\CoachScope;
 use Illuminate\Database\Eloquent\Model;
 
 class Coach extends User
 {
-	//nombre de la tabla 
-    //protected $table = "coaches";
+	protected static function boot()
+	{
+		parent::boot();
+		static::addGlobalScope(new CoachScope);
+	}
 
-    //campos que pueden ser mostrados
-    protected $fillable = [
-    	'experience', 'rut', 'dv'
-    ];
-
-    
+	public function workshops()
+	{
+		return $this->hasMany(Workshop::class);
+	}
 }

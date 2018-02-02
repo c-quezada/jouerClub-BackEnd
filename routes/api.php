@@ -16,36 +16,43 @@ Primer parametro: Nombre del recurso, Segundo parametro: Ubicacion del controlad
 /**
  * Users
  */
-Route::resource('users', 'User\UserController'); 
+Route::resource('users', 'User\UserController', ['except' => ['create', 'edit']]); 
 
 
 /**
  * Clubers
  */
-Route::resource('clubers', 'Cluber\CluberController'); 
-Route::resource('clubers.sportfields', 'Cluber\CluberSportFieldsController'); 
+Route::resource('clubers', 'Cluber\CluberController', ['only' => ['index', 'show']]); 
+Route::resource('clubers.sportfields', 'Cluber\CluberSportFieldsController', ['only' => ['index']]); 
 
 /**
  * Coaches
  */
-Route::resource('coaches', 'Coach\CoachController'); 
+Route::resource('coaches', 'Coach\CoachController', ['only' => ['index', 'show']]); 
+Route::resource('coaches.workshops', 'Coach\CoachWorkshopsController', ['only' => ['index']]); 
 
 /**
  * Courts
  */
-Route::resource('courts', 'Court\CourtController'); 
-Route::resource('courts.facilities', 'Court\CourtFacilitiesController'); 
+Route::resource('courts', 'Court\CourtController', ['except' => ['create', 'edit']]); 
+Route::resource('courts.facilities', 'Court\CourtFacilitiesController', ['only' => ['index']]); 
 
 
 /**
  * SportFields
  */
-Route::resource('sportfields', 'SportField\SportFieldController'); 
-Route::resource('sportfields.courts', 'SportField\SportFieldCourtsController'); 
+Route::resource('sportfields', 'SportField\SportFieldController', ['except' => ['create', 'edit']]); 
+Route::resource('sportfields.courts', 'SportField\SportFieldCourtsController', ['only' => ['index']]); 
 
 
 /**
  * Facilities
  */
-Route::resource('facilities', 'Facility\FacilityController');
+Route::resource('facilities', 'Facility\FacilityController', ['except' => ['create', 'edit']]);
+
+
+/**
+ * Workshops
+ */
+Route::resource('workshops', 'Workshop\WorkshopController', ['except' => ['create', 'edit']]);
 

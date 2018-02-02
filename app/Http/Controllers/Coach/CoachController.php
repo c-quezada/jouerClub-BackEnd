@@ -10,34 +10,12 @@ class CoachController extends ApiController
 {
     public function index()
     {
-        //$coaches = Coach::has('nombre_de_la_relacion')-get();
+        $coaches = Coach::has('workshops')->get();
+        return $this->showAll($coaches);
     }
 
-    public function create()
+    public function show(Coach $coach)//Inyeccion de dependencias a traves de global scope /App\Scopes\CluberScope
     {
-        //
-    }
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-    public function show($id)
-    {
-        //
-    }
-   public function edit($id)
-    {
-        //
-    }
-    public function update(Request $request, $id)
-    {
-        //
-    }
-    
-    public function destroy($id)
-    {
-        //
+        return $this->showOne($coach);
     }
 }

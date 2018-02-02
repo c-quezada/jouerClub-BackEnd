@@ -3,6 +3,7 @@
 use App\User;
 use App\Court;
 use App\Facility;
+use App\Workshop;
 use App\SportField;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -17,12 +18,13 @@ class DatabaseSeeder extends Seeder
             'courts'
         ]);*/
 
-        $users = 200; $sportfields = 100; $courts = 400; $facilities = 600;
+        $users = 200; $sportfields = 100; $courts = 400; $facilities = 600; $workshops = 100;
 
         factory(User::class, $users)->create();
         factory(SportField::class, $sportfields)->create();
         factory(Court::class, $courts)->create();
         factory(Facility::class, $facilities)->create();
+        factory(Workshop::class, $workshops)->create();
         $this->call(RegionSeeder::class);
     }
 

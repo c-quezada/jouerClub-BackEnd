@@ -3,85 +3,59 @@
 namespace App\Http\Controllers\Court;
 
 use App\Court;
+use App\SportField;
 use Illuminate\Http\Request;
+use App\Http\Requests\CourtRequest;
 use App\Http\Controllers\ApiController;
 
 class CourtController extends ApiController
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $courts = Court::all();
         return $this->showAll($courts);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+  public function store(CourtRequest $request)
     {
-        //
+        $fields                   = $request->all();
+        $fields['name']           = ucwords($request->name);     
+        $fields['status']         = $request->status;
+        $fields['sport_field_id'] = $request->sport_field_id;
+
+        if (SportField::findOrFail($request->sport_field_id)) {
+            $court = Court::create($fields); 
+            return $this->showOne($court, 201);
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+    public function show(Court $court)
     {
-        //
+        return $this->showOne($court);        
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function update(CourtRequest $request, Court $court)
     {
-        //
+        if ($request->has('name')) {
+            $court->name = $request->name;
+        }
+
+        if ($request->has('status')) {
+            $court->status = $request->status;
+        }
+
+        if (!$court->isDirty()) {
+            return $this->errorResponse('Se debe especificar al menos un valor diferente para actualizar', 422);
+        }
+
+        $court->save();
+        return $this->showOne($court);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function destroy(Court $court) //court seria una inyeccion de dependencias, con esto nos ahorramos codear: $court = findOrFail($id);
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $court->delete();
+        return $this->showOne($court);
     }
 }

@@ -4,6 +4,7 @@ use App\User;
 use App\Court;
 use App\Cluber;
 use App\Facility;
+use App\Workshop;
 use App\SportField;
 use Faker\Generator as Faker;
 /*
@@ -36,7 +37,7 @@ $factory->define(User::class, function (Faker $faker) {
 });
 
 $factory->define(SportField::class, function (Faker $faker) {
-	//$cluber = Cluber::has('sportfields')->get()->ramdon();
+	//$cluber = Cluber::has('sportfields')->get()->random();
     return [
 		'name'        => $faker->unique()->word,
 		'description' => $faker->paragraph(1),
@@ -64,5 +65,18 @@ $factory->define(Facility::class, function (Faker $faker) {
 		'brand'        => $faker->randomElement(['nike', 'adidas', 'new balance', 'jordan', 'wilson']),
 		'purchased_at' => $faker->dateTime,
 		'court_id'     => Court::inRandomOrder()->first()->id
+    ];
+});
+
+$factory->define(Workshop::class, function (Faker $faker) {
+    return [
+		'name'        => $faker->word,
+		'description' => $faker->paragraph(1),
+		'lat'         => $faker->latitude,
+		'lng'         => $faker->longitude,
+		'time_begin'  => $faker->dateTime,
+		'time_end'    => $faker->dateTime,
+		'status'      => $faker->randomElement(['pending', 'now', 'finished']),
+		'coach_id'    => User::where('type', 'coach')->get()->random()->id
     ];
 });
