@@ -14,6 +14,7 @@ class BranchesTable extends Migration
     public function up()
     {
         Schema::create('branches', function (Blueprint $table) {
+
             $table->increments('id')->comment("field to store branch's number idenfifier");
             $table->string('name')->comment("field to store branch's name");
             $table->timestamps();
@@ -26,8 +27,21 @@ class BranchesTable extends Migration
 
             $table->foreign('court_id')->references('id')->on('courts')->onDelete('cascade');
             $table->foreign('branch_id')->references('id')->on('branches')->onDelete('cascade');
+
         });
     }
+/*
+        Schema::create('branch_sport', function (Blueprint $table) {
+
+            $table->integer('sport_id')->comment(" field to store the sports that practice this user");
+            $table->foreign('sport_id')->references('id')->on('sports');
+
+            $table->integer('branch_id')->comment(" field to store the sports that practice this user");
+            $table->foreign('branch_id')->references('id')->on('branches');
+
+
+        });
+*/        
 
     /**
      * Reverse the migrations.

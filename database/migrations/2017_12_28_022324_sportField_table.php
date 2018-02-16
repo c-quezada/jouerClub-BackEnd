@@ -27,10 +27,12 @@ class SportFieldTable extends Migration
             $table->dateTime('time_begin')->comment("field to store when the sportfield's it's open");
             $table->dateTime('time_end')->comment("field to store when the sportfield's it's close");
             $table->integer('cluber_id')->comment("field to store cluber's number idenfifier, it's a foreign key")->unsigned();
+            $table->integer('commune_id')->comment("field to store cluber's number idenfifier, it's a foreign key")->unsigned();
             $table->timestamps();
             $table->softDeletes();
             
             $table->foreign('cluber_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('commune_id')->references('code')->on('communes')->onDelete('cascade');
 
         });
 
