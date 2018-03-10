@@ -23,7 +23,7 @@ class UsersTable extends Migration
             $table->string('password')->comment("field to store user's encrypted password, whit bcrypt helper function - LARAVEL");
             $table->string('picture_profile')->comment("field to store user's picture profile")->default('profile');
             $table->enum('status', ['verified', 'pending'])->comment("field to store user's status")->default('pending');
-            $table->enum('type', ['admin', 'jouer', 'cluber', 'coach'])->comment("field to store user's type")->default('jouer');
+            $table->enum('type', ['admin', 'regular'])->comment("field to store user's type")->default('regular');
             $table->string('code_verification', 40)->comment("field to store user's verification code, this define the user's status");
             $table->rememberToken();
             $table->timestamps();

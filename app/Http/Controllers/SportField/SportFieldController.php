@@ -84,7 +84,7 @@ class SportFieldController extends ApiController
         return $this->showOne($sportfield);
     }
 
-    public function destroy(Sportfield $sportfield) //sportfield seria una inyeccion de dependencias, con esto nos ahorramos codear: $sportfield = findOrFail($id);
+    public function destroy(Sportfield $sportfield) //sportfield seria una inyeccion de instancia, con esto nos ahorramos codear: $sportfield = findOrFail($id);
     {
         $sportfield->delete();
         return $this->showOne($sportfield);

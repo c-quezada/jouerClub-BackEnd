@@ -13,10 +13,8 @@ class User extends Authenticatable
     
     const USERVERIFIED    = 'verified';
     const USERNOTVERIFIED = 'pending';
-    const JOUER           = 'jouer';
-    const CLUBER          = 'cluber';
-    const COACH           = 'coach';
     const ADMIN           = 'admin';
+    const REGULAR         = 'regular';
 
 
     protected $table = 'users';
@@ -54,10 +52,10 @@ class User extends Authenticatable
     }
 
 
-    public function cluber()
+    /*public function cluber()
     {
         return $this->hasOne(Cluber::class);
-    }
+    }*/
 
     //mutadores, se utiliza para modificar un valor actual de un atributo antes de hacer la insercion a la base de datos 
 }

@@ -22,8 +22,14 @@ class Branch extends Model
         'pivot'
     ];
 
-    public function courts()
+    public function court()
     {
     	return $this->belongsToMany(Court::class);
+    }
+
+
+    public function skill()
+    {
+        return $this->hasMany(Skill::class);
     }
 }

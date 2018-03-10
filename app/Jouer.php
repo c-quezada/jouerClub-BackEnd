@@ -2,9 +2,25 @@
 
 namespace App;
 
+use App\Scopes\CluberScope;
 use Illuminate\Database\Eloquent\Model;
 
-class Jouer extends Model
+class Jouer extends User
 {
-    //
+
+	protected static function boot()
+	{
+		parent::boot();
+		static::addGlobalScope(new JouerScope);
+	}
+
+	public function skills()
+	{
+		return $this->hasMany(Skill::class);
+	}
+
+	/*public function branches()
+	{
+		return $this->hasMany(Branch::class);
+	}*/
 }

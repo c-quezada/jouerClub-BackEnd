@@ -4,19 +4,13 @@ namespace App;
 
 use App\Court;
 use App\Cluber;
-use App\Scopes\SportFieldScope;
+use App\Commune;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class SportField extends Model
 {	
 	use SoftDeletes;
-
-    protected static function boot()
-    {
-        parent::boot();
-        static::addGlobalScope(new SportFieldScope);
-    }
 	
 	protected $table = 'sportsFields';
 
@@ -24,8 +18,22 @@ class SportField extends Model
 
 	//Atributos que se pueden almacenar de manera masiva
     protected $fillable = [
-    	'name', 'description', 'address', 'lat', 'lng', 'website', 'facebook', 'instagram', 'twitter', 'cluber_id', 'time_begin', 'time_end'
+    	'name',
+        'description',
+        'address',
+        'lat',
+        'lng',
+        'website',
+        'facebook',
+        'instagram',
+        'twitter',
+        'time_begin',
+        'time_end',
+        'cluber_id',
+        'commune_id'
     ];
+
+    protected $hidden = ['commune_id', 'cluber_id'];
 
     public function cluber()
     {
@@ -35,6 +43,11 @@ class SportField extends Model
     public function courts()
     {
     	return $this->hasMany(Court::class);
+    }
+
+    public function commune()
+    {
+        return $this->belongsTo(Commune::class);
     }
 
     

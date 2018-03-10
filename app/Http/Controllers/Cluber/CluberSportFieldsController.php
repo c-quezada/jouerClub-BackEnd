@@ -13,9 +13,4 @@ class CluberSportFieldsController extends ApiController
         $sportfields = $cluber->sportfields;
         return $this->showAll($sportfields);
     }
-
-    public function show()
-    {
-        
-    }
 }

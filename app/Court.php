@@ -13,12 +13,6 @@ class Court extends Model
 {
     use SoftDeletes;
 
-    protected static function boot()
-    {
-        parent::boot();
-        static::addGlobalScope(new CourtScope);
-    }
-    
 	protected $table = 'courts';
 
     protected $dates = ['deleted_at'];

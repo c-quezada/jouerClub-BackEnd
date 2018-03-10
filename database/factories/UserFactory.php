@@ -4,6 +4,7 @@ use App\User;
 use App\Court;
 use App\Branch;
 use App\Cluber;
+use App\Commune;
 use App\Facility;
 use App\Workshop;
 use App\SportField;
@@ -31,7 +32,7 @@ $factory->define(User::class, function (Faker $faker) {
 		'password'          => $password ?: $password = bcrypt('secret'),
 		'picture_profile'   => str_random(20),
 		'status'            => $status = $faker->randomElement([User::USERVERIFIED, User::USERNOTVERIFIED]),
-		'type'              => $faker->randomElement([User::ADMIN, User::JOUER, User::CLUBER, User::COACH]),
+		'type'              => $faker->randomElement([User::ADMIN, User::REGULAR]),
 		'code_verification' => $status == User::USERVERIFIED ? 'verified' : User::setCodeVerification(),
 		'remember_token'    => str_random(10)
     ];
@@ -46,9 +47,10 @@ $factory->define(SportField::class, function (Faker $faker) {
 		'lat'         => $faker->latitude,
 		'lng'         => $faker->longitude,
 		'website'     => 'www.jouer-club.com',
-		'cluber_id'   => User::where('type', 'cluber')->get()->random()->id,
 		'time_begin'  => $faker->dateTime,
-		'time_end'    => $faker->dateTime
+		'time_end'    => $faker->dateTime,
+		'cluber_id'   => User::all()->random()->id,
+		'commune_id'  => Commune::all()->random()->code,
     ];
 });
 
@@ -76,6 +78,8 @@ $factory->define(Facility::class, function (Faker $faker) {
 });
 
 $factory->define(Workshop::class, function (Faker $faker) {
+	$cluber = Cluber::has('sportfields')->get()->random();    
+	$coach  = User::all()->except($cluber->id)->random(); 
     return [
 		'name'        => $faker->word,
 		'description' => $faker->paragraph(1),
@@ -84,6 +88,6 @@ $factory->define(Workshop::class, function (Faker $faker) {
 		'time_begin'  => $faker->dateTime,
 		'time_end'    => $faker->dateTime,
 		'status'      => $faker->randomElement(['pending', 'now', 'finished']),
-		'coach_id'    => User::where('type', 'coach')->get()->random()->id
+		'coach_id'    => $coach->id
     ];
 });
