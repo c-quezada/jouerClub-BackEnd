@@ -1,11 +1,14 @@
 <?php
 
+use App\Team;
 use App\User;
 use App\Court;
+use App\Sport;
 use App\Branch;
 use App\Facility;
 use App\Workshop;
 use App\SportField;
+use Mockery\Fixtures\class;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 class DatabaseSeeder extends Seeder
@@ -29,12 +32,14 @@ class DatabaseSeeder extends Seeder
         factory(Branch::class, $branches)->create()->each(
             function ($branch){
                 $court = Court::all()->random(mt_rand(1, 5))->pluck('id');
-                $branch->curts()->attach($court);
+                $branch->court()->attach($court);
             }
         );
-
+        $this->call(SportsSeeder::class);
         factory(Facility::class, $facilities)->create();
         factory(Workshop::class, $workshops)->create();
+        factory(Team::class, 100)->create();
+        factory(Skill::class, 100)->create(); 
     }
 
     protected function truncateDB (array $tables){

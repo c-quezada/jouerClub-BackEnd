@@ -32,7 +32,7 @@ class SportFieldTable extends Migration
             $table->softDeletes();
             
             $table->foreign('cluber_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('commune_id')->references('code')->on('communes')->onDelete('cascade');
+            $table->foreign('commune_id')->references('id')->on('communes')->onDelete('cascade');
 
         });
 

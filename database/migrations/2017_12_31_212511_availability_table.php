@@ -19,6 +19,7 @@ class AvailabilityTable extends Migration
             $table->integer('jouer_id')->comment("field to store user's number idenfifier of 'JOUER' type, it's a foreign key")->unsigned();
             $table->dateTime('time_begin')->comment("field to store when the sporting match starts");
             $table->dateTime('time_end')->comment("field to store when the sporting match ends");
+            $table->enum('status', ['available', 'reserve'])->comment("field to store matchś status");
             $table->timestamps();
             $table->softDeletes();
 

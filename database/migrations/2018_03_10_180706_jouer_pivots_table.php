@@ -21,6 +21,15 @@ class JouerPivotsTable extends Migration
             $table->foreign('skill_id')->references('id')->on('skills')->onDelete('cascade');
 
         });
+
+        Schema::create('jouer_team', function (Blueprint $table) {
+
+            $table->integer('jouer_id')->comment(" field to store the sports that practice this user");
+            $table->foreign('jouer_id')->references('id')->on('users')->onDelete('cascade');
+
+            $table->integer('team_id')->comment(" field to store the branch that is the sport");
+            $table->foreign('team_id')->references('id')->on('teams');
+        });
     }
 
     public function down()

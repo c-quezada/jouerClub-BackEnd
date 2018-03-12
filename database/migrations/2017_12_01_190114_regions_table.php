@@ -14,7 +14,7 @@ class RegionsTable extends Migration
     public function up()
     {
         Schema::create('regions', function (Blueprint $table) {
-            $table->integer('code', 6)->comment(" field to store region's code")->unique();
+            $table->integer('id', 6)->comment(" field to store region's id")->unique();
             $table->string('name', 50)->comment("field to store region's name")->unique();
             $table->string('code_name', 6)->comment("field to store region's ISO_3166_2_CL")->unique();
             $table->string('lat')->comment("field to store region's lat");

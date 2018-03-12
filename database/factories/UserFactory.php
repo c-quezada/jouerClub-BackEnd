@@ -50,7 +50,7 @@ $factory->define(SportField::class, function (Faker $faker) {
 		'time_begin'  => $faker->dateTime,
 		'time_end'    => $faker->dateTime,
 		'cluber_id'   => User::all()->random()->id,
-		'commune_id'  => Commune::all()->random()->code,
+		'commune_id'  => Commune::all()->random()->id,
     ];
 });
 
@@ -89,5 +89,20 @@ $factory->define(Workshop::class, function (Faker $faker) {
 		'time_end'    => $faker->dateTime,
 		'status'      => $faker->randomElement(['pending', 'now', 'finished']),
 		'coach_id'    => $coach->id
+    ];
+});
+
+$factory->define(Team::class, function (Faker $faker) {
+    return [
+		'name'        => $faker->word,
+		'motto'       => $faker->word,
+		'sport_id'    => Sport::inRandomOrder()->first()->id
+    ];
+});
+
+$factory->define(Skill::class, function (Faker $faker) {
+    return [
+		'name'        => $faker->word,
+		'description' => $faker->paragraph(1)
     ];
 });
