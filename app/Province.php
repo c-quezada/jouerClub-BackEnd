@@ -11,13 +11,13 @@ class Province extends Model
 {	
     use SoftDeletes;
 
-	protected $table = 'provinces';
-
-    protected $dates = ['deleted_at'];
-
-    protected $fillable = [
-    	'name', 'lat', 'lng', 'regionCode'
-    ];
+    protected $table    = 'provinces';
+    
+    protected $dates    = ['deleted_at'];
+    
+    protected $fillable = ['name', 'lat', 'lng', 'regionCode'];
+    
+    protected $hidden   = ['created_at', 'updated_at', 'deleted_at'];
 
     public function region()
     {

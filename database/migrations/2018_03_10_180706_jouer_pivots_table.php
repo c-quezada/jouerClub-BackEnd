@@ -35,5 +35,6 @@ class JouerPivotsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('jouer_skills');
+        Schema::dropIfExists('jouer_team');
     }
 }

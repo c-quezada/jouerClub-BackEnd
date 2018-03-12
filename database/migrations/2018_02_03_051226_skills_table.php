@@ -16,7 +16,7 @@ class SkillsTable extends Migration
         Schema::create('skills', function(Blueprint $table){
 
             $table->increments('id')->comment("field to store skill's number idenfifier");
-            $table->string('name')->comment("field to store skill's name")->unique();
+            $table->string('name')->comment("field to store skill's name");//->unique();
             $table->string('description')->comment("field to store skill's description");
             $table->timestamps();
 

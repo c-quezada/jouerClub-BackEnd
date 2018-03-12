@@ -5,7 +5,6 @@ namespace App;
 use App\Branch;
 use App\Facility;
 use App\SportField;
-use App\Scopes\CourtScope;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -13,18 +12,13 @@ class Court extends Model
 {
     use SoftDeletes;
 
-	protected $table = 'courts';
-
-    protected $dates = ['deleted_at'];
-
-    protected $fillable = [
-    	'name', 'status', 'sport_field_id'
-    ];
-
-
-    protected $hidden = [
-        'pivot'
-    ];
+    protected $table    = 'courts';
+    
+    protected $fillable = ['name', 'status', 'sport_field_id'];
+    
+    protected $dates    = ['deleted_at'];
+    
+    protected $hidden   = ['pivot', 'created_at', 'updated_at', 'deleted_at', 'sport_field_id'];
 
     public function sportField()
     {

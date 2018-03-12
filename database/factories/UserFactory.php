@@ -1,7 +1,10 @@
 <?php
 
+use App\Team;
 use App\User;
 use App\Court;
+use App\Skill;
+use App\Sport;
 use App\Branch;
 use App\Cluber;
 use App\Commune;
@@ -96,7 +99,7 @@ $factory->define(Team::class, function (Faker $faker) {
     return [
 		'name'        => $faker->word,
 		'motto'       => $faker->word,
-		'sport_id'    => Sport::inRandomOrder()->first()->id
+		'branch_id'   => Branch::inRandomOrder()->first()->id
     ];
 });
 

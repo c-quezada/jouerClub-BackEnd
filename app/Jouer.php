@@ -2,12 +2,13 @@
 
 namespace App;
 
+use App\Team;
+use App\Skill;
 use App\Scopes\CluberScope;
 use Illuminate\Database\Eloquent\Model;
 
 class Jouer extends User
 {
-
 	protected static function boot()
 	{
 		parent::boot();
@@ -19,8 +20,8 @@ class Jouer extends User
 		return $this->hasMany(Skill::class);
 	}
 
-	/*public function branches()
+	public function teams()
 	{
-		return $this->hasMany(Branch::class);
-	}*/
+		return $this->belongsToMany(Team::class);	
+	}
 }

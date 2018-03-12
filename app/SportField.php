@@ -12,13 +12,10 @@ class SportField extends Model
 {	
 	use SoftDeletes;
 	
-	protected $table = 'sportsFields';
-
-	protected $dates = ['deleted_at'];
-
-	//Atributos que se pueden almacenar de manera masiva
+    protected $table    = 'sportsFields';
+    
     protected $fillable = [
-    	'name',
+        'name',
         'description',
         'address',
         'lat',
@@ -32,8 +29,10 @@ class SportField extends Model
         'cluber_id',
         'commune_id'
     ];
+    
+    protected $dates    = ['deleted_at'];
 
-    protected $hidden = ['commune_id', 'cluber_id'];
+    protected $hidden   = ['commune_id', 'cluber_id', 'created_at', 'updated_at', 'deleted_at'];
 
     public function cluber()
     {

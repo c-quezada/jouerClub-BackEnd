@@ -9,13 +9,13 @@ class Facility extends Model
 {
 	use SoftDeletes;
 	
-    protected $table = 'facilities';
-
-    protected $dates = ['deleted_at'];
-
-    protected $fillable = [
-    	'name', 'brand', 'purchased_at', 'court_id'
-    ];
+    protected $table    = 'facilities';
+    
+    protected $fillable = ['name', 'brand', 'price', 'purchased_at', 'court_id'];
+    
+    protected $dates    = ['deleted_at'];
+    
+    protected $hidden   = ['created_at', 'updated_at', 'deleted_at', 'court_id'];
 
     public function court()
     {

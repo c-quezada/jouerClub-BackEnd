@@ -16,8 +16,8 @@ class MeetingsTable extends Migration
         Schema::create('meetings', function (Blueprint $table){
 
             $table->increments('id')->comment("field to store meeting's number idenfifier");
-            $table->dateTime('start')->comment("field to store meeting's start");
-            $table->dateTime('end')->comment("field to store meeting's end");
+            $table->dateTime('time_begin')->comment("field to store meeting's start");
+            $table->dateTime('time_end')->comment("field to store meeting's end");
             $table->timestamps();
 
         });      

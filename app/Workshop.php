@@ -10,13 +10,22 @@ class Workshop extends Model
 {
     use SoftDeletes;
 	
-    protected $table = 'workshops';
-
-    protected $dates = ['deleted_at'];
-    	
+    protected $table    = 'workshops';
+    
     protected $fillable = [
-		'name', 'description', 'lat', 'lng', 'time_begin', 'time_end', 'status', 'coach_id'
+        'name',
+        'description',
+        'lat',
+        'lng',
+        'time_begin',
+        'time_end',
+        'status',
+        'coach_id'
     ];
+    
+    protected $dates    = ['deleted_at'];
+    
+    protected $hidden   = ['created_at', 'updated_at', 'deleted_at', 'coach_id'];
 
     public function coach()
     {

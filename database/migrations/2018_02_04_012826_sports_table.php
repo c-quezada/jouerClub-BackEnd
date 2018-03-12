@@ -17,7 +17,7 @@ class SportsTable extends Migration
 
             $table->increments('id')->comment("field to store sport's number idenfifier");
             $table->string('name')->comment("field to store sport's name")->unique();
-            $table->string('description')->comment("field to store sport's description");
+            $table->string('description', 1000)->comment("field to store sport's description");
             $table->timestamps();
 
         }); 
