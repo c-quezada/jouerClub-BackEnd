@@ -20,7 +20,7 @@ class Images extends ApiController
 
     public function store(Request $request)
     {
-        //
+        
     }
 
     public function show(Images $images)
