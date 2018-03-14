@@ -19,6 +19,8 @@ class SportsTable extends Migration
             $table->string('name')->comment("field to store sport's name")->unique();
             $table->string('description', 1000)->comment("field to store sport's description");
             $table->timestamps();
+            $table->softDeletes();
+
 
         }); 
 

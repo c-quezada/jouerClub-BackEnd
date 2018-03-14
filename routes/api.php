@@ -18,6 +18,10 @@ Primer parametro: Nombre del recurso, Segundo parametro: Ubicacion del controlad
  */
 Route::resource('users', 'User\UserController', ['except' => ['create', 'edit']]); 
 
+/**
+ * Jouers
+ */
+Route::resource('jouers', 'Jouer\JouerController', ['only' => ['index', 'show']]); 
 
 /**
  * Clubers
@@ -56,4 +60,16 @@ Route::resource('facilities', 'Facility\FacilityController', ['except' => ['crea
  * Workshops
  */
 Route::resource('workshops', 'Workshop\WorkshopController', ['except' => ['create', 'edit']]);
+
+/**
+ * Teams
+ */
+Route::resource('teams', 'Team\TeamController', ['except' => ['create', 'edit']]);
+
+/**
+ * Sports
+ */
+Route::resource('sports', 'Sport\SportController', ['except' => ['create', 'edit']]);
+
+
 

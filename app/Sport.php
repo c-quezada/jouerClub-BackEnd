@@ -5,11 +5,11 @@ namespace App;
 use App\Team;
 use App\Branch;
 use Illuminate\Database\Eloquent\Model;
-//use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Sport extends Model
 {   
-    //use SoftDeletes;
+    use SoftDeletes;
     
     protected $table    = 'sports';
     
