@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Facility;
 
 use App\Facility;
 use Illuminate\Http\Request;
+use App\Http\Requests\FacilityRequest;
 use App\Http\Controllers\ApiController;
 
 class FacilityController extends ApiController
@@ -19,67 +20,48 @@ class FacilityController extends ApiController
         return $this->showAll($facilities);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function store(FacilityRequest $request)
     {
-        //
+        $fields                  = $request->all();
+        $fields['name']          = ucwords($request->name);
+        $fields['brand']         = ucwords($request->brand);
+        $fields['purchased_at']  = ucwords($request->purchased_at);
+        $fields['court_id']      = ucwords($request->court_id);
+        
+        //dd($fields); die();
+
+        $facility = Facility::create($fields);
+        return $this->showOne($facility, 201);  
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Facility  $facility
-     * @return \Illuminate\Http\Response
-     */
     public function show(Facility $facility)
     {
-        //
+        return $this->showOne($facility, 201);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Facility  $facility
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Facility $facility)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Facility  $facility
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Facility $facility)
     {
-        //
+        if ($request->has('name')) {
+            $facility->name = $request->name;
+        }
+
+        if ($request->has('brand')) {
+            $facility->brand = $request->brand;
+        }
+
+        if ($request->has('purchased_at')) {
+            $facility->purchased_at = $request->purchased_at;
+        }
+
+        if (!$facility->isDirty()) { //verifica si el usuario no se modificó
+            return $this->errorResponse('Se debe especificar al menos un valor diferente para actualizar', 422);
+        }
+
+        $facility->save();
+        return $this->showOne($facility);
+    
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Facility  $facility
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Facility $facility)
     {
         //
