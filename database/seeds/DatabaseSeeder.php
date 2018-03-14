@@ -22,7 +22,8 @@ class DatabaseSeeder extends Seeder
             'courts'
         ]);*/
 
-        $users = 200; $sportfields = 100; $courts = 400; $facilities = 600; $workshops = 100; $branches = 100; $teams = 100; $skills = 200;
+        $users = 200; $sportfields = 100; $courts = 400; $facilities = 600; $workshops = 100; $branches = 100; 
+        $teams = 100; $skills = 50;
 
         factory(User::class, $users)->create();
         $this->call(RegionSeeder::class);

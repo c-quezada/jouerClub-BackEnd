@@ -19,6 +19,7 @@ class SkillsTable extends Migration
             $table->string('name')->comment("field to store skill's name");//->unique();
             $table->string('description')->comment("field to store skill's description");
             $table->timestamps();
+            $table->softDeletes();
 
         });    
     }

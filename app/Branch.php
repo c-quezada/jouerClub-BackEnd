@@ -24,7 +24,7 @@ class Branch extends Model
     	return $this->belongsToMany(Court::class);
     }
 
-    public function skill()
+    public function skills()
     {
         return $this->hasMany(Skill::class);
     }

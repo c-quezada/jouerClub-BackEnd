@@ -71,5 +71,9 @@ Route::resource('teams', 'Team\TeamController', ['except' => ['create', 'edit']]
  */
 Route::resource('sports', 'Sport\SportController', ['except' => ['create', 'edit']]);
 
+/**
+ * Skills
+ */
+Route::resource('skills', 'Skill\SkillController', ['except' => ['create', 'edit']]);
 
 

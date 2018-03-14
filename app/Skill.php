@@ -15,7 +15,7 @@ class Skill extends Model
     
     protected $fillable = ['name', 'description'];
     
-    protected $dates    = ['deleted_at'];
+    //protected $dates    = ['deleted_at'];
     
     protected $hidden   = ['created_at', 'updated_at', 'deleted_at'];
 
@@ -24,7 +24,7 @@ class Skill extends Model
     	return $this->belongsTo(Jouer::class);
     }
 
-    public function skills()
+    public function branch()
     {
     	return $this->belongsTo(Branch::class);
     }
