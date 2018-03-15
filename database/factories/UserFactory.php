@@ -11,6 +11,8 @@ use App\Commune;
 use App\Facility;
 use App\Workshop;
 use App\SportField;
+use App\Maintenance;
+use App\Availability;
 use Faker\Generator as Faker;
 /*
 |--------------------------------------------------------------------------
@@ -107,5 +109,24 @@ $factory->define(Skill::class, function (Faker $faker) {
     return [
 		'name'        => $faker->word,
 		'description' => $faker->paragraph(1)
+    ];
+});
+
+$factory->define(Maintenance::class, function (Faker $faker) {
+    return [
+		'observations' => $faker->paragraph(1),
+		'status' => $faker->randomElement([1,2,3,4,5]),
+		'facility_id' => Facility::inRandomOrder()->first()->id
+    ];
+});
+
+$factory->define(Availability::class, function (Faker $faker) {
+    return [
+		'court_id' => Court::inRandomOrder()->first()->id,
+		'jouer_id' => User::inRandomOrder()->first()->id,
+		'time_begin'  => $faker->dateTime,
+		'time_end'    => $faker->dateTime,
+		'status' => $faker->randomElement(['available', 'reserve']),
+
     ];
 });

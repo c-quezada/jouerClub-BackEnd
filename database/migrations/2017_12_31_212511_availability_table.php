@@ -13,7 +13,7 @@ class AvailabilityTable extends Migration
      */
     public function up()
     {
-        Schema::create('availabilies', function (Blueprint $table) {
+        Schema::create('availabilities', function (Blueprint $table) {
             $table->increments('id')->comment("field to store availability's number idenfifier");
             $table->integer('court_id')->comment("field to store court's number idenfifier, it's a foreign key")->unsigned();
             $table->integer('jouer_id')->comment("field to store user's number idenfifier of 'JOUER' type, it's a foreign key")->unsigned();
@@ -35,6 +35,6 @@ class AvailabilityTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('availability');
+        Schema::dropIfExists('availabilities');
     }
 }

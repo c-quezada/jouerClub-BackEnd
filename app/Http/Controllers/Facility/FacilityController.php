@@ -9,11 +9,7 @@ use App\Http\Controllers\ApiController;
 
 class FacilityController extends ApiController
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $facilities = Facility::all();
@@ -64,6 +60,7 @@ class FacilityController extends ApiController
 
     public function destroy(Facility $facility)
     {
-        //
+        $facility->delete();
+        $this->ShowOne($facility);
     }
 }
