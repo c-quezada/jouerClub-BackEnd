@@ -10,6 +10,7 @@ use App\Facility;
 use App\Workshop;
 use App\SportField;
 use App\Maintenance;
+use App\Availability;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 class DatabaseSeeder extends Seeder
@@ -42,6 +43,8 @@ class DatabaseSeeder extends Seeder
         factory(Workshop::class, $workshops)->create();
         factory(Team::class, $teams)->create();
         factory(Skill::class, $skills)->create(); 
+        factory(Availability::class, 1000)->create(); 
+
     }
 
     protected function truncateDB (array $tables){
