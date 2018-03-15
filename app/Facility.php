@@ -1,7 +1,9 @@
 <?php
 
 namespace App;
+
 use App\Court;
+use App\Maintenance;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -20,5 +22,10 @@ class Facility extends Model
     public function court()
     {
     	return $this->belongsTo(Court::class);
+    }
+
+    public function maintenance()
+    {
+        return $this->hasMany(Maintenance::class);
     }
 }

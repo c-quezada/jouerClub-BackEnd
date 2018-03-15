@@ -9,6 +9,7 @@ use App\Branch;
 use App\Facility;
 use App\Workshop;
 use App\SportField;
+use App\Maintenance;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 class DatabaseSeeder extends Seeder
@@ -22,7 +23,7 @@ class DatabaseSeeder extends Seeder
             'courts'
         ]);*/
 
-        $users = 200; $sportfields = 100; $courts = 400; $facilities = 600; $workshops = 100; $branches = 100; $teams = 100; $skills = 200;
+        $users = 200; $sportfields = 100; $courts = 400; $facilities = 600; $workshops = 100; $branches = 100; $teams = 100; $skills = 200; $maintenance = 200;
 
         factory(User::class, $users)->create();
         $this->call(RegionSeeder::class);
@@ -37,6 +38,7 @@ class DatabaseSeeder extends Seeder
             }
         );
         factory(Facility::class, $facilities)->create();
+        factory(Maintenance::class, $maintenance)->create();
         factory(Workshop::class, $workshops)->create();
         factory(Team::class, $teams)->create();
         factory(Skill::class, $skills)->create(); 

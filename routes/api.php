@@ -50,6 +50,12 @@ Route::resource('sportfields.courts', 'SportField\SportFieldCourtsController', [
  * Facilities
  */
 Route::resource('facilities', 'Facility\FacilityController', ['except' => ['create', 'edit']]);
+Route::resource('facilities.maintenance', 'Facility\FacilityMaintenanceController', ['only' => ['index']]); 
+
+/**
+ * Maintenance
+ */
+Route::resource('maintenance', 'Maintenance\MaintenanceController', ['except' => ['create', 'edit']]);
 
 
 /**

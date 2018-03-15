@@ -18,3 +18,4 @@ class Cluber extends User
 		return $this->hasMany(SportField::class);
 	}
 }
+ 
