@@ -31,6 +31,7 @@ class UserController extends ApiController
         //dd($fields); die();
 
         $user = User::create($fields);
+ 
         return $this->showOne($user, 201);
     }
 

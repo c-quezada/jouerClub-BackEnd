@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -22,7 +23,7 @@ class sportFieldSeeder extends Seeder
 	        'lat'            => '-33.2081',
 	        'lng'            => '-70.6833',
 	        'commune_id'     =>  60,
-	        'cluber_id'      =>  1
+	        'cluber_id'      =>  User::all()->random()->id
 	        ], 
 
 	        [
@@ -33,7 +34,7 @@ class sportFieldSeeder extends Seeder
 	        'lat'            => '-33.2110',
 	        'lng'            => '-70.6841',
 	        'commune_id'     =>  60,
-	        'cluber_id'      =>  1
+	        'cluber_id'      =>  User::all()->random()->id
 	        ], 
 
 	        [
@@ -44,7 +45,7 @@ class sportFieldSeeder extends Seeder
 	        'lat'            => '-33.2114',
 	        'lng'            => '-70.6774',
 	        'commune_id'     =>  60,
-	        'cluber_id'      =>  1
+	        'cluber_id'      =>  User::all()->random()->id
 	        ], 
 
 	        [
@@ -55,7 +56,7 @@ class sportFieldSeeder extends Seeder
 	        'lat'            => '-33.2081',
 	        'lng'            => '-70.6735',
 	        'commune_id'     =>  60,
-	        'cluber_id'      =>  1
+	        'cluber_id'      =>  User::all()->random()->id
 	        ], 
 
 	        [
@@ -66,7 +67,7 @@ class sportFieldSeeder extends Seeder
 	        'lat'            => '-33.2085',
 	        'lng'            => '-70.6627',
 	        'commune_id'     =>  60,
-	        'cluber_id'      =>  1
+	        'cluber_id'      =>  User::all()->random()->id
 	        ],
 
 	        [
@@ -77,7 +78,7 @@ class sportFieldSeeder extends Seeder
 	        'lat'            => '-33.2057',
 	        'lng'            => '-70.6805',
 	        'commune_id'     =>  60,
-	        'cluber_id'      =>  1
+	        'cluber_id'      =>  User::all()->random()->id
 	        ], 
 
 	        [
@@ -88,7 +89,7 @@ class sportFieldSeeder extends Seeder
 	        'lat'            => '-33.2069',
 	        'lng'            => '-70.6850',
 	        'commune_id'     =>  60,
-	        'cluber_id'      =>  1
+	        'cluber_id'      =>  User::all()->random()->id
 	        ], 
 
 	        [
@@ -99,7 +100,7 @@ class sportFieldSeeder extends Seeder
 	        'lat'            => '-33.2339',
 	        'lng'            => '-70.6940',
 	        'commune_id'     =>  60,
-	        'cluber_id'      =>  1
+	        'cluber_id'      =>  User::all()->random()->id
 	        ], 
 
 	        [
@@ -110,7 +111,7 @@ class sportFieldSeeder extends Seeder
 	        'lat'            => '-33.2352',
 	        'lng'            => '-70.6950',
 	        'commune_id'     =>  60,
-	        'cluber_id'      =>  1
+	        'cluber_id'      =>  User::all()->random()->id
 	        ], 
 
 	        [
@@ -121,7 +122,7 @@ class sportFieldSeeder extends Seeder
 	        'lat'            => '-33.2368',
 	        'lng'            => '-70.6967',
 	        'commune_id'     =>  60,
-	        'cluber_id'      =>  1
+	        'cluber_id'      =>  User::all()->random()->id
 	        ],  
 
 	        [
@@ -132,7 +133,7 @@ class sportFieldSeeder extends Seeder
 	        'lat'            => '-33.2605',
 	        'lng'            => '-70.6961',
 	        'commune_id'     =>  60,
-	        'cluber_id'      =>  1
+	        'cluber_id'      =>  User::all()->random()->id
 	        ], 
 
 	        [
@@ -143,7 +144,7 @@ class sportFieldSeeder extends Seeder
 	        'lat'            => '-33.2331',
 	        'lng'            => '-70.6913',
 	        'commune_id'     =>  60,
-	        'cluber_id'      =>  1
+	        'cluber_id'      =>  User::all()->random()->id
 	        ], 
 
 	        [
@@ -154,7 +155,7 @@ class sportFieldSeeder extends Seeder
 	        'lat'            => '-33.2148',
 	        'lng'            => '-70.6690',
 	        'commune_id'     =>  60,
-	        'cluber_id'      =>  1
+	        'cluber_id'      =>  User::all()->random()->id
 	        ], 
 
 	        [
@@ -165,7 +166,7 @@ class sportFieldSeeder extends Seeder
 	        'lat'            => '-33.1913',
 	        'lng'            => '-70.6511',
 	        'commune_id'     =>  60,
-	        'cluber_id'      =>  1
+	        'cluber_id'      =>  User::all()->random()->id
 	        ], 
 
 	        [
@@ -176,7 +177,7 @@ class sportFieldSeeder extends Seeder
 	        'lat'            => '-33.1828',
 	        'lng'            => '-70.6507',
 	        'commune_id'     =>  60,
-	        'cluber_id'      =>  1
+	        'cluber_id'      =>  User::all()->random()->id
 	        ],  
 
 	        [
@@ -187,7 +188,7 @@ class sportFieldSeeder extends Seeder
 	        'lat'            => '-33.1860',
 	        'lng'            => '-70.6543',
 	        'commune_id'     =>  60,
-	        'cluber_id'      =>  1
+	        'cluber_id'      =>  User::all()->random()->id
 	        ], 
 
 	        [
@@ -198,7 +199,7 @@ class sportFieldSeeder extends Seeder
 	        'lat'            => '-33.1959',
 	        'lng'            => '-70.6751',
 	        'commune_id'     =>  60,
-	        'cluber_id'      =>  1
+	        'cluber_id'      =>  User::all()->random()->id
 	        ], 
 
 	        [
@@ -209,7 +210,7 @@ class sportFieldSeeder extends Seeder
 	        'lat'            => '-33.2001',
 	        'lng'            => '-70.6729',
 	        'commune_id'     =>  60,
-	        'cluber_id'      =>  1
+	        'cluber_id'      =>  User::all()->random()->id
 	        ], 
 
 	        [
@@ -220,7 +221,7 @@ class sportFieldSeeder extends Seeder
 	        'lat'            => '-33.1987',
 	        'lng'            => '-70.6716',
 	        'commune_id'     =>  60,
-	        'cluber_id'      =>  1
+	        'cluber_id'      =>  User::all()->random()->id
 	        ], 
 
 	        [
@@ -231,7 +232,7 @@ class sportFieldSeeder extends Seeder
 	        'lat'            => '-33.1992',
 	        'lng'            => '-70.6723',
 	        'commune_id'     =>  60,
-	        'cluber_id'      =>  1
+	        'cluber_id'      =>  User::all()->random()->id
 	        ],  
 
 	        [
@@ -242,7 +243,7 @@ class sportFieldSeeder extends Seeder
 	        'lat'            => '-33.1972',
 	        'lng'            => '-70.6708',
 	        'commune_id'     =>  60,
-	        'cluber_id'      =>  1
+	        'cluber_id'      =>  User::all()->random()->id
 	        ], 
 
 	        [
@@ -253,7 +254,7 @@ class sportFieldSeeder extends Seeder
 	        'lat'            => '-33.2022',
 	        'lng'            => '-70.6819',
 	        'commune_id'     =>  60,
-	        'cluber_id'      =>  1
+	        'cluber_id'      =>  User::all()->random()->id
 	        ] 
 	    ]);
     }

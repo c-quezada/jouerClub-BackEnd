@@ -30,7 +30,8 @@ class DatabaseSeeder extends Seeder
 
         factory(User::class, $users)->create();
         $this->call(RegionSeeder::class);
-        factory(SportField::class, $sportfields)->create();
+        //factory(SportField::class, $sportfields)->create();
+        $this->call(sportFieldSeeder::class);
         factory(Court::class, $courts)->create();
         
         $this->call(SportsSeeder::class);

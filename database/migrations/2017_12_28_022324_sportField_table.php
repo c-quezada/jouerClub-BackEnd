@@ -15,8 +15,8 @@ class SportFieldTable extends Migration
     {
         Schema::create('sportsFields', function (Blueprint $table) {
             $table->increments('id')->comment("field to store sportField's number idenfifier");
-            $table->string('name', 30)->comment("field to store sportField's number idenfifier");
-            $table->text('description')->comment("field to store sportField's description");
+            $table->string('name')->comment("field to store sportField's number idenfifier");
+            $table->text('description')->comment("field to store sportField's description")->nullable();
             $table->string('address')->comment("field to store sportField's address");
             $table->string('lat')->comment("field to store sportField's latitude for his ubication");
             $table->string('lng')->comment("field to store sportField's longitude for his ubication");
@@ -24,8 +24,8 @@ class SportFieldTable extends Migration
             $table->string('facebook')->comment("field to store sportField's facebook")->nullable();
             $table->string('instagram')->comment("field to store sportField's instagram")->nullable();
             $table->string('twitter')->comment("field to store sportField's twitter")->nullable();
-            $table->dateTime('time_begin')->comment("field to store when the sportfield's it's open");
-            $table->dateTime('time_end')->comment("field to store when the sportfield's it's close");
+            $table->string('time_begin')->comment("field to store when the sportfield's it's open");
+            $table->string('time_end')->comment("field to store when the sportfield's it's close");
             $table->integer('cluber_id')->comment("field to store cluber's number idenfifier, it's a foreign key")->unsigned();
             $table->integer('commune_id')->comment("field to store cluber's number idenfifier, it's a foreign key")->unsigned();
             $table->timestamps();

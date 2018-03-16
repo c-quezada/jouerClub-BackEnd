@@ -22,17 +22,7 @@ class SportsTable extends Migration
             $table->softDeletes();
 
 
-        }); 
-
-        Schema::create('sport_branch', function (Blueprint $table) {
-
-            $table->integer('sport_id')->comment(" field to store the sports that practice this user");
-            $table->foreign('sport_id')->references('id')->on('sports');
-
-            $table->integer('branch_id')->comment(" field to store the sports that practice this user");
-            $table->foreign('branch_id')->references('id')->on('branches');
-
-        });    
+        });  
     }
 
     /**
