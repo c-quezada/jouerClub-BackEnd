@@ -13,7 +13,9 @@ class JouerPivotsTable extends Migration
      */
     public function up()
     {
-        Schema::create('jouer_skills', function (Blueprint $table) {
+        Schema::create('jouer_skill', function (Blueprint $table) {
+
+            $table->increments('id');
             $table->integer('jouer_id')->comment("field to store court's number idenfifier, it's a foreign key")->unsigned();
             $table->integer('skill_id')->comment("field to store branch's number idenfifier, it's a foreign key")->unsigned();
 
@@ -24,6 +26,7 @@ class JouerPivotsTable extends Migration
 
         Schema::create('jouer_team', function (Blueprint $table) {
 
+            $table->increments('id');
             $table->integer('jouer_id')->unsigned()->comment(" field to store the sports that practice this user");
             $table->foreign('jouer_id')->references('id')->on('users')->onDelete('cascade');
 
@@ -34,7 +37,7 @@ class JouerPivotsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('jouer_skills');
+        Schema::dropIfExists('jouer_skill');
         Schema::dropIfExists('jouer_team');
     }
 }

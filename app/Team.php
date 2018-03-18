@@ -13,7 +13,7 @@ class Team extends Model
 
 	protected $table    = 'teams';
 	
-	protected $fillable = ['name', 'motto', 'sport_id'];
+	protected $fillable = ['name', 'motto', 'branch_id'];
 	
 	protected $dates    = ['deleted_at'];
 
@@ -21,7 +21,7 @@ class Team extends Model
 	
     public function jouers()
     {
-    	return $this->hasMany(Jouer::class);
+    	return $this->belongsToMany(Jouer::class);
     }
 
     public function branch()

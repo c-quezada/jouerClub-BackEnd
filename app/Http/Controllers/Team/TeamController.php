@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Team;
 
 use App\Team;
-use App\Sport;
+use App\Branch;
 use Illuminate\Http\Request;
 use App\Http\Requests\TeamRequest;
 use App\Http\Controllers\ApiController;
@@ -21,9 +21,9 @@ class TeamController extends ApiController
         $fields                  = $request->all();
         $fields['name']          = ucwords($request->name);     
         $fields['motto']         = $request->motto;
-        $fields['sport_id']      = $request->sport_id;
+        $fields['branch_id']     = $request->branch_id;
 
-        if (Sport::findOrFail($request->sport_id)) {
+        if (Branch::findOrFail($request->branch_id)) {
             $team = Team::create($fields); 
             return $this->showOne($team, 201);
         }

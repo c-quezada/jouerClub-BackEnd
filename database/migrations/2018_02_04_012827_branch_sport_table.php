@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class SportBranchTable extends Migration
+class BranchSportTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,9 @@ class SportBranchTable extends Migration
      */
     public function up()
     {
-        Schema::create('sport_branch', function (Blueprint $table) {
+        Schema::create('branch_sport', function (Blueprint $table) {
+
+            $table->increments('id');;
             $table->integer('sport_id')->comment("field to store court's number idenfifier, it's a foreign key")->unsigned();
             $table->foreign('sport_id')->references('id')->on('sports')->onDelete('cascade');
             
@@ -30,7 +32,7 @@ class SportBranchTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExist('sports');
+        Schema::dropIfExist('branch_sport');
     }
 }
 

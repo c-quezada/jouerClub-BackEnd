@@ -6,6 +6,7 @@ use App\User;
 use App\Mail\UserCreated;
 use App\Mail\UserMailChanged;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -32,6 +33,9 @@ class AppServiceProvider extends ServiceProvider
                 }, 100);
             }
         });
+
+        Schema::defaultStringLength(191);
+
     }
 
     /**

@@ -14,6 +14,8 @@ class BranchCourtTable extends Migration
     public function up()
     {
         Schema::create('branch_court', function (Blueprint $table) {
+
+            $table->increments('id');
             $table->integer('court_id')->comment("field to store court's number idenfifier, it's a foreign key")->unsigned();
             $table->foreign('court_id')->references('id')->on('courts')->onDelete('cascade');
             

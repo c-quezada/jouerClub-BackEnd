@@ -29,6 +29,6 @@ class BranchesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('courts');
+        Schema::dropIfExists('branches');
     }
 }

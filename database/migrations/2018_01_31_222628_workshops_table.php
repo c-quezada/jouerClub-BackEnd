@@ -37,6 +37,6 @@ class WorkshopsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('facilities');
     }
 }

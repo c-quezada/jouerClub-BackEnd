@@ -74,6 +74,7 @@ Route::resource('workshops', 'Workshop\WorkshopController', ['except' => ['creat
  * Teams
  */
 Route::resource('teams', 'Team\TeamController', ['except' => ['create', 'edit']]);
+Route::resource('teams.jouers', 'Team\TeamJouerController', ['only' => ['index']]);
 
 /**
  * Sports
