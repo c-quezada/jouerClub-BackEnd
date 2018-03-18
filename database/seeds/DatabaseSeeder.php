@@ -28,6 +28,8 @@ class DatabaseSeeder extends Seeder
         $facilities = 600; $workshops = 100; $branches = 100; 
         $teams = 100; $skills = 200; $maintenance = 200;
 
+        User::flushEventListeners(); //Ignora los eventos asociados al usuario y asi no se envian correos de manera masiva por la creacion de usuarios a traves de UserFactory
+
         factory(User::class, $users)->create();
         $this->call(RegionSeeder::class);
         //factory(SportField::class, $sportfields)->create();

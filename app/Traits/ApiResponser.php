@@ -44,7 +44,31 @@ trait ApiResponser
 	415 UNSUPPORTED MEDIA TYPE 	El recurso de destino no admite el formato de datos del cuerpo de la solicitud especificado en la cabecera de Content-Type.
 
 	500 INTERNAL SERVER ERROR 	Se ha producido un error interno en el servidor. Esto podría indicar un problema con la solicitud o un problema en el código del lado del servidor. Se puede encontrar información acerca del error en el cuerpo de respuesta.
-	*/
+	
+
+
+
+    200 OK - the request was successful (some API calls may return 201 instead).
+
+    201 Created - the request was successful and a resource was created.
+
+    204 No Content - the request was successful but there is no representation to return (i.e. the response is empty).
+
+    400 Bad Request - the request could not be understood or was missing required parameters.
+
+    401 Unauthorized - authentication failed or user doesn't have permissions for requested operation.
+
+    403 Forbidden - access denied.
+
+    404 Not Found - resource was not found.
+
+    405 Method Not Allowed - requested method is not supported for resource.
+
+    422 Unprocessable Entity - requested data contain invalid values.
+
+    429 Too Many Requests - exceeded Mailtrap API limits. Pause requests, wait up to one minute, and try again (you can check rate limits in X-RATELIMIT-LIMIT and X-RATELIMIT-REMAINING headers).
+
+*/
 
 
 	private function successResponse($data, $code)
@@ -65,6 +89,11 @@ trait ApiResponser
 	protected function showOne(Model $instance, $code = 200)
 	{
 		return $this->successResponse($instance, $code);
+	}
+
+	protected function showMessage($message, $code = 200)
+	{
+		return $this->successResponse($message, $code);
 	}
 
 
