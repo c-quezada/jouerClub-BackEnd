@@ -21,7 +21,7 @@ class Skill extends Model
 
     public function jouer()
     {
-    	return $this->belongsTo(Jouer::class);
+    	return $this->belongsToMany(Jouer::class);
     }
 
     public function branch()

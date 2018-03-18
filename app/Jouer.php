@@ -4,7 +4,7 @@ namespace App;
 
 use App\Team;
 use App\Skill;
-use App\Scopes\CluberScope;
+use App\Scopes\JouerScope;
 use Illuminate\Database\Eloquent\Model;
 
 class Jouer extends User
@@ -17,7 +17,7 @@ class Jouer extends User
 
 	public function skills()
 	{
-		return $this->hasMany(Skill::class);
+		return $this->belongsToMany(Skill::class);
 	}
 
 	public function teams()
