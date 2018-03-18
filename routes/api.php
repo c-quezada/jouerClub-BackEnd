@@ -25,6 +25,7 @@ Route::name('resend')->get('users/{user}/resend', 'User\UserController@resend');
  */
 Route::resource('jouers', 'Jouer\JouerController', ['only' => ['index', 'show']]); 
 Route::resource('jouers.skills', 'Jouer\JouerSkillController', ['only' => ['index']]);
+Route::resource('jouers.teams', 'Jouer\JouerTeamController', ['only' => ['index']]);
 
 /**
  * Clubers
