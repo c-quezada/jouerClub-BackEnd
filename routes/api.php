@@ -25,6 +25,7 @@ Route::name('resend')->get('users/{user}/resend', 'User\UserController@resend');
  */
 Route::resource('jouers', 'Jouer\JouerController', ['only' => ['index', 'show']]); 
 Route::resource('jouers.skills', 'Jouer\JouerSkillController', ['only' => ['index']]);
+Route::name('addSkill')->get('jouer/{jouer}/addSkill/{skill}', 'Jouer\JouerSkillController@addSkill');
 Route::resource('jouers.teams', 'Jouer\JouerTeamController', ['only' => ['index']]);
 
 /**
@@ -81,6 +82,13 @@ Route::resource('teams.jouers', 'Team\TeamJouerController', ['only' => ['index']
  * Sports
  */
 Route::resource('sports', 'Sport\SportController', ['except' => ['create', 'edit']]);
+Route::resource('sports.branches', 'Sport\SportBranchController', ['only' => ['index']]);
+
+/**
+ * Branches
+ */
+Route::resource('branches', 'Branch\BranchController', ['except' => ['create', 'edit']]);
+
 
 /**
  * Skills

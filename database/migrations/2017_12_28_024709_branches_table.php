@@ -17,6 +17,10 @@ class BranchesTable extends Migration
 
             $table->increments('id')->comment("field to store branch's number idenfifier");
             $table->string('name')->comment("field to store branch's name");
+
+            $table->integer('sport_id')->unsigned();
+            $table->foreign('sport_id')->references('id')->on('sports')->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
         });

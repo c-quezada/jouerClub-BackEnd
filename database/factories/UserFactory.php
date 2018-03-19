@@ -69,7 +69,8 @@ $factory->define(Court::class, function (Faker $faker) {
 
 $factory->define(Branch::class, function (Faker $faker) {
     return [
-		'name'           => $faker->word
+		'name'           => $faker->word,
+		'sport_id'       => Sport::inRandomOrder()->first()->id
     ];
 });
 

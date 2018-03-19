@@ -4,6 +4,7 @@ namespace App;
 
 use App\Court;
 use App\Skill;
+use App\Sport;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -13,7 +14,7 @@ class Branch extends Model
 	
     protected $table    = 'branches';
     
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'sport_id'];
     
     protected $dates    = ['deleted_at'];
     
@@ -27,5 +28,10 @@ class Branch extends Model
     public function skills()
     {
         return $this->hasMany(Skill::class);
+    }
+
+    public function sport()
+    {
+        return $this->belongTo(Sport::class);
     }
 }
