@@ -19,7 +19,7 @@ class AppServiceProvider extends ServiceProvider
     {
         User::created(function ($user)
         {
-            retry(5, function() use ($user){
+            retry(1, function() use ($user){
                 Mail::to($user)->send(new UserCreated($user)); //Laravel se encarga de reconocer automaticamente el campo email del objeto user
                 }, 100);
         });
@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
         User::updated(function ($user)
         {
             if ($user->isDirty('email')) {
-                retry(5, function() use ($user){
+                retry(1, function() use ($user){
                         Mail::to($user)->send(new UserMailChanged($user)); 
                 }, 100);
             }
