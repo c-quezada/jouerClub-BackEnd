@@ -14,11 +14,11 @@ class Branch extends Model
 	
     protected $table    = 'branches';
     
-    protected $fillable = ['name', 'sport_id'];
+    protected $fillable = ['name'];
     
     protected $dates    = ['deleted_at'];
     
-    protected $hidden   = ['pivot', 'created_at', 'updated_at', 'deleted_at'];
+    protected $hidden   = ['pivot', 'created_at', 'updated_at', 'deleted_at', 'id', 'sport_id'];
     
     public function court()
     {

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Jouer;
 use App\User;
 use App\Jouer;
 use Illuminate\Http\Request;
+use App\Http\Requests\AddSkillRequest;
 use App\Http\Controllers\ApiController;
 
 class JouerController extends ApiController
@@ -20,9 +21,10 @@ class JouerController extends ApiController
         return $this->showOne($jouer);
     }
 
-    public function addSkill(Request $request)
+    public function addSkill(AddSkillRequest $request)
     {
         $jouer = Jouer::findOrFail($request->user);
         $jouer->skills()->attach(array($request->skills));
+        return $this->showAll($jouer->skills);
     }
 }
