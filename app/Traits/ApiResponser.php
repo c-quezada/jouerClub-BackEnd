@@ -2,8 +2,11 @@
 
 namespace App\Traits;
 
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 trait ApiResponser
 {
@@ -73,7 +76,7 @@ trait ApiResponser
 
 	private function successResponse($data, $code)
 	{
-		return response()->json($data, $code); //la respuesta la tranforma a json, primer parametro los datos, y como segundo parametro el codigo de resultado
+		return response()->json(['data' => $data], $code); //la respuesta la tranforma a json, primer parametro los datos, y como segundo parametro el codigo de resultado
 	}
 
 	protected function errorResponse($message, $code)
@@ -83,7 +86,13 @@ trait ApiResponser
 
 	protected function showAll(Collection $collection, $code = 200)
 	{
-		return $this->successResponse(['data' => $collection], $code);
+		if ($collection->isEmpty()) {
+			return $this->errorResponse('No hay datos para este recurso', 404);
+		}
+		$collection = $this->filterData($collection);
+		$collection = $this->sortData($collection);
+		$collection = $this->paginate($collection);
+		return $this->successResponse($collection, $code);
 	}
 
 	protected function showOne(Model $instance, $code = 200)
@@ -96,6 +105,51 @@ trait ApiResponser
 		return $this->successResponse($message, $code);
 	}
 
+	protected function filterData(Collection $collection)
+	{
+		foreach (request()->query() as $query => $value) {
+			if (isset($query, $value)) {
+				$collection = $collection->where($query, $value);
+			}
+		}
+		return $collection;
+	}
+
+	protected function sortData(Collection $collection)
+	{
+		if (request()->has('by')) {
+			$attribute = request()->by; //comprobamos si en la url hay un atributo 'by', si es el caso, lo setea a la variable $attribute.
+			$collection = $collection->sortBy($attribute); //Entonces, accdimos a la collection y usamos el metodo de laravel sortBy(), para ordenar los resultados segun el $attribute
+		}
+		return $collection;
+	}
+
+	protected function paginate(Collection $collection)
+	{
+		$rules = [
+			'amount' => 'integer|min:2|max:50'
+		];
+
+		Validator::validate(request()->all(), $rules);
+		
+		$page = LengthAwarePaginator::resolveCurrentPage();
+		
+		$perPage = 15;
+		
+		if (request()->has('amount')) {
+			$perPage = (int) request()->amount;
+		}
+		
+		$results = $collection->slice(($page - 1) * $perPage, $perPage)->values();
+		
+		$paginated = new LengthAwarePaginator($results, $collection->count(), $perPage, $page, [
+			'path' => LengthAwarePaginator::resolveCurrentPath(),
+		]);
+		
+		$paginated->appends(request()->all());
+		
+		return $paginated;
+	}
 
 	
 }

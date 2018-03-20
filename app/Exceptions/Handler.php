@@ -32,6 +32,7 @@ class Handler extends ExceptionHandler
     {
         parent::report($exception);
     }
+
     public function render($request, Exception $exception)
     {
         if ($exception instanceof ValidationException) { 
@@ -73,11 +74,14 @@ class Handler extends ExceptionHandler
             }
         }
 
-        /*if (config('app.debug') {
-            return $this->errorResponse('Lo sentimos, error inesperado, intente mas tarde', 500);
-        }*/
-        
-        return parent::render($request, $exception);
+
+        if (config('app.debug')) {
+            return parent::render($request, $exception);            
+        }
+
+        return $this->errorResponse('Falla inesperada. Intente luego', 500);
+
+        /* return parent::render($request, $exception); */
     }
 
     
@@ -88,17 +92,8 @@ class Handler extends ExceptionHandler
 
     protected function convertValidationExceptionToResponse(ValidationException $e, $request)
     {
-        /*if ($e->response) {
-            return $e->response;
-        }
-
-        return $request->expectsJson()
-                    ? $this->invalidJson($request, $e)
-                    : $this->invalid($request, $e);
-        */
-        $errors = $e->validator->errors()->getMessages();
-
-        return $this->errorResponse($errors, 422);
+       $errors = $e->validator->errors()->getMessages();
+       return $this->errorResponse($errors, 422);
     }
 
 }
