@@ -20,6 +20,12 @@ class MeetingsTable extends Migration
             $table->dateTime('time_end')->comment("field to store meeting's end");
             $table->timestamps();
 
+            $table->integer('branch_id')->comment("field to store branch's number idenfifier")->unsigned();
+            $table->foreign('branch_id')->references('id')->on('branches')->onDelete('cascade');
+
+            $table->integer('court_id')->comment("field to store court's number idenfifier")->unsigned();
+            $table->foreign('court_id')->references('id')->on('courts')->onDelete('cascade');
+
         });      
     }
 

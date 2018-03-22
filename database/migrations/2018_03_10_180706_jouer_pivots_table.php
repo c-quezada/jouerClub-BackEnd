@@ -26,7 +26,7 @@ class JouerPivotsTable extends Migration
 
         Schema::create('jouer_team', function (Blueprint $table) {
 
-            
+            $table->primary(['jouer_id', 'team_id']);
             $table->integer('jouer_id')->unsigned()->comment(" field to store the sports that practice this user");
             $table->foreign('jouer_id')->references('id')->on('users')->onDelete('cascade');
 

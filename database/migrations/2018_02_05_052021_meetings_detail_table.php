@@ -20,12 +20,6 @@ class MeetingsDetailTable extends Migration
             $table->integer('meeting_id')->unsigned()->comment(" field to store the meeting id");
             $table->foreign('meeting_id')->references('id')->on('meetings');
 
-            $table->integer('jouer_id')->unsigned()->comment(" field to store the user that participate in this meeting");
-            $table->foreign('jouer_id')->references('id')->on('users');
-
-            $table->integer('court_id')->unsigned()->comment(" field to store the court where is carried out");
-            $table->foreign('court_id')->references('id')->on('courts');
-
             $table->timestamps();
 
         });    
