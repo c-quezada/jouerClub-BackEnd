@@ -25,6 +25,6 @@ class JouerController extends ApiController
     {
         $jouer = Jouer::findOrFail($request->user);
         $jouer->skills()->attach(array($request->skills));
-        return $this->showAll($jouer->skills);
+        return $this->showAll($jouer);
     }
 }
