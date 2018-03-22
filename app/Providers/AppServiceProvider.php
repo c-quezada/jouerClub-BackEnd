@@ -21,15 +21,16 @@ class AppServiceProvider extends ServiceProvider
     {
         User::created(function ($user)
         {
-            retry(5, function() use ($user){
-                Mail::to($user)->send(new UserCreated($user));
-        
-                if ($user->type == 'jouer') {
+             if ($user->type == 'jouer') {
                     DB::table('jouer_skill')->insert([
                         'jouer_id' => $user->id,
                         'skill_id' => 1
                     ]);
                 }
+
+            retry(5, function() use ($user){
+                Mail::to($user)->send(new UserCreated($user));
+        
                  //Laravel se encarga de reconocer automaticamente el campo email del objeto user
                 }, 100);
         });

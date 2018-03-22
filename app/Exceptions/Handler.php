@@ -72,6 +72,10 @@ class Handler extends ExceptionHandler
             if ($code == 1451) {
                 return $this->errorResponse('No se puede eliminar este recurso ya que esta relacionado con otro - Foreign KEY', 409);
             }
+
+            if ($code == 1062) {
+                return $this->errorResponse('No se puede ingresar este recurso ya que lo posees', 409);
+            }
         }
 
 
