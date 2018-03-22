@@ -37,7 +37,7 @@ $factory->define(User::class, function (Faker $faker) {
 		'password'          => $password ?: $password = bcrypt('secret'),
 		'picture_profile'   => str_random(20),
 		'status'            => $status = $faker->randomElement([User::USERVERIFIED, User::USERNOTVERIFIED]),
-		'type'              => $faker->randomElement([User::ADMIN, User::REGULAR]),
+		'type'              => $faker->randomElement(['admin', 'dev', 'jouer', 'cluber', 'coach']),
 		'code_verification' => $status == User::USERVERIFIED ? 'verified' : User::setCodeVerification(),
 		'remember_token'    => str_random(10)
     ];

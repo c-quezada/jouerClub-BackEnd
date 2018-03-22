@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\User;
 use App\Mail\UserCreated;
 use App\Mail\UserMailChanged;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
@@ -21,7 +22,15 @@ class AppServiceProvider extends ServiceProvider
         User::created(function ($user)
         {
             retry(5, function() use ($user){
-                Mail::to($user)->send(new UserCreated($user)); //Laravel se encarga de reconocer automaticamente el campo email del objeto user
+                Mail::to($user)->send(new UserCreated($user));
+        
+                if ($user->type == 'jouer') {
+                    DB::table('jouer_skill')->insert([
+                        'jouer_id' => $user->id,
+                        'skill_id' => 1
+                    ]);
+                }
+                 //Laravel se encarga de reconocer automaticamente el campo email del objeto user
                 }, 100);
         });
 

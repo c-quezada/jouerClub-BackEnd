@@ -5,6 +5,7 @@ use App\User;
 use App\Mail\UserCreated;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\ApiController;
 
@@ -27,12 +28,11 @@ class UserController extends ApiController
         $fields['picture_profile']   = $request->picture_profile->store('profile'); //STORE: primer parametro -> ubicacion / 2do -> sistema de archivos
         $fields['status']            = User::USERNOTVERIFIED;
         $fields['type']              = $request->type;
-
         $fields['code_verification'] = User::setCodeVerification();
 
+        $user = User::create($fields); 
         //dd($fields); die();
 
-        $user = User::create($fields);
  
         return $this->showOne($user, 201);
     }

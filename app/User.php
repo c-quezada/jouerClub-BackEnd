@@ -47,5 +47,6 @@ class User extends Authenticatable
     {
         return str_random(40);
     }
+
     //mutadores, se utiliza para modificar un valor actual de un atributo antes de hacer la insercion a la base de datos 
 }

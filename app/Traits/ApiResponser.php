@@ -23,7 +23,7 @@ trait ApiResponser
 			return $this->errorResponse('No hay resultados para estos recursos', $code);
 		}
 		
-		//$collection = $this->filterData($collection);
+		//s$collection = $this->filterData($collection);
 		$collection = $this->sortData($collection);
 		$collection = $this->paginate($collection);
 		
@@ -43,11 +43,9 @@ trait ApiResponser
 	
 	protected function filterData(Collection $collection)
 	{
-		$queryParams = request()->query();
-
-		foreach ($queryParams as $key => $value) {
-			if (isset($value)) {
-				$collection = $collection->where($key, $value);
+		foreach (request()->query() as $params => $value) {
+			if (isset($params, $value)) {
+				$collection = $collection->where($params, $value);
 			}
 		}
 		return $collection;
@@ -69,12 +67,12 @@ trait ApiResponser
 		];
 		Validator::validate(request()->all(), $rules);
 		$page = LengthAwarePaginator::resolveCurrentPage();
-		$perPage = 15;
+		$amount = 15;
 		if (request()->has('amount')) {
-			$perPage = (int) request()->amount;
+			$amount = (int) request()->amount;
 		}
-		$results = $collection->slice(($page - 1) * $perPage, $perPage)->values();
-		$paginated = new LengthAwarePaginator($results, $collection->count(), $perPage, $page, [
+		$results = $collection->slice(($page - 1) * $amount, $amount)->values();
+		$paginated = new LengthAwarePaginator($results, $collection->count(), $amount, $page, [
 			'path' => LengthAwarePaginator::resolveCurrentPath(),
 		]);
 		$paginated->appends(request()->all());

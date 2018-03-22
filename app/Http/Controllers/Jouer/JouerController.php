@@ -23,7 +23,7 @@ class JouerController extends ApiController
 
     public function addSkill(AddSkillRequest $request)
     {
-        $jouer = Jouer::findOrFail($request->user);
+        $jouer = User::findOrFail($request->user);
         $jouer->skills()->attach(array($request->skills));
         return $this->showAll($jouer);
     }
