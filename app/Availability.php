@@ -5,11 +5,14 @@ namespace App;
 use App\Court;
 use App\Skill;
 use Illuminate\Database\Eloquent\Model;
+use App\Transformers\AvailabilityTransformer;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Availability extends Model
 {
 	use SoftDeletes;
+
+    public $transformer = AvailabilityTransformer::class;
 	
     protected $table    = 'availabilities';
     

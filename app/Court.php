@@ -6,12 +6,15 @@ use App\Branch;
 use App\Meeting;
 use App\Facility;
 use App\SportField;
+use App\Transformers\CourtTransformer;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Court extends Model
 {
     use SoftDeletes;
+
+    public $transformer = CourtTransformer::class;
 
     protected $table    = 'courts';
     

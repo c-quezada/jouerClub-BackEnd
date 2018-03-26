@@ -31,7 +31,7 @@ class RegionSeeder extends Seeder
            return [
                'id' => $region[0],
                'name' => $region[1],
-               'ordinal' => $region[2],
+               'code' => $region[2],
                'updated_at' => $now,
                'created_at' => $now,
            ];

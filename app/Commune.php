@@ -5,11 +5,14 @@ namespace App;
 use App\Province;
 use App\SportField;
 use Illuminate\Database\Eloquent\Model;
+use App\Transformers\CommuneTransformer;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Commune extends Model
 {
 	use SoftDeletes;
+
+    public $transformer = CommuneTransformer::class;
 	
     protected $table    = 'communes';
     

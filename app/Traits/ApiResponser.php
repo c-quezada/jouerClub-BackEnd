@@ -1,38 +1,47 @@
 <?php
+
 namespace App\Traits;
+
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Pagination\LengthAwarePaginator;
+
 trait ApiResponser
 {
 	private function successResponse($data, $code)
 	{
-		return response()->json(['data' => $data], $code);
+		return response()->json($data, $code);
 	}
-
+	
 	protected function errorResponse($message, $code)
 	{
 		return response()->json(['error' => $message, 'code' => $code], $code);
 	}
-
+	
 	protected function showAll(Collection $collection, $code = 200)
 	{
 		if ($collection->isEmpty()) {
-			return $this->errorResponse('No hay resultados para estos recursos', $code);
+			return $this->successResponse(['data' => $collection], $code);
 		}
-		
-		//s$collection = $this->filterData($collection);
-		$collection = $this->sortData($collection);
+		$transformer = $collection->first()->transformer;
+		$collection = $this->filterData($collection, $transformer);
+		$collection = $this->sortData($collection, $transformer);
 		$collection = $this->paginate($collection);
+		$collection = $this->transformData($collection, $transformer);
 		
-		$collection = $this->cacheResponse($collection);
+		if (!config('app.debug')) {
+			$collection = $this->cacheResponse($collection);
+		}
+
 		return $this->successResponse($collection, $code);
 	}
-
+	
 	protected function showOne(Model $instance, $code = 200)
 	{
+		$transformer = $instance->transformer;
+		$instance = $this->transformData($instance, $transformer);
 		return $this->successResponse($instance, $code);
 	}
 	
@@ -41,20 +50,21 @@ trait ApiResponser
 		return $this->successResponse(['data' => $message], $code);
 	}
 	
-	protected function filterData(Collection $collection)
+	protected function filterData(Collection $collection, $transformer)
 	{
-		foreach (request()->query() as $params => $value) {
-			if (isset($params, $value)) {
-				$collection = $collection->where($params, $value);
+		foreach (request()->query() as $query => $value) {
+			$attribute = $transformer::originalAttribute($query);
+			if (isset($attribute, $value)) {
+				$collection = $collection->where($attribute, $value);
 			}
 		}
 		return $collection;
 	}
 	
-	protected function sortData(Collection $collection)
+	protected function sortData(Collection $collection, $transformer)
 	{
 		if (request()->has('by')) {
-			$attribute = request()->by;
+			$attribute = $transformer::originalAttribute(request()->by);
 			$collection = $collection->sortBy->{$attribute};
 		}
 		return $collection;
@@ -63,31 +73,37 @@ trait ApiResponser
 	protected function paginate(Collection $collection)
 	{
 		$rules = [
-			'amount' => 'integer|min:2|max:50'
+			'amount' => 'integer|min:2|max:50',
 		];
 		Validator::validate(request()->all(), $rules);
 		$page = LengthAwarePaginator::resolveCurrentPage();
-		$amount = 15;
+		$perPage = 15;
 		if (request()->has('amount')) {
-			$amount = (int) request()->amount;
+			$perPage = (int) request()->amount;
 		}
-		$results = $collection->slice(($page - 1) * $amount, $amount)->values();
-		$paginated = new LengthAwarePaginator($results, $collection->count(), $amount, $page, [
+		$results = $collection->slice(($page - 1) * $perPage, $perPage)->values();
+		$paginated = new LengthAwarePaginator($results, $collection->count(), $perPage, $page, [
 			'path' => LengthAwarePaginator::resolveCurrentPath(),
 		]);
 		$paginated->appends(request()->all());
 		return $paginated;
 	}
-
+	
+	protected function transformData($data, $transformer)
+	{
+		$transformation = fractal($data, new $transformer);
+		return $transformation->toArray();
+	}
+	
 	protected function cacheResponse($data)
 	{
 		$url = request()->url();
-		$queryParams = request()->query(); //parametros de la url
-		ksort($queryParams); //ordena los parametros 
-		$queryString = http_build_query($queryParams); //recibe el array de los parametros de la url
-		$fullUrl = "{$url}?{$queryString}"; //se contrulle la url ordenada
+		$queryParams = request()->query();
+		ksort($queryParams);
+		$queryString = http_build_query($queryParams);
+		$fullUrl = "{$url}?{$queryString}";
 		return Cache::remember($fullUrl, 30/60, function() use($data) {
 			return $data;
-		}); //1er parametro: para identificar una peticion de otra, 2do: tiempo que se va a establecer el cache de la respuesta, 3er: retornar datos del cache 
+		});
 	}
 }

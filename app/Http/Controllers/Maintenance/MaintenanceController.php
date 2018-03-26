@@ -4,9 +4,16 @@ namespace App\Http\Controllers\Maintenance;
 use App\Maintenance;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
+use App\Transformers\MaintenanceTransformer;
 
 class MaintenanceController extends ApiController
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->middleware('transform.imput:' . MaintenanceTransformer::class)->only(['store', 'update']);
+    }
+
     public function index()
     {    
         $maintenance = Maintenance::all();

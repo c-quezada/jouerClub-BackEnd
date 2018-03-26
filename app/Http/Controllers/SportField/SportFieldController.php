@@ -7,9 +7,15 @@ use App\SportField;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
 use App\Http\Requests\SportFieldRequest;
+use App\Transformers\SportfieldTransformer;
 
 class SportFieldController extends ApiController
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->middleware('transform.imput:' . SportfieldTransformer::class)->only(['store', 'update']);
+    }
 
     public function index()
     {

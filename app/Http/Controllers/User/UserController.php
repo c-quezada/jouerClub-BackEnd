@@ -8,9 +8,16 @@ use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\ApiController;
+use App\Transformers\Transformers\UserTransformer;
 
 class UserController extends ApiController
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->middleware('transform.input:' . UserTransformer::class)->only(['store', 'update']);
+    }
+
     public function index()
     {    
         $users = User::all();

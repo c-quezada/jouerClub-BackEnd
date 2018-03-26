@@ -7,10 +7,13 @@ use App\Skill;
 use App\Meeting;
 use App\Workshop;
 use App\Scopes\JouerScope;
+use App\Transformers\JouerTransformer;
 use Illuminate\Database\Eloquent\Model;
 
 class Jouer extends User
 {
+	public $transformer = JouerTransformer::class;
+
 	protected static function boot()
 	{
 		parent::boot();

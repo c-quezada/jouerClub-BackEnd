@@ -6,12 +6,15 @@ use App\Court;
 use App\Cluber;
 use App\Commune;
 use Illuminate\Database\Eloquent\Model;
+use App\Transformers\SportfieldTransformer;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class SportField extends Model
 {	
 	use SoftDeletes;
 	
+    public $transformer = SportfieldTransformer::class;
+
     protected $table    = 'sportsFields';
     
     protected $fillable = [
