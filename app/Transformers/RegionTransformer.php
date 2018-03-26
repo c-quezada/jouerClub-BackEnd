@@ -34,6 +34,7 @@ class RegionTransformer extends TransformerAbstract
             'fecha_actualizacion' => 'updated_at',
             'fecha_eliminacion' => 'deleted_at',
         ];
+        return isset($attributes[$index]) ? $attributes[$index] : null;
     }
 
     public static function transformedAttribute($index)

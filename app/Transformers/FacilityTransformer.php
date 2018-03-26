@@ -24,6 +24,17 @@ class FacilityTransformer extends TransformerAbstract
             'fecha_creacion' => (string)$facility->created_at,
             'fecha_actualizacion' => (string)$facility->updated_at,
             'fecha_eliminacion' => isset($facility->deleted_at) ? (string)$facility->deleted_at : null,
+
+            'links' => [
+                [
+                    'rel' => 'self',
+                    'href' => route('facilities.show', $facility->id),
+                ],
+                [
+                    'rel' => 'facilities.maintenance',
+                    'href' => route('facilities.maintenance.index', $facility->id),
+                ]
+            ]
         ];
     }
 
@@ -40,6 +51,7 @@ class FacilityTransformer extends TransformerAbstract
             'fecha_actualizacion' => 'updated_at',
             'fecha_eliminacion' => 'deleted_at',
         ];
+        return isset($attributes[$index]) ? $attributes[$index] : null;
     }
 
     public static function transformedAttribute($index)

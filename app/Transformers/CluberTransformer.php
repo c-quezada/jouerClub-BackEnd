@@ -26,6 +26,18 @@ class CluberTransformer extends TransformerAbstract
             'fecha_creacion' => (string)$cluber->created_at,
             'fecha_actualizacion' => (string)$cluber->updated_at,
             'fecha_eliminacion' => isset($cluber->deleted_at) ? (string)$cluber->deleted_at : null,
+
+
+            'links' => [
+                [
+                    'rel' => 'self',
+                    'href' => route('clubers.show', $cluber->id),
+                ],
+                [
+                    'rel' => 'clubers.sportfields',
+                    'href' => route('clubers.sportfields.index', $cluber->id),
+                ]
+            ]
         ];
     }
 
@@ -44,6 +56,7 @@ class CluberTransformer extends TransformerAbstract
             'fecha_actualizacion' => 'updated_at',
             'fecha_eliminacion' => 'deleted_at',
         ];
+        return isset($attributes[$index]) ? $attributes[$index] : null;
     }
 
     public static function transformedAttribute($index)

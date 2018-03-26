@@ -6,10 +6,17 @@ use App\Court;
 use App\SportField;
 use Illuminate\Http\Request;
 use App\Http\Requests\CourtRequest;
+use App\Transformers\CourtTransformer;
 use App\Http\Controllers\ApiController;
 
 class CourtController extends ApiController
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->middleware('transform.imput:' . CourtTransformer::class)->only(['store', 'update']);
+    }
+
     public function index()
     {
         $courts = Court::all();

@@ -39,7 +39,7 @@ class User extends Authenticatable
     ];
     
     //oculta estos atributos del modelo al tranformarlo al array y posteriormente a json para ser enviado a traves de la api
-    protected $hidden   = ['password', 'remember_token', 'created_at', 'updated_at', 'deleted_at'];
+    protected $hidden   = ['password', 'remember_token', 'deleted_at'];
 
     public function isVerified()
     {

@@ -22,6 +22,13 @@ class MaintenanceTransformer extends TransformerAbstract
             'fecha_creacion' => (string)$maintenance->created_at,
             'fecha_actualizacion' => (string)$maintenance->updated_at,
             'fecha_eliminacion' => isset($maintenance->deleted_at) ? (string)$maintenance->deleted_at : null,
+
+            'links' => [
+                [
+                    'rel' => 'self',
+                    'href' => route('maintenance.show', $facility->id),
+                ]
+            ]
         ];
     }
 
@@ -36,6 +43,7 @@ class MaintenanceTransformer extends TransformerAbstract
             'fecha_actualizacion' => 'updated_at',
             'fecha_eliminacion' => 'deleted_at',
         ];
+        return isset($attributes[$index]) ? $attributes[$index] : null;
     }
 
     public static function transformedAttribute($index)

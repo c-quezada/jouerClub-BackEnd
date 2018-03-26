@@ -6,9 +6,15 @@ use App\Workshop;
 use Illuminate\Http\Request;
 use App\Http\Requests\WorkshopRequest;
 use App\Http\Controllers\ApiController;
+use App\Transformers\WorkshopTransformer;
 
 class WorkshopController extends ApiController
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->middleware('transform.imput: ' . WorkshopTransformer::class)->only(['store', 'update']);
+    }
 
     public function index()
     {

@@ -16,7 +16,7 @@ class BranchTransformer extends TransformerAbstract
     {
         return [
             'identificador' => (int)$branch->id,
-            'nombre' => (string)$branch->name
+            'nombre' => (string)$branch->name,
             'fecha_creacion' => (string)$branch->created_at,
             'fecha_actualizacion' => (string)$branch->updated_at,
             'fecha_eliminacion' => isset($branch->deleted_at) ? (string)$branch->deleted_at : null,
@@ -32,6 +32,7 @@ class BranchTransformer extends TransformerAbstract
             'fecha_actualizacion' => 'updated_at',
             'fecha_eliminacion' => 'deleted_at',
         ];
+        return isset($attributes[$index]) ? $attributes[$index] : null;
     }
 
     public static function transformedAttribute($index)

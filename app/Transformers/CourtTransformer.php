@@ -21,6 +21,21 @@ class CourtTransformer extends TransformerAbstract
             'fecha_creacion' => (string)$court->created_at,
             'fecha_actualizacion' => (string)$court->updated_at,
             'fecha_eliminacion' => isset($court->deleted_at) ? (string)$court->deleted_at : null,
+
+            'links' => [
+                [
+                    'rel' => 'self',
+                    'href' => route('courts.show', $court->id),
+                ],
+                [
+                    'rel' => 'courts.branches',
+                    'href' => route('courts.branches.index', $court->id),
+                ],
+                [
+                    'rel' => 'courts.facilities',
+                    'href' => route('courts.facilities.index', $court->id),
+                ]
+            ]
         ];
     }
 
@@ -34,6 +49,7 @@ class CourtTransformer extends TransformerAbstract
             'fecha_actualizacion' => 'updated_at',
             'fecha_eliminacion' => 'deleted_at',
         ];
+        return isset($attributes[$index]) ? $attributes[$index] : null;
     }
 
     public static function transformedAttribute($index)

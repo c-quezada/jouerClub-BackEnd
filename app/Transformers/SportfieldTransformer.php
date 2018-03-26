@@ -31,6 +31,17 @@ class SportfieldTransformer extends TransformerAbstract
             'fecha_creacion' => (string)$sportfield->created_at,
             'fecha_actualizacion' => (string)$sportfield->updated_at,
             'fecha_eliminacion' => isset($sportfield->deleted_at) ? (string)$sportfield->deleted_at : null,
+
+            'links' => [
+                [
+                    'rel' => 'self',
+                    'href' => route('sportfields.show', $sportfield->id),
+                ],
+                [
+                    'rel' => 'sportfields.courts',
+                    'href' => route('sportfields.courts.index', $sportfield->id),  
+                ]
+            ]
         ];
     }
 
@@ -54,6 +65,7 @@ class SportfieldTransformer extends TransformerAbstract
             'fecha_actualizacion' => 'updated_at',
             'fecha_eliminacion' => 'deleted_at',
         ];
+        return isset($attributes[$index]) ? $attributes[$index] : null;
     }
 
     public static function transformedAttribute($index)

@@ -23,21 +23,14 @@ trait ApiResponser
 	protected function showAll(Collection $collection, $code = 200)
 	{
 		if ($collection->isEmpty()) {
-			return $this->errorResponse(['No tenemos datos para este recurso' => $collection], $code);
+			return $this->successResponse(['data' => $collection], $code);
 		}
-
 		$transformer = $collection->first()->transformer;
-		
 		$collection = $this->filterData($collection, $transformer);
 		$collection = $this->sortData($collection, $transformer);
 		$collection = $this->paginate($collection);
 		$collection = $this->transformData($collection, $transformer);
-		
-		
-		if (!config('app.debug')) {
-			$collection = $this->cacheResponse($collection);
-		}
-
+		$collection = $this->cacheResponse($collection);		
 		return $this->successResponse($collection, $code);
 	}
 	
@@ -76,7 +69,7 @@ trait ApiResponser
 	protected function paginate(Collection $collection)
 	{
 		$rules = [
-			'amount' => 'integer|min:2|max:50'
+			'amount' => 'integer|min:2|max:50',
 		];
 		Validator::validate(request()->all(), $rules);
 		$page = LengthAwarePaginator::resolveCurrentPage();
@@ -101,12 +94,12 @@ trait ApiResponser
 	protected function cacheResponse($data)
 	{
 		$url = request()->url();
-		$queryParams = request()->query(); //parametros de la url
-		ksort($queryParams); //ordena los parametros 
-		$queryString = http_build_query($queryParams); //recibe el array de los parametros de la url
-		$fullUrl = "{$url}?{$queryString}"; //se contrulle la url ordenada
+		$queryParams = request()->query();
+		ksort($queryParams);
+		$queryString = http_build_query($queryParams);
+		$fullUrl = "{$url}?{$queryString}";
 		return Cache::remember($fullUrl, 30/60, function() use($data) {
 			return $data;
-		}); //1er parametro: para identificar una peticion de otra, 2do: tiempo que se va a establecer el cache de la respuesta, 3er: retornar datos del cache
+		});
 	}
 }

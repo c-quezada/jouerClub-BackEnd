@@ -6,9 +6,15 @@ use App\Facility;
 use Illuminate\Http\Request;
 use App\Http\Requests\FacilityRequest;
 use App\Http\Controllers\ApiController;
+use App\Transformers\FacilityTransformer;
 
 class FacilityController extends ApiController
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->middleware('transform.imput:' . FacilityTransformer::class)->only(['store', 'update']);
+    }
 
     public function index()
     {

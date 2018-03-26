@@ -2,14 +2,21 @@
 
 namespace App\Http\Controllers\Branch;
 
-use App\Branch;
 use App\Sport;
+use App\Branch;
 use Illuminate\Http\Request;
 use App\Http\Requests\BranchRequest;
 use App\Http\Controllers\ApiController;
+use App\Transformers\BranchTransformer;
 
 class BranchController extends ApiController
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->middleware('transform.imput:' . BranchTransformer::class)->only(['store', 'update']);
+    }
+
     public function index()
     {
         $branches = Branch::all();
