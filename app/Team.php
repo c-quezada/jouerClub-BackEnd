@@ -17,7 +17,7 @@ class Team extends Model
 	
 	protected $dates    = ['deleted_at'];
 
-	protected $hidden   = ['created_at', 'updated_at', 'deleted_at'];
+	protected $hidden   = ['pivot', 'created_at', 'updated_at', 'deleted_at', 'id'];
 	
     public function jouers()
     {

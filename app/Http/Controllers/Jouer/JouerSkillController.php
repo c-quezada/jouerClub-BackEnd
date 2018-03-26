@@ -16,4 +16,17 @@ class JouerSkillController extends ApiController
         $skills = $jouer->skills;
         return $this->showAll($skills);
     }
+
+    public function addSkill(Jouer $jouer, Request $request)
+    {
+            $jouer->skills()->attach(array($request->skills));
+            $jouer->skills()->wherePivot('skill_id', '=', 1)->detach();
+            return $this->showAll($jouer->skills);       
+    }
+
+    public function removeSkill(Jouer $jouer, Request $request)
+    {
+            $jouer->skills()->detach(array($request->skills));
+            return $this->showAll($jouer->skills);       
+    }
 }

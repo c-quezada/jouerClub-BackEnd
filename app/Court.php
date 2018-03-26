@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Branch;
+use App\Meeting;
 use App\Facility;
 use App\SportField;
 use Illuminate\Database\Eloquent\Model;
@@ -33,5 +34,10 @@ class Court extends Model
     public function facilities()
     {
         return $this->hasMany(Facility::class);
+    }
+
+    public function meeting()
+    {
+        return $this->belongsTo(Meeting::class);
     }
 }

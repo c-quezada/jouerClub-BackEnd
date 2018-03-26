@@ -6,6 +6,7 @@ use App\Court;
 use App\Skill;
 use App\Sport;
 use App\Branch;
+use App\Meeting;
 use App\Facility;
 use App\Workshop;
 use App\SportField;
@@ -26,7 +27,7 @@ class DatabaseSeeder extends Seeder
 
         $users = 200; $sportfields = 100; $courts = 400; 
         $facilities = 600; $workshops = 100; $branches = 100; 
-        $teams = 100; $skills = 200; $maintenance = 200;
+        $teams = 100; $skills = 200; $maintenance = 200; $meetings = 50;
 
         User::flushEventListeners(); //Ignora los eventos asociados al usuario y asi no se envian correos de manera masiva por la creacion de usuarios a traves de UserFactory
 
@@ -35,7 +36,7 @@ class DatabaseSeeder extends Seeder
         //factory(SportField::class, $sportfields)->create();
         $this->call(sportFieldSeeder::class);
         factory(Court::class, $courts)->create();
-        
+        factory(Meeting::class, $meetings)->create();
         $this->call(SportsSeeder::class);
         factory(Branch::class, $branches)->create()->each(
             function ($branch){

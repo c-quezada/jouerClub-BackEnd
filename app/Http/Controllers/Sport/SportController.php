@@ -17,7 +17,12 @@ class SportController extends ApiController
 
     public function store(SportRequest $request)
     {
-       //
+        $fields                  = $request->all();
+        $fields['name']          = ucwords($request->name);     
+        $fields['description']   = $request->description;
+
+        $sport = Sport::create($fields); 
+        return $this->showOne($sport, 201);
     }
 
     public function show(Sport $sport)

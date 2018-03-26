@@ -18,10 +18,9 @@ class MeetingsTable extends Migration
             $table->increments('id')->comment("field to store meeting's number idenfifier");
             $table->dateTime('time_begin')->comment("field to store meeting's start");
             $table->dateTime('time_end')->comment("field to store meeting's end");
+            $table->enum('status', ['pending', 'now', 'finished'])->comment("field to store user's type")->default('pending');
             $table->timestamps();
-
-            $table->integer('branch_id')->comment("field to store branch's number idenfifier")->unsigned();
-            $table->foreign('branch_id')->references('id')->on('branches')->onDelete('cascade');
+            $table->softDeletes();
 
             $table->integer('court_id')->comment("field to store court's number idenfifier")->unsigned();
             $table->foreign('court_id')->references('id')->on('courts')->onDelete('cascade');

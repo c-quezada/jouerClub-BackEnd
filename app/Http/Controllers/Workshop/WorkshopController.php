@@ -21,8 +21,14 @@ class WorkshopController extends ApiController
         $fields                = $request->all();
         $fields['name']        = strtoupper($request->name);
         $fields['description'] = strtolower($request->lastname);
+        $fields['time_begin']  = $request->time_begin;     
+        $fields['time_end']    = $request->time_end;
+        $fields['status']      = $request->status;
 
-        //dd($fields); die();
+        if (Coach::findOrFail($request->coach_id)) {
+            $workshop = Workshop::create($fields); 
+            return $this->showOne($workshop, 201);
+        }
 
         $workshop = Workshop::create($fields);
         return $this->showOne($workshop, 201);

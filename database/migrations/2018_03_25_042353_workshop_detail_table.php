@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class MeetingsDetailTable extends Migration
+class WorkshopDetailTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class MeetingsDetailTable extends Migration
      */
     public function up()
     {
-        Schema::create('jouer_meeting', function(Blueprint $table){
+        Schema::create('jouer_workshop', function(Blueprint $table){
 
-            $table->primary(['jouer_id', 'meeting_id']);
+            $table->primary(['jouer_id', 'workshop_id']);
         
-            $table->integer('meeting_id')->unsigned()->comment(" field to store the meeting id");
-            $table->foreign('meeting_id')->references('id')->on('meetings');
+            $table->integer('workshop_id')->unsigned()->comment(" field to store the meeting id");
+            $table->foreign('workshop_id')->references('id')->on('workshops');
 
             $table->integer('jouer_id')->unsigned()->comment(" field to store the jouer that participate in this meeting");
             $table->foreign('jouer_id')->references('id')->on('users')->onDelete('cascade');
@@ -27,7 +27,7 @@ class MeetingsDetailTable extends Migration
 
             $table->timestamps();
 
-        });    
+        });
     }
 
     /**
@@ -37,6 +37,6 @@ class MeetingsDetailTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExist('jouer_meeting');   
+        Schema::dropIfExist('jouer_workshop');  
     }
 }

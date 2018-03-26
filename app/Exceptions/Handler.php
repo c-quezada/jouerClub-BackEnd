@@ -74,7 +74,7 @@ class Handler extends ExceptionHandler
             }
 
             if ($code == 1062) {
-                return $this->errorResponse('No se puede ingresar este recurso ya que lo posees', 409);
+                return $this->errorResponse('No se puede ingresar un recurso que ya posees', 409);
             }
         }
 

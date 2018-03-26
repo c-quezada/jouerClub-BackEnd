@@ -8,6 +8,7 @@ use App\Sport;
 use App\Branch;
 use App\Cluber;
 use App\Commune;
+use App\Meeting;
 use App\Facility;
 use App\Workshop;
 use App\SportField;
@@ -64,6 +65,16 @@ $factory->define(Court::class, function (Faker $faker) {
 		'name'           => $faker->word,
 		'status'         => $faker->randomElement(['available', 'notAvailable', 'maintenance']),
 		'sport_field_id' => SportField::inRandomOrder()->first()->id
+    ];
+});
+
+$factory->define(Meeting::class, function (Faker $faker) {
+	//$cluber = Cluber::has('sportfields')->get()->random();
+    return [
+		'time_begin'  => $faker->dateTime,
+		'time_end'    => $faker->dateTime,
+		'status'      => $faker->randomElement(['pending', 'now', 'finished']),
+		'court_id'    => Court::all()->random()->id
     ];
 });
 

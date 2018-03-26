@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Coach;
+use App\Jouer;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -30,5 +31,10 @@ class Workshop extends Model
     public function coach()
     {
     	return $this->belongsTo(Coach::class);
+    }
+
+    public function jouers()
+    {
+        return $this->belongsToMany(Jouer::class);
     }
 }
