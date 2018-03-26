@@ -4,12 +4,15 @@ namespace App;
 
 use App\Jouer;
 use App\Branch;
+use App\Transformers\TeamTransformer;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Team extends Model
 {
 	use SoftDeletes;
+
+	public $transformer = TeamTransformer::class;
 
 	protected $table    = 'teams';
 	

@@ -5,12 +5,15 @@ namespace App;
 use App\Cluber;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Transformers\Transformers\UserTransformer;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
     use Notifiable, SoftDeletes; //nos proporciona una fecha de eliminacion, para no eliminar el registro si no que ignorarlo, si es que este campo != null
     
+    public $transformer = UserTransformer::class;
+
     const USERVERIFIED    = 'verified';
     const USERNOTVERIFIED = 'pending';
     const ADMIN           = 'admin';

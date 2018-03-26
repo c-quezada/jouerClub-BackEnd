@@ -17,6 +17,7 @@ class FacilitiesTable extends Migration
             $table->increments('id')->comment("field to store falicity's number idenfifier, it's a foreign key")->unsigned();;
             $table->string('name')->comment("field to store falicity's name");
             $table->string('brand')->comment("field to store falicity's brand");
+            $table->string('price')->comment("field to store falicity's price");
             $table->dateTimeTz('purchased_at')->comment("field to store when the court was bought");
             $table->integer('court_id')->comment("field to store court's number idenfifier, it's a foreign key")->unsigned();
             $table->timestamps();

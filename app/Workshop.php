@@ -4,11 +4,14 @@ namespace App;
 
 use App\Coach;
 use Illuminate\Database\Eloquent\Model;
+use App\Transformers\WorkshopTransformer;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Workshop extends Model
 {
     use SoftDeletes;
+
+    public $transformer = WorkshopTransformer::class;
 	
     protected $table    = 'workshops';
     

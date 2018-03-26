@@ -6,11 +6,14 @@ use App\Branch;
 use App\Facility;
 use App\SportField;
 use Illuminate\Database\Eloquent\Model;
+use App\Transformers\MaintenanceTransformer;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Maintenance extends Model
 {
     use SoftDeletes;
+
+    public $transformer = MaintenanceTransformer::class;
 
     protected $table    = 'maintenance';
     

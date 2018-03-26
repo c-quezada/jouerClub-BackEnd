@@ -21,10 +21,18 @@ class JouerController extends ApiController
         return $this->showOne($jouer);
     }
 
-    public function addSkill(AddSkillRequest $request)
+    public function addSkill(Jouer $jouer, Request $request)
     {
-        $jouer = User::findOrFail($request->user);
+        /*foreach ($jouer->skills() as $skill => $value) {
+            if ($value == $request->skills) {
+                return $this->errorResponse('Ya poosees este Skill');
+            }
+        }
+
         $jouer->skills()->attach(array($request->skills));
-        return $this->showAll($jouer);
+        $jouer->skills()->wherePivot('skill_id', '=', 1)->detach();
+        return $this->showAll($jouer->skills);
+        */
+        return $this->showOne($jouer->id);
     }
 }

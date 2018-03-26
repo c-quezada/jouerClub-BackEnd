@@ -5,11 +5,14 @@ namespace App;
 use App\Court;
 use App\Maintenance;
 use Illuminate\Database\Eloquent\Model;
+use App\Transformers\FacilityTransformer;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Facility extends Model
 {
 	use SoftDeletes;
+
+    public $transformer = FacilityTransformer::class;
 	
     protected $table    = 'facilities';
     
