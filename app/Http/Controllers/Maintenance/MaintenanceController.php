@@ -11,7 +11,7 @@ class MaintenanceController extends ApiController
     public function __construct()
     {
         parent::__construct();
-        $this->middleware('transform.imput:' . MaintenanceTransformer::class)->only(['store', 'update']);
+        $this->middleware('transform.input:' . MaintenanceTransformer::class)->only(['store', 'update']);
     }
 
     public function index()

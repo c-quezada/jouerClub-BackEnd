@@ -29,7 +29,6 @@ class AppServiceProvider extends ServiceProvider
             }
             retry(5, function() use ($user){
                 Mail::to($user)->send(new UserCreated($user)); //Laravel se encarga de reconocer automaticamente el campo email del objeto user
->>>>>>> transformers
                 }, 100);
         });
 

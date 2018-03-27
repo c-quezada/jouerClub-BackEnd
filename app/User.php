@@ -32,7 +32,7 @@ class User extends Authenticatable
         'email',
         'phone',
         'password',
-        'picture_profile',
+        'picture',
         'status',
         'type',
         'code_verification'
@@ -49,6 +49,11 @@ class User extends Authenticatable
     public static function setCodeVerification()
     {
         return str_random(40);
+    }
+
+    public static function setSMSVerification()
+    {
+        return rand(1000, 9999);
     }
 
     //mutadores, se utiliza para modificar un valor actual de un atributo antes de hacer la insercion a la base de datos 

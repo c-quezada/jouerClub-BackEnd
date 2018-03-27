@@ -36,7 +36,7 @@ $factory->define(User::class, function (Faker $faker) {
 		'email'             => $faker->unique()->safeEmail,
 		'phone'             => $faker->unique()->numberBetween($min = 50000000, $max = 99999999),
 		'password'          => $password ?: $password = bcrypt('secret'),
-		'picture_profile'   => str_random(20),
+		'photo'   => str_random(20),
 		'status'            => $status = $faker->randomElement([User::USERVERIFIED, User::USERNOTVERIFIED]),
 		'type'              => $faker->randomElement(['admin', 'dev', 'jouer', 'cluber', 'coach']),
 		'code_verification' => $status == User::USERVERIFIED ? 'verified' : User::setCodeVerification(),
@@ -89,6 +89,7 @@ $factory->define(Facility::class, function (Faker $faker) {
     return [
 		'name'         => $faker->word,
 		'brand'        => $faker->randomElement(['nike', 'adidas', 'new balance', 'jordan', 'wilson']),
+		'price'             => $faker->unique()->numberBetween($min = 50000000, $max = 99999999),
 		'purchased_at' => $faker->dateTime,
 		'court_id'     => Court::inRandomOrder()->first()->id
     ];
@@ -127,7 +128,7 @@ $factory->define(Skill::class, function (Faker $faker) {
 $factory->define(Maintenance::class, function (Faker $faker) {
     return [
 		'observations' => $faker->paragraph(1),
-		'status' => $faker->randomElement([1,2,3,4,5]),
+		'mark' => $faker->randomElement([1,2,3,4,5]),
 		'facility_id' => Facility::inRandomOrder()->first()->id
     ];
 });

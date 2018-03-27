@@ -14,7 +14,7 @@ class BranchController extends ApiController
     public function __construct()
     {
         parent::__construct();
-        $this->middleware('transform.imput:' . BranchTransformer::class)->only(['store', 'update']);
+        $this->middleware('transform.input:' . BranchTransformer::class)->only(['store', 'update']);
     }
 
     public function index()

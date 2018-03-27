@@ -26,25 +26,32 @@ Route::name('resend')->get('users/{user}/resend', 'User\UserController@resend');
 Route::resource('jouers', 'Jouer\JouerController', ['only' => ['index', 'show']]); 
 Route::resource('jouers.skills', 'Jouer\JouerSkillController', ['only' => ['index']]);
 Route::resource('jouers.teams', 'Jouer\JouerTeamController', ['only' => ['index']]);
-<<<<<<< HEAD
 Route::resource('jouers.meetings', 'Jouer\JouerMeetingController', ['only' => ['index']]);
 Route::resource('jouers.workshops', 'Jouer\JouerWorkshopController', ['only' => ['index']]);
 
-//////////////////////////////////////////////SKILLS///////////////////////////////////////////////////////////
+/**
+ * Jouer Skills
+ */
 Route::name('jouers.addSkill')->post('jouers/{jouer}/addskill', 'Jouer\JouerSkillController@addSkill');
 Route::name('jouers.removeSkill')->post('jouers/{jouer}/removeskill', 'Jouer\JouerSkillController@removeSkill');
-//////////////////////////////////////////////TEAMS////////////////////////////////////////////////////////////
+
+/**
+ * Jouer Teams
+ */
 Route::name('jouers.addTeam')->post('jouers/{jouer}/addteam', 'Jouer\JouerTeamController@addTeam');
 Route::name('jouers.removeTeam')->post('jouers/{jouer}/removeteam', 'Jouer\JouerTeamController@removeTeam');
-/////////////////////////////////////////////MEETINGS//////////////////////////////////////////////////////////
+
+/**
+ * Jouer Meetings
+ */
 Route::name('jouers.addMeeting')->post('jouers/{jouer}/addmeeting', 'Jouer\JouerMeetingController@addMeeting');
 Route::name('jouers.removeMeeting')->post('jouers/{jouer}/removemeeting', 'Jouer\JouerMeetingController@removeMeeting');
-/////////////////////////////////////////////WORKSHOPS/////////////////////////////////////////////////////////
+
+/**
+ * Jouer Workshops
+ */
 Route::name('jouers.addWorkshop')->post('jouers/{jouer}/addworkshop', 'Jouer\JouerWorkshopController@addWorkshop');
 Route::name('jouers.removeWorkshop')->post('jouers/{jouer}/removeworkshop', 'Jouer\JouerWorkshopController@removeWorkshop');
-=======
-Route::name('jouers.addSkill')->post('jouers/{user}/addskill', 'Jouer\JouerController@addSkill');
->>>>>>> transformers
 
 /**
  * Clubers

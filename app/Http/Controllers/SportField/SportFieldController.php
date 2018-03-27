@@ -14,7 +14,7 @@ class SportFieldController extends ApiController
     public function __construct()
     {
         parent::__construct();
-        $this->middleware('transform.imput:' . SportfieldTransformer::class)->only(['store', 'update']);
+        $this->middleware('transform.input:' . SportfieldTransformer::class)->only(['store', 'update']);
     }
 
     public function index()

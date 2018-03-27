@@ -19,7 +19,7 @@ class UserRequest extends FormRequest
             'nickname'        => 'required|max:30|min:unique',
             'email'           => 'required|email|unique:users',
             'password'        => 'required|min:6',
-            'picture_profile' => 'required|image',
+            'photo'           => 'required|image',
             'type'            => 'required|min:4',
         ];
     }

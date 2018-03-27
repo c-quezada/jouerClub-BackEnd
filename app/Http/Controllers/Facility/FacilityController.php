@@ -13,7 +13,7 @@ class FacilityController extends ApiController
     public function __construct()
     {
         parent::__construct();
-        $this->middleware('transform.imput:' . FacilityTransformer::class)->only(['store', 'update']);
+        $this->middleware('transform.input:' . FacilityTransformer::class)->only(['store', 'update']);
     }
 
     public function index()
