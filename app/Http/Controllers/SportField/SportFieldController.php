@@ -13,7 +13,7 @@ class SportFieldController extends ApiController
 {
     public function __construct()
     {
-        parent::__construct();
+        $this->middleware('client.credentials')->only(['index', 'show']);
         $this->middleware('transform.input:' . SportfieldTransformer::class)->only(['store', 'update']);
     }
 
@@ -26,12 +26,12 @@ class SportFieldController extends ApiController
     public function store(SportFieldRequest $request)
     {
         $fields                = $request->all();
-        $fields['name']        = ucwords($request->name);     
+        $fields['name']        = ucwords($request->name);
         $fields['description'] = strtolower($request->description);
         $fields['address']     = ucwords($request->address);
 
         if (Cluber::findOrFail($request->cluber_id)) {
-            $sportfield = SportField::create($fields); 
+            $sportfield = SportField::create($fields);
             return $this->showOne($sportfield, 201);
         }
     }
@@ -39,7 +39,7 @@ class SportFieldController extends ApiController
 
     public function show(Sportfield $sportfield)
     {
-        return $this->showOne($sportfield);        
+        return $this->showOne($sportfield);
     }
 
     public function update(SportFieldRequest $request, Sportfield $sportfield)

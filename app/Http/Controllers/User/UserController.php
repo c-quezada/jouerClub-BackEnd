@@ -14,12 +14,13 @@ class UserController extends ApiController
 {
     public function __construct()
     {
-        parent::__construct();
+        $this->middleware('client.credentials')->only(['store', 'resend']);
+        $this->middleware('auth:api')->except(['store', 'verify', 'resend']);
         $this->middleware('transform.input:' . UserTransformer::class)->only(['store', 'update']);
     }
 
     public function index()
-    {    
+    {
         $users = User::all();
         return $this->showAll($users);
     }
@@ -37,16 +38,16 @@ class UserController extends ApiController
         $fields['type']              = $request->type;
         $fields['code_verification'] = User::setCodeVerification();
 
-        $user = User::create($fields); 
+        $user = User::create($fields);
         //dd($fields); die();
 
- 
+
         return $this->showOne($user, 201);
     }
 
     public function show(User $user)
     {
-        return $this->showOne($user);        
+        return $this->showOne($user);
     }
 
     public function update(Request $request, User $user)
@@ -92,7 +93,7 @@ class UserController extends ApiController
 
     public function verify($token)
     {
-        $user = User::where('code_verification', $token)->firstOrFail(); //buscamos el usuario con ese token 
+        $user = User::where('code_verification', $token)->firstOrFail(); //buscamos el usuario con ese token
         $user->status = User::USERVERIFIED;
         $user->code_verification = User::USERVERIFIED;
 

@@ -23,7 +23,7 @@ Route::name('resend')->get('users/{user}/resend', 'User\UserController@resend');
 /**
  * Jouers
  */
-Route::resource('jouers', 'Jouer\JouerController', ['only' => ['index', 'show']]); 
+Route::resource('jouers', 'Jouer\JouerController', ['only' => ['index', 'show']]);
 Route::resource('jouers.skills', 'Jouer\JouerSkillController', ['only' => ['index']]);
 Route::resource('jouers.teams', 'Jouer\JouerTeamController', ['only' => ['index']]);
 Route::resource('jouers.meetings', 'Jouer\JouerMeetingController', ['only' => ['index']]);
@@ -56,35 +56,35 @@ Route::name('jouers.removeWorkshop')->post('jouers/{jouer}/removeworkshop', 'Jou
 /**
  * Clubers
  */
-Route::resource('clubers', 'Cluber\CluberController', ['only' => ['index', 'show']]); 
-Route::resource('clubers.sportfields', 'Cluber\CluberSportFieldsController', ['only' => ['index']]); 
+Route::resource('clubers', 'Cluber\CluberController', ['only' => ['index', 'show']]);
+Route::resource('clubers.sportfields', 'Cluber\CluberSportFieldsController', ['only' => ['index']]);
 
 /**
  * Coaches
  */
-Route::resource('coaches', 'Coach\CoachController', ['only' => ['index', 'show']]); 
-Route::resource('coaches.workshops', 'Coach\CoachWorkshopsController', ['only' => ['index']]); 
+Route::resource('coaches', 'Coach\CoachController', ['only' => ['index', 'show']]);
+Route::resource('coaches.workshops', 'Coach\CoachWorkshopsController', ['only' => ['index']]);
 
 /**
  * Courts
  */
-Route::resource('courts', 'Court\CourtController', ['except' => ['create', 'edit']]); 
-Route::resource('courts.facilities', 'Court\CourtFacilitiesController', ['only' => ['index']]); 
-Route::resource('courts.branches', 'Court\CourtBranchesController', ['only' => ['index']]); 
+Route::resource('courts', 'Court\CourtController', ['except' => ['create', 'edit']]);
+Route::resource('courts.facilities', 'Court\CourtFacilitiesController', ['only' => ['index']]);
+Route::resource('courts.branches', 'Court\CourtBranchesController', ['only' => ['index']]);
 
 
 /**
  * SportFields
  */
-Route::resource('sportfields', 'SportField\SportFieldController', ['except' => ['create', 'edit']]); 
-Route::resource('sportfields.courts', 'SportField\SportFieldCourtsController', ['only' => ['index']]); 
+Route::resource('sportfields', 'SportField\SportFieldController', ['except' => ['create', 'edit']]);
+Route::resource('sportfields.courts', 'SportField\SportFieldCourtsController', ['only' => ['index']]);
 
 
 /**
  * Facilities
  */
 Route::resource('facilities', 'Facility\FacilityController', ['except' => ['create', 'edit']]);
-Route::resource('facilities.maintenance', 'Facility\FacilityMaintenanceController', ['only' => ['index']]); 
+Route::resource('facilities.maintenance', 'Facility\FacilityMaintenanceController', ['only' => ['index']]);
 
 /**
  * Maintenance
@@ -128,3 +128,7 @@ Route::resource('meetings.details', 'Meeting\MeetingDetailController', ['only' =
 Route::resource('skills', 'Skill\SkillController', ['except' => ['create', 'edit']]);
 
 
+/**
+ * Tokens
+ */
+Route::post('oauth/token', '\Laravel\Passport\Http\Controllers\AccessTokenController@issueToken');
