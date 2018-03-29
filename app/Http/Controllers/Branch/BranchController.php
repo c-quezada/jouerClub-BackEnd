@@ -13,7 +13,9 @@ class BranchController extends ApiController
 {
     public function __construct()
     {
-        parent::__construct();
+
+        $this->middleware('client.credentials')->only(['index', 'show']);
+        $this->middleware('auth:api')->except(['index', 'show']);
         $this->middleware('transform.input:' . BranchTransformer::class)->only(['store', 'update']);
     }
 
@@ -26,17 +28,17 @@ class BranchController extends ApiController
     public function store(BranchRequest $request)
     {
         $fields                   = $request->all();
-        $fields['name']           = ucwords($request->name);     
+        $fields['name']           = ucwords($request->name);
         $fields['sport_id']       = $request->sport_id;
 
         if (Sport::findOrFail($request->sport_id)) {
-            $branch = Branch::create($fields); 
+            $branch = Branch::create($fields);
             return $this->showOne($branch, 201);
         }    }
 
     public function show(Branch $branch)
     {
-        return $this->showOne($branch);        
+        return $this->showOne($branch);
     }
 
     public function update(BranchRequest $request, Branch $branch)
@@ -59,6 +61,3 @@ class BranchController extends ApiController
         return $this->showOne($branch);
     }
 }
-
-
-
