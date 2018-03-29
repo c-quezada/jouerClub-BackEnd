@@ -18,7 +18,7 @@ use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 class Handler extends ExceptionHandler
 {
     use ApiResponser;
-    
+
     protected $dontReport = [
         //
     ];
@@ -35,7 +35,7 @@ class Handler extends ExceptionHandler
 
     public function render($request, Exception $exception)
     {
-        if ($exception instanceof ValidationException) { 
+        if ($exception instanceof ValidationException) {
             //si la excepcion es una instancia de ValidationException, se ejecuta:
             return $this->convertValidationExceptionToResponse($exception, $request);
         }
@@ -78,9 +78,13 @@ class Handler extends ExceptionHandler
             }
         }
 
+        if ($exception instanceof TokenMismatchException) {
+            return redirect()->back()->withInput($request->input());
+            //redirije al sitio anterio con los datos enviados previamente
+        }
 
         if (config('app.debug')) {
-            return parent::render($request, $exception);            
+            return parent::render($request, $exception);
         }
 
         return $this->errorResponse('Falla inesperada. Intente luego', 500);
@@ -88,16 +92,27 @@ class Handler extends ExceptionHandler
         /* return parent::render($request, $exception); */
     }
 
-    
     protected function unauthenticated($request, AuthenticationException $exception)
     {
+        if ($this->isFrontEnd($request)) {
+            return redirect()->guest('login');
+        }
         return $this->errorResponse('Usted no está autentificado', 401);
     }
 
     protected function convertValidationExceptionToResponse(ValidationException $e, $request)
     {
        $errors = $e->validator->errors()->getMessages();
+
+       if ($this->isFrontEnd($request)) {
+           return $request->ajax() ? response()->json($errors, 422) : redirect()->back()->withInput($request->input())->withErrors($errors);
+       }
        return $this->errorResponse($errors, 422);
+    }
+
+    private function isFrontEnd($request)
+    {
+        return $request->acceptsHtml() && collect($request->route()->middleware())->contains('web');
     }
 
 }
