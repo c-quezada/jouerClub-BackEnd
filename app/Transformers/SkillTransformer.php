@@ -42,7 +42,7 @@ class SkillTransformer extends TransformerAbstract
         $attributes = [
             'id' => 'identificador',
             'name' => 'nombre',
-            'description' => 'descripcion'
+            'description' => 'descripcion',
             'created_at' => 'fecha_creacion',
             'updated_at' => 'fecha_actualizacion',
             'deleted_at' => 'fecha_eliminacion',

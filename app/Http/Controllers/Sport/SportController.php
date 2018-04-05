@@ -6,9 +6,17 @@ use App\Sport;
 use Illuminate\Http\Request;
 use App\Http\Requests\SportRequest;
 use App\Http\Controllers\ApiController;
+use App\Transformers\SportTransformer;
 
 class SportController extends ApiController
 {
+    public function __construct()
+    {
+        $this->middleware('client.credentials')->only(['index', 'show']);
+        $this->middleware('auth:api')->except(['index', 'show']);
+        $this->middleware('transform.input: ' . SportTransformer::class)->only(['store', 'update']);
+    }
+
     public function index()
     {
         $sports = Sport::all();

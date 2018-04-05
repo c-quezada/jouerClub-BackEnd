@@ -2,30 +2,27 @@
 
 namespace App\Transformers;
 
-use App\Workshop;
+use App\Meeting;
 use League\Fractal\TransformerAbstract;
 
-class WorkshopTransformer extends TransformerAbstract
+class MeetingTransformer extends TransformerAbstract
 {
     /**
      * A Fractal transformer.
      *
      * @return array
      */
-    public function transform(Workshop $workshop)
+    public function transform(Meeting $meeting)
     {
         return [
-            'identificador' => (int)$workshop->id,
-            'descripcion' => (string)$workshop->description,
-            'latitud' => (string)$workshop->lat,
-            'longitud' => (string)$workshop->lng,
-            'inicio' => (string)$workshop->time_begin,
-            'termino' => (string)$workshop->time_end,
-            'estado' => (string)$workshop->status,
-            'instructor' => (int)$workshop->coach_id,
-            'fecha_creacion' => (string)$workshop->created_at,
-            'fecha_actualizacion' => (string)$workshop->updated_at,
-            'fecha_eliminacion' => isset($workshop->deleted_at) ? (string)$workshop->deleted_at : null,
+            'identificador' => (int)$meeting->id,
+            'inicio' => (string)$meeting->time_begin,
+            'termino' => (string)$meeting->time_end,
+            'estado' => (string)$meeting->status,
+            'cancha' => (int)$meeting->court_id,
+            'fecha_creacion' => (string)$meeting->created_at,
+            'fecha_actualizacion' => (string)$meeting->updated_at,
+            'fecha_eliminacion' => isset($meeting->deleted_at) ? (string)$meeting->deleted_at : null,
         ];
     }
 
@@ -33,13 +30,10 @@ class WorkshopTransformer extends TransformerAbstract
     {
         $attributes = [
             'identificador' => 'id',
-            'descripcion' => 'description',
-            'latitud' => 'lat',
-            'longitud' => 'lng',
             'inicio' => 'time_begin',
             'termino' => 'time_end',
             'estado' => 'status',
-            'instructor' => 'coach_id',
+            'cancha' => 'court_id',
             'fecha_creacion' => 'created_at',
             'fecha_actualizacion' => 'updated_at',
             'fecha_eliminacion' => 'deleted_at',
@@ -51,13 +45,10 @@ class WorkshopTransformer extends TransformerAbstract
     {
         $attributes = [
             'id' => 'identificador',
-            'description' => 'descripcion',
-            'lat' => 'latitud',
-            'lng' => 'longitud',
             'time_begin' => 'inicio',
             'time_end' => 'termino',
             'status' => 'estado',
-            'coach_id' => 'instructor',
+            'court_id' => 'cancha',
             'created_at' => 'fecha_creacion',
             'updated_at' => 'fecha_actualizacion',
             'deleted_at' => 'fecha_eliminacion',

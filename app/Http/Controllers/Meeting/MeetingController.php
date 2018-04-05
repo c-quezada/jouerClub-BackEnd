@@ -7,9 +7,16 @@ use App\Meeting;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
 use App\Http\Requests\MeetingRequest;
+use App\Transformers\MeetingTransformer;
 
 class MeetingController extends ApiController
 {
+    public function __construct()
+    {
+        $this->middleware('client.credentials')->only(['index', 'show']);
+        $this->middleware('auth:api')->except(['index', 'show']);
+        $this->middleware('transform.input:' . MeetingTransformer::class)->only(['store', 'update']);
+    }
 
     public function index()
     {

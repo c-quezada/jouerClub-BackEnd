@@ -12,10 +12,11 @@ class WorkshopController extends ApiController
 {
     public function __construct()
     {
-        parent::__construct();
-        $this->middleware('transform.imput: ' . WorkshopTransformer::class)->only(['store', 'update']);
+        $this->middleware('client.credentials')->only(['index', 'show']);
+        $this->middleware('auth:api')->except(['index', 'show']);
+        $this->middleware('transform.input: ' . WorkshopTransformer::class)->only(['store', 'update']);
     }
-
+    
     public function index()
     {
         $workshops = Workshop::all();

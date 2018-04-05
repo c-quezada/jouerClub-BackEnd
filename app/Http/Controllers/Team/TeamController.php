@@ -7,9 +7,17 @@ use App\Branch;
 use Illuminate\Http\Request;
 use App\Http\Requests\TeamRequest;
 use App\Http\Controllers\ApiController;
+use App\Transformers\TeamTransformer;
 
 class TeamController extends ApiController
 {
+    public function __construct()
+    {
+        $this->middleware('client.credentials')->only(['index', 'show']);
+        $this->middleware('auth:api')->except(['index', 'show']);
+        $this->middleware('transform.input: ' . TeamTransformer::class)->only(['store', 'update']);
+    }
+
     public function index()
     {
         $teams = Team::all();

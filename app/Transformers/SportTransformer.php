@@ -17,7 +17,7 @@ class SportTransformer extends TransformerAbstract
         return [
             'identificador' => (int)$sport->id,
             'nombre' => (string)$sport->name,
-            'descripcion' => (int)$sport->description,
+            'descripcion' => (string)$sport->description,
             'fecha_creacion' => (string)$sport->created_at,
             'fecha_actualizacion' => (string)$sport->updated_at,
             'fecha_eliminacion' => isset($sport->deleted_at) ? (string)$sport->deleted_at : null,

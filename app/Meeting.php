@@ -4,10 +4,13 @@ namespace App;
 
 use App\Court;
 use Illuminate\Database\Eloquent\Model;
+use App\Transformers\MeetingTransformer;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Meeting extends Model
 {	
+    public $transformer = MeetingTransformer::class;
+
 	use SoftDeletes;
 	
     protected $table    = 'meetings';

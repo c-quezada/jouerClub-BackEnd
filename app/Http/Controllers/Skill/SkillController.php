@@ -6,9 +6,18 @@ use App\Skill;
 use Illuminate\Http\Request;
 use App\Http\Requests\SkillRequest;
 use App\Http\Controllers\ApiController;
+use App\Transformers\SkillTransformer;
 
 class SkillController extends ApiController
 {
+
+    public function __construct()
+    {
+        $this->middleware('client.credentials')->only(['index', 'show']);
+        $this->middleware('auth:api')->except(['index', 'show']);
+        $this->middleware('transform.input:' . SkillTransformer::class)->only(['store', 'update']);
+    }
+
     public function index()
     {
         $skills = Skill::all();

@@ -31,7 +31,7 @@ class TeamTransformer extends TransformerAbstract
             'identificador' => 'id',
             'nombre' => 'name',
             'lema' => 'motto',
-            'rama_deportiva' => 'branch_id'
+            'rama_deportiva' => 'branch_id',
             'fecha_creacion' => 'created_at',
             'fecha_actualizacion' => 'updated_at',
             'fecha_eliminacion' => 'deleted_at',

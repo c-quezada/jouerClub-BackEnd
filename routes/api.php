@@ -93,10 +93,10 @@ Route::resource('maintenance', 'Maintenance\MaintenanceController', ['except' =>
 
 
 /**
- * Workshops-<!> Workshops.Jouers - AddJouerToWorkshop - DeleteJouerToWorkshop
+ * Workshops
  */
 Route::resource('workshops', 'Workshop\WorkshopController', ['except' => ['create', 'edit']]);
-Route::resource('workshops.details', 'Workshop\WorkshopDetailController', ['only' => ['index']]);
+Route::resource('workshops.participants', 'Workshop\WorkshopDetailController', ['only' => ['index']]);
 
 /**
  * Teams
@@ -119,7 +119,7 @@ Route::resource('branches', 'Branch\BranchController', ['except' => ['create', '
  * Meetings
  */
 Route::resource('meetings', 'Meeting\MeetingController', ['except' => ['create', 'edit']]);
-Route::resource('meetings.details', 'Meeting\MeetingDetailController', ['only' => ['index']]);
+Route::resource('meetings.participants', 'Meeting\MeetingDetailController', ['only' => ['index']]);
 
 
 /**
