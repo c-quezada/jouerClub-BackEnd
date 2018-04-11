@@ -21,6 +21,17 @@ class SportTransformer extends TransformerAbstract
             'fecha_creacion' => (string)$sport->created_at,
             'fecha_actualizacion' => (string)$sport->updated_at,
             'fecha_eliminacion' => isset($sport->deleted_at) ? (string)$sport->deleted_at : null,
+
+            'links' => [
+                [
+                    'rel' => 'self',
+                    'href' => route('sports.show', $sport->id),
+                ],
+                [
+                    'rel' => 'sports.branches',
+                    'href' => route('sports.branches.index', $sport->id),
+                ]
+            ]
         ];
     }
 

@@ -22,6 +22,17 @@ class TeamTransformer extends TransformerAbstract
             'fecha_creacion' => (string)$team->created_at,
             'fecha_actualizacion' => (string)$team->updated_at,
             'fecha_eliminacion' => isset($team->deleted_at) ? (string)$team->deleted_at : null,
+
+            'links' => [
+                [
+                    'rel' => 'self',
+                    'href' => route('teams.show', $team->id),
+                ],
+                [
+                    'rel' => 'teams.jouers',
+                    'href' => route('teams.jouers.index', $team->id),
+                ]
+            ]
         ];
     }
 

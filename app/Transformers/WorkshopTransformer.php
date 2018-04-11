@@ -26,6 +26,17 @@ class WorkshopTransformer extends TransformerAbstract
             'fecha_creacion' => (string)$workshop->created_at,
             'fecha_actualizacion' => (string)$workshop->updated_at,
             'fecha_eliminacion' => isset($workshop->deleted_at) ? (string)$workshop->deleted_at : null,
+
+            'links' => [
+                [
+                    'rel' => 'self',
+                    'href' => route('workshops.show', $workshop->id),
+                ],
+                [
+                    'rel' => 'workshops.participants',
+                    'href' => route('workshops.participants.index', $workshop->id),
+                ]
+            ]
         ];
     }
 

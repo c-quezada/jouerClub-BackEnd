@@ -23,6 +23,17 @@ class MeetingTransformer extends TransformerAbstract
             'fecha_creacion' => (string)$meeting->created_at,
             'fecha_actualizacion' => (string)$meeting->updated_at,
             'fecha_eliminacion' => isset($meeting->deleted_at) ? (string)$meeting->deleted_at : null,
+
+            'links' => [
+                [
+                    'rel' => 'self',
+                    'href' => route('meetings.show', $meeting->id),
+                ],
+                [
+                    'rel' => 'meetings.branches',
+                    'href' => route('meetings.participants.index', $meeting->id),
+                ],
+            ]
         ];
     }
 

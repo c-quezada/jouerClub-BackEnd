@@ -21,6 +21,13 @@ class SkillTransformer extends TransformerAbstract
             'fecha_creacion' => (string)$skill->created_at,
             'fecha_actualizacion' => (string)$skill->updated_at,
             'fecha_eliminacion' => isset($skill->deleted_at) ? (string)$skill->deleted_at : null,
+
+            'links' => [
+                [
+                    'rel' => 'self',
+                    'href' => route('skills.show', $skill->id),
+                ],
+            ]
         ];
     }
 

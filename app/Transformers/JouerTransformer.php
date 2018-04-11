@@ -26,6 +26,29 @@ class JouerTransformer extends TransformerAbstract
             'fecha_creacion' => (string)$jouer->created_at,
             'fecha_actualizacion' => (string)$jouer->updated_at,
             'fecha_eliminacion' => isset($jouer->deleted_at) ? (string)$jouer->deleted_at : null,
+
+            'links' => [
+                [
+                    'rel' => 'self',
+                    'href' => route('jouers.show', $jouer->id),
+                ],
+                [
+                    'rel' => 'jouers.skills',
+                    'href' => route('jouers.skills.index', $jouer->id),
+                ],
+                [
+                    'rel' => 'jouers.teams',
+                    'href' => route('jouers.teams.index', $jouer->id),
+                ],
+                [
+                    'rel' => 'jouers.meetings',
+                    'href' => route('jouers.meetings.index', $jouer->id),
+                ],
+                [
+                    'rel' => 'jouers.workshops',
+                    'href' => route('jouers.workshops.index', $jouer->id),
+                ]
+            ]
         ];
     }
 
