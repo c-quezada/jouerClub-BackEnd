@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\User;
+use App\SendSMS;
 use App\Mail\UserCreated;
 use App\Mail\UserMailChanged;
 use Illuminate\Support\Facades\DB;
@@ -26,6 +27,9 @@ class AppServiceProvider extends ServiceProvider
                     'jouer_id' => $user->id,
                     'skill_id' => 1
                 ]);
+                retry(5, function() use ($user){
+                    User::sendSMSVerification($user->phone, $user->code_verification);
+                    }, 100);
             }
             retry(5, function() use ($user){
                 Mail::to($user)->send(new UserCreated($user)); //Laravel se encarga de reconocer automaticamente el campo email del objeto user
@@ -36,7 +40,7 @@ class AppServiceProvider extends ServiceProvider
         {
             if ($user->isDirty('email')) {
                 retry(5, function() use ($user){
-                        Mail::to($user)->send(new UserMailChanged($user)); 
+                        Mail::to($user)->send(new UserMailChanged($user));
                 }, 100);
             }
         });

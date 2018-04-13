@@ -33,10 +33,15 @@ class UserController extends ApiController
         $fields['nickname']          = ucwords($request->nickname);
         $fields['email']             = ucwords($request->email);
         $fields['password']          = bcrypt($request->password);
-        $fields['photo']           = $request->photo->store('profile'); //STORE: primer parametro -> ubicacion / 2do -> sistema de archivos
+        $fields['photo']             = $request->photo->store('profile'); //STORE: primer parametro -> ubicacion / 2do -> sistema de archivos
         $fields['status']            = User::USERNOTVERIFIED;
         $fields['type']              = $request->type;
-        $fields['code_verification'] = User::setCodeVerification();
+
+        if ($request->type == User::CLUBER ) {
+          $fields['code_verification'] = User::setCodeVerification();
+        } else {
+          $fields['code_verification'] = User::setSMSVerification();
+        }
 
         $user = User::create($fields);
         //dd($fields); die();
@@ -113,4 +118,5 @@ class UserController extends ApiController
 
         return $this->showMessage('Correo reenviado exitosamente, revise su bandeja de correo electrónico.');
     }
+
 }

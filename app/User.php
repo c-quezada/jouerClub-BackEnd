@@ -2,7 +2,10 @@
 
 namespace App;
 
+require_once ('vendor/autoload.php');
+
 use App\Cluber;
+use Twilio\Rest\Client;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -18,8 +21,10 @@ class User extends Authenticatable
     const USERVERIFIED    = 'verified';
     const USERNOTVERIFIED = 'pending';
     const ADMIN           = 'admin';
-    const REGULAR         = 'regular';
-
+    const DEV         = 'developer';
+    const JOUER         = 'jouer';
+    const CLUBER         = 'cluber';
+    const COACH         = 'coach';
 
     protected $table    = 'users';
 
@@ -55,6 +60,12 @@ class User extends Authenticatable
     public static function setSMSVerification()
     {
         return rand(1000, 9999);
+    }
+
+    public static function sendSMSVerification($to, $code)
+    {
+      $client = new Client(env('TWILIO_ID'), env('TWILIO_TOKEN'));
+      $client->messages->create($to, array('from' => env('TWILIO_ID'), 'body' => $code));
     }
 
     //mutadores, se utiliza para modificar un valor actual de un atributo antes de hacer la insercion a la base de datos

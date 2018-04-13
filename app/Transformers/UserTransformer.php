@@ -13,7 +13,7 @@ class UserTransformer extends TransformerAbstract
      * @return array
      */
     public function transform(User $user)
-    { // array para transformar los indices de la BD 
+    { // array para transformar los indices de la BD
         return [
             'identificador' => (int)$user->id,
             'nombre' => (string)$user->name,

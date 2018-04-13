@@ -44,7 +44,7 @@ Route::name('jouers.removeTeam')->post('jouers/{jouer}/removeteam', 'Jouer\Jouer
 /**
  * Jouer Meetings
  */
-Route::name('jouers.addMeeting')->post('jouers/{jouer}/addmeeting', 'Jouer\JouerMeetingController@addMeeting');
+Route::name('jouers.addMeeting')->post('jouers/{jouer}/addmeeting/{meetings}', 'Jouer\JouerMeetingController@addMeeting');
 Route::name('jouers.removeMeeting')->post('jouers/{jouer}/removemeeting', 'Jouer\JouerMeetingController@removeMeeting');
 
 /**

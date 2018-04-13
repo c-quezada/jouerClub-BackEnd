@@ -10,7 +10,7 @@ class UserRequest extends FormRequest
     {
         return true;
     }
-    
+
     public function rules()
     {
         return [
@@ -21,6 +21,7 @@ class UserRequest extends FormRequest
             'password'        => 'required|min:6',
             'photo'           => 'required|image',
             'type'            => 'required|min:4',
+            'phone'            => 'required|min:9|max:11',
         ];
     }
 }
