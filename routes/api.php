@@ -71,14 +71,14 @@ Route::resource('coaches.workshops', 'Coach\CoachWorkshopsController', ['only' =
 Route::resource('courts', 'Court\CourtController', ['except' => ['create', 'edit']]);
 Route::resource('courts.facilities', 'Court\CourtFacilitiesController', ['only' => ['index']]);
 Route::resource('courts.branches', 'Court\CourtBranchesController', ['only' => ['index']]);
-
+Route::resource('courts.meetings', 'Court\CourtMeetingsController', ['only' => ['index']]);
 
 /**
  * SportFields
  */
 Route::resource('sportfields', 'SportField\SportFieldController', ['except' => ['create', 'edit']]);
 Route::resource('sportfields.courts', 'SportField\SportFieldCourtsController', ['only' => ['index']]);
-
+Route::resource('sportfields.meetings', 'SportField\SportFieldMeetingsController', ['only' => ['index']]);
 
 /**
  * Facilities
@@ -121,12 +121,10 @@ Route::resource('branches', 'Branch\BranchController', ['except' => ['create', '
 Route::resource('meetings', 'Meeting\MeetingController', ['except' => ['create', 'edit']]);
 Route::resource('meetings.participants', 'Meeting\MeetingDetailController', ['only' => ['index']]);
 
-
 /**
  * Skills
  */
 Route::resource('skills', 'Skill\SkillController', ['except' => ['create', 'edit']]);
-
 
 /**
  * Tokens

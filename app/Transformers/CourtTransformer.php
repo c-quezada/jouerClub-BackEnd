@@ -34,6 +34,10 @@ class CourtTransformer extends TransformerAbstract
                 [
                     'rel' => 'courts.facilities',
                     'href' => route('courts.facilities.index', $court->id),
+                ],
+                [
+                    'rel' => 'courts.meetings',
+                    'href' => route('courts.meetings.index', $court->id),
                 ]
             ]
         ];

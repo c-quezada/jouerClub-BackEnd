@@ -17,11 +17,11 @@ class Court extends Model
     public $transformer = CourtTransformer::class;
 
     protected $table    = 'courts';
-    
+
     protected $fillable = ['name', 'status', 'sport_field_id'];
-    
+
     protected $dates    = ['deleted_at'];
-    
+
     protected $hidden   = ['pivot', 'created_at', 'updated_at', 'deleted_at', 'sport_field_id'];
 
     public function sportField()
@@ -39,8 +39,8 @@ class Court extends Model
         return $this->hasMany(Facility::class);
     }
 
-    public function meeting()
+    public function meetings()
     {
-        return $this->belongsTo(Meeting::class);
+        return $this->hasMany(Meeting::class);
     }
 }
