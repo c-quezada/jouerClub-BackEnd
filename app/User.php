@@ -2,7 +2,7 @@
 
 namespace App;
 
-require_once ('vendor/autoload.php');
+use vendor\autoload;
 
 use App\Cluber;
 use Twilio\Rest\Client;
@@ -21,10 +21,10 @@ class User extends Authenticatable
     const USERVERIFIED    = 'verified';
     const USERNOTVERIFIED = 'pending';
     const ADMIN           = 'admin';
-    const DEV         = 'developer';
-    const JOUER         = 'jouer';
-    const CLUBER         = 'cluber';
-    const COACH         = 'coach';
+    const DEV             = 'developer';
+    const JOUER           = 'jouer';
+    const CLUBER          = 'cluber';
+    const COACH           = 'coach';
 
     protected $table    = 'users';
 
@@ -36,6 +36,7 @@ class User extends Authenticatable
         'lastname',
         'nickname',
         'email',
+        'avatar',
         'phone',
         'password',
         'picture',
@@ -64,9 +65,15 @@ class User extends Authenticatable
 
     public static function sendSMSVerification($to, $code)
     {
-      $client = new Client(env('TWILIO_ID'), env('TWILIO_TOKEN'));
-      $client->messages->create($to, array('from' => env('TWILIO_ID'), 'body' => $code));
+        $account_sid = 'AC443e2436f41e96aaaccaf046cfcd65ad';
+        $auth_token = '26b163b072935fab99f4715689254694';
+        $twilio_number = "+56945950470";
+        $client = new Client($account_sid, $auth_token);
+       
+       
+            $client->messages->create(
+                $to, array('from' => $twilio_number, 'body' => $code));
+            response()->json("SMS enviado correctamente. ");        
     }
 
-    //mutadores, se utiliza para modificar un valor actual de un atributo antes de hacer la insercion a la base de datos
 }

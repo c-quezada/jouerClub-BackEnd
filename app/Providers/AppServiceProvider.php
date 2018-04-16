@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use App\User;
-use App\SendSMS;
 use App\Mail\UserCreated;
 use App\Mail\UserMailChanged;
 use Illuminate\Support\Facades\DB;
@@ -13,36 +12,51 @@ use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
     public function boot()
     {
+
         User::created(function ($user)
         {
-            if ($user->type == 'jouer') {
+            if ($user->type == 'cluber' ) {
+                retry(5, function() use ($user){
+                Mail::to($user)->send(new UserCreated($user)); //Laravel se encarga de reconocer automaticamente el campo email del objeto user
+                }, 100); 
+            } 
+            if ($user->type == 'jouer' ) {
+                retry(5, function() use ($user){
+                    User::sendSMSVerification($user->phone, $user->code_verification);
+                }, 100);
+
                 DB::table('jouer_skill')->insert([
                     'jouer_id' => $user->id,
                     'skill_id' => 1
                 ]);
+            } 
+            if ($user->type == 'coach' ) {
                 retry(5, function() use ($user){
                     User::sendSMSVerification($user->phone, $user->code_verification);
-                    }, 100);
-            }
-            retry(5, function() use ($user){
-                Mail::to($user)->send(new UserCreated($user)); //Laravel se encarga de reconocer automaticamente el campo email del objeto user
                 }, 100);
+            } 
+
         });
 
         User::updated(function ($user)
         {
-            if ($user->isDirty('email')) {
-                retry(5, function() use ($user){
-                        Mail::to($user)->send(new UserMailChanged($user));
-                }, 100);
-            }
+            if ($user->type == 'jouer' ) {
+                if ($user->isDirty('code_verification')) {
+                    retry(5, function() use ($user){
+                            User::sendSMSVerification($user->phone, "Tu número ha sido confirmado. Gracias por unirte al mundo JouerCLUB.");
+                    }, 100);
+                }
+            } 
+
+            if ($user->type == 'cluber' ) {
+                if ($user->isDirty('email')) {
+                    retry(5, function() use ($user){
+                            Mail::to($user)->send(new UserMailChanged($user));
+                    }, 100);
+                }
+            } 
         });
 
         Schema::defaultStringLength(191);

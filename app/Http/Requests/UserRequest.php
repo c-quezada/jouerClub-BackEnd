@@ -19,9 +19,9 @@ class UserRequest extends FormRequest
             'nickname'        => 'required|max:30|min:unique',
             'email'           => 'required|email|unique:users',
             'password'        => 'required|min:6',
-            'photo'           => 'required|image',
+            'avatar'          => 'required|image',
             'type'            => 'required|min:4',
-            'phone'            => 'required|min:9|max:11',
+            'phone'           => 'required|min:9|max:11',
         ];
     }
 }

@@ -9,6 +9,14 @@ use App\Http\Controllers\ApiController;
 
 class JouerController extends ApiController
 {
+
+    public function __construct()
+    {
+        $this->middleware('client.credentials')->only(['index', 'show']);
+        $this->middleware('auth:api')->except(['index', 'show']);
+        $this->middleware('transform.input:' . MeetingTransformer::class)->only(['store', 'update']);
+    }
+
     public function index()
     {
         $jouers = Jouer::has('skills')->get();

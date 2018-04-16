@@ -32,8 +32,9 @@ class UserController extends ApiController
         $fields['lastname']          = ucwords($request->lastname);
         $fields['nickname']          = ucwords($request->nickname);
         $fields['email']             = ucwords($request->email);
+        $fields['phone']             = ucwords($request->phone);
         $fields['password']          = bcrypt($request->password);
-        $fields['photo']             = $request->photo->store('profile'); //STORE: primer parametro -> ubicacion / 2do -> sistema de archivos
+        $fields['avatar']            = $request->avatar->store('profile'); //STORE: primer parametro -> ubicacion / 2do -> sistema de archivos
         $fields['status']            = User::USERNOTVERIFIED;
         $fields['type']              = $request->type;
 
