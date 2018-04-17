@@ -8,7 +8,11 @@ use App\Http\Controllers\ApiController;
 
 class FacilityMaintenanceController extends ApiController
 {
-
+    public function __construct()
+    {
+      parent::__construct();
+    }
+    
     public function index(Facility $facility)
     {
         $maintenance = $facility->maintenance;

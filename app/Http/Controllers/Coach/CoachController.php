@@ -8,6 +8,12 @@ use App\Http\Controllers\ApiController;
 
 class CoachController extends ApiController
 {
+
+    public function __construct()
+    {
+      parent::__construct();
+    }
+
     public function index()
     {
         $coaches = Coach::has('workshops')->get();

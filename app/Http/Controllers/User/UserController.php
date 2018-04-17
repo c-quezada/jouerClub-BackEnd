@@ -2,6 +2,7 @@
 namespace App\Http\Controllers\User;
 
 use App\User;
+use App\Images;
 use App\Mail\UserCreated;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
@@ -33,7 +34,11 @@ class UserController extends ApiController
         $fields['nickname']          = ucwords($request->nickname);
         $fields['email']             = ucwords($request->email);
         $fields['password']          = bcrypt($request->password);
-        $fields['photo']             = $request->photo->store('profile'); //STORE: primer parametro -> ubicacion / 2do -> sistema de archivos
+
+        //STORE IMAGE WITH POLTMORPHIC CLASS
+        Images::store($fields['photo']);
+        die();
+        //$fields['photo']             = $request->photo->store('profile'); //STORE: primer parametro -> ubicacion / 2do -> sistema de archivos
         $fields['status']            = User::USERNOTVERIFIED;
         $fields['type']              = $request->type;
 

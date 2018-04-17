@@ -29,11 +29,11 @@ class FacilityController extends ApiController
         $fields['brand']         = ucwords($request->brand);
         $fields['purchased_at']  = ucwords($request->purchased_at);
         $fields['court_id']      = ucwords($request->court_id);
-        
+
         //dd($fields); die();
 
         $facility = Facility::create($fields);
-        return $this->showOne($facility, 201);  
+        return $this->showOne($facility, 201);
     }
 
     public function show(Facility $facility)
@@ -61,7 +61,7 @@ class FacilityController extends ApiController
 
         $facility->save();
         return $this->showOne($facility);
-    
+
     }
 
     public function destroy(Facility $facility)

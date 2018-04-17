@@ -8,6 +8,11 @@ use App\Http\Controllers\ApiController;
 
 class CoachWorkshopsController extends ApiController
 {
+    public function __construct()
+    {
+      parent::__construct();
+    }
+
     public function index(Coach $coach)
     {
         $workshops = $coach->workshops;

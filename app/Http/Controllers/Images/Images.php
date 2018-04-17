@@ -8,38 +8,10 @@ use App\Http\Controllers\ApiController;
 
 class Images extends ApiController
 {
-
-    public function index()
-    {
-
-    }
-
-    public function create()
-    {
-    }
-
-    public function store(Request $request)
-    {
-        
-    }
-
-    public function show(Images $images)
-    {
-        //
-    }
-
-    public function edit(Images $images)
-    {
-        //
-    }
-
-    public function update(Request $request, Images $images)
-    {
-        //
-    }
-
-    public function destroy(Images $images)
-    {
-        //
-    }
+  public function store(Request $request)
+  {
+      $fields = $request->all();
+      var_dump($fields); die();
+      $image = Images::create($fields);
+  }
 }
