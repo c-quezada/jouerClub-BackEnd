@@ -9,6 +9,10 @@ use App\Http\Controllers\ApiController;
 
 class JouerTeamController extends ApiController
 {
+    public function __construct()
+    {
+      $this->middleware('auth:api')->only(['index', 'addTeam', 'removeTeam']);
+    }
 
     public function index(Jouer $jouer)
     {

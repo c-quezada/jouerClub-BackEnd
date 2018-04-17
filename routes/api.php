@@ -89,7 +89,7 @@ Route::resource('facilities.maintenance', 'Facility\FacilityMaintenanceControlle
 /**
  * Maintenance
  */
-Route::resource('maintenance', 'Maintenance\MaintenanceController', ['except' => ['create', 'edit']]);
+Route::resource('maintenances', 'Maintenance\MaintenanceController', ['except' => ['create', 'edit']]);
 
 
 /**

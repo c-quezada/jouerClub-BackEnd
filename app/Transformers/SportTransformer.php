@@ -25,7 +25,7 @@ class SportTransformer extends TransformerAbstract
             'links' => [
                 [
                     'rel' => 'self',
-                    'href' => route('sports.show', $sport->id),
+                    'href' => route('sports.index'),
                 ],
                 [
                     'rel' => 'sports.branches',

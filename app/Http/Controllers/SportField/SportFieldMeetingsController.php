@@ -8,6 +8,11 @@ use App\Http\Controllers\ApiController;
 
 class SportFieldMeetingsController extends ApiController
 {
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+    }
+
     public function index(SportField $sportfield)
     {
         $meetings = $sportfield->courts()

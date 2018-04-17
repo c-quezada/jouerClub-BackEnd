@@ -9,6 +9,10 @@ use App\Http\Controllers\ApiController;
 
 class JouerWorkshopController extends ApiController
 {
+    public function __construct()
+    {
+      $this->middleware('auth:api')->only(['index', 'addWorkshop', 'removeWorkshop']);
+    }
 
     public function index(Jouer $jouer)
     {

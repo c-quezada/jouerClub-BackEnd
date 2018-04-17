@@ -8,6 +8,12 @@ use App\Http\Controllers\ApiController;
 
 class CluberController extends ApiController
 {
+	public function __construct()
+    {
+        $this->middleware('client.credentials')->only(['index', 'show']);
+        $this->middleware('auth:api')->only(['index', 'show']);
+    } 
+    
     public function index()
     {
         $clubers = Cluber::has('sportfields')->get();

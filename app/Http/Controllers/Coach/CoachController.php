@@ -8,6 +8,12 @@ use App\Http\Controllers\ApiController;
 
 class CoachController extends ApiController
 {
+	public function __construct()
+    {
+        $this->middleware('client.credentials')->only(['index', 'show']);
+        $this->middleware('auth:api')->only(['index', 'show']);
+    }
+
     public function index()
     {
         $coaches = Coach::has('workshops')->get();

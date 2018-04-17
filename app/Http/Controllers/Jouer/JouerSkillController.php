@@ -10,6 +10,10 @@ use App\Http\Controllers\ApiController;
 
 class JouerSkillController extends ApiController
 {
+    public function __construct()
+    {
+      $this->middleware('auth:api')->only(['index', 'addSkill', 'removeSkill']);
+    }
 
     public function index(Jouer $jouer)
     {
