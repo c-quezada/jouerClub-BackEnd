@@ -10,9 +10,8 @@ class CourtBranchesController extends ApiController
 {
     public function __construct()
     {
-        $this->middleware('client.credentials')->only(['index']);
-        $this->middleware('auth:api')->only(['index');
-    }    
+      parent::__construct();
+    }
 
     public function index(Court $court)
     {

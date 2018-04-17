@@ -8,10 +8,10 @@ use App\Http\Controllers\ApiController;
 
 class CoachController extends ApiController
 {
-	public function __construct()
+
+    public function __construct()
     {
-        $this->middleware('client.credentials')->only(['index', 'show']);
-        $this->middleware('auth:api')->only(['index', 'show']);
+      parent::__construct();
     }
 
     public function index()
@@ -20,7 +20,7 @@ class CoachController extends ApiController
         return $this->showAll($coaches);
     }
 
-    public function show(Coach $coach)//Inyeccion de dependencias a traves de global scope /App\Scopes\CluberScope
+    public function show(Coach $coach)//Inyeccion de dependencias a traves de global 
     {
         return $this->showOne($coach);
     }

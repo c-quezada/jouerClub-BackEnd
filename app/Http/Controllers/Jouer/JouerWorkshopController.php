@@ -11,9 +11,9 @@ class JouerWorkshopController extends ApiController
 {
     public function __construct()
     {
-      $this->middleware('auth:api')->only(['index', 'addWorkshop', 'removeWorkshop']);
+      parent::__construct();
     }
-
+    
     public function index(Jouer $jouer)
     {
         $workshops = $jouer->workshops;
@@ -23,12 +23,12 @@ class JouerWorkshopController extends ApiController
     public function addWorkshop(Jouer $jouer, Request $request)
     {
             $jouer->workshops()->attach(array($request->workshops));
-            return $this->showAll($jouer->workshops);       
+            return $this->showAll($jouer->workshops);
     }
 
     public function removeWorkshop(Jouer $jouer, Request $request)
     {
             $jouer->workshops()->detach(array($request->workshops));
-            return $this->showAll($jouer->workshops);       
+            return $this->showAll($jouer->workshops);
     }
 }

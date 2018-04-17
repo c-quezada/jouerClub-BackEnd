@@ -8,11 +8,11 @@ use App\Http\Controllers\ApiController;
 
 class CourtFacilitiesController extends ApiController
 {
-	public function __construct()
-    {
-        $this->middleware('client.credentials')->only(['index']);
-        $this->middleware('auth:api')->only(['index']);
-    }
+		public function __construct()
+		{
+			parent::__construct();
+		}
+		
     public function index(Court $court)
     {
         $facilities = $court->facilities;

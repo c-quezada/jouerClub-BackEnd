@@ -11,8 +11,7 @@ class JouerController extends ApiController
 {
     public function __construct()
     {
-        $this->middleware('client.credentials')->only(['index', 'show']);
-        $this->middleware('auth:api')->only(['index', 'show']);
+      parent::__construct();
     }
 
     public function index()

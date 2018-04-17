@@ -9,11 +9,11 @@ use App\Http\Controllers\ApiController;
 
 class TeamJouerController extends ApiController
 {
-	public function __construct()
-    {
-        $this->middleware('auth:api');
-    }
-
+		public function __construct()
+		{
+			parent::__construct();
+		}
+		
     public function index(Team $team)
     {
         $jouers = $team->jouers;

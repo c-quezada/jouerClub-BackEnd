@@ -11,7 +11,7 @@ class JouerMeetingController extends ApiController
 {
     public function __construct()
     {
-      $this->middleware('auth:api')->only(['index', 'addMeeting', 'removeMeeting']);
+      parent::__construct();
     }
 
     public function index(Jouer $jouer)

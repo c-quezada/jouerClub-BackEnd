@@ -12,9 +12,9 @@ class JouerSkillController extends ApiController
 {
     public function __construct()
     {
-      $this->middleware('auth:api')->only(['index', 'addSkill', 'removeSkill']);
+      parent::__construct();
     }
-
+    
     public function index(Jouer $jouer)
     {
         $skills = $jouer->skills;
@@ -25,12 +25,12 @@ class JouerSkillController extends ApiController
     {
             $jouer->skills()->attach(array($request->skills));
             $jouer->skills()->wherePivot('skill_id', '=', 1)->detach();
-            return $this->showAll($jouer->skills);       
+            return $this->showAll($jouer->skills);
     }
 
     public function removeSkill(Jouer $jouer, Request $request)
     {
             $jouer->skills()->detach(array($request->skills));
-            return $this->showAll($jouer->skills);       
+            return $this->showAll($jouer->skills);
     }
 }

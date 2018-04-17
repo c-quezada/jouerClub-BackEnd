@@ -10,7 +10,7 @@ class SportFieldMeetingsController extends ApiController
 {
     public function __construct()
     {
-        $this->middleware('auth:api');
+        parent::__construct();
     }
 
     public function index(SportField $sportfield)

@@ -10,12 +10,12 @@ class MaintenanceController extends ApiController
 {
     public function __construct()
     {   
-        $this->middleware('auth:api');
+        parent::__construct();
         $this->middleware('transform.input:' . MaintenanceTransformer::class)->only(['store', 'update']);
     }
 
     public function index()
-    {    
+    {
         $maintenance = Maintenance::all();
         return $this->showAll($maintenance);
     }
@@ -26,14 +26,14 @@ class MaintenanceController extends ApiController
         $fields['observations']  = ucwords($request->observations);
         $fields['status']        = $request->status;
         $fields['facility_id']   = $request->facility_id;
-        
+
         $Maintenance = Maintenance::create($fields);
         return $this->showOne($Maintenance, 201);
     }
 
     public function show(Maintenance $maintenance)
     {
-        return $this->showOne($maintenance);        
+        return $this->showOne($maintenance);
     }
 
     public function update(Request $request, Maintenance $maintenance)

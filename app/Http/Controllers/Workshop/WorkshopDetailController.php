@@ -9,12 +9,11 @@ use App\Http\Controllers\ApiController;
 
 class WorkshopDetailController extends ApiController
 {
-	public function __construct()
+    public function __construct()
     {
-        $this->middleware('client.credentials')->only(['index']);
-        $this->middleware('auth:api')->only(['index']);
+        parent::__construct();
     }
-
+    
     public function index(Workshop $workshop)
     {
         $jouers = $workshop->jouers;

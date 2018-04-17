@@ -8,10 +8,11 @@ use App\Http\Controllers\ApiController;
 
 class CourtMeetingsController extends ApiController
 {
-	public function __construct()
-    {
-        $this->middleware('auth:api');
-    }
+		public function __construct()
+		{
+			parent::__construct();
+		}
+		
     public function index(Court $court)
     {
         $meetings = $court->meetings;

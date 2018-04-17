@@ -8,9 +8,9 @@ use App\Http\Controllers\ApiController;
 
 class FacilityMaintenanceController extends ApiController
 {
-	public function __construct()
-    {   
-        $this->middleware('auth:api');
+    public function __construct()
+    {
+      parent::__construct();
     }
 
     public function index(Facility $facility)

@@ -11,9 +11,9 @@ class JouerTeamController extends ApiController
 {
     public function __construct()
     {
-      $this->middleware('auth:api')->only(['index', 'addTeam', 'removeTeam']);
+      parent::__construct();
     }
-
+    
     public function index(Jouer $jouer)
     {
         $teams = $jouer->teams;
@@ -23,13 +23,13 @@ class JouerTeamController extends ApiController
     public function addTeam(Jouer $jouer, Request $request)
     {
             $jouer->teams()->attach(array($request->teams));
-            return $this->showAll($jouer->teams);       
+            return $this->showAll($jouer->teams);
     }
 
     public function removeTeam(Jouer $jouer, Request $request)
     {
             $jouer->teams()->detach(array($request->teams));
-            return $this->showAll($jouer->teams);       
+            return $this->showAll($jouer->teams);
     }
 
 }
