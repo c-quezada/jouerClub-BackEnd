@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Workshop;
 
 use App\Workshop;
+use App\Coach;
 use Illuminate\Http\Request;
 use App\Http\Requests\WorkshopRequest;
 use App\Http\Controllers\ApiController;
@@ -14,7 +15,7 @@ class WorkshopController extends ApiController
     {
         $this->middleware('client.credentials')->only(['index', 'show']);
         $this->middleware('auth:api')->except(['index', 'show']);
-        $this->middleware('transform.input: ' . WorkshopTransformer::class)->only(['store', 'update']);
+        $this->middleware('transform.input:' . WorkshopTransformer::class)->only(['store', 'update']);
     }
     
     public function index()
@@ -28,6 +29,8 @@ class WorkshopController extends ApiController
         $fields                = $request->all();
         $fields['name']        = strtoupper($request->name);
         $fields['description'] = strtolower($request->lastname);
+        $fields['lat']         = $request->lat;
+        $fields['lng']         = $request->lng;
         $fields['time_begin']  = $request->time_begin;     
         $fields['time_end']    = $request->time_end;
         $fields['status']      = $request->status;

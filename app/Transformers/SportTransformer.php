@@ -40,7 +40,7 @@ class SportTransformer extends TransformerAbstract
         $attributes = [
             'identificador' => 'id',
             'nombre' => 'name',
-            'description' => 'description',
+            'descripcion' => 'description',
             'fecha_creacion' => 'created_at',
             'fecha_actualizacion' => 'updated_at',
             'fecha_eliminacion' => 'deleted_at',
@@ -53,7 +53,7 @@ class SportTransformer extends TransformerAbstract
         $attributes = [
             'id' => 'identificador',
             'name' => 'nombre',
-            'descripcion' => 'description',
+            'description' => 'descripcion',
             'created_at' => 'fecha_creacion',
             'updated_at' => 'fecha_actualizacion',
             'deleted_at' => 'fecha_eliminacion',

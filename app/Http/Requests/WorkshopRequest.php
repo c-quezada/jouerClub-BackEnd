@@ -21,7 +21,7 @@ class WorkshopRequest extends FormRequest
             'time_begin'  => 'required',
             'time_end'    => 'required',
             'status'      => 'required',
-            'coach_id'    => 'required'
+            'coach_id'    => 'required',
         ];
     }
 }

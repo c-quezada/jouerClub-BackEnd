@@ -45,7 +45,7 @@ class TeamTransformer extends TransformerAbstract
             'rama_deportiva' => 'branch_id',
             'fecha_creacion' => 'created_at',
             'fecha_actualizacion' => 'updated_at',
-            'fecha_eliminacion' => 'deleted_at',
+            'fecha_eliminacion' => 'deleted_at'
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }
@@ -59,7 +59,7 @@ class TeamTransformer extends TransformerAbstract
             'branch_id' => 'rama_deportiva',
             'created_at' => 'fecha_creacion',
             'updated_at' => 'fecha_actualizacion',
-            'deleted_at' => 'fecha_eliminacion',
+            'deleted_at' => 'fecha_eliminacion'
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }

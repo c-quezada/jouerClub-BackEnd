@@ -16,7 +16,7 @@ class TeamRequest extends FormRequest
         return [
             'name'          => 'required|min:4', 
             'motto'         => 'required|min:4', 
-            'branch_id'      => 'required'
+            'branch_id'     => 'required'
         ];
     }
 }

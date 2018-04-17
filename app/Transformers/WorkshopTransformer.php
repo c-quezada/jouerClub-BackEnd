@@ -16,6 +16,7 @@ class WorkshopTransformer extends TransformerAbstract
     {
         return [
             'identificador' => (int)$workshop->id,
+            'nombre' => (string)$workshop->name,
             'descripcion' => (string)$workshop->description,
             'latitud' => (string)$workshop->lat,
             'longitud' => (string)$workshop->lng,
@@ -44,6 +45,7 @@ class WorkshopTransformer extends TransformerAbstract
     {
         $attributes = [
             'identificador' => 'id',
+            'nombre' => 'name',
             'descripcion' => 'description',
             'latitud' => 'lat',
             'longitud' => 'lng',
@@ -62,6 +64,7 @@ class WorkshopTransformer extends TransformerAbstract
     {
         $attributes = [
             'id' => 'identificador',
+            'name' => 'nombre',
             'description' => 'descripcion',
             'lat' => 'latitud',
             'lng' => 'longitud',

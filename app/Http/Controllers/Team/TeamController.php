@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Team;
 
-use App\Team;
 use App\Branch;
+use App\Team;
 use Illuminate\Http\Request;
 use App\Http\Requests\TeamRequest;
 use App\Http\Controllers\ApiController;
@@ -28,8 +28,7 @@ class TeamController extends ApiController
     {
         $fields                  = $request->all();
         $fields['name']          = ucwords($request->name);     
-        $fields['motto']         = $request->motto;
-        $fields['branch_id']     = $request->branch_id;
+        $fields['motto']         = ucwords($request->motto);
 
         if (Branch::findOrFail($request->branch_id)) {
             $team = Team::create($fields); 
