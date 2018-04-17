@@ -13,6 +13,20 @@ use App\Transformers\Transformers\UserTransformer;
 
 class UserController extends ApiController
 {
+    /*
+    *
+    * Si solo necesitamos proteger la totalidad de los metodos con el middleware auth:api, solo basta con declarar en el __construct
+    * public function __construct() { parent::__construct } // con ello estas heredando lo que tiene el constructor padre, en este caso el de ApiController
+
+    * Si queremos dejar habilitadas ciertos metodos para publico general, precisa usar el middleware client_credentials, en donde incluiremos los metodos correspondientes
+    * public function __construct() { $this->middleware('client_credentials')->only(['metodos de acceso publico, separados por coma ","']); }
+
+    * Ahora bien, si el mismo controlador posee rutas que debemos proteger y que no deben tener acceso "publico", precisa usar para aquellos metodos el middleware auth:api
+    * en donde debemos incluir o excluir (según sea el caso) los metodos a proteger
+    * public function __construct() { $this->middleware('client_credentials')->except(['metodos de acceso privado, separados por coma ","']); }
+    *
+    */
+
     public function __construct()
     {
         $this->middleware('client.credentials')->only(['store', 'resend']);
