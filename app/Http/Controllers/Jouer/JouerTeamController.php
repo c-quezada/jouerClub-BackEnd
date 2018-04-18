@@ -20,16 +20,16 @@ class JouerTeamController extends ApiController
         return $this->showAll($teams);
     }
 
-    public function addTeam(Jouer $jouer, Request $request)
+    public function addTeam(Jouer $jouer, Team $teams)
     {
-            $jouer->teams()->attach(array($request->teams));
-            return $this->showAll($jouer->teams);
+        $jouer->teams()->attach(array($teams->id));
+        return $this->showMessage('Haz sido ingresado al equipo.', 200);
     }
 
-    public function removeTeam(Jouer $jouer, Request $request)
+    public function removeTeam(Jouer $jouer, Team $teams)
     {
-            $jouer->teams()->detach(array($request->teams));
-            return $this->showAll($jouer->teams);
+        $jouer->teams()->detach(array($teams->id));
+        return $this->showMessage('Haz sido retirado del equipo.', 200);
     }
 
 }

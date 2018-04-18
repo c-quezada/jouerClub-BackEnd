@@ -32,26 +32,27 @@ Route::resource('jouers.workshops', 'Jouer\JouerWorkshopController', ['only' => 
 /**
  * Jouer Skills
  */
-Route::name('jouers.addSkill')->post('jouers/{jouer}/addskill', 'Jouer\JouerSkillController@addSkill');
-Route::name('jouers.removeSkill')->post('jouers/{jouer}/removeskill', 'Jouer\JouerSkillController@removeSkill');
+Route::name('jouers.addSkill')->post('jouers/{jouer}/addskill/{skills}', 'Jouer\JouerSkillController@addSkill');
+Route::name('jouers.removeSkill')->post('jouers/{jouer}/removeskill/{skills}', 'Jouer\JouerSkillController@removeSkill');
 
 /**
  * Jouer Teams
  */
-Route::name('jouers.addTeam')->post('jouers/{jouer}/addteam', 'Jouer\JouerTeamController@addTeam');
-Route::name('jouers.removeTeam')->post('jouers/{jouer}/removeteam', 'Jouer\JouerTeamController@removeTeam');
+Route::name('jouers.addTeam')->post('jouers/{jouer}/addteam/{teams}', 'Jouer\JouerTeamController@addTeam');
+Route::name('jouers.removeTeam')->post('jouers/{jouer}/removeteam/{teams}', 'Jouer\JouerTeamController@removeTeam');
 
 /**
  * Jouer Meetings
  */
 Route::name('jouers.addMeeting')->post('jouers/{jouer}/addmeeting/{meetings}', 'Jouer\JouerMeetingController@addMeeting');
-Route::name('jouers.removeMeeting')->post('jouers/{jouer}/removemeeting', 'Jouer\JouerMeetingController@removeMeeting');
+Route::name('jouers.removeMeeting')->post('jouers/{jouer}/removemeeting/{meetings}', 'Jouer\JouerMeetingController@removeMeeting');
 
 /**
  * Jouer Workshops
  */
-Route::name('jouers.addWorkshop')->post('jouers/{jouer}/addworkshop', 'Jouer\JouerWorkshopController@addWorkshop');
-Route::name('jouers.removeWorkshop')->post('jouers/{jouer}/removeworkshop', 'Jouer\JouerWorkshopController@removeWorkshop');
+Route::name('jouers.addWorkshop')->post('jouers/{jouer}/addworkshop/{workshops}', 'Jouer\JouerWorkshopController@addWorkshop');
+Route::name('jouers.removeWorkshop')->post('jouers/{jouer}/removeworkshop/{workshops}', 
+	'Jouer\JouerWorkshopController@removeWorkshop');
 
 /**
  * Clubers

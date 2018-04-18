@@ -6,6 +6,7 @@ use App\Jouer;
 use App\Workshop;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\Workshop\WorkshopController;
 
 class JouerWorkshopController extends ApiController
 {
@@ -20,15 +21,15 @@ class JouerWorkshopController extends ApiController
         return $this->showAll($workshops);
     }
 
-    public function addWorkshop(Jouer $jouer, Request $request)
+    public function addWorkshop(Jouer $jouer, Workshop $workshops)
     {
-            $jouer->workshops()->attach(array($request->workshops));
-            return $this->showAll($jouer->workshops);
+        $jouer->workshops()->attach(array($workshops->id));
+        return $this->showMessage('Haz sido ingresado al taller.', 200);
     }
 
-    public function removeWorkshop(Jouer $jouer, Request $request)
+    public function removeWorkshop(Jouer $jouer, Workshop $workshops)
     {
-            $jouer->workshops()->detach(array($request->workshops));
-            return $this->showAll($jouer->workshops);
-    }
+        $jouer->workshops()->detach(array($workshops->id));
+        return $this->showMessage('Haz sido retirado del taller.', 200);
+    }    
 }
