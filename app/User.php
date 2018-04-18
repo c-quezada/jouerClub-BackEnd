@@ -69,12 +69,11 @@ class User extends Authenticatable
         $auth_token = '26b163b072935fab99f4715689254694';
         $twilio_number = "+56945950470";
         $client = new Client($account_sid, $auth_token);
-       
-       
+
+
             $client->messages->create(
                 $to, array('from' => $twilio_number, 'body' => $code));
-            response()->json("SMS enviado correctamente. ");        
+            response()->json("SMS enviado correctamente. ");
     }
-
 
 }
