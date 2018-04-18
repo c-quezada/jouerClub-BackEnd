@@ -14,7 +14,7 @@ class TeamRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'          => 'required|min:4', 
+            'name'          => 'required|min:2', 
             'motto'         => 'required|min:4', 
             'branch_id'     => 'required'
         ];

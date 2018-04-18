@@ -30,7 +30,7 @@ class MeetingTransformer extends TransformerAbstract
                     'href' => route('meetings.index')
                 ],
                 [
-                    'rel' => 'meetings.branches',
+                    'rel' => 'meetings.participants',
                     'href' => route('meetings.participants.index', $meeting->id),
                 ],
             ]

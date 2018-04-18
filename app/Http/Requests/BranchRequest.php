@@ -15,7 +15,7 @@ class BranchRequest extends FormRequest
     {
         return [
             'name'          => 'required|min:4', 
-            'sport_id'      => 'numeric'
+            'sport_id'      => 'required'
         ];
     }
 }

@@ -58,7 +58,6 @@ class MeetingController extends ApiController
             $meeting->status = $request->status;
         }
 
-
         if ($request->has('court_id')) {
             $meeting->court_id = $request->court_id;
         }

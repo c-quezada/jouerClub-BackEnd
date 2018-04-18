@@ -14,7 +14,7 @@ class SportController extends ApiController
     {
         $this->middleware('client.credentials')->only(['index', 'show']);
         $this->middleware('auth:api')->except(['index', 'show']);
-        $this->middleware('transform.input: ' . SportTransformer::class)->only(['store', 'update']);
+        $this->middleware('transform.input:' . SportTransformer::class)->only(['store', 'update']);
     }
 
     public function index()

@@ -28,7 +28,7 @@ class WorkshopController extends ApiController
     {
         $fields                = $request->all();
         $fields['name']        = strtoupper($request->name);
-        $fields['description'] = strtolower($request->lastname);
+        $fields['description'] = strtolower($request->description);
         $fields['lat']         = $request->lat;
         $fields['lng']         = $request->lng;
         $fields['time_begin']  = $request->time_begin;     
@@ -40,8 +40,6 @@ class WorkshopController extends ApiController
             return $this->showOne($workshop, 201);
         }
 
-        $workshop = Workshop::create($fields);
-        return $this->showOne($workshop, 201);
     }
 
     public function show(Workshop $workshop)
