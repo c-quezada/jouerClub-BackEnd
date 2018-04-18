@@ -2,11 +2,8 @@
 
 namespace App;
 
-<<<<<<< HEAD
 use vendor\autoload;
 
-=======
->>>>>>> ImagePolymorphicClass
 use App\Cluber;
 use Twilio\Rest\Client;
 use Laravel\Passport\HasApiTokens;
@@ -72,20 +69,11 @@ class User extends Authenticatable
         $auth_token = '26b163b072935fab99f4715689254694';
         $twilio_number = "+56945950470";
         $client = new Client($account_sid, $auth_token);
-       
-       
+
+
             $client->messages->create(
                 $to, array('from' => $twilio_number, 'body' => $code));
-            response()->json("SMS enviado correctamente. ");        
+            response()->json("SMS enviado correctamente. ");
     }
 
-<<<<<<< HEAD
-=======
-    public function image()
-    {
-      return $this->morphMany(Images::class, 'abstractImage');
-    }
-
-    //mutadores, se utiliza para modificar un valor actual de un atributo antes de hacer la insercion a la base de datos
->>>>>>> ImagePolymorphicClass
 }

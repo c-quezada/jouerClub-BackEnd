@@ -30,6 +30,19 @@ class AuthServiceProvider extends ServiceProvider
           Passport::routes();
           Passport::tokensExpireIn(Carbon::now()->addDays(30));
           Passport::refreshTokensExpireIn(Carbon::now()->addDays(30));
-        //
+
+          Passport::enableImplicitGrant();
+
+          Passport::tokensCan([
+            //CLUBER
+            'manege-sportfields'   => 'Administrar recintos deportivos - CRUD',
+            'manege-courts'        => 'Administrar canchas - CRUD',
+            'manege-maintenance'   => 'Administrar mantenciones - CRUD',
+            'manege-availability'  => 'Administrar mantenciones - CRUD',
+            //JOUER
+            //GENERAL
+            'our_clients'          => 'Dar acceso a ciertos recursos a los desarrolladores',
+            'manege-account'       => 'Administrar cuenta - CRUD (Menos eliminar la cuenta)',
+          ]);
     }
 }
