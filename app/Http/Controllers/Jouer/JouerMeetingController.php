@@ -22,14 +22,19 @@ class JouerMeetingController extends ApiController
 
     public function addMeeting(Jouer $jouer, Meeting $meetings)
     {
-        $jouer_matches_time = $jouer->meetings()->get()->pluck('time_begin');
+        $jouer_match_start = $jouer->meetings()->get()->pluck('time_begin');
+        $jouer_match_end = $jouer->meetings()->get()->pluck('time_end');
+
+        var_dump($jouer_match_start); die();
+
+        /*
         $current_match = $meetings->time_begin;
 
         foreach ($jouer_matches_time as $time) {
             if ($time !== $current_match) {
               echo "El partido $time No es a la misma hora que el actual: $current_match " . "\n" ;
             }
-        }
+        }*/
 
 
         //var_dump($current_match); die();

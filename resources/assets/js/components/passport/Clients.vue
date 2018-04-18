@@ -76,6 +76,9 @@
             </div>
         </div>
 
+        <!-- Request a new access token Grant Type Clients_credentials -->
+        <!-- /Request a new access token Grant Type Clients_credentials -->
+
         <!-- Create Client Modal -->
         <div class="modal fade" id="modal-create-client" tabindex="-1" role="dialog">
             <div class="modal-dialog">

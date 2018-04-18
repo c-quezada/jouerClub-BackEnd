@@ -12,6 +12,8 @@
         "laravel/framework": "5.5.*",
         "laravel/passport": "~4.0",
         "laravel/tinker": "~1.0",
+        "laravelcollective/html": "^5.0",
+        "laraveles/spanish": "^1.0",
         "spatie/laravel-fractal": "^5.3",
         "twilio/sdk": "^5.16"
     },

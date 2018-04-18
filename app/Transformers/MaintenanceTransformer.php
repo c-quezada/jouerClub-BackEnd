@@ -26,7 +26,7 @@ class MaintenanceTransformer extends TransformerAbstract
             'links' => [
                 [
                     'rel' => 'self',
-                    'href' => route('maintenances.index'),
+                    'href' => route('maintenances.show', $maintenance->id),
                 ]
             ]
         ];

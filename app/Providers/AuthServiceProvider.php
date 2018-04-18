@@ -35,14 +35,18 @@ class AuthServiceProvider extends ServiceProvider
 
           Passport::tokensCan([
             //CLUBER
-            'manege-sportfields'   => 'Administrar recintos deportivos - CRUD',
-            'manege-courts'        => 'Administrar canchas - CRUD',
-            'manege-maintenance'   => 'Administrar mantenciones - CRUD',
-            'manege-availability'  => 'Administrar mantenciones - CRUD',
+            'manage-sportfields'     => 'Administrar recintos deportivos - CRUD',
+            'manage-courts'          => 'Administrar canchas - CRUD',
+            'manage-maintenance'     => 'Administrar mantenciones - CRUD',
+            'manage-availability'    => 'Administrar mantenciones - CRUD',
             //JOUER
+            'manage-teams'           => 'Administrar recintos deportivos - CRUD',
+            'manage-meetings'        => 'Administrar canchas - CRUD',
+            'join/left-skills'       => 'Administrar mantenciones - CRUD',
+            'join/leave-workshops'   => 'Administrar mantenciones - CRUD',
             //GENERAL
-            'our_clients'          => 'Dar acceso a ciertos recursos a los desarrolladores',
-            'manege-account'       => 'Administrar cuenta - CRUD (Menos eliminar la cuenta)',
+            'our_clients'            => 'Dar acceso a ciertos recursos a los desarrolladores',
+            'manage-account'         => 'Administrar cuenta - CRUD (Menos eliminar la cuenta)',
           ]);
     }
 }
