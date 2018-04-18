@@ -16,6 +16,7 @@ class SportfieldTransformer extends TransformerAbstract
     {
         return [
             'identificador' => (int)$sportfield->id,
+            'nombre' => (string)$sportfield->name,
             'descripcion' => (string)$sportfield->description,
             'direccion' => (string)$sportfield->address,
             'latitud' => (string)$sportfield->lat,
@@ -39,7 +40,7 @@ class SportfieldTransformer extends TransformerAbstract
                 ],
                 [
                     'rel' => 'sportfields.courts',
-                    'href' => route('sportfields.courts.index', $sportfield->id),  
+                    'href' => route('sportfields.courts.index', $sportfield->id),
                 ]
             ]
         ];
@@ -49,6 +50,7 @@ class SportfieldTransformer extends TransformerAbstract
     {
         $attributes = [
             'identificador' => 'id',
+            'nombre' => 'name',
             'descripcion' => 'description',
             'direccion' => 'address',
             'latitud' => 'lat',
@@ -72,6 +74,7 @@ class SportfieldTransformer extends TransformerAbstract
     {
         $attributes = [
             'id' => 'identificador',
+            'name' => 'nombre',
             'description' => 'descripcion',
             'address' => 'direccion',
             'lat' => 'latitud',

@@ -30,7 +30,7 @@ class SportFieldTable extends Migration
             $table->integer('commune_id')->comment("field to store cluber's number idenfifier, it's a foreign key")->unsigned();
             $table->timestamps();
             $table->softDeletes();
-            
+
             $table->foreign('cluber_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('commune_id')->references('id')->on('communes')->onDelete('cascade');
 

@@ -23,10 +23,10 @@ class JouerMeetingController extends ApiController
 
     public function addMeeting(Jouer $jouer, Meeting $meetings)
     {
-        $jouer_matches = $jouer->meetings()->get();
+        $jouer_matches = $jouer->meetings()->get()->pluck(['time_begin', 'time_end']);
 
         foreach ($jouer_matches as $match) {
-          if ($meetings->time_begin >= $match->time_begin && $meetings->time_end <= $match->time_end) {
+          if (strtotime($meetings->time_begin) >= strtotime($match->time_begin) && strtotime($meetings->time_end) <= strtotime($match->time_end)) {
             return $this->errorResponse('No es posible agendar el encuentro, procura que el horario no coincida con otro encuentro.', 400);
           } else {
             $jouer->meetings()->attach(array($meetings->id));

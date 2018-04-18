@@ -20,15 +20,8 @@ class BranchTransformer extends TransformerAbstract
             'deporte' => (int)$branch->sport_id,
             'fecha_creacion' => (string)$branch->created_at,
             'fecha_actualizacion' => (string)$branch->updated_at,
-            'fecha_eliminacion' => isset($branch->deleted_at) ? (string)$branch->deleted_at : null,
-
-            'links' => [
-                [
-                    'rel' => 'self',
-                    'href' => route('branches.show', $branch->id),
-                ],
-            ]
-        ];
+            'fecha_eliminacion' => isset($branch->deleted_at) ? (string)$branch->deleted_at : null
+            ];
     }
 
     public static function originalAttribute($index)
