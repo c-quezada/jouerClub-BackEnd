@@ -39,7 +39,6 @@ class User extends Authenticatable
         'avatar',
         'phone',
         'password',
-        'picture',
         'status',
         'type',
         'code_verification'

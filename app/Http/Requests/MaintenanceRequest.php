@@ -25,8 +25,8 @@ class MaintenanceRequest extends FormRequest
     {
         return [
             'observations'         => 'required',
-            'status'        => 'required',
-            'facility_id' => 'required'
+            'mark'                 => 'required',
+            'facility_id'          => 'required'
         ];
     }
 }
