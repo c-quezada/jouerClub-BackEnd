@@ -29,7 +29,9 @@ class CourtController extends ApiController
         $fields                   = $request->all();
         $fields['name']           = ucwords($request->name);     
         $fields['status']         = $request->status;
-        $fields['sport_field_id'] = $request->sport_field_id;
+        $fields['sportfieldid']   = $request->sport_field_id;
+
+        var_dump($request->sport_field_id); die();
 
         if (SportField::findOrFail($request->sport_field_id)) {
             $court = Court::create($fields); 
