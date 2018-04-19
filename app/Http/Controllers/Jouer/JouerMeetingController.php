@@ -31,25 +31,28 @@ class JouerMeetingController extends ApiController
 
         if (count($jouer_matches) > 0) {
             foreach ($jouer_matches as $match) {
-                
+
                 $match_date_begin   = Carbon::parse($match['time_begin']);
                 $match_date_end     = Carbon::parse($match['time_end']);
 
               if ($current_date_begin >= $match_date_begin && $current_date_begin <= $match_date_end ||
                 $current_date_end >= $match_date_begin && $current_date_end <= $match_date_end) {
                     $flag=0;
-                    return $this->errorResponse('No es posible agendar el encuentro, procura que el horario no coincida con otro encuentro.', 400); 
+                    return $this->errorResponse('No es posible agendar el encuentro, procura que el horario no coincida con otro encuentro.', 400);
               }
 
             }
-            
+
         } else {
-            $jouer->meetings()->attach(array($meetings->id));                         
+            $jouer->meetings()->attach(array($meetings->id));
             return $this->showAll($jouer->meetings()->get());
         }
         if($flag==1){
-            $jouer->meetings()->attach(array($meetings->id));                         
-                return $this->showAll($jouer->meetings()->get());
+            if ($current_date_begin <= Carbon::now()->subMinute(1)) {
+              return $this->errorResponse("No es posible unirte este encuentro, ya que se encuentra en curso o bien ya ha finalizado.", 403);
+            }
+            $jouer->meetings()->attach(array($meetings->id));
+            return $this->showAll($jouer->meetings()->get());
         }
     }
 
