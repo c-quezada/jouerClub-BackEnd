@@ -11,7 +11,7 @@ use App\Transformers\FacilityTransformer;
 class FacilityController extends ApiController
 {
     public function __construct()
-    {    
+    {
         $this->middleware('client.credentials')->only(['index', 'show']);
         $this->middleware('auth:api')->except(['index', 'show']);
         $this->middleware('transform.input:' . FacilityTransformer::class)->only(['store', 'update']);
@@ -52,8 +52,16 @@ class FacilityController extends ApiController
             $facility->brand = $request->brand;
         }
 
+        if ($request->has('price')) {
+            $facility->price = $request->price;
+        }
+
         if ($request->has('purchased_at')) {
             $facility->purchased_at = $request->purchased_at;
+        }
+
+        if ($request->has('court_id')) {
+            $facility->court_id = $request->court_id;
         }
 
         if (!$facility->isDirty()) { //verifica si el usuario no se modificó

@@ -15,6 +15,6 @@ Route::get('/home/my-clients', 'HomeController@getClients')->name('personal-clie
 Route::get('/home/my-tokens', 'HomeController@getTokens')->name('personal-tokens');
 Route::get('/home', 'HomeController@index');
 
-Route::get('/', function() {
+/*Route::get('/', function() {
 	return view('welcome');
-})->middleware('guest');
+})->middleware('guest');*/

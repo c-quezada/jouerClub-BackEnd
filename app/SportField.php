@@ -10,13 +10,13 @@ use App\Transformers\SportfieldTransformer;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class SportField extends Model
-{	
+{
 	use SoftDeletes;
-	
+
     public $transformer = SportfieldTransformer::class;
 
     protected $table    = 'sportsFields';
-    
+
     protected $fillable = [
         'name',
         'description',
@@ -32,10 +32,10 @@ class SportField extends Model
         'cluber_id',
         'commune_id'
     ];
-    
+
     protected $dates    = ['deleted_at'];
 
-    protected $hidden   = ['commune_id', 'cluber_id', 'created_at', 'updated_at', 'deleted_at'];
+    protected $hidden   = ['commune_id', 'cluber_id'];
 
     public function cluber()
     {
@@ -52,5 +52,5 @@ class SportField extends Model
         return $this->belongsTo(Commune::class);
     }
 
-    
+
 }

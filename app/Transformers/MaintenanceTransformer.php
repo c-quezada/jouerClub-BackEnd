@@ -19,9 +19,9 @@ class MaintenanceTransformer extends TransformerAbstract
             'observaciones' => (string)$maintenance->observations,
             'calificacion' => (int)$maintenance->mark,
             'instalacion' => (int)$maintenance->facility_id,
-            'fecha_creacion' => (string)$maintenance->created_at,
-            'fecha_actualizacion' => (string)$maintenance->updated_at,
-            'fecha_eliminacion' => isset($maintenance->deleted_at) ? (string)$maintenance->deleted_at : null,
+            'fechaCreacion' => (string)$maintenance->created_at,
+            'fechaActualizacion' => (string)$maintenance->updated_at,
+            'fechaEliminacion' => isset($maintenance->deleted_at) ? (string)$maintenance->deleted_at : null,
 
             'links' => [
                 [
@@ -39,9 +39,9 @@ class MaintenanceTransformer extends TransformerAbstract
             'observaciones' => 'observations',
             'calificacion' => 'mark',
             'instalacion' => 'facility_id',
-            'fecha_creacion' => 'created_at',
-            'fecha_actualizacion' => 'updated_at',
-            'fecha_eliminacion' => 'deleted_at',
+            'fechaCreacion' => 'created_at',
+            'fechaActualizacion' => 'updated_at',
+            'fechaEliminacion' => 'deleted_at',
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }
@@ -53,9 +53,9 @@ class MaintenanceTransformer extends TransformerAbstract
             'observations' => 'observaciones',
             'mark' => 'calificacion',
             'facility_id' => 'instalacion',
-            'created_at' => 'fecha_creacion',
-            'updated_at' => 'fecha_actualizacion',
-            'deleted_at' => 'fecha_eliminacion',
+            'created_at' => 'fechaCreacion',
+            'updated_at' => 'fechaActualizacion',
+            'deleted_at' => 'fechaEliminacion',
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }

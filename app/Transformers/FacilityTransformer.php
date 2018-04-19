@@ -19,11 +19,11 @@ class FacilityTransformer extends TransformerAbstract
             'nombre' => (string)$facility->name,
             'marca' => (string)$facility->brand,
             'precio' => (int)$facility->price,
-            'fecha_compra' => (string)$facility->purchased_at,
+            'fechaCompra' => (string)$facility->purchased_at,
             'cancha' => (int)$facility->court_id,
-            'fecha_creacion' => (string)$facility->created_at,
-            'fecha_actualizacion' => (string)$facility->updated_at,
-            'fecha_eliminacion' => isset($facility->deleted_at) ? (string)$facility->deleted_at : null,
+            'fechaCreacion' => (string)$facility->created_at,
+            'fechaActualizacion' => (string)$facility->updated_at,
+            'fechaEliminacion' => isset($facility->deleted_at) ? (string)$facility->deleted_at : null,
 
             'links' => [
                 [
@@ -45,11 +45,11 @@ class FacilityTransformer extends TransformerAbstract
             'nombre' => 'name',
             'marca' => 'brand',
             'precio' => 'price',
-            'fecha_compra' => 'purchased_at',
+            'fechaCompra' => 'purchased_at',
             'cancha' => 'court_id',
-            'fecha_creacion' => 'created_at',
-            'fecha_actualizacion' => 'updated_at',
-            'fecha_eliminacion' => 'deleted_at',
+            'fechaCreacion' => 'created_at',
+            'fechaActualizacion' => 'updated_at',
+            'fechaEliminacion' => 'deleted_at',
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }
@@ -61,11 +61,11 @@ class FacilityTransformer extends TransformerAbstract
             'name' => 'nombre',
             'brand' => 'marca',
             'price' => 'precio',
-            'purchased_at' => 'fecha_compra',
+            'purchased_at' => 'fechaCompra',
             'court_id' => 'cancha',
-            'created_at' => 'fecha_creacion',
-            'updated_at' => 'fecha_actualizacion',
-            'deleted_at' => 'fecha_eliminacion',
+            'created_at' => 'fechaCreacion',
+            'updated_at' => 'fechaActualizacion',
+            'deleted_at' => 'fechaEliminacion',
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }

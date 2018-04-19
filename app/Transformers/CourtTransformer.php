@@ -19,9 +19,9 @@ class CourtTransformer extends TransformerAbstract
             'nombre' => (string)$court->name,
             'estado' => (string)$court->status,
             'recinto' => (int)$court->sport_field_id,
-            'fechacreacion' => (string)$court->created_at,
-            'fechaactualizacion' => (string)$court->updated_at,
-            'fechaeliminacion' => isset($court->deleted_at) ? (string)$court->deleted_at : null,
+            'fechaCreacion' => (string)$court->created_at,
+            'fechaActualizacion' => (string)$court->updated_at,
+            'fechaEliminacion' => isset($court->deleted_at) ? (string)$court->deleted_at : null,
 
             'links' => [
                 [
@@ -50,10 +50,10 @@ class CourtTransformer extends TransformerAbstract
             'identificador' => 'id',
             'nombre' => 'name',
             'estado' => 'status',
-            'recinto' => 'sportfieldid',
-            'fechacreacion' => 'createdat',
-            'fechaactualizacion' => 'updatedat',
-            'fechaeliminacion' => 'deletedat',
+            'recinto' => 'sport_field_id',
+            'fechaCreacion' => 'created_at',
+            'fechaActualizacion' => 'updated_at',
+            'fechaEliminacion' => 'deleted_at',
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }
@@ -64,10 +64,10 @@ class CourtTransformer extends TransformerAbstract
             'id' => 'identificador',
             'name' => 'nombre',
             'status' => 'estado',
-            'sportfieldid' => 'recinto',
-            'createdat' => 'fechacreacion',
-            'updatedat' => 'fechaactualizacion',
-            'deletedat' => 'fechaeliminacion',
+            'sport_field_id' => 'recinto',
+            'created_at' => 'fechaCreacion',
+            'updated_at' => 'fechaActualizacion',
+            'deleted_at' => 'fechaEliminacion',
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }

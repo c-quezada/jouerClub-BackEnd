@@ -26,6 +26,7 @@ class FacilityRequest extends FormRequest
         return [
             'name'         => 'required',
             'brand'        => 'required',
+          'price'          => 'required',
             'purchased_at' => 'required',
             'court_id'     => 'required',
         ];

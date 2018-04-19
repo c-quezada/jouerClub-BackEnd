@@ -14,13 +14,14 @@ class SportFieldRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'       => 'required|max:100|min:4',
-            'address'    => 'required|min:10',
-            'lat'        => 'required',
-            'lng'        => 'required',
-            'timebegin' => 'required',
-            'timeend'   => 'required',
-            'cluberid'  => 'required|numeric'
+            'name'         => 'required|max:100|min:4',
+            'address'      => 'required|min:10',
+            'description'  => 'required|min:10',
+            'lat'          => 'required',
+            'lng'          => 'required',
+            'time_begin'   => 'required',
+            'time_end'     => 'required',
+            'cluber_id'    => 'required|numeric'
         ];
     }
 }
