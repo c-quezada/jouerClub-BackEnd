@@ -23,9 +23,9 @@ class CluberTransformer extends TransformerAbstract
             'celular' => (string)$cluber->phone,
             'contraseña' => (string)$cluber->password,
             'avatar' => (string)$cluber->avatar,
-            'fecha_creacion' => (string)$cluber->created_at,
-            'fecha_actualizacion' => (string)$cluber->updated_at,
-            'fecha_eliminacion' => isset($cluber->deleted_at) ? (string)$cluber->deleted_at : null,
+            'fechacreacion' => (string)$cluber->created_at,
+            'fechaactualizacion' => (string)$cluber->updated_at,
+            'fechaeliminacion' => isset($cluber->deleted_at) ? (string)$cluber->deleted_at : null,
 
 
             'links' => [
@@ -52,9 +52,9 @@ class CluberTransformer extends TransformerAbstract
             'celular' => 'phone',
             'contraseña' => 'password',
             'avatar' => 'avatar',
-            'fecha_creacion' => 'created_at',
-            'fecha_actualizacion' => 'updated_at',
-            'fecha_eliminacion' => 'deleted_at',
+            'fechacreacion' => 'createdat',
+            'fechaactualizacion' => 'updatedat',
+            'fechaeliminacion' => 'deletedat',
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }
@@ -70,9 +70,9 @@ class CluberTransformer extends TransformerAbstract
             'phone' => 'celular',
             'password' => 'contraseña',
             'avatar' => 'avatar',
-            'created_at' => 'fecha_creacion',
-            'updated_at' => 'fecha_actualizacion',
-            'deleted_at' => 'fecha_eliminacion',
+            'createdat' => 'fechacreacion',
+            'updatedat' => 'fechaactualizacion',
+            'deletedat' => 'fechaeliminacion',
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }

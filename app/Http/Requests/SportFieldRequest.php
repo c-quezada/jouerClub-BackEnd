@@ -18,9 +18,9 @@ class SportFieldRequest extends FormRequest
             'address'    => 'required|min:10',
             'lat'        => 'required',
             'lng'        => 'required',
-            'time_begin' => 'required',
-            'time_end'   => 'required',
-            'cluber_id'  => 'required|numeric'
+            'timebegin' => 'required',
+            'timeend'   => 'required',
+            'cluberid'  => 'required|numeric'
         ];
     }
 }

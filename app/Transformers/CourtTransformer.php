@@ -18,9 +18,9 @@ class CourtTransformer extends TransformerAbstract
             'identificador' => (int)$court->id,
             'nombre' => (string)$court->name,
             'estado' => (string)$court->status,
-            'fecha_creacion' => (string)$court->created_at,
-            'fecha_actualizacion' => (string)$court->updated_at,
-            'fecha_eliminacion' => isset($court->deleted_at) ? (string)$court->deleted_at : null,
+            'fechacreacion' => (string)$court->created_at,
+            'fechaactualizacion' => (string)$court->updated_at,
+            'fechaeliminacion' => isset($court->deleted_at) ? (string)$court->deleted_at : null,
 
             'links' => [
                 [
@@ -49,9 +49,9 @@ class CourtTransformer extends TransformerAbstract
             'identificador' => 'id',
             'nombre' => 'name',
             'estado' => 'status',
-            'fecha_creacion' => 'created_at',
-            'fecha_actualizacion' => 'updated_at',
-            'fecha_eliminacion' => 'deleted_at',
+            'fechacreacion' => 'createdat',
+            'fechaactualizacion' => 'updatedat',
+            'fechaeliminacion' => 'deletedat',
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }
@@ -62,9 +62,9 @@ class CourtTransformer extends TransformerAbstract
             'id' => 'identificador',
             'name' => 'nombre',
             'status' => 'estado',
-            'created_at' => 'fecha_creacion',
-            'updated_at' => 'fecha_actualizacion',
-            'deleted_at' => 'fecha_eliminacion',
+            'createdat' => 'fechacreacion',
+            'updatedat' => 'fechaactualizacion',
+            'deletedat' => 'fechaeliminacion',
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }

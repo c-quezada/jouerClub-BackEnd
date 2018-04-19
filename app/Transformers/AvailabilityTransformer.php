@@ -21,9 +21,9 @@ class AvailabilityTransformer extends TransformerAbstract
             'inicio' => (string)$availability->time_begin,
             'termino' => (string)$availability->time_end,
             'estado' => (string)$availability->status,
-            'fecha_creacion' => (string)$availability->created_at,
-            'fecha_actualizacion' => (string)$availability->updated_at,
-            'fecha_eliminacion' => isset($availability->deleted_at) ? (string)$availability->deleted_at : null,
+            'fechacreacion' => (string)$availability->created_at,
+            'fechaactualizacion' => (string)$availability->updated_at,
+            'fechaeliminacion' => isset($availability->deleted_at) ? (string)$availability->deleted_at : null,
         ];
     }
 
@@ -36,9 +36,9 @@ class AvailabilityTransformer extends TransformerAbstract
             'inicio' => 'time_begin',
             'termino' => 'time_end',
             'estado' => 'status',
-            'fecha_creacion' => 'created_at',
-            'fecha_actualizacion' => 'updated_at',
-            'fecha_eliminacion' => 'deleted_at',
+            'fechacreacion' => 'createdat',
+            'fechaactualizacion' => 'updatedat',
+            'fechaeliminacion' => 'deletedat',
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }
@@ -52,9 +52,9 @@ class AvailabilityTransformer extends TransformerAbstract
             'time_begin' => 'inicio',
             'time_end' => 'termino',
             'status' => 'estado',
-            'created_at' => 'fecha_creacion',
-            'updated_at' => 'fecha_actualizacion',
-            'deleted_at' => 'fecha_eliminacion',
+            'createdat' => 'fechacreacion',
+            'updatedat' => 'fechaactualizacion',
+            'deletedat' => 'fechaeliminacion',
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }
