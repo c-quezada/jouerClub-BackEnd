@@ -18,10 +18,10 @@ class WorkshopRequest extends FormRequest
             'description' => 'required',
             'lat'         => 'required',
             'lng'         => 'required',
-            'timebegin'   => 'required',
-            'timeend'     => 'required',
+            'time_begin'   => 'required',
+            'time_end'     => 'required',
             'status'      => 'required',
-            'coachid'     => 'required'
+            'coach_id'     => 'required'
         ];
     }
 }

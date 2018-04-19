@@ -38,8 +38,6 @@ class Jouer extends User
 	public function workshops()
 	{
 		return $this->belongsToMany(Workshop::class);	
-	}
-
-	
+	}	
 
 }

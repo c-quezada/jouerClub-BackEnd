@@ -16,11 +16,11 @@ class Skill extends Model
 
     protected $table    = 'skills';
     
-    protected $fillable = ['name', 'description'];
+    protected $fillable = ['name', 'description', 'branch_id'];
     
     protected $dates    = ['deleted_at'];
     
-    protected $hidden   = ['pivot', 'created_at', 'updated_at', 'deleted_at', 'id'];
+    protected $hidden   = ['pivot', 'created_at', 'updated_at', 'deleted_at', 'id', 'branch_id'];
 
     public function jouer()
     {

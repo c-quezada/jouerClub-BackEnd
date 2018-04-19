@@ -24,7 +24,7 @@ class Meeting extends Model
     
     protected $dates    = ['deleted_at'];
 
-    protected $hidden   = ['pivot', 'created_at', 'updated_at', 'deleted_at'];
+    protected $hidden   = ['pivot', 'created_at', 'updated_at', 'deleted_at' , 'court_id'];
 
     public function courts()
     {

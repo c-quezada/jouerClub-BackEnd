@@ -20,9 +20,9 @@ class MeetingTransformer extends TransformerAbstract
             'termino'            => (string)$meeting->time_end,
             'estado'             => (string)$meeting->status,
             'cancha'             => (int)$meeting->court_id,
-            'fechacreacion'      => (string)$meeting->created_at,
-            'fechaactualizacion' => (string)$meeting->updated_at,
-            'fechaeliminacion'   => isset($meeting->deleted_at) ? (string)$meeting->deleted_at : null,
+            'fechaCreacion'      => (string)$meeting->created_at,
+            'fechaActualizacion' => (string)$meeting->updated_at,
+            'fechaEliminacion'   => isset($meeting->deleted_at) ? (string)$meeting->deleted_at : null,
 
             'links' => [
                 [
@@ -41,13 +41,13 @@ class MeetingTransformer extends TransformerAbstract
     {
         $attributes = [
             'identificador'      => 'id',
-            'inicio'             => 'timebegin',
-            'termino'            => 'timeend',
+            'inicio'             => 'time_begin',
+            'termino'            => 'time_end',
             'estado'             => 'status',
-            'cancha'             => 'courtid',
-            'fechacreacion'      => 'createdat',
-            'fechaactualizacion' => 'updatedat',
-            'fechaeliminacion'   => 'deletedat'
+            'cancha'             => 'court_id',
+            'fechaCreacion'      => 'created_at',
+            'fechaActualizacion' => 'updated_at',
+            'fechaEliminacion'   => 'deleted_at'
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }
@@ -55,14 +55,14 @@ class MeetingTransformer extends TransformerAbstract
     public static function transformedAttribute($index)
     {
         $attributes = [
-            'id'        => 'identificador',
-            'timebegin' => 'inicio',
-            'timeend'   => 'termino',
-            'status'    => 'estado',
-            'courtid'   => 'cancha',
-            'createdat' => 'fechacreacion',
-            'updatedat' => 'fechaactualizacion',
-            'deletedat' => 'fechaeliminacion'
+            'id'         => 'identificador',
+            'time_begin' => 'inicio',
+            'time_end'   => 'termino',
+            'status'     => 'estado',
+            'court_id'   => 'cancha',
+            'created_at' => 'fechaCreacion',
+            'updated_at' => 'fechaActualizacion',
+            'deleted_at' => 'fechaEliminacion'
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }

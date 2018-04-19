@@ -18,9 +18,10 @@ class SkillTransformer extends TransformerAbstract
             'identificador' => (int)$skill->id,
             'nombre' => (string)$skill->name,
             'descripcion' => (string)$skill->description,
-            'fechacreacion' => (string)$skill->created_at,
-            'fechaactualizacion' => (string)$skill->updated_at,
-            'fechaeliminacion' => isset($skill->deleted_at) ? (string)$skill->deleted_at : null,
+            'ramaDeportiva' => (int)$skill->branch_id,
+            'fechaCreacion' => (string)$skill->created_at,
+            'fechaActualizacion' => (string)$skill->updated_at,
+            'fechaEliminacion' => isset($skill->deleted_at) ? (string)$skill->deleted_at : null,
 
             'links' => [
                 [
@@ -37,9 +38,10 @@ class SkillTransformer extends TransformerAbstract
             'identificador' => 'id',
             'nombre' => 'name',
             'descripcion' => 'description',
-            'fechacreacion' => 'createdat',
-            'fechaactualizacion' => 'updatedat',
-            'fechaeliminacion' => 'deletedat',
+            'ramaDeportiva' => 'branch_id',
+            'fechaCreacion' => 'created_at',
+            'fechaActualizacion' => 'updated_at',
+            'fechaEliminacion' => 'deleted_at',
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }
@@ -50,9 +52,10 @@ class SkillTransformer extends TransformerAbstract
             'id' => 'identificador',
             'name' => 'nombre',
             'description' => 'descripcion',
-            'createdat' => 'fechacreacion',
-            'updatedat' => 'fechaactualizacion',
-            'deletedat' => 'fechaeliminacion',
+            'branch_id' => 'ramaDeportiva',
+            'created_at' => 'fechaCreacion',
+            'updated_at' => 'fechaActualizacion',
+            'deleted_at' => 'fechaEliminacion',
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }

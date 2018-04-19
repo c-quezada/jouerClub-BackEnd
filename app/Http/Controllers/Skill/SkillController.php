@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Skill;
 
 use App\Skill;
+use App\Branch;
 use Illuminate\Http\Request;
 use App\Http\Requests\SkillRequest;
 use App\Http\Controllers\ApiController;
@@ -25,13 +26,14 @@ class SkillController extends ApiController
 
     public function store(SkillRequest $request)
     {
-        $fields                  = $request->all();
-        $fields['name']          = ucwords($request->name);     
-        $fields['description']   = $request->description;
+        $fields                   = $request->all();
+        $fields['name']           = ucwords($request->name);     
+        $fields['description']    = $request->description;
 
-        $skill = Skill::create($fields); 
-        return $this->showOne($skill, 201);
-       
+        if (Branch::findOrFail($request->branch_id)) {
+            $skill = Skill::create($fields); 
+            return $this->showOne($skill, 201);  
+        }
     }
 
     public function show(Skill $skill)

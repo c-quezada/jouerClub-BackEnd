@@ -121,7 +121,8 @@ $factory->define(Team::class, function (Faker $faker) {
 $factory->define(Skill::class, function (Faker $faker) {
     return [
 		'name'        => $faker->word,
-		'description' => $faker->paragraph(1)
+		'description' => $faker->paragraph(1),
+		'branch_id'   => Branch::inRandomOrder()->first()->id
     ];
 });
 

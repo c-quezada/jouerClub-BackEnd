@@ -17,7 +17,7 @@ class Branch extends Model
 	
     protected $table    = 'branches';
     
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'sport_id'];
     
     protected $dates    = ['deleted_at'];
     

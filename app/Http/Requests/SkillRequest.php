@@ -15,7 +15,8 @@ class SkillRequest extends FormRequest
     {
         return [
             'name'          => 'required|min:2',  
-            'description'   => 'required|min:4'
+            'description'   => 'required|min:4',
+            'branch_id'     => 'required'
         ];
     }
 }

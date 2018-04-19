@@ -29,10 +29,10 @@ class BranchTransformer extends TransformerAbstract
         $attributes = [
             'identificador' => 'id',
             'nombre' => 'name',
-            'deporte' => 'sportId',
-            'fechCreacion' => 'createdAt',
-            'fechaActualizacion' => 'updatedAt',
-            'fechaEliminacion' => 'deletedAt',
+            'deporte' => 'sport_id',
+            'fechaCreacion' => 'created_at',
+            'fechaActualizacion' => 'updated_at',
+            'fechaEliminacion' => 'deleted_at',
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }
@@ -42,10 +42,10 @@ class BranchTransformer extends TransformerAbstract
         $attributes = [
             'id' => 'identificador',
             'name' => 'nombre',
-            'sportId' => 'deporte',
-            'createdAt' => 'fechaCreacion',
-            'updatedAt' => 'fechaActualizacion',
-            'deletedAt' => 'fechaEliminacion',
+            'sport_id' => 'deporte',
+            'created_at' => 'fechaCreacion',
+            'updated_at' => 'fechaActualizacion',
+            'deleted_at' => 'fechaEliminacion',
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }

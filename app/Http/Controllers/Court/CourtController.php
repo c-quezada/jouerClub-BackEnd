@@ -31,8 +31,6 @@ class CourtController extends ApiController
         $fields['status']         = $request->status;
         $fields['sportfieldid']   = $request->sport_field_id;
 
-        var_dump($request->sport_field_id); die();
-
         if (SportField::findOrFail($request->sport_field_id)) {
             $court = Court::create($fields); 
             return $this->showOne($court, 201);
