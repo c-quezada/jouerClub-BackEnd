@@ -47,7 +47,7 @@ class WorkshopController extends ApiController
         return $this->showOne($workshop);        
     }
 
-    public function update(WorkshopRequest $request, Workshop $workshop)
+    public function update(Request $request, Workshop $workshop)
     {      
         if ($request->has('name')) {
             $workshop->name = $request->name;

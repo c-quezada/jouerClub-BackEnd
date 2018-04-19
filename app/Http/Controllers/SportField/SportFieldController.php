@@ -43,7 +43,7 @@ class SportFieldController extends ApiController
         return $this->showOne($sportfield);
     }
 
-    public function update(SportFieldRequest $request, Sportfield $sportfield)
+    public function update(Request $request, Sportfield $sportfield)
     {
         if ($request->has('name')) {
             $sportfield->name = $request->name;

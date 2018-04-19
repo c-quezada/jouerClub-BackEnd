@@ -43,7 +43,7 @@ class CourtController extends ApiController
         return $this->showOne($court);        
     }
 
-    public function update(CourtRequest $request, Court $court)
+    public function update(Request $request, Court $court)
     {
         if ($request->has('name')) {
             $court->name = $request->name;

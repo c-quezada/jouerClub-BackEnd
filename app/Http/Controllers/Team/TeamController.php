@@ -41,7 +41,7 @@ class TeamController extends ApiController
         return $this->showOne($team);        
     }
 
-    public function update(TeamRequest $request, Team $team)
+    public function update(Request $request, Team $team)
     {
         if ($request->has('name')) {
             $team->name = $request->name;

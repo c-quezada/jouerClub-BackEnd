@@ -40,7 +40,7 @@ class BranchController extends ApiController
         return $this->showOne($branch);
     }
 
-    public function update(BranchRequest $request, Branch $branch)
+    public function update(Request $request, Branch $branch)
     {
         if ($request->has('name')) {
             $branch->name = $request->name;
