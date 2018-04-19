@@ -18,9 +18,9 @@ class SportTransformer extends TransformerAbstract
             'identificador' => (int)$sport->id,
             'nombre' => (string)$sport->name,
             'descripcion' => (string)$sport->description,
-            'fecha_creacion' => (string)$sport->created_at,
-            'fecha_actualizacion' => (string)$sport->updated_at,
-            'fecha_eliminacion' => isset($sport->deleted_at) ? (string)$sport->deleted_at : null,
+            'fechacreacion' => (string)$sport->created_at,
+            'fechaactualizacion' => (string)$sport->updated_at,
+            'fechaeliminacion' => isset($sport->deleted_at) ? (string)$sport->deleted_at : null,
 
             'links' => [
                 [
@@ -41,9 +41,9 @@ class SportTransformer extends TransformerAbstract
             'identificador' => 'id',
             'nombre' => 'name',
             'descripcion' => 'description',
-            'fecha_creacion' => 'created_at',
-            'fecha_actualizacion' => 'updated_at',
-            'fecha_eliminacion' => 'deleted_at',
+            'fechacreacion' => 'createdat',
+            'fechaactualizacion' => 'updatedat',
+            'fechaeliminacion' => 'deletedat',
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }
@@ -54,9 +54,9 @@ class SportTransformer extends TransformerAbstract
             'id' => 'identificador',
             'name' => 'nombre',
             'description' => 'descripcion',
-            'created_at' => 'fecha_creacion',
-            'updated_at' => 'fecha_actualizacion',
-            'deleted_at' => 'fecha_eliminacion',
+            'createdat' => 'fechacreacion',
+            'updatedat' => 'fechaactualizacion',
+            'deletedat' => 'fechaeliminacion',
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }

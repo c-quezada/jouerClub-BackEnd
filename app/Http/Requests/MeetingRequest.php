@@ -14,10 +14,10 @@ class MeetingRequest extends FormRequest
     public function rules()
     {
         return [
-            'time_begin'  => 'required|',
-            'time_end'    => 'required',
-            'status'      => 'required',
-            'court_id'    => 'required|numeric'
+            'timebegin'  => 'required|',
+            'timeend'    => 'required',
+            'status'     => 'required',
+            'courtid'    => 'required|numeric'
         ];
     }
 }

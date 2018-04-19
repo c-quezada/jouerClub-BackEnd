@@ -18,10 +18,10 @@ class TeamTransformer extends TransformerAbstract
             'identificador' => (int)$team->id,
             'nombre' => (string)$team->name,
             'lema' => (string)$team->motto,
-            'rama_deportiva' => (int)$team->branch_id,
-            'fecha_creacion' => (string)$team->created_at,
-            'fecha_actualizacion' => (string)$team->updated_at,
-            'fecha_eliminacion' => isset($team->deleted_at) ? (string)$team->deleted_at : null,
+            'ramadeportiva' => (int)$team->branch_id,
+            'fechacreacion' => (string)$team->created_at,
+            'fechaactualizacion' => (string)$team->updated_at,
+            'fechaeliminacion' => isset($team->deleted_at) ? (string)$team->deleted_at : null,
 
             'links' => [
                 [
@@ -42,10 +42,10 @@ class TeamTransformer extends TransformerAbstract
             'identificador' => 'id',
             'nombre' => 'name',
             'lema' => 'motto',
-            'rama_deportiva' => 'branch_id',
-            'fecha_creacion' => 'created_at',
-            'fecha_actualizacion' => 'updated_at',
-            'fecha_eliminacion' => 'deleted_at'
+            'ramadeportiva' => 'branchid',
+            'fechacreacion' => 'createdat',
+            'fechaactualizacion' => 'updated_at',
+            'fechaeliminacion' => 'deleted_at'
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }
@@ -56,10 +56,10 @@ class TeamTransformer extends TransformerAbstract
             'id' => 'identificador',
             'name' => 'nombre',
             'motto' => 'lema',
-            'branch_id' => 'rama_deportiva',
-            'created_at' => 'fecha_creacion',
-            'updated_at' => 'fecha_actualizacion',
-            'deleted_at' => 'fecha_eliminacion'
+            'branchid' => 'ramadeportiva',
+            'createdat' => 'fechacreacion',
+            'updatedat' => 'fechaactualizacion',
+            'deletedat' => 'fechaeliminacion'
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }

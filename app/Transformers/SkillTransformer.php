@@ -18,9 +18,9 @@ class SkillTransformer extends TransformerAbstract
             'identificador' => (int)$skill->id,
             'nombre' => (string)$skill->name,
             'descripcion' => (string)$skill->description,
-            'fecha_creacion' => (string)$skill->created_at,
-            'fecha_actualizacion' => (string)$skill->updated_at,
-            'fecha_eliminacion' => isset($skill->deleted_at) ? (string)$skill->deleted_at : null,
+            'fechacreacion' => (string)$skill->created_at,
+            'fechaactualizacion' => (string)$skill->updated_at,
+            'fechaeliminacion' => isset($skill->deleted_at) ? (string)$skill->deleted_at : null,
 
             'links' => [
                 [
@@ -37,9 +37,9 @@ class SkillTransformer extends TransformerAbstract
             'identificador' => 'id',
             'nombre' => 'name',
             'descripcion' => 'description',
-            'fecha_creacion' => 'created_at',
-            'fecha_actualizacion' => 'updated_at',
-            'fecha_eliminacion' => 'deleted_at',
+            'fechacreacion' => 'createdat',
+            'fechaactualizacion' => 'updatedat',
+            'fechaeliminacion' => 'deletedat',
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }
@@ -50,9 +50,9 @@ class SkillTransformer extends TransformerAbstract
             'id' => 'identificador',
             'name' => 'nombre',
             'description' => 'descripcion',
-            'created_at' => 'fecha_creacion',
-            'updated_at' => 'fecha_actualizacion',
-            'deleted_at' => 'fecha_eliminacion',
+            'createdat' => 'fechacreacion',
+            'updatedat' => 'fechaactualizacion',
+            'deletedat' => 'fechaeliminacion',
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }
