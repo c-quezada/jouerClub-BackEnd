@@ -21,7 +21,7 @@ class AppServiceProvider extends ServiceProvider
                 retry(5, function() use ($user){
                 Mail::to($user)->send(new UserCreated($user)); //Laravel se encarga de reconocer automaticamente el campo email del objeto user
                 }, 100); 
-            } 
+            }
             if ($user->type == 'jouer' ) {
                 retry(5, function() use ($user){
                     User::sendSMSVerification($user->phone, $user->code_verification);
@@ -31,12 +31,12 @@ class AppServiceProvider extends ServiceProvider
                     'jouer_id' => $user->id,
                     'skill_id' => 1
                 ]);
-            } 
+            }
             if ($user->type == 'coach' ) {
                 retry(5, function() use ($user){
                     User::sendSMSVerification($user->phone, $user->code_verification);
                 }, 100);
-            } 
+            }
 
         });
 
@@ -48,7 +48,7 @@ class AppServiceProvider extends ServiceProvider
                             User::sendSMSVerification($user->phone, "Tu número ha sido confirmado. Gracias por unirte al mundo JouerCLUB.");
                     }, 100);
                 }
-            } 
+            }
 
             if ($user->type == 'cluber' ) {
                 if ($user->isDirty('email')) {
@@ -56,7 +56,7 @@ class AppServiceProvider extends ServiceProvider
                             Mail::to($user)->send(new UserMailChanged($user));
                     }, 100);
                 }
-            } 
+            }
         });
 
         Schema::defaultStringLength(191);

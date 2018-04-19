@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\SportField;
 
+use App\User;
 use App\Cluber;
 use App\SportField;
 use Illuminate\Http\Request;
@@ -31,10 +32,12 @@ class SportFieldController extends ApiController
         $fields['description'] = strtolower($request->description);
         $fields['address']     = ucwords($request->address);
 
-        if (Cluber::findOrFail($request->cluber_id)) {
-            $sportfield = SportField::create($fields);
-            return $this->showOne($sportfield, 201);
+        $user = User::findOrFail($request->cluber_id);
+        if ($user->type == User::CLUBER) {
+          $sportfield = SportField::create($fields);
+          return $this->showOne($sportfield, 201);
         }
+        return $this->errorResponse("¿Desea registrar un recinto deportivo ? Es necesario que tenga un convenio con nosotros.", 401);
     }
 
 

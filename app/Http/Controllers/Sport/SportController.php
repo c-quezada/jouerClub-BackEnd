@@ -26,19 +26,19 @@ class SportController extends ApiController
     public function store(SportRequest $request)
     {
         $fields                  = $request->all();
-        $fields['name']          = ucwords($request->name);     
+        $fields['name']          = ucwords($request->name);
         $fields['description']   = $request->description;
 
-        $sport = Sport::create($fields); 
+        $sport = Sport::create($fields);
         return $this->showOne($sport, 201);
     }
 
     public function show(Sport $sport)
     {
-        return $this->showOne($sport);        
+        return $this->showOne($sport);
     }
 
-    public function update(SportRequest $request, Sport $sport)
+    public function update(Request $request, Sport $sport)
     {
         if ($request->has('name')) {
             $sport->name = $request->name;
@@ -62,6 +62,3 @@ class SportController extends ApiController
         return $this->showOne($sport);
     }
 }
-
-
-
