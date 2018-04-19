@@ -41,7 +41,7 @@ class SkillController extends ApiController
         return $this->showOne($skill);        
     }
 
-    public function update(SkillRequest $request, Skill $skill)
+    public function update(Request $request, Skill $skill)
     {
         if ($request->has('name')) {
             $skill->name = $request->name;
