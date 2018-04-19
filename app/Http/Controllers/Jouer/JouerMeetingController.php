@@ -7,6 +7,7 @@ use App\Meeting;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class JouerMeetingController extends ApiController
 {
@@ -23,15 +24,32 @@ class JouerMeetingController extends ApiController
 
     public function addMeeting(Jouer $jouer, Meeting $meetings)
     {
-        $jouer_matches = $jouer->meetings()->get()->pluck(['time_begin', 'time_end']);
+        $flag=1;
+        $jouer_matches      = $jouer->meetings()->get();
+        $current_date_begin = Carbon::parse($meetings->time_begin);
+        $current_date_end   = Carbon::parse($meetings->time_end);
 
-        foreach ($jouer_matches as $match) {
-          if (strtotime($meetings->time_begin) >= strtotime($match->time_begin) && strtotime($meetings->time_end) <= strtotime($match->time_end)) {
-            return $this->errorResponse('No es posible agendar el encuentro, procura que el horario no coincida con otro encuentro.', 400);
-          } else {
-            $jouer->meetings()->attach(array($meetings->id));
+        if (count($jouer_matches) > 0) {
+            foreach ($jouer_matches as $match) {
+                
+                $match_date_begin   = Carbon::parse($match['time_begin']);
+                $match_date_end     = Carbon::parse($match['time_end']);
+
+              if ($current_date_begin >= $match_date_begin && $current_date_begin <= $match_date_end ||
+                $current_date_end >= $match_date_begin && $current_date_end <= $match_date_end) {
+                    $flag=0;
+                    return $this->errorResponse('No es posible agendar el encuentro, procura que el horario no coincida con otro encuentro.', 400); 
+              }
+
+            }
+            
+        } else {
+            $jouer->meetings()->attach(array($meetings->id));                         
             return $this->showAll($jouer->meetings()->get());
-          }
+        }
+        if($flag==1){
+            $jouer->meetings()->attach(array($meetings->id));                         
+                return $this->showAll($jouer->meetings()->get());
         }
     }
 
