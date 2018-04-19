@@ -15,17 +15,17 @@ class JouerTransformer extends TransformerAbstract
     public function transform(Jouer $jouer)
     {
         return [
-            'identificador' => (int)$jouer->id,
-            'nombre' => (string)$jouer->name,
-            'apellido' => (string)$jouer->lastname,
-            'alias' => (string)$jouer->nickname,
-            'correo' => (string)$jouer->email,
-            'celular' => (string)$jouer->phone,
-            'contraseña' => (string)$jouer->password,
-            'avatar' => (string)$jouer->avatar,
-            'fecha_creacion' => (string)$jouer->created_at,
-            'fecha_actualizacion' => (string)$jouer->updated_at,
-            'fecha_eliminacion' => isset($jouer->deleted_at) ? (string)$jouer->deleted_at : null,
+            'identificador'      => (int)$jouer->id,
+            'nombre'             => (string)$jouer->name,
+            'apellido'           => (string)$jouer->lastname,
+            'alias'              => (string)$jouer->nickname,
+            'correo'             => (string)$jouer->email,
+            'celular'            => (string)$jouer->phone,
+            'contraseña'         => (string)$jouer->password,
+            'avatar'             => (string)$jouer->avatar,
+            'fechacreacion'      => (string)$jouer->created_at,
+            'fechaactualizacion' => (string)$jouer->updated_at,
+            'fechaeliminacion'   => isset($jouer->deleted_at) ? (string)$jouer->deleted_at : null,
 
             'links' => [
                 [
@@ -55,17 +55,17 @@ class JouerTransformer extends TransformerAbstract
     public static function originalAttribute($index)
     {
         $attributes = [
-            'identificador' => 'id',
-            'nombre' => 'name',
-            'apellido' => 'lastname',
-            'alias' => 'nickname',
-            'correo' => 'email',
-            'celular' => 'phone',
-            'contraseña' => 'password',
-            'avatar' => 'avatar',
-            'fecha_creacion' => 'created_at',
-            'fecha_actualizacion' => 'updated_at',
-            'fecha_eliminacion' => 'deleted_at',
+            'identificador'      => 'id',
+            'nombre'             => 'name',
+            'apellido'           => 'lastname',
+            'alias'              => 'nickname',
+            'correo'             => 'email',
+            'celular'            => 'phone',
+            'contraseña'         => 'password',
+            'avatar'             => 'avatar',
+            'fechacreacion'      => 'createdat',
+            'fechaactualizacion' => 'updatedat',
+            'fechaeliminacion'   => 'deletedat'
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }
@@ -73,17 +73,17 @@ class JouerTransformer extends TransformerAbstract
     public static function transformedAttribute($index)
     {
         $attributes = [
-            'id' => 'identificador',
-            'name' => 'nombre',
-            'lastname' => 'apellido',
-            'nickname' => 'alias',
-            'email' => 'correo',
-            'phone' => 'celular',
-            'password' => 'contraseña',
-            'avatar' => 'avatar',
-            'created_at' => 'fecha_creacion',
-            'updated_at' => 'fecha_actualizacion',
-            'deleted_at' => 'fecha_eliminacion',
+            'id'         => 'identificador',
+            'name'       => 'nombre',
+            'lastname'   => 'apellido',
+            'nickname'   => 'alias',
+            'email'      => 'correo',
+            'phone'      => 'celular',
+            'password'   => 'contraseña',
+            'avatar'     => 'avatar',
+            'createdat' => 'fechacreacion',
+            'updatedat'  => 'fechaactualizacion',
+            'deletedat'  => 'fechaeliminacion',
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }

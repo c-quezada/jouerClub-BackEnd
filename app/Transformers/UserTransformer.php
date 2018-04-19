@@ -15,20 +15,20 @@ class UserTransformer extends TransformerAbstract
     public function transform(User $user)
     { // array para transformar los indices de la BD
         return [
-            'identificador' => (int)$user->id,
-            'nombre' => (string)$user->name,
-            'apellido' => (string)$user->lastname,
-            'alias' => (string)$user->nickname,
-            'correo' => (string)$user->email,
-            'celular' => (string)$user->phone,
-            'contraseña' => (string)$user->password,
-            'avatar' => (string)$user->avatar,
-            'estado' => (string)$user->status,
-            'tipo' => (string)$user->type,
-            'codigo_verificacion' => (string)$user->code_verification,
-            'fecha_creacion' => (string)$user->created_at,
-            'fecha_actualizacion' => (string)$user->updated_at,
-            'fecha_eliminacion' => isset($user->deleted_at) ? (string)$user->deleted_at : null,
+            'identificador'      => (int)$user->id,
+            'nombre'             => (string)$user->name,
+            'apellido'           => (string)$user->lastname,
+            'alias'              => (string)$user->nickname,
+            'correo'             => (string)$user->email,
+            'celular'            => (string)$user->phone,
+            'contraseña'         => (string)$user->password,
+            'avatar'             => (string)$user->avatar,
+            'estado'             => (string)$user->status,
+            'tipo'               => (string)$user->type,
+            'codigoverificacion' => (string)$user->code_verification,
+            'fechacreacion'      => (string)$user->created_at,
+            'fechaactualizacion' => (string)$user->updated_at,
+            'fechaeliminacion'   => isset($user->deleted_at) ? (string)$user->deleted_at : null,
         ];
     }
 
@@ -45,10 +45,10 @@ class UserTransformer extends TransformerAbstract
             'avatar' => 'avatar',
             'estado' => 'status',
             'tipo' => 'type',
-            'codigo_verificacion' => 'code_verification',
-            'fecha_creacion' => 'created_at',
-            'fecha_actualizacion' => 'updated_at',
-            'fecha_eliminacion' => 'deleted_at',
+            'codigoverificacion' => 'codeverification',
+            'fechacreacion' => 'createdat',
+            'fechaactualizacion' => 'updatedat',
+            'fechaeliminacion' => 'deletedat'
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }
@@ -56,20 +56,20 @@ class UserTransformer extends TransformerAbstract
     public static function transformedAttribute($index)
     {
         $attributes = [
-            'id' => 'identificador',
-            'name' => 'nombre',
-            'lastname' => 'apellido',
-            'nickname' => 'alias',
-            'email' => 'correo',
-            'phone' => 'celular',
-            'password' => 'contraseña',
-            'avatar' => 'avatar',
-            'status' => 'estado',
-            'type' => 'tipo',
-            'code_verification' => 'codigo_verificacion',
-            'created_at' => 'fecha_creacion',
-            'updated_at' => 'fecha_actualizacion',
-            'deleted_at' => 'fecha_eliminacion',
+            'id'                => 'identificador',
+            'name'              => 'nombre',
+            'lastname'          => 'apellido',
+            'nickname'          => 'alias',
+            'email'             => 'correo',
+            'phone'             => 'celular',
+            'password'          => 'contraseña',
+            'avatar'            => 'avatar',
+            'status'            => 'estado',
+            'type'              => 'tipo',
+            'codeverification'  => 'codigoverificacion',
+            'createdat'         => 'fechacreacion',
+            'updatedat'         => 'fechaactualizacion',
+            'deletedat'         => 'fechaeliminacion'
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }

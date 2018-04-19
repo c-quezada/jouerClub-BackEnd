@@ -24,9 +24,9 @@ class WorkshopTransformer extends TransformerAbstract
             'termino' => (string)$workshop->time_end,
             'estado' => (string)$workshop->status,
             'instructor' => (int)$workshop->coach_id,
-            'fecha_creacion' => (string)$workshop->created_at,
-            'fecha_actualizacion' => (string)$workshop->updated_at,
-            'fecha_eliminacion' => isset($workshop->deleted_at) ? (string)$workshop->deleted_at : null,
+            'fechacreacion' => (string)$workshop->created_at,
+            'fechaactualizacion' => (string)$workshop->updated_at,
+            'fechaeliminacion' => isset($workshop->deleted_at) ? (string)$workshop->deleted_at : null,
 
             'links' => [
                 [
@@ -49,13 +49,13 @@ class WorkshopTransformer extends TransformerAbstract
             'descripcion' => 'description',
             'latitud' => 'lat',
             'longitud' => 'lng',
-            'inicio' => 'time_begin',
-            'termino' => 'time_end',
+            'inicio' => 'timebegin',
+            'termino' => 'timeend',
             'estado' => 'status',
-            'instructor' => 'coach_id',
-            'fecha_creacion' => 'created_at',
-            'fecha_actualizacion' => 'updated_at',
-            'fecha_eliminacion' => 'deleted_at',
+            'instructor' => 'coachid',
+            'fechacreacion' => 'createdat',
+            'fechaactualizacion' => 'updatedat',
+            'fechaeliminacion' => 'deletedat',
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }
@@ -68,13 +68,13 @@ class WorkshopTransformer extends TransformerAbstract
             'description' => 'descripcion',
             'lat' => 'latitud',
             'lng' => 'longitud',
-            'time_begin' => 'inicio',
-            'time_end' => 'termino',
+            'timebegin' => 'inicio',
+            'timeend' => 'termino',
             'status' => 'estado',
-            'coach_id' => 'instructor',
-            'created_at' => 'fecha_creacion',
-            'updated_at' => 'fecha_actualizacion',
-            'deleted_at' => 'fecha_eliminacion',
+            'coachid' => 'instructor',
+            'createdat' => 'fechacreacion',
+            'updatedat' => 'fechaactualizacion',
+            'deletedat' => 'fechaeliminacion',
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }

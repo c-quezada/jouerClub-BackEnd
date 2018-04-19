@@ -18,9 +18,9 @@ class BranchTransformer extends TransformerAbstract
             'identificador' => (int)$branch->id,
             'nombre' => (string)$branch->name,
             'deporte' => (int)$branch->sport_id,
-            'fecha_creacion' => (string)$branch->created_at,
-            'fecha_actualizacion' => (string)$branch->updated_at,
-            'fecha_eliminacion' => isset($branch->deleted_at) ? (string)$branch->deleted_at : null
+            'fechaCreacion' => (string)$branch->created_at,
+            'fechaActualizacion' => (string)$branch->updated_at,
+            'fechaEliminacion' => isset($branch->deleted_at) ? (string)$branch->deleted_at : null
             ];
     }
 
@@ -29,10 +29,10 @@ class BranchTransformer extends TransformerAbstract
         $attributes = [
             'identificador' => 'id',
             'nombre' => 'name',
-            'deporte' => 'sport_id',
-            'fecha_creacion' => 'created_at',
-            'fecha_actualizacion' => 'updated_at',
-            'fecha_eliminacion' => 'deleted_at',
+            'deporte' => 'sportId',
+            'fechCreacion' => 'createdAt',
+            'fechaActualizacion' => 'updatedAt',
+            'fechaEliminacion' => 'deletedAt',
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }
@@ -42,10 +42,10 @@ class BranchTransformer extends TransformerAbstract
         $attributes = [
             'id' => 'identificador',
             'name' => 'nombre',
-            'sport_id' => 'deporte',
-            'created_at' => 'fecha_creacion',
-            'updated_at' => 'fecha_actualizacion',
-            'deleted_at' => 'fecha_eliminacion',
+            'sportId' => 'deporte',
+            'createdAt' => 'fechaCreacion',
+            'updatedAt' => 'fechaActualizacion',
+            'deletedAt' => 'fechaEliminacion',
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }
