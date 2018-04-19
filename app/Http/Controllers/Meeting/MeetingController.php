@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Meeting;
 
 use App\Court;
 use App\Meeting;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
 use App\Http\Requests\MeetingRequest;
@@ -32,8 +33,11 @@ class MeetingController extends ApiController
         $fields['status']      = $request->status;
 
         if (Court::findOrFail($request->court_id)) {
-            $meeting = Meeting::create($fields); 
-            return $this->showOne($meeting, 201);
+            if ($request->time_begin < Carbon::now()) {
+               return $this->errorResponse('No es posible crear este encuentro. Procura que la fecha sea próxima.', 403);
+            }
+        $meeting = Meeting::create($fields); 
+        return $this->showOne($meeting, 201);
         }
     }
 
