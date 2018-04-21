@@ -17,12 +17,10 @@ class CommuneTransformer extends TransformerAbstract
         return [
             'identificador' => (int)$commune->id,
             'nombre' => (string)$commune->name,
-            'latitud' => (string)$commune->lat,
-            'longitud' => (string)$commune->lng,
-            'provincia' => (int)$commune->provinceCode,
-            'fechacreacion' => (string)$commune->created_at,
-            'fechaactualizacion' => (string)$commune->updated_at,
-            'fechaeliminacion' => isset($commune->deleted_at) ? (string)$commune->deleted_at : null,
+            'region' => (int)$commune->region_id,
+            'fechaCreacion' => (string)$commune->created_at,
+            'fechaActualizacion' => (string)$commune->updated_at,
+            'fechaEliminacion' => isset($commune->deleted_at) ? (string)$commune->deleted_at : null,
         ];
     }
 
@@ -32,9 +30,9 @@ class CommuneTransformer extends TransformerAbstract
             'identificador' => 'id',
             'nombre' => 'name',
             'region' => 'region_id',
-            'fechacreacion' => 'createdat',
-            'fechaactualizacion' => 'updatedat',
-            'fechaeliminacion' => 'deletedat',
+            'fechaCreacion' => 'created_at',
+            'fechaActualizacion' => 'update_at',
+            'fechaEliminacion' => 'deleted_at',
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }
@@ -45,9 +43,9 @@ class CommuneTransformer extends TransformerAbstract
             'id' => 'identificador',
             'name' => 'nombre',
             'region_id' => 'region',
-            'createdat' => 'fechacreacion',
-            'updatedat' => 'fechaactualizacion',
-            'deletedat' => 'fechaeliminacion',
+            'created_at' => 'fechaCreacion',
+            'updated_at' => 'fechaActualizacion',
+            'deleted_at' => 'fechaEliminacion',
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }

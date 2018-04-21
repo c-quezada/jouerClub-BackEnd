@@ -17,7 +17,6 @@ class SkillsTable extends Migration
 
             $table->increments('id')->comment("field to store skill's number idenfifier");
             $table->string('name')->comment("field to store skill's name");//->unique();
-            $table->string('description')->comment("field to store skill's description");
 
             $table->integer('branch_id')->unsigned()->comment(" field to store the sports that practice this user");
             $table->foreign('branch_id')->references('id')->on('branches')->onDelete('cascade');

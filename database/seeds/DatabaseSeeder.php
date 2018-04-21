@@ -25,30 +25,26 @@ class DatabaseSeeder extends Seeder
             'courts'
         ]);*/
 
-        $users = 200; $sportfields = 100; $courts = 400; 
-        $facilities = 600; $workshops = 100; $branches = 100; 
-        $teams = 100; $skills = 200; $maintenance = 200; $meetings = 50;
+        $users = 200; $courts = 400; 
+        $facilities = 600; $workshops = 100;
+        $teams = 50; $maintenance = 200; $meetings = 50;
 
         User::flushEventListeners(); //Ignora los eventos asociados al usuario y asi no se envian correos de manera masiva por la creacion de usuarios a traves de UserFactory
 
         factory(User::class, $users)->create();
         $this->call(RegionSeeder::class);
-        //factory(SportField::class, $sportfields)->create();
+
         $this->call(sportFieldSeeder::class);
         factory(Court::class, $courts)->create();
         factory(Meeting::class, $meetings)->create();
         $this->call(SportsSeeder::class);
-        factory(Branch::class, $branches)->create()->each(
-            function ($branch){
-                $court = Court::all()->random(mt_rand(1, 5))->pluck('id');
-                $branch->court()->attach($court);
-            }
-        );
+        $this->call(BranchesSeeder::class);
+
         factory(Facility::class, $facilities)->create();
         factory(Maintenance::class, $maintenance)->create();
         factory(Workshop::class, $workshops)->create();
         factory(Team::class, $teams)->create();
-        factory(Skill::class, $skills)->create(); 
+        $this->call(SkillsSeeder::class); 
         factory(Availability::class, 1000)->create(); 
 
     }

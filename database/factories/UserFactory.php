@@ -44,22 +44,6 @@ $factory->define(User::class, function (Faker $faker) {
     ];
 });
 
-$factory->define(SportField::class, function (Faker $faker) {
-	//$cluber = Cluber::has('sportfields')->get()->random();
-    return [
-		'name'        => $faker->unique()->word,
-		'description' => $faker->paragraph(1),
-		'address'     => $faker->address,
-		'lat'         => $faker->latitude,
-		'lng'         => $faker->longitude,
-		'website'     => 'www.jouer-club.com',
-		'time_begin'  => $faker->dateTime,
-		'time_end'    => $faker->dateTime,
-		'cluber_id'   => User::all()->random()->id,
-		'commune_id'  => Commune::all()->random()->id,
-    ];
-});
-
 $factory->define(Court::class, function (Faker $faker) {
     return [
 		'name'           => $faker->word,
@@ -78,12 +62,6 @@ $factory->define(Meeting::class, function (Faker $faker) {
     ];
 });
 
-$factory->define(Branch::class, function (Faker $faker) {
-    return [
-		'name'           => $faker->word,
-		'sport_id'       => Sport::inRandomOrder()->first()->id
-    ];
-});
 
 $factory->define(Facility::class, function (Faker $faker) {
     return [
@@ -114,14 +92,6 @@ $factory->define(Team::class, function (Faker $faker) {
     return [
 		'name'        => $faker->word,
 		'motto'       => $faker->word,
-		'branch_id'   => Branch::inRandomOrder()->first()->id
-    ];
-});
-
-$factory->define(Skill::class, function (Faker $faker) {
-    return [
-		'name'        => $faker->word,
-		'description' => $faker->paragraph(1),
 		'branch_id'   => Branch::inRandomOrder()->first()->id
     ];
 });

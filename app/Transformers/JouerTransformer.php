@@ -23,9 +23,9 @@ class JouerTransformer extends TransformerAbstract
             'celular'            => (string)$jouer->phone,
             'contraseña'         => (string)$jouer->password,
             'avatar'             => (string)$jouer->avatar,
-            'fechacreacion'      => (string)$jouer->created_at,
-            'fechaactualizacion' => (string)$jouer->updated_at,
-            'fechaeliminacion'   => isset($jouer->deleted_at) ? (string)$jouer->deleted_at : null,
+            'fechaCreacion'      => (string)$jouer->created_at,
+            'fechaActualizacion' => (string)$jouer->updated_at,
+            'fechaEliminacion'   => isset($jouer->deleted_at) ? (string)$jouer->deleted_at : null,
 
             'links' => [
                 [
@@ -63,9 +63,9 @@ class JouerTransformer extends TransformerAbstract
             'celular'            => 'phone',
             'contraseña'         => 'password',
             'avatar'             => 'avatar',
-            'fechacreacion'      => 'createdat',
-            'fechaactualizacion' => 'updatedat',
-            'fechaeliminacion'   => 'deletedat'
+            'fechaCreacion'      => 'created_at',
+            'fechaActualizacion' => 'updated_at',
+            'fechaEliminacion'   => 'deleted_at'
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }
@@ -81,9 +81,9 @@ class JouerTransformer extends TransformerAbstract
             'phone'      => 'celular',
             'password'   => 'contraseña',
             'avatar'     => 'avatar',
-            'createdat' => 'fechacreacion',
-            'updatedat'  => 'fechaactualizacion',
-            'deletedat'  => 'fechaeliminacion',
+            'created_at' => 'fechaCreacion',
+            'updated_at' => 'fechaActualizacion',
+            'deleted_at' => 'fechaEliminacion',
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }

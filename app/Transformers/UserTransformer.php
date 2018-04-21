@@ -25,10 +25,10 @@ class UserTransformer extends TransformerAbstract
             'avatar'             => (string)$user->avatar,
             'estado'             => (string)$user->status,
             'tipo'               => (string)$user->type,
-            'codigoverificacion' => (string)$user->code_verification,
-            'fechacreacion'      => (string)$user->created_at,
-            'fechaactualizacion' => (string)$user->updated_at,
-            'fechaeliminacion'   => isset($user->deleted_at) ? (string)$user->deleted_at : null,
+            'codigoVerificacion' => (string)$user->code_verification,
+            'fechaCreacion'      => (string)$user->created_at,
+            'fechaActualizacion' => (string)$user->updated_at,
+            'fechaEliminacion'   => isset($user->deleted_at) ? (string)$user->deleted_at : null,
         ];
     }
 
@@ -45,10 +45,10 @@ class UserTransformer extends TransformerAbstract
             'avatar' => 'avatar',
             'estado' => 'status',
             'tipo' => 'type',
-            'codigoverificacion' => 'codeverification',
-            'fechacreacion' => 'createdat',
-            'fechaactualizacion' => 'updatedat',
-            'fechaeliminacion' => 'deletedat'
+            'codigoVerificacion' => 'code_verification',
+            'fechaCreacion' => 'created_at',
+            'fechaActualizacion' => 'updated_at',
+            'fechaEliminacion' => 'deleted_at'
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }
@@ -66,10 +66,10 @@ class UserTransformer extends TransformerAbstract
             'avatar'            => 'avatar',
             'status'            => 'estado',
             'type'              => 'tipo',
-            'codeverification'  => 'codigoverificacion',
-            'createdat'         => 'fechacreacion',
-            'updatedat'         => 'fechaactualizacion',
-            'deletedat'         => 'fechaeliminacion'
+            'code_verification' => 'codigoVerificacion',
+            'created_at'        => 'fechaCreacion',
+            'updated_at'        => 'fechaActualizacion',
+            'deleted_at'        => 'fechaEliminacion'
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }

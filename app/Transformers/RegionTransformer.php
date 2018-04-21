@@ -18,9 +18,9 @@ class RegionTransformer extends TransformerAbstract
             'identificador' => (int)$region->id,
             'nombre' => (string)$region->name,
             'ordinal' => (string)$region->code,
-            'fecha_creacion' => (string)$region->created_at,
-            'fecha_actualizacion' => (string)$region->updated_at,
-            'fecha_eliminacion' => isset($region->deleted_at) ? (string)$region->deleted_at : null,
+            'fechaCreacion' => (string)$region->created_at,
+            'fechaActualizacion' => (string)$region->updated_at,
+            'fechaEliminacion' => isset($region->deleted_at) ? (string)$region->deleted_at : null,
         ];
     }
 
@@ -30,9 +30,9 @@ class RegionTransformer extends TransformerAbstract
             'identificador' => 'id',
             'nombre' => 'name',
             'ordinal' => 'code',
-            'fecha_creacion' => 'created_at',
-            'fecha_actualizacion' => 'updated_at',
-            'fecha_eliminacion' => 'deleted_at',
+            'fechaCreacion' => 'created_at',
+            'fechaActualizacion' => 'updated_at',
+            'fechaEliminacion' => 'deleted_at',
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }
@@ -43,9 +43,9 @@ class RegionTransformer extends TransformerAbstract
             'id' => 'identificador',
             'name' => 'nombre',
             'code' => 'ordinal',
-            'created_at' => 'fecha_creacion',
-            'updated_at' => 'fecha_actualizacion',
-            'deleted_at' => 'fecha_eliminacion',
+            'created_at' => 'fechaCreacion',
+            'updated_at' => 'fechaActualizacion',
+            'deleted_at' => 'fechaEliminacion',
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }

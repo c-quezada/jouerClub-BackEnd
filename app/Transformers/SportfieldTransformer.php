@@ -29,9 +29,9 @@ class SportfieldTransformer extends TransformerAbstract
             'cierre' => (string)$sportfield->time_end,
             'propietario' => (int)$sportfield->cluber_id,
             'comuna' => (int)$sportfield->commune_id,
-            'fechacreacion' => (string)$sportfield->created_at,
-            'fechaactualizacion' => (string)$sportfield->updated_at,
-            'fechaeliminacion' => isset($sportfield->deleted_at) ? (string)$sportfield->deleted_at : null,
+            'fechaCreacion' => (string)$sportfield->created_at,
+            'fechaActualizacion' => (string)$sportfield->updated_at,
+            'fechaEliminacion' => isset($sportfield->deleted_at) ? (string)$sportfield->deleted_at : null,
 
             'links' => [
                 [
@@ -63,9 +63,9 @@ class SportfieldTransformer extends TransformerAbstract
             'cierre' => 'time_end',
             'propietario' => 'cluber_id',
             'comuna' => 'commune_id',
-            'fechacreacion' => 'created_at',
-            'fechaactualizacion' => 'updated_at',
-            'fechaeliminacion' => 'deleted_at',
+            'fechaCreacion' => 'created_at',
+            'fechaActualizacion' => 'updated_at',
+            'fechaEliminacion' => 'deleted_at',
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }
@@ -87,9 +87,9 @@ class SportfieldTransformer extends TransformerAbstract
             'time_end' => 'cierre',
             'cluber_id' => 'propietario',
             'commune_id' => 'comuna',
-            'created_at' => 'fechacreacion',
-            'updated_at' => 'fechaactualizacion',
-            'deleted_at' => 'fechaeliminacion',
+            'created_at' => 'fechaCreacion',
+            'updated_at' => 'fechaActualizacion',
+            'deleted_at' => 'fechaEliminacion',
         ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }

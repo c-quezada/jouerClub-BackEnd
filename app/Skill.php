@@ -16,7 +16,7 @@ class Skill extends Model
 
     protected $table    = 'skills';
     
-    protected $fillable = ['name', 'description', 'branch_id'];
+    protected $fillable = ['name', 'branch_id'];
     
     protected $dates    = ['deleted_at'];
     

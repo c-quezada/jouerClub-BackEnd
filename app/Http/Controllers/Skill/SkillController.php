@@ -28,7 +28,6 @@ class SkillController extends ApiController
     {
         $fields                   = $request->all();
         $fields['name']           = ucwords($request->name);     
-        $fields['description']    = $request->description;
 
         if (Branch::findOrFail($request->branch_id)) {
             $skill = Skill::create($fields); 
@@ -45,10 +44,6 @@ class SkillController extends ApiController
     {
         if ($request->has('name')) {
             $skill->name = $request->name;
-        }
-
-        if ($request->has('description')) {
-            $skill->description = $request->description;
         }
 
         if (!$skill->isDirty()) {

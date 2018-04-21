@@ -17,7 +17,6 @@ class SkillTransformer extends TransformerAbstract
         return [
             'identificador' => (int)$skill->id,
             'nombre' => (string)$skill->name,
-            'descripcion' => (string)$skill->description,
             'ramaDeportiva' => (int)$skill->branch_id,
             'fechaCreacion' => (string)$skill->created_at,
             'fechaActualizacion' => (string)$skill->updated_at,
@@ -37,7 +36,6 @@ class SkillTransformer extends TransformerAbstract
         $attributes = [
             'identificador' => 'id',
             'nombre' => 'name',
-            'descripcion' => 'description',
             'ramaDeportiva' => 'branch_id',
             'fechaCreacion' => 'created_at',
             'fechaActualizacion' => 'updated_at',
@@ -51,7 +49,6 @@ class SkillTransformer extends TransformerAbstract
         $attributes = [
             'id' => 'identificador',
             'name' => 'nombre',
-            'description' => 'descripcion',
             'branch_id' => 'ramaDeportiva',
             'created_at' => 'fechaCreacion',
             'updated_at' => 'fechaActualizacion',
