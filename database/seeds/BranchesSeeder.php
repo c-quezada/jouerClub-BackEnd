@@ -53,7 +53,7 @@ class BranchesSeeder extends Seeder
 	        [
 	        'id'             =>  7,	
 	        'name'           => 'Futbolito',
-	        'sport_id'       =>  45
+	        'sport_id'       =>  30
 	        ],
 
 	        [

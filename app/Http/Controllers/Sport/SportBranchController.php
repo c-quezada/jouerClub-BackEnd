@@ -1,6 +1,5 @@
 <?php
 
-namespace App\Http\Controllers\Branch;
 namespace App\Http\Controllers\Sport;
 
 use App\Branch;

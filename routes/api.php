@@ -115,6 +115,7 @@ Route::resource('sports.branches', 'Sport\SportBranchController', ['only' => ['i
  * Branches
  */
 Route::resource('branches', 'Branch\BranchController', ['except' => ['create', 'edit']]);
+Route::resource('branches.skills', 'Branch\BranchSkillController', ['only' => ['index']]);
 
 /**
  * Meetings
