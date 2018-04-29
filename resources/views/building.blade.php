@@ -2,6 +2,7 @@
 
 <head>
     <title>{{ config('app.name', 'Laravel') }}</title>
+    <link rel="icon" type="image/png" href="{{ asset('img/logo.ico') }}">
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
@@ -49,7 +50,7 @@
             <div class="content">
                 <div class="row">
                   <div class="col-md-6 mr-auto ml-auto text-center">
-                    <img class="" src="{{ asset('img/logo.png') }}" width="400">
+                    <img class="" src="{{ asset('img/logo.png') }}" width=300">
                   </div>
                 </div> <br>
                 <div class="row">
