@@ -50,9 +50,9 @@ class UserController extends ApiController
         $fields['email']             = ucwords($request->email);
         $fields['phone']             = $request->phone;
         $fields['password']          = bcrypt($request->password);
-        $fields['avatar']            = $request->avatar->store('profile'); //STORE: primer parametro -> ubicacion / 2do -> sistema de archivos
         $fields['status']            = User::USERNOTVERIFIED;
         $fields['type']              = $request->type;
+
 
         if ($request->type == User::CLUBER ) {
           $fields['code_verification'] = User::setCodeVerification();
