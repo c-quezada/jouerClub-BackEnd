@@ -20,17 +20,17 @@ class AppServiceProvider extends ServiceProvider
             if ($user->type == 'cluber' ) {
                 retry(5, function() use ($user){
                 Mail::to($user)->send(new UserCreated($user)); //Laravel se encarga de reconocer automaticamente el campo email del objeto user
-                }, 100); 
+                }, 100);
             }
             if ($user->type == 'jouer' ) {
+                DB::table('jouer_skill')->insert([
+                  'jouer_id' => $user->id,
+                  'skill_id' => 1
+                ]);
+
                 retry(5, function() use ($user){
                     User::sendSMSVerification($user->phone, $user->code_verification);
                 }, 100);
-
-                DB::table('jouer_skill')->insert([
-                    'jouer_id' => $user->id,
-                    'skill_id' => 1
-                ]);
             }
             if ($user->type == 'coach' ) {
                 retry(5, function() use ($user){
