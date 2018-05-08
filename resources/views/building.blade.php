@@ -1,12 +1,14 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ config('app.locale') }}">
 <head>
     <title>{{ config('app.name') }}</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
+    <meta name="theme-color" content="#2a71fa">
+    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Mobland - Mobile App Landing Page Template">
-    <meta name="keywords" content="HTML5, bootstrap, mobile, app, landing, ios, android, responsive">
+    <meta name="description" content="JouerCLUB - APP para encuentros y administacion de instalaciones deportivas">
+    <meta name="keywords" content="Encuentros, APP, Chile, Pichanga, Cancha, Recinto, Horario, Disponible">
 
     <!-- Font -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -31,7 +33,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <nav class="navbar navbar-dark navbar-expand-lg">
-                        <a class="navbar-brand" href="index.html"><img src="{{ asset('images/jouer-shape.png') }}" class="img-fluid" alt="{{ config('app.name') }}" width="25%"></a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+                        <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('images/jouer-shape.png') }}" class="img-fluid" alt="{{ config('app.name') }}" width="25%"></a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
                         <div class="collapse navbar-collapse" id="navbar">
                             <ul class="navbar-nav ml-auto">
                                 <li class="nav-item"> <a class="nav-link active" href="#home">INICIO <span class="sr-only">(current)</span></a> </li>
@@ -69,8 +71,8 @@
         <div class="container">
 
             <div class="section-title">
-                <small>HIGHLIGHTS</small>
-                <h3>Features you love</h3>
+                <small>DESTACADAS</small>
+                <h3>Caracteristicas por y para ti</h3>
             </div>
 
 
@@ -121,7 +123,7 @@
 
 
     </div>
-    <!-- // end .section -->
+    <!-- // end .section
     <div class="section">
 
         <div class="container">
@@ -139,10 +141,10 @@
         </div>
 
     </div>
-    <!-- // end .section -->
+    // end .section -->
 
 
-    <div class="section light-bg">
+    <!--<div class="section light-bg">
         <div class="container">
             <div class="section-title">
                 <small>FEATURES</small>
@@ -230,7 +232,7 @@
 
         </div>
     </div>
-    <!-- // end .section -->
+    // end .section
 
     <div class="section">
 
@@ -251,7 +253,7 @@
         </div>
 
     </div>
-    <!-- // end .section -->
+     // end .section -->
 
 
     <div class="section light-bg">
@@ -271,7 +273,7 @@
                             <div class="circle-icon mr-4">2</div>
                             <div class="media-body">
                                 <h5>Comparte con tus amigos</h5>
-                                <p>y por que no, con deportitas de <strong>todo el país</strong>.</p>
+                                <p>y por que no, con deportistas de <strong>todo el país</strong>.</p>
                             </div>
                         </li>
                         <li class="media">

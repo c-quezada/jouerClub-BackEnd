@@ -346,7 +346,7 @@ header {
     border-radius: 50%;
     margin-bottom: 1.5rem;
     background-color: #FFF;
-    color: #f5378e;
+    color: #2a71fa;
     font-size: 48px;
     text-align: center;
     line-height: 80px;
@@ -364,10 +364,10 @@ header {
 }
 
 .ui-steps li:hover .circle-icon {
-    background-image: -moz-linear-gradient( 122deg, #11a5bf 0%, #fb378e 100%);
-    background-image: -webkit-linear-gradient( 122deg, #11a5bf 0%, #fb378e 100%);
-    background-image: -ms-linear-gradient( 122deg, #11a5bf 0%, #fb378e 100%);
-    background-image: linear-gradient( 122deg, #11a5bf 0%, #fb378e 100%);
+    background-image: -moz-linear-gradient( 122deg, #11a5bf 0%, #2a71fa 100%);
+    background-image: -webkit-linear-gradient( 122deg, #11a5bf 0%, #2a71fa 100%);
+    background-image: -ms-linear-gradient( 122deg, #11a5bf 0%, #2a71fa 100%);
+    background-image: linear-gradient( 122deg, #11a5bf 0%, #2a71fa 100%);
     box-shadow: 0px 9px 32px 0px rgba(0, 0, 0, 0.09);
     color: #FFF;
 }
