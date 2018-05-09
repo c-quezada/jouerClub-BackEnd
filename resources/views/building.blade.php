@@ -4,8 +4,8 @@
     <title>{{ config('app.name') }}</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="theme-color" content="#2a71fa">
-    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
+    <meta name="theme-color" content="#0c97c3">
+    <link rel="icon" type="image/png" href="{{ asset('images/logos/logo.png') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="JouerCLUB - APP para encuentros y administacion de instalaciones deportivas">
     <meta name="keywords" content="Encuentros, APP, Chile, Pichanga, Cancha, Recinto, Horario, Disponible">
@@ -33,13 +33,13 @@
             <div class="row">
                 <div class="col-md-12">
                     <nav class="navbar navbar-dark navbar-expand-lg">
-                        <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('images/jouer-shape.png') }}" class="img-fluid" alt="{{ config('app.name') }}" width="25%"></a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+                        <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('images/logos/jouer-shape.png') }}" class="img-fluid" alt="{{ config('app.name') }}" width="25%"></a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
                         <div class="collapse navbar-collapse" id="navbar">
                             <ul class="navbar-nav ml-auto">
                                 <li class="nav-item"> <a class="nav-link active" href="#home">INICIO <span class="sr-only">(current)</span></a> </li>
-                                <li class="nav-item"> <a class="nav-link" href="#features">CARACTERISTICAS</a> </li>
+                                <li class="nav-item"> <a class="nav-link" href="#features">CARACTERÍSTICAS</a> </li>
                                 <li class="nav-item"> <a class="nav-link" href="#testimonials">TESTIMONIOS</a> </li>
-                                <li class="nav-item"> <a class="nav-link" href="#gallery">GALERIA</a> </li>
+                                <li class="nav-item"> <a class="nav-link" href="#gallery">GALERÍA</a> </li>
                                 <li class="nav-item"> <a class="nav-link" href="#contact">CONTACTO</a> </li>
                                 <li class="nav-item"><a href="#download" class="btn btn-outline-light my-3 my-sm-0 ml-lg-3">DESCARGAR</a></li>
                             </ul>
@@ -54,14 +54,14 @@
     <header class="bg-gradient" id="home">
         <div class="container mt-5">
             <h1>{{ config('app.name') }}</h1>
-            <p class="tagline">Donde quiera que estes, JOEUR es <strong>JUGAR</strong>. </p>
+            <p class="tagline">Donde quiera que estes, JOUER es <strong>JUGAR</strong>. </p>
         </div>
-        <div class="img-holder mt-3"><img src="{{ asset('images/mockup-jouer.png') }}" alt="phone" class="img-fluid"></div>
+        <div class="img-holder mt-3"><img src="{{ asset('images/screenshots/initial.png') }}" width="420" alt="phone" class="img-fluid"></div>
     </header>
 
     <div class="client-logos my-5">
         <div class="container text-center">
-            <img src="{{ asset('images/sponsor-logos.png') }}" alt="client logos" class="img-fluid">
+            <img src="{{ asset('images/logos/sponsor-logos.png') }}" alt="client logos" class="img-fluid">
         </div>
     </div>
 
@@ -72,7 +72,7 @@
 
             <div class="section-title">
                 <small>DESTACADAS</small>
-                <h3>Caracteristicas por y para ti</h3>
+                <h3>Características por y para ti</h3>
             </div>
 
 
@@ -97,7 +97,7 @@
                                 <span class="ti-face-smile gradient-fill ti-3x mr-3"></span>
                                 <div class="media-body">
                                     <h4 class="card-title">Simple</h4>
-                                    <p class="card-text">Tan sencilla que te aprender a usarla no sera un problema.</p>
+                                    <p class="card-text">Tan sencilla que aprender a usarla no será un problema.</p>
                                 </div>
                             </div>
                         </div>
@@ -110,7 +110,7 @@
                                 <span class="ti-world gradient-fill ti-3x mr-3"></span>
                                 <div class="media-body">
                                     <h4 class="card-title">Encuentros</h4>
-                                    <p class="card-text">Tipico no? Planificar un partido y que llegue la mitad del equipo, que los jugadores cercanos sepan de tu encuentro... en una de esas ?</p>
+                                    <p class="card-text">¿Típico no? Planificar un encuentro y que llegue la mitad del equipo. Que los jugadores cercanos sepan de tu encuentro... en una de esas?</p>
                                 </div>
                             </div>
                         </div>
@@ -265,7 +265,7 @@
                         <li class="media">
                             <div class="circle-icon mr-4">1</div>
                             <div class="media-body">
-                                <h5>Vamos unete a nosotros!</h5>
+                                <h5>¡Vamos! Únete a nosotros!</h5>
                                 <p>crea una cuenta y llevemos <strong>juntos</strong> el deporte amateur al siguiente nivel.</p>
                             </div>
                         </li>
@@ -280,7 +280,7 @@
                             <div class="circle-icon mr-4">3</div>
                             <div class="media-body">
                                 <h5>Disfruta tu vida</h5>
-                                <p>Practicando el deporte que <strong>amas</strong>. </p>
+                                <p>practicando el deporte que <strong>amas</strong>. </p>
                             </div>
                         </li>
                     </ul>
@@ -306,8 +306,8 @@
 
             <div class="testimonials owl-carousel">
                 <div class="testimonials-single">
-                    <img src="images/client.png" alt="client" class="client-img">
-                    <blockquote class="blockquote">Mi nombre es Felipe Valdebenito, soy deportista, ando en skate y bueno, lo que opino de JouerCLUB es que es una muy buena iniciativa porque se entrega información y al mismo tiempo se nota que hay un interés de por medio para que se puedan realizar este tipo de acciones, que ya sean proyectos deportivos, actividades o juntar gente para formar algún tipo de comunidad. Me parece una muy buena iniciativa ya que siempre falta esa información.</blockquote>
+                    <img src="images/testimonials/FelipeValdebenito.jpg" alt="client" class="client-img">
+                    <blockquote class="blockquote">"Mi nombre es Felipe Valdebenito, soy deportista, ando en skate y bueno, lo que opino de JouerCLUB es que es una muy buena iniciativa porque se entrega información y al mismo tiempo se nota que hay un interés de por medio para que se puedan realizar este tipo de acciones, que ya sean proyectos deportivos, actividades o juntar gente para formar algún tipo de comunidad. Me parece una muy buena iniciativa ya que siempre falta esa información."</blockquote>
                     <h5 class="mt-4 mb-2">Felipe Valdebenito</h5>
                     <p class="text-primary">Skater</p>
                 </div>
@@ -322,14 +322,16 @@
     <div class="section light-bg" id="gallery">
         <div class="container">
             <div class="section-title">
-                <small>GALLERIA</small>
-                <h3>¿ Como luce ? Pues Genial !</h3>
+                <small>GALERÍA</small>
+                <h3>¿Como luce? Pués Genial!</h3>
             </div>
 
             <div class="img-gallery owl-carousel owl-theme">
-                <img src="{{ asset('images/login.jpeg') }}" alt="image">
-                <img src="{{ asset('images/number_verification.jpeg') }}" alt="image">
-                <img src="{{ asset('images/skills.jpeg') }}" alt="image">
+                <img src="{{ asset('images/screenshots/login.png') }}" alt="image">
+                <img src="{{ asset('images/screenshots/verification_code.png') }}" alt="image">
+                <img src="{{ asset('images/screenshots/select_skills.png') }}" alt="image">
+                <img src="{{ asset('images/screenshots/register.png') }}" alt="image">
+                <img src="{{ asset('images/screenshots/meetings.png') }}" alt="image">
             </div>
 
         </div>
@@ -371,11 +373,11 @@
     <div class="section bg-gradient" id="download">
         <div class="container">
             <div class="call-to-action">
-                <div><img src="{{ asset('images/logo.png') }}" class="img-fluid" alt="{{ config('app.name') }}" width="25%"></div>
-                <h2>Hey! Genial, haz llegado hasta aquí, Un Partido ? o mejor Dos ? Mas bien los que tu quieras!</h2>
-                <p class="text-white">Ingresa al market PlayStore y descarga la APP, ¿ Lo hacemos por tí ? Bien! Con un click en la siguiente imagen y basta. </p>
+                <div><img src="{{ asset('images/logos/logo.png') }}" class="img-fluid" alt="{{ config('app.name') }}" width="25%"></div>
+                <h2>¡Hey! Genial, haz llegado hasta aquí. ¿Un encuentro? o ¿mejor dos? Más bien, los que tú quieras!</h2>
+                <p class="text-white">Ingresa al market PlayStore y descarga la APP, ¿Lo hacemos por tí? ¡Bien! Con un click en la siguiente imagen y basta. </p>
                 <div class="my-4">
-                    <a href="#" class="btn btn-light"><img src="{{ asset('images/playicon.png') }}" alt="icon"> Google play</a>
+                    <a href="#" class="btn btn-light"><img src="{{ asset('images/logos/playicon.png') }}" alt="icon"> Google play</a>
                 </div>
                 <p class="text-white"><small><i>*Disponible desde Android 5.0 - Lollipop o posteriores.</i></small></p>
             </div>
@@ -420,7 +422,7 @@
 
         <small>
             <a href="#" class="m-2">CLUBER</a>
-            <a href="#" class="m-2">TERMINOS & CONDICIONES</a>
+            <a href="#" class="m-2">TÉRMINOS & CONDICIONES</a>
             <a href="#" class="m-2">PRIVACIDAD</a>
         </small>
     </footer>
