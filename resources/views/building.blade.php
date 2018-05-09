@@ -286,7 +286,7 @@
                     </ul>
                 </div>
                 <div class="col-md-4">
-                    <img src="{{ asset('images/mockup-jouer.png') }}" alt="{{ config('app.name') }}" class="img-fluid">
+                    <img src="{{ asset('images/our-app.png') }}" alt="{{ config('app.name') }}" class="img-fluid">
                 </div>
 
             </div>
