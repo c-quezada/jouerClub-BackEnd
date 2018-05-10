@@ -51,14 +51,14 @@ Route::name('jouers.removeMeeting')->post('jouers/{jouer}/removemeeting/{meeting
  * Jouer Workshops
  */
 Route::name('jouers.addWorkshop')->post('jouers/{jouer}/addworkshop/{workshops}', 'Jouer\JouerWorkshopController@addWorkshop');
-Route::name('jouers.removeWorkshop')->post('jouers/{jouer}/removeworkshop/{workshops}', 
-	'Jouer\JouerWorkshopController@removeWorkshop');
+Route::name('jouers.removeWorkshop')->post('jouers/{jouer}/removeworkshop/{workshops}', 'Jouer\JouerWorkshopController@removeWorkshop');
 
 /**
  * Clubers
  */
 Route::resource('clubers', 'Cluber\CluberController', ['only' => ['index', 'show']]);
 Route::resource('clubers.sportfields', 'Cluber\CluberSportFieldsController', ['only' => ['index']]);
+Route::resource('clubers.meetings', 'Cluber\CluberMeetingPerMonthController', ['only' => ['index']]);
 
 /**
  * Coaches

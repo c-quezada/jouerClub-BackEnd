@@ -167,6 +167,7 @@ return [
         /*
          * Package Service Providers...
          */
+        \Barryvdh\Cors\ServiceProvider::class,
         Spatie\Fractal\FractalServiceProvider::class,
 
         /*
@@ -179,6 +180,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Laraveles\Spanish\SpanishServiceProvider::class,
+
 
     ],
 
