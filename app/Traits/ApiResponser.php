@@ -14,42 +14,42 @@ trait ApiResponser
 	{
 		return response()->json($data, $code);
 	}
-	
+
 	protected function errorResponse($message, $code)
 	{
 		return response()->json(['error' => $message, 'code' => $code], $code);
 	}
-	
+
 	protected function showAll(Collection $collection, $code = 200)
 	{
 		if ($collection->isEmpty()) {
-			return $this->successResponse(['data' => $collection], $code);
+			return $this->errorResponse('No contamos con registros para esta solicitud', 404);
 		}
 		$transformer = $collection->first()->transformer;
 		$collection = $this->filterData($collection, $transformer);
 		$collection = $this->sortData($collection, $transformer);
 		$collection = $this->paginate($collection);
 		$collection = $this->transformData($collection, $transformer);
-		
+
 		if (!config('app.debug')) {
 			$collection = $this->cacheResponse($collection);
 		}
 
 		return $this->successResponse($collection, $code);
 	}
-	
+
 	protected function showOne(Model $instance, $code = 200)
 	{
 		$transformer = $instance->transformer;
 		$instance = $this->transformData($instance, $transformer);
 		return $this->successResponse($instance, $code);
 	}
-	
+
 	protected function showMessage($message, $code = 200)
 	{
 		return $this->successResponse(['data' => $message], $code);
 	}
-	
+
 	protected function filterData(Collection $collection, $transformer)
 	{
 		foreach (request()->query() as $query => $value) {
@@ -60,7 +60,7 @@ trait ApiResponser
 		}
 		return $collection;
 	}
-	
+
 	protected function sortData(Collection $collection, $transformer)
 	{
 		if (request()->has('by')) {
@@ -69,7 +69,7 @@ trait ApiResponser
 		}
 		return $collection;
 	}
-	
+
 	protected function paginate(Collection $collection)
 	{
 		$rules = [
@@ -88,13 +88,13 @@ trait ApiResponser
 		$paginated->appends(request()->all());
 		return $paginated;
 	}
-	
+
 	protected function transformData($data, $transformer)
 	{
 		$transformation = fractal($data, new $transformer);
 		return $transformation->toArray();
 	}
-	
+
 	protected function cacheResponse($data)
 	{
 		$url = request()->url();
