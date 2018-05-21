@@ -20,6 +20,7 @@ class MeetingTransformer extends TransformerAbstract
             'termino'            => (string)$meeting->time_end,
             'estado'             => (string)$meeting->status,
             'cancha'             => (int)$meeting->court_id,
+            'creador'            => (int)$meeting->jouer_id,
             'fechaCreacion'      => (string)$meeting->created_at,
             'fechaActualizacion' => (string)$meeting->updated_at,
             'fechaEliminacion'   => isset($meeting->deleted_at) ? (string)$meeting->deleted_at : null,
@@ -45,6 +46,7 @@ class MeetingTransformer extends TransformerAbstract
             'termino'            => 'time_end',
             'estado'             => 'status',
             'cancha'             => 'court_id',
+            'creador'            => 'jouer_id',
             'fechaCreacion'      => 'created_at',
             'fechaActualizacion' => 'updated_at',
             'fechaEliminacion'   => 'deleted_at'
@@ -60,6 +62,7 @@ class MeetingTransformer extends TransformerAbstract
             'time_end'   => 'termino',
             'status'     => 'estado',
             'court_id'   => 'cancha',
+            'jouer_id'   => 'creador',
             'created_at' => 'fechaCreacion',
             'updated_at' => 'fechaActualizacion',
             'deleted_at' => 'fechaEliminacion'

@@ -17,7 +17,8 @@ class MeetingRequest extends FormRequest
             'time_begin'  => 'required|',
             'time_end'    => 'required',
             'status'      => 'required',
-            'court_id'    => 'required|numeric'
+            'court_id'    => 'required|numeric',
+            'jouer_id'    => 'required|numeric'
         ];
     }
 }
