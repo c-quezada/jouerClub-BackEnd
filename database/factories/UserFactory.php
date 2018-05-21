@@ -55,11 +55,12 @@ $factory->define(Court::class, function (Faker $faker) {
 
 $factory->define(Meeting::class, function (Faker $faker) {
 	//$cluber = Cluber::has('sportfields')->get()->random();
+		$jouer = User::where('type', 'jouer')->get()->random();
     return [
 		'time_begin'  => $faker->dateTime,
 		'time_end'    => $faker->dateTime,
 		'status'      => $faker->randomElement(['pending', 'now', 'finished']),
-		'jouer_id'    => Jouer::all()->random()->id,
+		'jouer_id'    => $jouer->id,
 		'court_id'    => Court::all()->random()->id
     ];
 });
