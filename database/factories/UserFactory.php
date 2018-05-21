@@ -7,6 +7,7 @@ use App\Skill;
 use App\Sport;
 use App\Branch;
 use App\Cluber;
+use App\Jouer;
 use App\Commune;
 use App\Meeting;
 use App\Facility;
@@ -58,6 +59,7 @@ $factory->define(Meeting::class, function (Faker $faker) {
 		'time_begin'  => $faker->dateTime,
 		'time_end'    => $faker->dateTime,
 		'status'      => $faker->randomElement(['pending', 'now', 'finished']),
+		'jouer_id'    => Jouer::all()->random()->id,
 		'court_id'    => Court::all()->random()->id
     ];
 });
@@ -67,7 +69,7 @@ $factory->define(Facility::class, function (Faker $faker) {
     return [
 		'name'         => $faker->word,
 		'brand'        => $faker->randomElement(['nike', 'adidas', 'new balance', 'jordan', 'wilson']),
-		'price'             => $faker->unique()->numberBetween($min = 50000000, $max = 99999999),
+		'price'        => $faker->unique()->numberBetween($min = 50000, $max = 99999),
 		'purchased_at' => $faker->dateTime,
 		'court_id'     => Court::inRandomOrder()->first()->id
     ];

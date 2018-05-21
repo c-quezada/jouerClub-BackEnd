@@ -25,9 +25,9 @@ class DatabaseSeeder extends Seeder
             'courts'
         ]);*/
 
-        $users = 200; $courts = 400; 
-        $facilities = 600; $workshops = 100;
-        $teams = 50; $maintenance = 200; $meetings = 50;
+        $users = 300; $courts = 100; 
+        $facilities = 500; $workshops = 100;
+        $teams = 100; $maintenance = 300; $meetings = 100;
 
         User::flushEventListeners(); //Ignora los eventos asociados al usuario y asi no se envian correos de manera masiva por la creacion de usuarios a traves de UserFactory
 
