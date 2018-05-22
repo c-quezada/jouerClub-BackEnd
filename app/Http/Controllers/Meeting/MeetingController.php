@@ -28,9 +28,8 @@ class MeetingController extends ApiController
     public function store(MeetingRequest $request)
     {
         $fields                = $request->all();
-        $fields['time_begin']  = $request->time_begin;     
-        $fields['time_end']    = $request->time_end;
-        $fields['status']      = $request->status;
+
+        //var_dump($request->all()); die();
 
         if (Court::findOrFail($request->court_id)) {
             if ($request->time_begin < Carbon::now()) {

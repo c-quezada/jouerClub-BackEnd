@@ -29,12 +29,12 @@ class AppServiceProvider extends ServiceProvider
                 ]);
 
                 retry(5, function() use ($user){
-                    User::sendSMSVerification($user->phone, $user->code_verification);
+                    User::sendSMSVerification($user->phone, "Tu código de verificación JouerCLUB es: ".$user->code_verification);
                 }, 100);
             }
             if ($user->type == 'coach' ) {
                 retry(5, function() use ($user){
-                    User::sendSMSVerification($user->phone, $user->code_verification);
+                    User::sendSMSVerification($user->phone, "Tu código de verificación JouerCLUB es: ".$user->code_verification);
                 }, 100);
             }
 

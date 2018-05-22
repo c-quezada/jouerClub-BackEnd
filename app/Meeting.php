@@ -19,7 +19,8 @@ class Meeting extends Model
         'time_begin',
         'time_end',
         'status',
-        'court_id'
+        'court_id',
+        'jouer_id'
     ];
     
     protected $dates    = ['deleted_at'];

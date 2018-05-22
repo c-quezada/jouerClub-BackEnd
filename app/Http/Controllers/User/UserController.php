@@ -46,8 +46,8 @@ class UserController extends ApiController
         $fields                      = $request->all();
         $fields['name']              = ucwords($request->name);
         $fields['lastname']          = ucwords($request->lastname);
-        $fields['nickname']          = ucwords($request->nickname);
-        $fields['email']             = ucwords($request->email);
+        $fields['nickname']          = $request->nickname;
+        $fields['email']             = $request->email;
         $fields['phone']             = $request->phone;
         $fields['password']          = bcrypt($request->password);
         $fields['status']            = User::USERNOTVERIFIED;
