@@ -77,7 +77,7 @@ trait ApiResponser
 		];
 		Validator::validate(request()->all(), $rules);
 		$page = LengthAwarePaginator::resolveCurrentPage();
-		$perPage = 15;
+		$perPage = 500;
 		if (request()->has('amount')) {
 			$perPage = (int) request()->amount;
 		}
