@@ -12,7 +12,7 @@ trait ApiResponser
 {
 	private function successResponse($data, $code)
 	{
-		return response()->json($data, $code);
+		return response()->json(['data' => $data], $code);
 	}
 
 	protected function errorResponse($message, $code)
@@ -77,7 +77,7 @@ trait ApiResponser
 		];
 		Validator::validate(request()->all(), $rules);
 		$page = LengthAwarePaginator::resolveCurrentPage();
-		$perPage = 500;
+		$perPage = 20;
 		if (request()->has('amount')) {
 			$perPage = (int) request()->amount;
 		}
