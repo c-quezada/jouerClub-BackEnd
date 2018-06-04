@@ -24,7 +24,7 @@ class JouerMeetingController extends ApiController
 
     public function addMeeting(Jouer $jouer, Meeting $meetings)
     {
-        $flag=1;
+        $flag = 1;
         $jouer_matches      = $jouer->meetings()->get();
         $current_date_begin = Carbon::parse($meetings->time_begin);
         $current_date_end   = Carbon::parse($meetings->time_end);
@@ -35,11 +35,11 @@ class JouerMeetingController extends ApiController
                 $match_date_begin   = Carbon::parse($match['time_begin']);
                 $match_date_end     = Carbon::parse($match['time_end']);
 
-              if ($current_date_begin >= $match_date_begin && $current_date_begin <= $match_date_end ||
+                if ($current_date_begin >= $match_date_begin && $current_date_begin <= $match_date_end ||
                 $current_date_end >= $match_date_begin && $current_date_end <= $match_date_end) {
-                    $flag=0;
+                    $flag = 0;
                     return $this->errorResponse('No es posible agendar el encuentro, procura que el horario no coincida con otro encuentro.', 400);
-              }
+                }
 
             }
 
@@ -47,18 +47,18 @@ class JouerMeetingController extends ApiController
             $jouer->meetings()->attach(array($meetings->id));
             return $this->showAll($jouer->meetings()->get());
         }
-        if($flag==1){
+        if($flag == 1){
             if ($current_date_begin <= Carbon::now()->subMinute(1)) {
-              return $this->errorResponse("No es posible unirte este encuentro, ya que se encuentra en curso o bien ya ha finalizado.", 403);
+                return $this->errorResponse("No es posible unirte este encuentro, ya que se encuentra en curso o bien ya ha finalizado.", 403);
             }
-            $jouer->meetings()->attach(array($meetings->id));
-            return $this->showAll($jouer->meetings()->get());
+                $jouer->meetings()->attach(array($meetings->id));
+                return $this->showAll($jouer->meetings()->get());
         }
     }
 
     public function removeMeeting(Jouer $jouer, Meeting $meetings)
     {
-            $jouer->meetings()->detach(array($meetings->id));
-            return $this->showMessage('Ya no estas dentro de este encuentro.', 200);
+        $jouer->meetings()->detach(array($meetings->id));
+        return $this->showMessage('Ya no estas dentro de este encuentro.', 200);
     }
 }
