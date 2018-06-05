@@ -18,7 +18,7 @@ class sportFieldSeeder extends Seeder
 			'nickname' => 'jouerclub',
 			'email' => 'contacto@jouer-club.cl',
 			'password' => 'secret',
-			'code_verification' => 'secret',
+			'code_verification' => '$2y$10$EcQ3h58VqspTqLYD5pRBnuEh6x/h9Wx3.rXUdpSzIgmyAVTczwU7m',
 			'type' => 'cluber',
 			'phone' => '56962245462'
 			]
