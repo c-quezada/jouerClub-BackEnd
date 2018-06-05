@@ -13,6 +13,17 @@ class sportFieldSeeder extends Seeder
      */
     public function run()
     {
+		DB::table('users')->insert([
+			[
+			'nickname' => 'jouerclub',
+			'email' => 'contacto@jouer-club.cl',
+			'password' => 'secret',
+			'code_verification' => 'secret',
+			'type' => 'cluber',
+			'phone' => '56962245462'
+			]
+		]);
+
         DB::table('sportsFields')->insert([
 
 	        [
@@ -255,7 +266,94 @@ class sportFieldSeeder extends Seeder
 	        'lng'            => '-70.6819',
 	        'commune_id'     =>  82,
 	        'cluber_id'      =>  User::all()->random()->id
-	        ] 
-	    ]);
+			],
+			[
+			'name'           => 'Complejo Deportivo Eduardo Vargas',
+			'address'        => 'Grum Díaz 1781',
+			'time_begin'     => '09:00',
+			'time_end'       => '00:00',
+			'lat'            => '-33.3963',
+			'lng'            => '-70.7497',
+			'commune_id'     =>  123,
+			'cluber_id'      =>  User::all()->random()->id
+			] ,
+			[
+			'name'           => 'Canchas BYB',
+			'address'        => 'Av. Brasil 6970',
+			'time_begin'     => '10:00',
+			'time_end'       => '23:00',
+			'lat'            => '-33.4005',
+			'lng'            => '-70.7426',
+			'commune_id'     =>  123,
+			'cluber_id'      =>  User::all()->random()->id
+			] ,
+			[
+			'name'           => 'Complejo Deportivo Miraflores',
+			'address'        => 'Av. Pdte. German Riesco 8712',
+			'time_begin'     => '10:00',
+			'time_end'       => '23:00',
+			'lat'            => '-33.4003',
+			'lng'            => '-70.7595',
+			'commune_id'     =>  123,
+			'cluber_id'      =>  User::all()->random()->id
+			],
+			[
+			'name'           => 'Cancha el Perejil',
+			'address'        => 'Ecuador 1701',
+			'time_begin'     => '10:00',
+			'time_end'       => '23:00',
+			'lat'            => '-33.4014',
+			'lng'            => '-70.7397',
+			'commune_id'     =>  123,
+			'cluber_id'      =>  User::all()->random()->id
+			] ,
+			[
+			'name'           => 'Canchas Hirmas',
+			'address'        => 'Av Costanera 5327',
+			'time_begin'     => '10:00',
+			'time_end'       => '23:00',
+			'lat'            => '-33.4121',
+			'lng'            => '-70.7283',
+			'commune_id'     =>  123,
+			'cluber_id'      =>  User::all()->random()->id
+			] ,
+			[
+			'name'           => '7 Canchas',
+			'address'        => 'José Miguel Infante 5772-5774',
+			'time_begin'     => '08:00',
+			'time_end'       => '18:00',
+			'lat'            => '-33.4071',
+			'lng'            => '-70.7329',
+			'commune_id'     =>  123,
+			'cluber_id'      =>  User::all()->random()->id
+			]
+		]);
+		
+		DB::table('courts')->insert([
+			[
+			'name' => 'Cancha 1', 
+			'status' => 'maintenance',
+			'avatar' => 'courts/court1.jpg',
+			'sport_field_id' => 1
+			],
+			[
+			'name' => 'Cancha 2',
+			'status' => 'maintenance',
+			'avatar' => 'courts/court2.jpg',
+			'sport_field_id' => 1
+			],
+			[
+			'name' => 'Cancha 3',
+			'status' => 'maintenance',
+			'avatar' => 'courts/court3.jpg',
+			'sport_field_id' => 1
+			],
+			[
+			'name' => 'Cancha 4',
+			'status' => 'maintenance',
+			'avatar' => 'courts/court4.jpg',
+			'sport_field_id' => 1
+			]
+		]);
     }
 }
