@@ -30,6 +30,7 @@ class FacilityController extends ApiController
         $fields['brand']         = ucwords($request->brand);
         $fields['purchased_at']  = ucwords($request->purchased_at);
         $fields['court_id']      = ucwords($request->court_id);
+        $fields['avatar']        = $request->avatar->store('facilities');
 
         //dd($fields); die();
 

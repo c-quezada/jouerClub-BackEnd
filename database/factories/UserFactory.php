@@ -49,7 +49,8 @@ $factory->define(Court::class, function (Faker $faker) {
     return [
 		'name'           => $faker->word,
 		'status'         => $faker->randomElement(['available', 'notAvailable', 'maintenance']),
-		'sport_field_id' => SportField::inRandomOrder()->first()->id
+		'sport_field_id' => SportField::inRandomOrder()->first()->id,
+		'avatar'        => $faker->randomElement(["courts/court1.jpg", "courts/court2.jpg", "courts/court3.jpg", "courts/court4.jpg"])
     ];
 });
 
@@ -71,6 +72,7 @@ $factory->define(Facility::class, function (Faker $faker) {
 		'name'         => $faker->word,
 		'brand'        => $faker->randomElement(['nike', 'adidas', 'new balance', 'jordan', 'wilson']),
 		'price'        => $faker->unique()->numberBetween($min = 50000, $max = 99999),
+		'avatar'        => $faker->randomElement(["facilities/facility1.jpg", "facilities/facility2.jpg", "facilities/facility3.jpg", "facilities/facility4.jpg"]),
 		'purchased_at' => $faker->dateTime,
 		'court_id'     => Court::inRandomOrder()->first()->id
     ];

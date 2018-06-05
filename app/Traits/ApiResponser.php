@@ -12,7 +12,7 @@ trait ApiResponser
 {
 	private function successResponse($data, $code)
 	{
-		return response()->json(['data' => $data], $code);
+		return response()->json($data, $code);
 	}
 
 	protected function errorResponse($message, $code)
@@ -47,7 +47,7 @@ trait ApiResponser
 
 	protected function showMessage($message, $code = 200)
 	{
-		return $this->successResponse(['data' => $message], $code);
+		return $this->successResponse(['notification' => $message], $code);
 	}
 
 	protected function filterData(Collection $collection, $transformer)

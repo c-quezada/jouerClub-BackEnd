@@ -14,8 +14,9 @@ class CourtRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'           => 'required|min:4',
-            'status'         => 'required|min:4',
+            'name'             => 'required|min:4',
+            'status'           => 'required|min:4',
+            'avatar'          => 'required',
             'sport_field_id'   => 'required'
         ];
     }

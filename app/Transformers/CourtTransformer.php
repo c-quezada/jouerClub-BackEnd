@@ -18,6 +18,7 @@ class CourtTransformer extends TransformerAbstract
             'identificador' => (int)$court->id,
             'nombre' => (string)$court->name,
             'estado' => (string)$court->status,
+            'avatar' => (string)$court->avatar,
             'recinto' => (int)$court->sport_field_id,
             'fechaCreacion' => (string)$court->created_at,
             'fechaActualizacion' => (string)$court->updated_at,
@@ -35,10 +36,6 @@ class CourtTransformer extends TransformerAbstract
                 [
                     'rel' => 'courts.facilities',
                     'href' => route('courts.facilities.index', $court->id),
-                ],
-                [
-                    'rel' => 'courts.meetings',
-                    'href' => route('courts.meetings.index', $court->id),
                 ]
             ]
         ];
@@ -50,6 +47,7 @@ class CourtTransformer extends TransformerAbstract
             'identificador' => 'id',
             'nombre' => 'name',
             'estado' => 'status',
+            'avatar' => 'avatar',
             'recinto' => 'sport_field_id',
             'fechaCreacion' => 'created_at',
             'fechaActualizacion' => 'updated_at',
@@ -64,6 +62,7 @@ class CourtTransformer extends TransformerAbstract
             'id' => 'identificador',
             'name' => 'nombre',
             'status' => 'estado',
+            'avatar' => 'avatar',
             'sport_field_id' => 'recinto',
             'created_at' => 'fechaCreacion',
             'updated_at' => 'fechaActualizacion',

@@ -18,6 +18,7 @@ class CourtsTable extends Migration
             $table->string('name', 20)->comment("field to store court's name");
             $table->enum('status', ['available', 'notAvailable', 'maintenance'])->comment("field to store user's status")->default('available');
             $table->integer('sport_field_id')->comment("field to store sportField's number idenfifier, it's a foreign key")->unsigned();
+            $table->string('avatar')->comment("field to store court's avatar")->nullable();
             $table->timestamps();
             $table->softDeletes();
 

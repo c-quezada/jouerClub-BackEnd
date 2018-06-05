@@ -18,7 +18,7 @@ class Court extends Model
 
     protected $table    = 'courts';
 
-    protected $fillable = ['name', 'status', 'sport_field_id'];
+    protected $fillable = ['name', 'status', 'sport_field_id', 'avatar'];
 
     protected $dates    = ['deleted_at'];
 
