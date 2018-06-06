@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Meeting;
 
 use App\Court;
+use App\Jouer;
+use App\User;
 use App\Meeting;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -27,15 +29,18 @@ class MeetingController extends ApiController
 
     public function store(MeetingRequest $request)
     {
-        $fields                = $request->all();
+        $fields     = $request->all();
 
-        //var_dump($request->all()); die();
+        $jouer = Jouer::findOrFail($request->jouer_id);
 
         if (Court::findOrFail($request->court_id)) {
             if ($request->time_begin < Carbon::now()) {
                return $this->errorResponse('No es posible crear este encuentro. Procura que la fecha sea próxima.', 403);
             }
+
         $meeting = Meeting::create($fields); 
+        $current_meeting = Meeting::all()->last()->id;
+        $jouer->meetings()->attach(array($current_meeting));
         return $this->showOne($meeting, 201);
         }
     }

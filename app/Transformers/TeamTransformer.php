@@ -19,6 +19,7 @@ class TeamTransformer extends TransformerAbstract
             'nombre' => (string)$team->name,
             'lema' => (string)$team->motto,
             'ramaDeportiva' => (int)$team->branch_id,
+            'creador'       => (int)$team->jouer_id,
             'fechaCreacion' => (string)$team->created_at,
             'fechaActualizacion' => (string)$team->updated_at,
             'fechaEliminacion' => isset($team->deleted_at) ? (string)$team->deleted_at : null,
@@ -43,6 +44,7 @@ class TeamTransformer extends TransformerAbstract
             'nombre' => 'name',
             'lema' => 'motto',
             'ramaDeportiva' => 'branch_id',
+            'creador'            => 'jouer_id',
             'fechaCreacion' => 'created_at',
             'fechaActualizacion' => 'updated_at',
             'fechaEliminacion' => 'deleted_at'
@@ -57,6 +59,7 @@ class TeamTransformer extends TransformerAbstract
             'name' => 'nombre',
             'motto' => 'lema',
             'branch_id' => 'ramaDeportiva',
+            'jouer_id'   => 'creador',
             'created_at' => 'fechaCreacion',
             'updated_at' => 'fechaActualizacion',
             'deleted_at' => 'fechaEliminacion'

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Team;
 
 use App\Branch;
 use App\Team;
+use App\Jouer;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\TeamRequest;
 use App\Http\Controllers\ApiController;
@@ -30,8 +32,12 @@ class TeamController extends ApiController
         $fields['name']          = ucwords($request->name);     
         $fields['motto']         = ucwords($request->motto);
 
+        $jouer = Jouer::findOrFail($request->jouer_id);
+
         if (Branch::findOrFail($request->branch_id)) {
-            $team = Team::create($fields); 
+            $team = Team::create($fields);
+            $current_team = Team::all()->last()->id;
+            $jouer->teams()->attach(array($current_team)); 
             return $this->showOne($team, 201);
         }
     }

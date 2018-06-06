@@ -22,6 +22,9 @@ class TeamsTable extends Migration
             $table->integer('branch_id')->unsigned()->comment(" field to store the team's branches");
             $table->foreign('branch_id')->references('id')->on('branches');
 
+            $table->integer('jouer_id')->comment("field to store user's number idenfifier of 'JOUER' for identificate who created  the meeting -  it's a foreign key")->unsigned();
+            $table->foreign('jouer_id')->references('id')->on('users')->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
         });
