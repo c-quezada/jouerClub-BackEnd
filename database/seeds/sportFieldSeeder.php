@@ -333,25 +333,25 @@ class sportFieldSeeder extends Seeder
 			[
 			'name' => 'Cancha 1', 
 			'status' => 'maintenance',
-			'avatar' => 'courts/court1.jpg',
+			'avatar' => 'courts/court.png',
 			'sport_field_id' => 1
 			],
 			[
 			'name' => 'Cancha 2',
 			'status' => 'maintenance',
-			'avatar' => 'courts/court2.jpg',
+			'avatar' => 'courts/court.png',
 			'sport_field_id' => 1
 			],
 			[
 			'name' => 'Cancha 3',
 			'status' => 'maintenance',
-			'avatar' => 'courts/court3.jpg',
+			'avatar' => 'courts/court.png',
 			'sport_field_id' => 1
 			],
 			[
 			'name' => 'Cancha 4',
 			'status' => 'maintenance',
-			'avatar' => 'courts/court4.jpg',
+			'avatar' => 'courts/court.png',
 			'sport_field_id' => 1
 			]
 		]);
