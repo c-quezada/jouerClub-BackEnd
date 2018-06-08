@@ -33,7 +33,7 @@ class TeamController extends ApiController
         $fields['motto']         = ucwords($request->motto);
 
         $jouer = Jouer::findOrFail($request->jouer_id);
-
+        
         if (Branch::findOrFail($request->branch_id)) {
             $team = Team::create($fields);
             $current_team = Team::all()->last()->id;

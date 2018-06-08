@@ -30,13 +30,26 @@ class CourtController extends ApiController
         $fields['name']           = ucwords($request->name);     
         $fields['status']         = $request->status;
         $fields['sportfieldid']   = $request->sport_field_id;
-        $fields['avatar']         = $request->avatar->store('courts');
+        $fields['avatar']         = $request->avatar;
  
-        if (SportField::findOrFail($request->sport_field_id)) {
-            $court = Court::create($fields); 
-            return $this->showOne($court, 201);
+
+        $today = Carbon::now()->toDateTimeString();
+        $change_date = str_replace(" ", "-", $today);
+        $name = $change_date."-".$request->sport_field_id."-court";
+       
+        if (Sportfield::findOrFail($request->sport_field_id)) {                  
+            if (empty($request->avatar)) {
+                //set default image 
+                $fields['avatar'] = "courts/court.png"; 
+            } else {
+                $fields['avatar']  = $request->avatar->storeAs('courts', $name);
+            }
+            $court = Court::create($fields);
         }
+
+        return $this->showOne($court, 201);
     }
+    
 
 
     public function show(Court $court)

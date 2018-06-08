@@ -19,6 +19,7 @@ class FacilitiesTable extends Migration
             $table->string('brand')->comment("field to store falicity's brand");
             $table->string('price')->comment("field to store falicity's price");
             $table->string('avatar')->comment("field to store facility's avatar")->nullable();
+            $table->integer('useful')->comment("field to store facility's useful life")->nullable();
             $table->dateTimeTz('purchased_at')->comment("field to store when the court was bought");
             $table->integer('court_id')->comment("field to store court's number idenfifier, it's a foreign key")->unsigned();
             $table->timestamps();

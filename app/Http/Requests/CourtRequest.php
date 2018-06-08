@@ -16,7 +16,7 @@ class CourtRequest extends FormRequest
         return [
             'name'             => 'required|min:4',
             'status'           => 'required|min:4',
-            'avatar'          => 'required',
+            'avatar'           => 'max:5000',
             'sport_field_id'   => 'required'
         ];
     }

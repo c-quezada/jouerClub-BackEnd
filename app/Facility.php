@@ -16,7 +16,7 @@ class Facility extends Model
 	
     protected $table    = 'facilities';
     
-    protected $fillable = ['name', 'brand', 'price', 'purchased_at', 'court_id', 'avatar'];
+    protected $fillable = ['name', 'brand', 'price', 'purchased_at', 'court_id', 'avatar', 'useful'];
     
     protected $dates    = ['deleted_at'];
     

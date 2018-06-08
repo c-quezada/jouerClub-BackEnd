@@ -26,10 +26,11 @@ class FacilityRequest extends FormRequest
         return [
             'name'         => 'required',
             'brand'        => 'required',
-            'price'          => 'required',
-            'avatar'       => 'required',
+            'price'        => 'required',
+            'avatar'       => 'max:5000',
             'purchased_at' => 'required',
-            'court_id'     => 'required'
+            'court_id'     => 'required',
+            'useful'       => 'required'
         ];
     }
 }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Facility;
 
 use App\Facility;
+use App\Court;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Requests\FacilityRequest;
 use App\Http\Controllers\ApiController;
@@ -30,11 +32,22 @@ class FacilityController extends ApiController
         $fields['brand']         = ucwords($request->brand);
         $fields['purchased_at']  = ucwords($request->purchased_at);
         $fields['court_id']      = ucwords($request->court_id);
-        $fields['avatar']        = $request->avatar->store('facilities');
+        $fields['avatar']        = $request->avatar;
 
-        //dd($fields); die();
+        $today = Carbon::now()->toDateTimeString();
+        $change_date = str_replace(" ", "-", $today);
+        $name = $change_date."-".$request->court_id."-facility";
+       
+        if (Court::findOrFail($request->court_id)) {                  
+            if (empty($request->avatar)) {
+                //set default image 
+                $fields['avatar'] = "facilities/facility.png"; 
+            } else {
+                $fields['avatar']  = $request->avatar->storeAs('facilities', $name);
+            }
+            $facility = Facility::create($fields);
+        }
 
-        $facility = Facility::create($fields);
         return $this->showOne($facility, 201);
     }
 
