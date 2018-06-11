@@ -6,7 +6,9 @@ use App\Images;
 use App\Mail\UserCreated;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
+use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\ApiController;
 use App\Transformers\Transformers\UserTransformer;
@@ -30,9 +32,9 @@ class UserController extends ApiController
     public function __construct()
     {
         $this->middleware('client.credentials')->only(['store', 'resend']);
-        $this->middleware('auth:api')->except(['store', 'verify', 'resend']);
+        $this->middleware('auth:api')->except(['store', 'verify', 'resend', 'login']);
         //$this->middleware('scope:manege-account')->only(['show', 'update']);
-        $this->middleware('transform.input:' . UserTransformer::class)->only(['store', 'update']);
+        $this->middleware('transform.input:' . UserTransformer::class)->only(['store', 'update', 'login']);
     }
 
     public function index()
@@ -146,31 +148,16 @@ class UserController extends ApiController
         return $this->showMessage('Correo reenviado exitosamente, revise su bandeja de correo electrónico.');
     }
 
-    public function login(Request $request)
+    public function login(LoginRequest $request)
     {
-        if (auth()->attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'status' => 'verified'])) {
             // Authentication ok...
             $user = auth()->user();
-            if ($user->status == "pending") {
-                return $this->errorResponse("Antes de comenzar debes validar tu cuenta", 401);
-            }
             $user->api_token = str_random(60);
             $user->save();
             return $this->showOne($user, 200);
         }
-        return $this->errorResponse("Usuario no autentificado", 401);
-        //echo "Email: ".$request->email." Password: ".$request->password;
-    }
-
-    public function logout(Request $request)
-    {
-        if (auth()->user()) {
-            $user = auth()->user();
-            $user->api_token = null; // clear api token
-            $user->save();
-            return $this->successResponse("Gracias por ser parte de JouerCLub, hasta la proxima.", 200);
-        }
-        return $this->errorResponse("No es posible realizar esta peticion.", 401);
+        return $this->errorResponse("No hemos encontrado registros. O bien, su cuenta aun no ha sido activada.", 401);
     }
 
 }
