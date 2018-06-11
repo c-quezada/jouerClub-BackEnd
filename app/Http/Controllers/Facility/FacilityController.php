@@ -36,7 +36,7 @@ class FacilityController extends ApiController
 
         $today = Carbon::now()->toDateTimeString();
         $change_date = str_replace(" ", "-", $today);
-        $name = $change_date."-".$request->court_id."-facility";
+        $name = $change_date."-facility-".$request->court_id;
        
         if (Court::findOrFail($request->court_id)) {                  
             if (empty($request->avatar)) {

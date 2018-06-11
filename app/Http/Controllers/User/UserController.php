@@ -60,8 +60,20 @@ class UserController extends ApiController
           $fields['code_verification'] = User::setSMSVerification();
         }
 
+
+        $today = Carbon::now()->toDateTimeString();
+        $change_date = str_replace(" ", "-", $today);
+        $name = $change_date."-profile-".$request->nickname; 
+    
+        if (empty($request->avatar)) {
+            //set default image 
+            $fields['avatar'] = "profiles/profile.png"; 
+        } else {
+            $fields['avatar']  = $request->avatar->storeAs('profiles', $name);
+        }
+        
         $user = User::create($fields);
-        //dd($fields); die();
+                        
         return $this->showOne($user, 201);
     }
 

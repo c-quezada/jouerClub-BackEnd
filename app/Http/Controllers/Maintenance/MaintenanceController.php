@@ -28,13 +28,6 @@ class MaintenanceController extends ApiController
         $fields['mark']          = $request->mark;
         $fields['instalacion']   = $request->facility_id;
 
-        /*
-        'identificador' => (int)$maintenance->id,
-        'observaciones' => (string)$maintenance->observations,
-        'calificacion' => (int)$maintenance->mark,
-        'instalacion' => (int)$maintenance->facility_id,
-        */
-
         $Maintenance = Maintenance::create($fields);
         return $this->showOne($Maintenance, 201);
     }

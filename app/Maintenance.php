@@ -17,7 +17,7 @@ class Maintenance extends Model
 
     protected $table    = 'maintenance';
     
-    protected $fillable = ['observations', 'status', 'facility_id'];
+    protected $fillable = ['observations', 'mark', 'status', 'facility_id'];
     
     protected $dates    = ['deleted_at'];
     

@@ -35,7 +35,7 @@ class CourtController extends ApiController
 
         $today = Carbon::now()->toDateTimeString();
         $change_date = str_replace(" ", "-", $today);
-        $name = $change_date."-".$request->sport_field_id."-court";
+        $name = $change_date."-court-".$request->sport_field_id;
        
         if (Sportfield::findOrFail($request->sport_field_id)) {                  
             if (empty($request->avatar)) {
