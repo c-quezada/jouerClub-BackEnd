@@ -39,6 +39,7 @@ class User extends Authenticatable
         'avatar',
         'phone',
         'password',
+        'api_token',
         'status',
         'type',
         'code_verification'

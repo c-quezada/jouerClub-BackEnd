@@ -132,3 +132,17 @@ Route::resource('skills', 'Skill\SkillController', ['except' => ['create', 'edit
  * Tokens
  */
 Route::post('oauth/token', '\Laravel\Passport\Http\Controllers\AccessTokenController@issueToken');
+
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});
+
+/**
+ * Login
+ */
+Route::post('login', 'User\UserController@login');
+
+/**
+ * Logout
+ */
+Route::post('logout', 'User\UserController@logout');

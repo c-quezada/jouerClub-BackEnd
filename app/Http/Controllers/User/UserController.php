@@ -146,4 +146,31 @@ class UserController extends ApiController
         return $this->showMessage('Correo reenviado exitosamente, revise su bandeja de correo electrónico.');
     }
 
+    public function login(Request $request)
+    {
+        if (auth()->attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
+            // Authentication ok...
+            $user = auth()->user();
+            if ($user->status == "pending") {
+                return $this->errorResponse("Antes de comenzar debes validar tu cuenta", 401);
+            }
+            $user->api_token = str_random(60);
+            $user->save();
+            return $this->showOne($user, 200);
+        }
+        return $this->errorResponse("Usuario no autentificado", 401);
+        //echo "Email: ".$request->email." Password: ".$request->password;
+    }
+
+    public function logout(Request $request)
+    {
+        if (auth()->user()) {
+            $user = auth()->user();
+            $user->api_token = null; // clear api token
+            $user->save();
+            return $this->successResponse("Gracias por ser parte de JouerCLub, hasta la proxima.", 200);
+        }
+        return $this->errorResponse("No es posible realizar esta peticion.", 401);
+    }
+
 }
