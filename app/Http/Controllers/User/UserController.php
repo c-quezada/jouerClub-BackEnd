@@ -3,6 +3,7 @@ namespace App\Http\Controllers\User;
 
 use App\User;
 use App\Images;
+use Carbon\Carbon;
 use App\Mail\UserCreated;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
@@ -65,7 +66,7 @@ class UserController extends ApiController
 
         $today = Carbon::now()->toDateTimeString();
         $change_date = str_replace(" ", "-", $today);
-        $name = $change_date."-profile-".$request->nickname; 
+        $name = $change_date."-profile-".str_random(10); 
     
         if (empty($request->avatar)) {
             //set default image 
