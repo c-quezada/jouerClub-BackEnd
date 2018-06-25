@@ -359,42 +359,34 @@ class sportFieldSeeder extends Seeder
 		DB::table('services')->insert([
 			[
 			'name' => 'Baños', 
-			'status' => 'maintenance',
 			'avatar' => 'services/toilet_service.png'
 			],
 			[
 			'name' => 'Camarines',
-			'status' => 'maintenance',
 			'avatar' => 'services/dressing_room_service.png'
 			],
 			[
 			'name' => 'Agua Potable',
-			'status' => 'maintenance',
 			'avatar' => 'services/water_service.png'
 			],
 			[
 			'name' => 'Duchas',
-			'status' => 'maintenance',
 			'avatar' => 'services/shower_service.png'
 			],
 			[
 			'name' => 'Iluminación',
-			'status' => 'maintenance',
 			'avatar' => 'services/lighting_service.png'
 			],
 			[
 			'name' => 'Quincho',
-			'status' => 'maintenance',
 			'avatar' => 'services/grill_service.png'
 			],
 			[
 			'name' => 'Kiosko',
-			'status' => 'maintenance',
 			'avatar' => 'services/kiosko_service.png'
 			],
 			[
 			'name' => 'Estacionamientos',
-			'status' => 'maintenance',
 			'avatar' => 'services/parking_service.png'
 			]
 		]);
