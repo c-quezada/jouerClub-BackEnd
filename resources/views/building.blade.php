@@ -307,7 +307,7 @@
             <div class="testimonials owl-carousel">
                 <div class="testimonials-single">
                     <img src="images/testimonials/FelipeValdebenito.jpg" alt="client" class="client-img">
-                    <blockquote class="blockquote">"Mi nombre es Felipe Valdebenito, soy deportista, ando en skate y bueno, lo que opino de JouerCLUB es que es una muy buena iniciativa porque se entrega información y al mismo tiempo se nota que hay un interés de por medio para que se puedan realizar este tipo de acciones, que ya sean proyectos deportivos, actividades o juntar gente para formar algún tipo de comunidad. Me parece una muy buena iniciativa ya que siempre falta esa información."</blockquote>
+                    <blockquote class="blockquote"><em>"Mi nombre es Felipe Valdebenito, soy deportista, ando en skate y bueno, lo que opino de JouerCLUB es que es una muy buena iniciativa porque se entrega información y al mismo tiempo se nota que hay un interés de por medio para que se puedan realizar este tipo de acciones, que ya sean proyectos deportivos, actividades o juntar gente para formar algún tipo de comunidad. Me parece una muy buena iniciativa ya que siempre falta esa información."</em></blockquote>
                     <h5 class="mt-4 mb-2">Felipe Valdebenito</h5>
                     <p class="text-primary">Skater</p>
                 </div>
@@ -349,17 +349,17 @@
 
             <div class="row pt-4">
                 <div class="col-md-6">
-                    <h4 class="mb-3">Lorem?</h4>
-                    <p class="light-font mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer rutrum, urna eu pellentesque pretium, nisi nisi fermentum enim, et sagittis dolor nulla vel sapien. Vestibulum sit amet mattis ante. </p>
-                    <h4 class="mb-3">Lorem?</h4>
-                    <p class="light-font mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer rutrum, urna eu pellentesque pretium, nisi nisi fermentum enim, et sagittis dolor nulla vel sapien. Vestibulum sit amet mattis ante. </p>
+                    <h4 class="mb-3">¿Mis datos son recopilados para ser usados en otro ambito y/o circuntacias?</h4>
+                    <p class="light-font mb-5">Ni siquiera lo pienses, solo queremos brindarte la mejor experiencia al generar un encuentro deportivo, tus datos son de exclusivo uso dentro de la plataforma JouerCLUB.</p>
+                    <h4 class="mb-3">¿Que deportes contempla la aplicacion?</h4>
+                    <p class="light-font mb-5">De momento solo tenemos complejos depotifivos asociados al <strong>FUTBOL</strong>, quedate atento a las novedades del mundo JouerCLUB!</p>
 
                 </div>
                 <div class="col-md-6">
-                    <h4 class="mb-3">Lorem?</h4>
-                    <p class="light-font mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer rutrum, urna eu pellentesque pretium, nisi nisi fermentum enim, et sagittis dolor nulla vel sapien. Vestibulum sit amet mattis ante. </p>
-                    <h4 class="mb-3">Lorem?</h4>
-                    <p class="light-font mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer rutrum, urna eu pellentesque pretium, nisi nisi fermentum enim, et sagittis dolor nulla vel sapien. Vestibulum sit amet mattis ante. </p>
+                    <h4 class="mb-3">¿Se realizan cargos de servicio?</h4>
+                    <p class="light-font mb-5">Hey! si eres <strong>JOUER</strong> no tienes de que preocuparte. Nuestras mayor ganacia es el crecimiento del deporte amateur en nuestro país. <small><sub>*  Ahora bien, si tu inquietud es frente a las ganacias monetarias, nuestro equipo las obtiene mediante el cobro a usuarios <strong>CLUBER</strong>, a quienes brindamos sistemas para la administracion de su complejo deportivo.</sub></small></p>
+                    <h4 class="mb-3">¿Se descuenta saldo al recibir SMS por parte de JouerCLUB?</h4>
+                    <p class="light-font mb-5">Claro que no, aquello corre por nuestra cuenta, no te preocupes !</p>
 
                 </div>
             </div>
@@ -377,7 +377,7 @@
                 <h2>¡Hey! Genial, haz llegado hasta aquí. ¿Un encuentro? o ¿mejor dos? Más bien, los que tú quieras!</h2>
                 <p class="text-white">Ingresa al market PlayStore y descarga la APP, ¿Lo hacemos por tí? ¡Bien! Con un click en la siguiente imagen y basta. </p>
                 <div class="my-4">
-                    <a href="#" class="btn btn-light"><img src="{{ asset('images/logos/playicon.png') }}" alt="icon"> Google play</a>
+                    <a href="https://play.google.com/apps/testing/cl.jouer_club.jouer_jouerclub/" class="btn btn-light"><img src="{{ asset('images/logos/playicon.png') }}" alt="icon"> Google play</a>
                 </div>
                 <p class="text-white"><small><i>*Disponible desde Android 5.0 - Lollipop o posteriores.</i></small></p>
             </div>
@@ -421,7 +421,7 @@
         <p class="mb-2"><small>COPYRIGHT © <script>document.write(new Date().getFullYear())</script>. THESIS PROJECT <a href="">CPQM07</a> & <a href="">YERKOS</a></small></p>
 
         <small>
-            <a href="#" class="m-2">CLUBER</a>
+            <a href="https://cluber.jouer-club.cl" class="m-2">CLUBER</a>
             <a href="#" class="m-2">TÉRMINOS & CONDICIONES</a>
             <a href="#" class="m-2">PRIVACIDAD</a>
         </small>
