@@ -18,6 +18,7 @@ class TeamsTable extends Migration
             $table->increments('id')->comment("field to store team's number idenfifier");
             $table->string('name')->comment("field to store team's name");
             $table->string('motto')->comment("field to store team's motto");//MOTTO=LEMA o CONSIGNA(de equipo)
+            $table->string('avatar')->comment("field to store team's avatar")->nullable();
 
             $table->integer('branch_id')->unsigned()->comment(" field to store the team's branches");
             $table->foreign('branch_id')->references('id')->on('branches');

@@ -21,6 +21,7 @@ class SportFieldTable extends Migration
             $table->string('lat')->comment("field to store sportField's latitude for his ubication");
             $table->string('lng')->comment("field to store sportField's longitude for his ubication");
             $table->string('website')->comment("field to store sportField's web page")->nullable();
+            $table->string('phone')->comment("field to store sportField's phone number")->nullable();
             $table->string('facebook')->comment("field to store sportField's facebook")->nullable();
             $table->string('instagram')->comment("field to store sportField's instagram")->nullable();
             $table->string('twitter')->comment("field to store sportField's twitter")->nullable();

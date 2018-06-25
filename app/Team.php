@@ -16,7 +16,7 @@ class Team extends Model
 
 	protected $table    = 'teams';
 	
-	protected $fillable = ['name', 'motto', 'branch_id', 'jouer_id'];
+	protected $fillable = ['name', 'motto', 'avatar', 'branch_id', 'jouer_id'];
 	
 	protected $dates    = ['deleted_at'];
 

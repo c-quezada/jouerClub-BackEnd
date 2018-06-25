@@ -25,13 +25,13 @@ class JouerSkillController extends ApiController
     {
             $jouer->skills()->attach(array($skills->id));
             $jouer->skills()->wherePivot('skill_id', '=', 1)->detach();
-            return $this->showMessage('La "skill" ha sido agregada.', 200);
+            return $this->showMessage('La skill a sido agregado satisfactoriamente.', 201);
     }
 
     public function removeSkill(Jouer $jouer, Skill $skills)
     {
         $jouer->skills()->detach(array($skills->id));
-        return $this->showMessage('La "skill" ha sido quitada.', 200);
+        return $this->showMessage('La skill a sido removida satisfactoriamente.', 200);
     }
 }
 

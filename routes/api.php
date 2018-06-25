@@ -30,6 +30,11 @@ Route::resource('jouers.meetings', 'Jouer\JouerMeetingController', ['only' => ['
 Route::resource('jouers.workshops', 'Jouer\JouerWorkshopController', ['only' => ['index']]);
 
 /**
+ * Services
+ */
+Route::resource('services', 'Service\ServiceController');
+
+/**
  * Jouer Skills
  */
 Route::name('jouers.addSkill')->post('jouers/{jouer}/addskill/{skills}', 'Jouer\JouerSkillController@addSkill');
@@ -80,6 +85,9 @@ Route::resource('courts.meetings', 'Court\CourtMeetingsController', ['only' => [
 Route::resource('sportfields', 'SportField\SportFieldController', ['except' => ['create', 'edit']]);
 Route::resource('sportfields.courts', 'SportField\SportFieldCourtsController', ['only' => ['index']]);
 Route::resource('sportfields.meetings', 'SportField\SportFieldMeetingsController', ['only' => ['index']]);
+Route::resource('sportfields.services', 'SportField\SportFieldServicesController', ['only' => ['index']]);
+Route::name('sportfields.addService')->post('sportfields/{sportfield}/addService/{service}', 'SportField\SportFieldServicesController@addService');
+Route::name('sportfields.removeService')->post('sportfields/{sportfield}/removeService/{service}', 'SportField\SportFieldServicesController@removeService');
 
 /**
  * Facilities
@@ -133,9 +141,9 @@ Route::resource('skills', 'Skill\SkillController', ['except' => ['create', 'edit
  */
 Route::post('oauth/token', '\Laravel\Passport\Http\Controllers\AccessTokenController@issueToken');
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+/* Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
-});
+}); */
 
 /**
  * Login

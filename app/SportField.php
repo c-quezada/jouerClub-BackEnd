@@ -5,6 +5,7 @@ namespace App;
 use App\Court;
 use App\Cluber;
 use App\Commune;
+use App\Service;
 use Illuminate\Database\Eloquent\Model;
 use App\Transformers\SportfieldTransformer;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -50,6 +51,11 @@ class SportField extends Model
     public function commune()
     {
         return $this->belongsTo(Commune::class);
+    }
+
+    public function services()
+    {
+        return $this->belongsTo(Service::class);
     }
 
 
