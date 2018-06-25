@@ -6,6 +6,7 @@ use App\Branch;
 use App\Team;
 use App\Jouer;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Requests\TeamRequest;
 use App\Http\Controllers\ApiController;
@@ -35,6 +36,18 @@ class TeamController extends ApiController
         $jouer = Jouer::findOrFail($request->jouer_id);
         
         if (Branch::findOrFail($request->branch_id)) {
+
+            $today = Carbon::now()->toDateTimeString();
+            $change_date = str_replace(" ", "-", $today);
+            $name = $change_date."-team-".str_random(10); 
+        
+            if (empty($request->avatar)) {
+                //set default image 
+                $fields['avatar'] = "teams/team.png"; 
+            } else {
+                $fields['avatar']  = $request->avatar->storeAs('teams', $name);
+            }
+
             $team = Team::create($fields);
             $current_team = Team::all()->last()->id;
             $jouer->teams()->attach(array($current_team)); 
