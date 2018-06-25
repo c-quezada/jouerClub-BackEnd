@@ -154,8 +154,6 @@ class UserController extends ApiController
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'status' => 'verified'])) {
             // Authentication ok...
             $user = auth()->user();
-            $user->api_token = str_random(60);
-            $user->save();
             return $this->showOne($user, 200);
         }
         return $this->errorResponse("No hemos encontrado registros. O bien, su cuenta aun no ha sido activada.", 401);
