@@ -21,6 +21,6 @@ class Service extends Model
 
     public function sportField()
     {
-    	return $this->belongsTo(SportField::class);
+    	return $this->belongsToMany(SportField::class);
     }
 }

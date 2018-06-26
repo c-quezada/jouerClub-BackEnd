@@ -55,7 +55,7 @@ class SportField extends Model
 
     public function services()
     {
-        return $this->hasMany(Service::class);
+        return $this->belongsToMany(Service::class);
     }
 
 
