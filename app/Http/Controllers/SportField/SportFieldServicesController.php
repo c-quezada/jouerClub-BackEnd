@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\SportField;
 
 use App\SportField;
+use App\Service;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
 
@@ -10,7 +11,7 @@ class SportFieldServicesController extends ApiController
 {
     public function __construct()
     {
-      parent::__construct();
+      //parent::__construct();
     }
 
     public function index(SportField $sportfield)

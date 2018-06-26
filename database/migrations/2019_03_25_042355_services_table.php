@@ -22,12 +22,12 @@ class ServicesTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('sportfield_service', function(Blueprint $table){
-            $table->primary(['service_id', 'sportfield_id']);
-            $table->integer('sportfield_id')->unsigned()->comment("field to store the sportfield's id");
+        Schema::create('service_sport_field', function(Blueprint $table){
+            $table->primary(['service_id', 'sport_field_id']);
+            $table->integer('sport_field_id')->unsigned()->comment("field to store the sportfield's id");
             $table->integer('service_id')->unsigned()->comment("field to store the service's id");
 
-            $table->foreign('sportfield_id')->references('id')->on('sportsFields');
+            $table->foreign('sport_field_id')->references('id')->on('sportsFields');
             $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();

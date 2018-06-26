@@ -19,7 +19,7 @@ class Service extends Model
     
     protected $dates    = ['deleted_at'];
 
-    public function sportField()
+    public function sportFields()
     {
     	return $this->belongsToMany(SportField::class);
     }
