@@ -135,7 +135,11 @@ Route::resource('meetings.participants', 'Meeting\MeetingDetailController', ['on
  */
 Route::resource('skills', 'Skill\SkillController', ['except' => ['create', 'edit']]);
 
-Route::resource('services', 'Services\ServiceController', ['only' => ['index', 'show']]);
+
+/**
+ * Services
+ */
+Route::resource('services', 'Service\ServiceController', ['only' => ['index', 'show']]);
 
 /**
  * Tokens
