@@ -11,7 +11,7 @@ class SportFieldServicesController extends ApiController
 {
     public function __construct()
     {
-      //parent::__construct();
+      parent::__construct();
     }
 
     public function index(SportField $sportfield)
@@ -26,7 +26,7 @@ class SportFieldServicesController extends ApiController
         return $this->showMessage('El servicio a sido agregado satisfactoriamente.', 201);
     }
 
-    public function removeSkill(SportField $sportfield, Service $service)
+    public function removeService(SportField $sportfield, Service $service)
     {
         $sportfield->services()->detach(array($service->id));
         return $this->showMessage('El servicio a sido removida satisfactoriamente.', 200);
