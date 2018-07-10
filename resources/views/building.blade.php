@@ -195,11 +195,11 @@
             </div>
 
             <div class="img-gallery owl-carousel owl-theme">
-            <img src="{{ asset('images/screenshots/create_meeting.png') }}" alt="image">
+                <img src="{{ asset('images/screenshots/create_meeting.png') }}" alt="image">
                 <img src="{{ asset('images/screenshots/login_checked.png') }}" alt="image">
                 <img src="{{ asset('images/screenshots/login.png') }}" alt="image">
                 <img src="{{ asset('images/screenshots/meeting_detail.png') }}" alt="image">
-                <img src="{{ asset('images/screenshots/meetings_404') }}" alt="image">
+                <img src="{{ asset('images/screenshots/meetings_404.png') }}" alt="image">
                 <img src="{{ asset('images/screenshots/profile.png') }}" alt="image">
                 <img src="{{ asset('images/screenshots/select_court.png') }}" alt="image">
                 <img src="{{ asset('images/screenshots/select_skills.png') }}" alt="image">
@@ -207,7 +207,7 @@
                 <img src="{{ asset('images/screenshots/sportfield_services.png') }}" alt="image">
                 <img src="{{ asset('images/screenshots/team_detail.png') }}" alt="image">
                 <img src="{{ asset('images/screenshots/teams_404.png') }}" alt="image">
-                <img src="{{ asset('images/screenshots/teams_.png') }}" alt="image">
+                <img src="{{ asset('images/screenshots/teams.png') }}" alt="image">
             </div>
 
         </div>
