@@ -54,7 +54,7 @@
     <header class="bg-gradient" id="home">
         <div class="container mt-5">
             <h1>{{ config('app.name') }}</h1>
-            <p class="tagline">Donde quiera que estes, JOUER es <strong>JUGAR</strong>. </p>
+            <p class="tagline">Donde quiera que estés, JOUER es <strong>JUGAR</strong>. </p>
         </div>
         <div class="img-holder mt-3"><img src="{{ asset('images/screenshots/initial.png') }}" width="420" alt="phone" class="img-fluid"></div>
     </header>
@@ -225,17 +225,17 @@
 
             <div class="row pt-4">
                 <div class="col-md-6">
-                    <h4 class="mb-3">¿Mis datos son recopilados para ser usados en otro ambito y/o circuntacias?</h4>
+                    <h4 class="mb-3">¿Mis datos son recopilados para ser usados en otro ámbito y/o circunstancias?</h4>
                     <p class="light-font mb-5">Ni siquiera lo pienses, solo queremos brindarte la mejor experiencia al generar un encuentro deportivo, tus datos son de exclusivo uso dentro de la plataforma JouerCLUB.</p>
-                    <h4 class="mb-3">¿Que deportes contempla la aplicacion?</h4>
-                    <p class="light-font mb-5">De momento solo tenemos complejos depotifivos asociados al <strong>FUTBOL</strong>, quedate atento a las novedades del mundo JouerCLUB!</p>
+                    <h4 class="mb-3">¿Qué deportes contempla la aplicación?</h4>
+                    <p class="light-font mb-5">De momento solo tenemos complejos depotifivos asociados al <strong>FÚTBOL</strong>, quédate atento a las novedades del mundo JouerCLUB!</p>
 
                 </div>
                 <div class="col-md-6">
                     <h4 class="mb-3">¿Se realizan cargos de servicio?</h4>
-                    <p class="light-font mb-5">Hey! si eres <strong>JOUER</strong> no tienes de que preocuparte. Nuestras mayor ganacia es el crecimiento del deporte amateur en nuestro país. <small><sub>*  Ahora bien, si tu inquietud es frente a las ganacias monetarias, nuestro equipo las obtiene mediante el cobro a usuarios <strong>CLUBER</strong>, a quienes brindamos sistemas para la administracion de su complejo deportivo.</sub></small></p>
+                    <p class="light-font mb-5">Hey! si eres <strong>JOUER</strong> no tienes de que preocuparte. Nuestras mayor ganacia es el crecimiento del deporte amateur en nuestro país. <small><sub>*  Ahora bien, si tu inquietud es frente a las ganacias monetarias, nuestro equipo las obtiene mediante el cobro a usuarios <strong>CLUBER</strong>, a quienes brindamos sistemas para la administración de su complejo deportivo.</sub></small></p>
                     <h4 class="mb-3">¿Se descuenta saldo al recibir SMS por parte de JouerCLUB?</h4>
-                    <p class="light-font mb-5">Claro que no, aquello corre por nuestra cuenta, no te preocupes !</p>
+                    <p class="light-font mb-5">Claro que no, aquello corre por nuestra cuenta, no te preocupes!</p>
 
                 </div>
             </div>
@@ -269,7 +269,7 @@
                     <p class="mb-2"> <span class="ti-location-pin mr-2"></span>Bravo de Saravia 2980, Renca, Región Metropolitana, Chile</p>
                     <div class=" d-block d-sm-inline-block">
                         <p class="mb-2">
-                            <span class="ti-email mr-2"></span> <a class="mr-4" href="mailto:support@jouer-club.cl">support@jouer-club.cl</a>
+                            <span class="ti-email mr-2"></span> <a class="mr-4" href="mailto:contacto@jouer-club.cl">contacto@jouer-club.cl</a>
                         </p>
                     </div>
                     <div class="d-block d-sm-inline-block">
