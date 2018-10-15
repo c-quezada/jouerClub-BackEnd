@@ -33,6 +33,17 @@ class AppServiceProvider extends ServiceProvider
                 }, 100);
             }
             if ($user->type == 'coach' ) {
+                DB::table('workshops')->insert([
+                    'name' => 'Taller de Inicio',
+                    'description' => 'Querido usuario, omita este taller, solo se carga de manera preestablecida para demostrar funcionalidad',
+                    'lat' => '-33.405142',
+                    'lng' => '-70.682644',
+                    'time_begin' => '2018/12/12 00:00:00',
+                    'time_end' => '2018/12/12 01:00:00',
+                    'status' => 'finished',
+                    'coach_id' => $user_id
+                ]);
+
                 retry(5, function() use ($user){
                     User::sendSMSVerification($user->phone, "Tu código de verificación JouerCLUB es: ".$user->code_verification);
                 }, 100);
