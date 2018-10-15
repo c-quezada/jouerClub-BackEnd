@@ -20,7 +20,7 @@ class CoachController extends ApiController
         return $this->showAll($coaches);
     }
 
-    public function show(Coach $coach)//Inyeccion de dependencias a traves de global 
+    public function show(Coach $coach)//Inyeccion de instancia a traves de global 
     {
         return $this->showOne($coach);
     }
