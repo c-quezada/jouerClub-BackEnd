@@ -24,7 +24,7 @@ class JouerWorkshopController extends ApiController
     public function addWorkshop(Jouer $jouer, Workshop $workshops)
     {
         $flag = 1;
-        $jouer_workshops      = $jouer->workshops->get();
+        $jouer_workshops      = $jouer->workshops()->get();
         $current_date_begin = Carbon::parse($workshops->time_begin);
         $current_date_end   = Carbon::parse($workshops->time_end);
 
@@ -37,20 +37,21 @@ class JouerWorkshopController extends ApiController
                 if ($current_date_begin >= $workshop_date_begin && $current_date_begin <= $workshop_date_end ||
                 $current_date_end >= $workshop_date_begin && $current_date_end <= $workshop_date_end) {
                     $flag = 0;
-                    return $this->errorResponse('No es posible ingresar al taller, procura que el horario no coincida con otro.', 400);
+                    return $this->errorResponse('No es posible agendar el taller, procura que el horario no coincida con otro.', 400);
                 }
+
             }
 
         } else {
-            $jouer->workshops->attach(array($workshop->id));
-            return $this->showAll($jouer->workshops->get());
+            $jouer->workshops()->attach(array($workshops->id));
+            return $this->showAll($jouer->workshops()->get());
         }
         if($flag == 1){
             if ($current_date_begin <= Carbon::now()->subMinute(1)) {
                 return $this->errorResponse("No es posible unirte a este taller, ya que se encuentra en curso o bien ya ha finalizado.", 403);
             }
-                $jouer->workshops->attach(array($workshop->id));
-                return $this->showAll($jouer->workshops->get());
+                $jouer->workshops()->attach(array($workshops->id));
+                return $this->showAll($jouer->workshops()->get());
         }
     }
 
