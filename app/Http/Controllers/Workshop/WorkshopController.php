@@ -90,7 +90,7 @@ class WorkshopController extends ApiController
         return $this->showOne($workshop);
     }
 
-    public function destroy(Workshop $workshop) //workshop seria una inyeccion de dependencias, con esto nos ahorramos codear: $workshop = findOrFail($id);
+    public function destroy(Workshop $workshop) //workshop seria una inyeccion de instancia, con esto nos ahorramos codear: $workshop = findOrFail($id);
     {
         $workshop->delete();
         return $this->showOne($workshop);

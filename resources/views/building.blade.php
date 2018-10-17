@@ -288,89 +288,6 @@
             </section>
             <!--end #our-clients.ts-block-->
 
-            <section id="organize" class="ts-block mt-5">
-                <div class="container">
-                    <div class="ts-title text-center">
-                        <h2>Organize Everything!</h2>
-                    </div>
-                    <!--end ts-title-->
-                    <div class="row align-items-center">
-                        <div class="col-md-4">
-                            <figure class="text-right ts-xs-text-center" data-animate="ts-fadeInUp">
-                                <figure class="icon">
-                                    <img src="assets/img/icon-watch-heart.png" class="" alt="">
-                                </figure>
-                                <h4 class="mb-2">Invest With The Best</h4>
-                                <p>
-                                    Morbi et nisl a sapien malesuada scelerisque. Suspendisse tempor turpis mattis
-                                </p>
-                            </figure>
-                            <figure class="text-right ts-xs-text-center" data-animate="ts-fadeInUp" data-delay=".1s">
-                                <figure class="icon">
-                                    <img src="assets/img/icon-lcd-chart.png" class="" alt="">
-                                </figure>
-                                <h4 class="mb-2">Real Time Price</h4>
-                                <p>
-                                    Morbi et nisl a sapien malesuada scelerisque. Suspendisse tempor turpis mattis
-                                </p>
-                            </figure>
-                            <figure class="text-right ts-xs-text-center" data-animate="ts-fadeInUp" data-delay=".3s">
-                                <figure class="icon">
-                                    <img src="assets/img/icon-cup-winner.png" class="" alt="">
-                                </figure>
-                                <h4 class="mb-2">Trade From Enywhere</h4>
-                                <p>
-                                    Morbi et nisl a sapien malesuada scelerisque. Suspendisse tempor turpis mattis
-                                </p>
-                            </figure>
-                        </div>
-                        <!--end col-md-4-->
-
-                        <div class="col-md-4 my-5 d-flex justify-content-center align-items-center">
-                            <div class="image position-relative">
-                                <img src="assets/img/img-phone-1st-screen.png" class="mw-100" alt="" data-animate="ts-zoomInShort" data-delay=".1s">
-                                <aside class="ts-svg ts-svg__organic-shape-01 ts-background-size-contain" data-animate="ts-zoomInShort" data-delay=".4s"></aside>
-                            </div>
-                        </div>
-                        <!--end col-md-4-->
-
-                        <div class="col-md-4">
-                            <figure class="ts-xs-text-center" data-animate="ts-fadeInUp">
-                                <figure class="icon">
-                                    <img src="assets/img/icon-watch-heart.png" class="" alt="">
-                                </figure>
-                                <h4 class="mb-2">Invest With The Best</h4>
-                                <p>
-                                    Morbi et nisl a sapien malesuada scelerisque. Suspendisse tempor turpis mattis
-                                </p>
-                            </figure>
-                            <figure class="ts-xs-text-center" data-animate="ts-fadeInUp" data-delay=".1s">
-                                <figure class="icon">
-                                    <img src="assets/img/icon-lcd-chart.png" class="" alt="">
-                                </figure>
-                                <h4 class="mb-2">Real Time Price</h4>
-                                <p>
-                                    Morbi et nisl a sapien malesuada scelerisque. Suspendisse tempor turpis mattis
-                                </p>
-                            </figure>
-                            <figure class="ts-xs-text-center" data-animate="ts-fadeInUp" data-delay=".3s">
-                                <figure class="icon">
-                                    <img src="assets/img/icon-cup-winner.png" class="" alt="">
-                                </figure>
-                                <h4 class="mb-2">Trade From Enywhere</h4>
-                                <p>
-                                    Morbi et nisl a sapien malesuada scelerisque. Suspendisse tempor turpis mattis
-                                </p>
-                            </figure>
-                        </div>
-                        <!--end col-md-4-->
-                    </div>
-                    <!--end row-->
-                </div>
-                <!--end container-->
-            </section>
-            <!--end #organize-->
-
             <section id="download">
                 <div class="container">
                     <div class="row">
@@ -413,13 +330,13 @@
                                 <!--end card-body-->
                                 <div class="card-footer bg-white">
                                     <div class="ts-social-icons">
-                                        <a href="#">
+                                        <a href="mailto:yerkopailemilla@gmail.com">
                                             <i class="fa fa-envelope"></i>
                                         </a>
-                                        <a href="#">
+                                        <a href="https://github.com/yerkopailemilla">
                                             <i class="fab fa-github"></i>
                                         </a>
-                                        <a href="#">
+                                        <a href="https://cl.linkedin.com/in/yerko-pailemilla-parada-776538126">
                                             <i class="fab fa-linkedin"></i>
                                         </a>
                                     </div>
@@ -441,13 +358,13 @@
                                 </div>
                                 <div class="card-footer bg-white">
                                     <div class="ts-social-icons">
-                                        <a href="#">
+                                        <a href="mailto:cpqm07@gmail.com">
                                             <i class="fa fa-envelope"></i>
                                         </a>
-                                        <a href="#">
+                                        <a href="https://github.com/CPQM07">
                                             <i class="fab fa-github"></i>
                                         </a>
-                                        <a href="#">
+                                        <a href="https://cl.linkedin.com/in/christopher-quezada-409308124">
                                             <i class="fab fa-linkedin"></i>
                                         </a>
                                     </div>
@@ -478,43 +395,41 @@
                     <div class="ts-box mb-0 p-5 ts-mt__n-10">
                         <div class="row">
                             <div class="col-md-4">
-                                <h3>Contact Us</h3>
+                                <h3>Un cafecito?</h3>
                                 <address>
                                     <figure>
-                                        2590 Rocky Road
-                                        Philadelphia, PA 19108
+                                        Bravo de Saravia  2980
+                                        Renca, Santiago, Chile
                                     </figure>
                                     <br>
                                     <figure>
                                         <div class="font-weight-bold">Email:</div>
-                                        <a href="#">office@example.com</a>
+                                        <a href="#">support@jouer-club.cl</a>
                                     </figure>
                                     <figure>
-                                        <div class="font-weight-bold">Phone:</div>
-                                        +1 215-606-0391
+                                        <div class="font-weight-bold">Celular:</div>
+                                        +569 6224 5462
                                     </figure>
-                                    <div class="font-weight-bold">Skype:</div>
-                                    crypto.agency
                                 </address>
                                 <!--end address-->
                             </div>
                             <!--end col-md-4-->
                             <div class="col-md-8">
-                                <h3>Contact Form</h3>
+                                <h3>Escribenos, mejoremos juntos!</h3>
                                 <form id="form-contact" method="post" class="clearfix ts-form ts-form-email ts-inputs__transparent" data-php-path="assets/php/email.php">
                                     <div class="row">
                                         <div class="col-md-6 col-sm-6">
                                             <div class="form-group">
-                                                <label for="form-contact-name">Your Name *</label>
-                                                <input type="text" class="form-control" id="form-contact-name" name="name" placeholder="Your Name" required>
+                                                <label for="form-contact-name">Nombre *</label>
+                                                <input type="text" class="form-control" id="form-contact-name" name="name" placeholder="su nombre" required>
                                             </div>
                                             <!--end form-group -->
                                         </div>
                                         <!--end col-md-6 col-sm-6 -->
                                         <div class="col-md-6 col-sm-6">
                                             <div class="form-group">
-                                                <label for="form-contact-email">Your Email *</label>
-                                                <input type="email" class="form-control" id="form-contact-email" name="email" placeholder="Your Email" required>
+                                                <label for="form-contact-email">Correo Electronico *</label>
+                                                <input type="email" class="form-control" id="form-contact-email" name="email" placeholder="ejemplo@ejemplo.cl" required>
                                             </div>
                                             <!--end form-group -->
                                         </div>
@@ -524,8 +439,8 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="form-contact-message">Your Message *</label>
-                                                <textarea class="form-control" id="form-contact-message" rows="5" name="message" placeholder="Your Message" required></textarea>
+                                                <label for="form-contact-message">Mensaje *</label>
+                                                <textarea class="form-control" id="form-contact-message" rows="5" name="message" placeholder="Vamos! cuentanos." required></textarea>
                                             </div>
                                             <!--end form-group -->
                                         </div>
@@ -533,7 +448,7 @@
                                     </div>
                                     <!--end row -->
                                     <div class="form-group clearfix">
-                                        <button type="submit" class="btn btn-primary float-right" id="form-contact-submit">Send a Message</button>
+                                        <button type="submit" class="btn btn-primary float-right" id="form-contact-submit">Enviar</button>
                                     </div>
                                     <!--end form-group -->
                                     <div class="form-contact-status"></div>
@@ -579,9 +494,10 @@
     <!--Google map-->
 
     <script>
-        var latitude = 34.038405;
-        var longitude = -117.946944;
-        var markerImage = "assets/img/map-marker.png";
+    
+        var latitude = -33.405348;z
+        var longitude = -70.6848439;
+        var markerImage = "{{ asset('img/map-marker.png') }}";
         var mapElement = "map";
         var mapStyle = [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels.text","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#dbdbdb"},{"visibility":"on"}]}];
         google.maps.event.addDomListener(window, 'load', simpleMap(latitude, longitude, markerImage, mapStyle, mapElement));
