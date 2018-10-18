@@ -17,6 +17,7 @@ class WorkshopsTable extends Migration
             $table->increments('id')->comment("field to store workshop's number idenfifier, it's a foreign key")->unsigned();;
             $table->string('name')->comment("field to store workshop's name");
             $table->string('description')->comment("field to store workshop's description");
+            $table->string('ubication')->comment("field to store workshop's ubication")->nullable();
             $table->string('lat')->comment("field to store workshop's latitude for his ubication");
             $table->string('lng')->comment("field to store workshop's longitude for his ubication");
             $table->dateTime('time_begin')->comment("field to store when the workshop's it's start");

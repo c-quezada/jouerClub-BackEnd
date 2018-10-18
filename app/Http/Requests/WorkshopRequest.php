@@ -16,12 +16,13 @@ class WorkshopRequest extends FormRequest
         return [
             'name'        => 'required',
             'description' => 'required',
+            'ubication'   => 'nullable',
             'lat'         => 'required',
             'lng'         => 'required',
-            'time_begin'   => 'required',
-            'time_end'     => 'required',
+            'time_begin'  => 'required',
+            'time_end'    => 'required',
             'status'      => 'required',
-            'coach_id'     => 'required'
+            'coach_id'    => 'required'
         ];
     }
 }

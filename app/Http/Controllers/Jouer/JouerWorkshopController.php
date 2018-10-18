@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Jouer;
 
 use App\Jouer;
 use App\Workshop;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\Workshop\WorkshopController;
@@ -39,7 +40,6 @@ class JouerWorkshopController extends ApiController
                     $flag = 0;
                     return $this->errorResponse('No es posible agendar el taller, procura que el horario no coincida con otro.', 400);
                 }
-
             }
 
         } else {
@@ -50,8 +50,8 @@ class JouerWorkshopController extends ApiController
             if ($current_date_begin <= Carbon::now()->subMinute(1)) {
                 return $this->errorResponse("No es posible unirte a este taller, ya que se encuentra en curso o bien ya ha finalizado.", 403);
             }
-                $jouer->workshops()->attach(array($workshops->id));
-                return $this->showAll($jouer->workshops()->get());
+            $jouer->workshops()->attach(array($workshops->id));
+            return $this->showAll($jouer->workshops()->get());
         }
     }
 

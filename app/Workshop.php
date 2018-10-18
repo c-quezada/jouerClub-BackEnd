@@ -19,6 +19,7 @@ class Workshop extends Model
     protected $fillable = [
         'name',
         'description',
+        'ubication',
         'lat',
         'lng',
         'time_begin',
