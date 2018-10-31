@@ -14,9 +14,9 @@ class RegionsTable extends Migration
     public function up()
     {
         Schema::create('regions', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name', 128);
-            $table->string('code', 4);
+            $table->increments('id')->comment("field to store region's number idenfifier");
+            $table->string('name', 128)->comment("field to store region's name");
+            $table->string('code', 4)->comment("field to store region's asociated code");
             $table->timestamps();
         });
     }

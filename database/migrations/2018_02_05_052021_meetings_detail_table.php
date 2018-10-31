@@ -17,10 +17,10 @@ class MeetingsDetailTable extends Migration
 
             $table->primary(['jouer_id', 'meeting_id']);
         
-            $table->integer('meeting_id')->unsigned()->comment(" field to store the meeting id");
+            $table->integer('meeting_id')->unsigned()->comment("field to store metting to which the jouer belongs, it's a foreign key, references through id field of meeting table");
             $table->foreign('meeting_id')->references('id')->on('meetings');
 
-            $table->integer('jouer_id')->unsigned()->comment(" field to store the jouer that participate in this meeting");
+            $table->integer('jouer_id')->unsigned()->comment("field to store joeur to which the meeting belongs, it's a foreign key, references through id field of user table");
             $table->foreign('jouer_id')->references('id')->on('users')->onDelete('cascade');
 
 

@@ -16,9 +16,9 @@ class CourtsTable extends Migration
         Schema::create('courts', function (Blueprint $table) {
             $table->increments('id')->comment("field to store court's number idenfifier");
             $table->string('name', 20)->comment("field to store court's name");
-            $table->enum('status', ['available', 'notAvailable', 'maintenance'])->comment("field to store user's status")->default('available');
-            $table->integer('sport_field_id')->comment("field to store sportField's number idenfifier, it's a foreign key")->unsigned();
-            $table->string('avatar')->comment("field to store court's avatar")->nullable();
+            $table->enum('status', ['available', 'notAvailable', 'maintenance'])->comment("field to store user's status, default value is available")->default('available');
+            $table->integer('sport_field_id')->unsigned()->comment("field to store sportfield to which the court belongs, it's a foreign key, references through id field of sportfield table");
+            $table->string('avatar', 100)->comment("field to store court's avatar as a relative path")->nullable();
             $table->timestamps();
             $table->softDeletes();
 

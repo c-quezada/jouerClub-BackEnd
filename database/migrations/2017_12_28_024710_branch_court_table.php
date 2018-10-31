@@ -16,10 +16,10 @@ class BranchCourtTable extends Migration
         Schema::create('branch_court', function (Blueprint $table) {
 
             $table->increments('id');
-            $table->integer('court_id')->comment("field to store court's number idenfifier, it's a foreign key")->unsigned();
+            $table->integer('court_id')->unsigned()->comment("field to store court to which the branch belongs, it's a foreign key, references through id field of branches table");
             $table->foreign('court_id')->references('id')->on('courts')->onDelete('cascade');
             
-            $table->integer('branch_id')->comment("field to store branch's number idenfifier, it's a foreign key")->unsigned();
+            $table->integer('branch_id')->unsigned()->comment("field to store branch to which the court belongs, it's a foreign key, references through id field of courts table");
             $table->foreign('branch_id')->references('id')->on('branches')->onDelete('cascade');
 
         });

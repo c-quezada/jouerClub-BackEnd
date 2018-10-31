@@ -15,8 +15,8 @@ class MaintenanceTable extends Migration
     {
         Schema::create('maintenance', function (Blueprint $table) {
             $table->increments('id')->comment("field to store maintenance's number idenfifier");
-            $table->string('observations')->comment("field to store facility's observation");
-            $table->enum('mark', [1,2,3,4,5])->default(3)->comment("field to store facility's mark");
+            $table->string('observations', 500)->comment("field to store facility's observation");
+            $table->enum('mark', [1,2,3,4,5])->default(3)->comment("field to store facility's mark, 1 < value < 6");
             $table->integer('facility_id')->comment("field to store facility's number idenfifier, it's a foreign key")->unsigned();
             $table->timestamps();
             $table->softDeletes();

@@ -16,9 +16,9 @@ class SkillsTable extends Migration
         Schema::create('skills', function(Blueprint $table){
 
             $table->increments('id')->comment("field to store skill's number idenfifier");
-            $table->string('name')->comment("field to store skill's name");//->unique();
+            $table->string('name', 50)->comment("field to store skill's name");
 
-            $table->integer('branch_id')->unsigned()->comment(" field to store the sports that practice this user");
+            $table->integer('branch_id')->unsigned()->comment("field to store branch to which the skill belongs, it's a foreign key, references through id field of branch table");
             $table->foreign('branch_id')->references('id')->on('branches')->onDelete('cascade');
             
             $table->timestamps();

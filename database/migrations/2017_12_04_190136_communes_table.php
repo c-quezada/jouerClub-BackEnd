@@ -15,8 +15,8 @@ class CommunesTable extends Migration
     {
         Schema::create('communes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->integer('region_id')->unsigned();
+            $table->string('name', 30)->comment("field to store commune's name");;
+            $table->integer('region_id')->unsigned()->comment("field to store region to which the commune belongs, it's a foreign key, references through id field of regions table");
             $table->foreign('region_id')->references('id')->on('regions');
             $table->timestamps();
         });

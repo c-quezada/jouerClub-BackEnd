@@ -16,9 +16,9 @@ class BranchesTable extends Migration
         Schema::create('branches', function (Blueprint $table) {
 
             $table->increments('id')->comment("field to store branch's number idenfifier");
-            $table->string('name')->comment("field to store branch's name");
+            $table->string('name', 60)->comment("field to store branch's name");
 
-            $table->integer('sport_id')->unsigned();
+            $table->integer('sport_id')->unsigned()->comment("field to store sport to which the branch belongs, it's a foreign key, references through id field of sports table");
             $table->foreign('sport_id')->references('id')->on('sports')->onDelete('cascade');
 
             $table->timestamps();

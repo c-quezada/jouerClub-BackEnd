@@ -16,8 +16,8 @@ class SportsTable extends Migration
         Schema::create('sports', function(Blueprint $table){
 
             $table->increments('id')->comment("field to store sport's number idenfifier");
-            $table->string('name')->comment("field to store sport's name")->unique();
-            $table->string('description', 1000)->comment("field to store sport's description");
+            $table->string('name', 30)->comment("field to store sport's name, must be unique")->unique();
+            $table->string('description', 2000)->comment("field to store sport's description");
             $table->timestamps();
             $table->softDeletes();
 
