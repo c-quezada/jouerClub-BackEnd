@@ -18,6 +18,7 @@ class WorkshopsTable extends Migration
             $table->string('name', 100)->comment("field to store workshop's name");
             $table->string('description', 1000)->comment("field to store workshop's description");
             $table->string('ubication', 60)->comment("field to store workshop's ubication")->nullable();
+            $table->integer('max_jouer')->comment("field to store how many jouers will have the workshop at most")->nullable();
             $table->string('lat', 20)->comment("field to store workshop's latitude for his ubication");
             $table->string('lng', 20)->comment("field to store workshop's longitude for his ubication");
             $table->dateTime('time_begin')->comment("field to store when the workshop's it's start");

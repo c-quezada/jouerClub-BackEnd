@@ -84,6 +84,7 @@ $factory->define(Workshop::class, function (Faker $faker) {
     return [
 		'name'        => $faker->word,
 		'description' => $faker->paragraph(1),
+		'max_jouer'		=> 5,
 		'lat'         => $faker->latitude,
 		'lng'         => $faker->longitude,
 		'time_begin'  => $faker->dateTime,

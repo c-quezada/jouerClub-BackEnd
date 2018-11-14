@@ -17,6 +17,7 @@ class WorkshopRequest extends FormRequest
             'name'        => 'required',
             'description' => 'required',
             'ubication'   => 'nullable',
+            'max_jouer'   => 'required',
             'lat'         => 'required',
             'lng'         => 'required',
             'time_begin'  => 'required',
