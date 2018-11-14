@@ -29,6 +29,7 @@ class WorkshopController extends ApiController
         $fields                = $request->all();
         $fields['name']        = strtoupper($request->name);
         $fields['description'] = strtolower($request->description);
+        $fields['max_jouer'] = $request->max_jouer;
         $fields['lat']         = $request->lat;
         $fields['lng']         = $request->lng;
         $fields['time_begin']  = $request->time_begin;     
