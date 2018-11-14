@@ -208,7 +208,7 @@
                             <img src="{{ asset('images/screenshots/meeting_detail.png') }}" class="mw-100" width="390px" height="730px">
                         </div>
                         <div class="tab-pane fade" id="cluber_app" role="tabpanel" aria-labelledby="cluber_app">
-                            <img src="{{ asset('images/screenshots/meeting_detail.png') }}" class="mw-100" width="390px" height="730px">
+                            <img src="{{ asset('images/screenshots/cluber_courts.png') }}" class="mw-100" width="1080px">
                         </div>
                         <div class="tab-pane fade" id="coach_app" role="tabpanel" aria-labelledby="coach_app">
                             <img src="{{ asset('images/screenshots/meeting_detail.png') }}" class="mw-100" width="390px" height="730px">
