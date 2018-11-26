@@ -8,8 +8,25 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600">
     <link rel="stylesheet" href="{{ asset('/bootstrap/css/bootstrap.min.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('/font-awesome/css/fontawesome-all.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/owl.carousel.min.css') }}">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('images/favicon/apple-icon-57x57.png') }}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('images/favicon//apple-icon-60x60.png') }}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('images/favicon//apple-icon-72x72.png') }}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('images/favicon//apple-icon-76x76.png') }}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('images/favicon//apple-icon-114x114.png') }}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('images/favicon//apple-icon-120x120.png') }}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('images/favicon//apple-icon-144x144.png') }}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('images/favicon//apple-icon-152x152.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/favicon//apple-icon-180x180.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192"  href="{{ asset('images/favicon/android-icon-192x192.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('images/favicon/favicon-96x96.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png"> 
 	<title>JouerCLUB</title>
 
 </head>
@@ -102,7 +119,7 @@
         <main id="ts-content">
 
             <!--HOW IT WORKS ****************************************************************************************-->
-            <section id="how-it-works" class="ts-block text-center">
+               <section id="how-it-works" class="ts-block text-center">
                 <div class="container">
                     <div class="ts-title">
                         <h2>Características</h2>
@@ -112,8 +129,7 @@
                         <div class="col-sm-6 col-md-4 col-xl-4">
                             <figure data-animate="ts-fadeInUp">
                                 <figure class="icon mb-5 p-2">
-                                    <img src="assets/img/icon-watch-heart.png" alt="">
-                                    <div class="ts-svg ts-svg__organic-shape-01" data-animate="ts-zoomInShort"></div>
+                                    <img src="{{ asset('images/funcionalities.svg') }}" width="25%">
                                 </figure>
                                 <h4>Muchas funcionalidades te esperan</h4>
                                 <p>
@@ -125,8 +141,7 @@
                         <div class="col-sm-6 col-md-4 col-xl-4">
                             <figure data-animate="ts-fadeInUp" data-delay="0.1s">
                                 <figure class="icon mb-5 p-2">
-                                    <img src="assets/img/icon-lcd-chart.png" alt="">
-                                    <div class="ts-svg ts-svg__organic-shape-02" data-animate="ts-zoomInShort"></div>
+                                    <img src="{{ asset('images/smile.svg') }}" width="25%">
                                 </figure>
                                 <h4>Simple</h4>
                                 <p>
@@ -138,8 +153,7 @@
                         <div class="col-sm-6 offset-sm-4 col-md-4 offset-md-0 col-xl-4">
                             <figure data-animate="ts-fadeInUp" data-delay="0.2s">
                                 <figure class="icon mb-5 p-2">
-                                    <img src="assets/img/icon-cup-winner.png" alt="">
-                                    <div class="ts-svg ts-svg__organic-shape-03" data-animate="ts-zoomInShort"></div>
+                                    <img src="{{ asset('images/teamwork.svg') }}" width="25%">
                                 </figure>
                                 <h4>Encuentros</h4>
                                 <p>
@@ -196,11 +210,11 @@
                                 <h4>COACH</h4>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" id="mobile-tab" data-toggle="tab" href="#dev_app" role="tab" aria-controls="mobile" aria-selected="false">
                                 <h4>DEV</h4>
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
 
                     <div class="tab-content pt-5 ts-tabs-presentation" id="myTabContent" data-animate="ts-fadeInUp">
@@ -213,9 +227,9 @@
                         <div class="tab-pane fade" id="coach_app" role="tabpanel" aria-labelledby="coach_app">
                             <img src="{{ asset('images/screenshots/meeting_detail.png') }}" class="mw-100" width="390px" height="730px">
                         </div>
-                        <div class="tab-pane fade" id="dev_app" role="tabpanel" aria-labelledby="dev_app">
+                        {{-- <div class="tab-pane fade" id="dev_app" role="tabpanel" aria-labelledby="dev_app">
                             <img src="{{ asset('images/screenshots/meeting_detail.png') }}" class="mw-100" width="390px" height="730px">
-                        </div>
+                        </div> --}}
                     </div>
 
                 </div>
@@ -234,7 +248,7 @@
                             <p>
                                 JouerCLUB es un sistema gestor de encuentros deportivos y actividades saludables para promover la vida sana en nuestro pais.
                             </p>
-                            <a href="#download" class="btn btn-primary mb-4 ts-scroll">Usála APP!</a>
+                            <a href="#download" class="btn btn-info mb-4 ts-scroll">Usála APP!</a>
                         </div>
                         <!--end col-xl-5-->
                         <div class="col-md-7 col-xl-7 text-center" data-animate="ts-fadeInUp" data-delay="0.1s" data-offset="100">
@@ -460,7 +474,7 @@
                     </div>
                     <!--end ts-box-->
                     <div class="text-center text-white py-4">
-                        <small>© 2018 ThemeStarz, All Rights Reserved</small>
+                        <small>© 2018 JouerCLUB, All Rights Reserved</small>
                     </div>
                 </div>
                 <!--end container-->
@@ -505,3 +519,6 @@
 
 </body>
 </html>
+
+
+<img src="{{ asset('images/screenshots/create_meeting.png') }}

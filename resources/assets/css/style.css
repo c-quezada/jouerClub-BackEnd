@@ -2,7 +2,7 @@
 Project:	    AppStorm
 Version:        1.0.0
 
-Default Color   #f26d7d;
+Default Color   #4230e9;
 
 Body copy:		'Poppins', sans-serif; 15px;
 Headers:		'Poppins', sans-serif;
@@ -298,7 +298,7 @@ B. Helpers
 }
 
 .ts-font-color__primary {
-    color: #f26d7d;
+    color: #4230e9;
 }
 
 /*-------------------------------------------
@@ -670,7 +670,7 @@ B. Helpers
 -------------------------------------------*/
 
 .ts-shape-mask__up:before {
-    background-image: url("../../assets/img/bg-shape-mask-up.png");
+    background-image: url("../assets/img/bg-shape-mask-up.png");
     background-size: cover;
     content: "";
     left: 0;
@@ -681,7 +681,7 @@ B. Helpers
 }
 
 .ts-shape-mask__down:after {
-    background-image: url("../../assets/img/bg-shape-mask-down.png");
+    background-image: url("../assets/img/bg-shape-mask-down.png");
     background-size: cover;
     bottom: -0.0625rem;
     content: "";
@@ -698,12 +698,12 @@ B. Helpers
 -------------------------------------------*/
 
 a {
-    color: #f26d7d;
+    color: #4230e9;
     transition: .3s ease;
 }
 
 a:hover {
-    color: rgb(237, 44, 66);
+    color: rgb(56, 64, 177);
     text-decoration: none;
 }
 
@@ -904,7 +904,7 @@ blockquote {
     font-size: 1.125rem;
     position: relative;
     background-size: contain;
-    background-image: url("../../assets/svg/bubble.svg");
+    background-image: url("../assets/svg/bubble.svg");
     background-repeat: no-repeat;
     background-position: center 3.75rem;
     padding-bottom: 3.75rem;
@@ -943,7 +943,7 @@ blockquote figure aside i {
 }
 
 blockquote figure aside svg {
-    fill: #f26d7d;
+    fill: #4230e9;
 }
 
 blockquote p {
@@ -1081,35 +1081,35 @@ blockquote h6 {
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
     /*background-color: darken( var(--color-primary), 20% );
     border-color: darken( var(--color-primary), 20% );*/
-    background-color: #f26d7d;
-    border-color: #f26d7d;
+    background-color: #4230e9;
+    border-color: #4230e9;
     box-shadow: .125rem .1875rem .9375rem rgba(0, 0, 0, .3);
 }
 
 .btn-primary {
-    background-color: #f26d7d;
-    border-color: #f26d7d;
+    background-color: #4230e9;
+    border-color: #4230e9;
     color: #fff;
 }
 
 .btn-primary.disabled, .btn-primary:disabled {
-    background-color: rgb(237, 44, 66);
-    border-color: rgb(237, 44, 66);
+    background-color: rgb(73, 44, 237);
+    border-color: rgb(73, 44, 237);
 }
 
 .btn-primary:not(:disabled):not(.disabled):active:focus,
 .btn-primary:not(:disabled):not(.disabled).active:focus,
 .show > .btn-primary.dropdown-toggle:focus {
-    background-color: rgb(237, 44, 66);
-    border-color: rgb(225, 20, 44);
+    background-color: rgb(73, 44, 237);
+    border-color: rgb(44, 112, 237);
     box-shadow: 0 .1875rem .9375rem rgba(0, 0, 0, .2);
 }
 
 .btn-primary:not(:disabled):not(.disabled):active,
 .btn-primary:not(:disabled):not(.disabled).active,
 .show > .btn-primary.dropdown-toggle {
-    background-color: rgb(237, 44, 66);
-    border-color: rgb(237, 44, 66);
+    background-color: rgb(73, 44, 237);
+    border-color: rgb(73, 44, 237);
     box-shadow: 0 .1875rem .9375rem rgba(0, 0, 0, .2);
 }
 
@@ -1119,19 +1119,19 @@ blockquote h6 {
 }
 
 .btn-outline-primary {
-    border-color: #f26d7d;
-    color: #f26d7d;
+    border-color: #4230e9;
+    color: #4230e9;
 }
 
 .btn-outline-primary:hover {
-    background-color: #f26d7d;
-    border-color: #f26d7d;
+    background-color: #4230e9;
+    border-color: #4230e9;
 }
 
 .btn-outline-primary:not(:disabled):not(.disabled):active:focus {
-    background-color: #f26d7d;
-    border-color: #f26d7d;
-    box-shadow: 0 0 0 .2rem rgba(242, 109, 125, .5);
+    background-color: #4230e9;
+    border-color: #4230e9;
+    box-shadow: 0 0 0 .2rem rgba(43, 69, 216, 0.5);
 }
 
 .btn-lg {
@@ -1334,7 +1334,7 @@ hr {
 }
 
 .ts-item-header .icon .step {
-    background-color: #f26d7d;
+    background-color: #4230e9;
     bottom: 0;
     box-shadow: .125rem .1875rem .9375rem rgba(0, 0, 0, .15);
     border-radius: 50%;
@@ -1393,7 +1393,7 @@ body.has-loading-screen:before {
 }
 
 body.has-loading-screen:after {
-    content: url("../../assets/img/loading.svg");
+    content: url("../assets/img/loading.svg");
     height: 2.5rem;
     width: 2.5rem;
     position: fixed;
@@ -1524,13 +1524,13 @@ iframe div {
 
 .progress {
     background-color: transparent;
-    border: .125rem solid #f26d7d;
+    border: .125rem solid #4230e9;
     border-radius: 0;
     height: .625rem;
 }
 
 .progress .progress-bar {
-    background-color: #f26d7d;
+    background-color: #4230e9;
 }
 
 /*-------------------------------------------
@@ -1552,7 +1552,7 @@ iframe div {
 .ts-promo-number .ts-promo-number-divider:after {
     content: "";
     bottom: 0;
-    border: .125rem solid #f26d7d;
+    border: .125rem solid #4230e9;
     border-radius: 50%;
     height: .625rem;
     margin: auto;
@@ -1646,7 +1646,7 @@ select::-ms-expand {
 .nav-tabs .nav-link.active {
     color: #191919;
     background-color: transparent;
-    border-bottom: .1875rem solid #f26d7d;
+    border-bottom: .1875rem solid #4230e9;
     opacity: 1;
 }
 
@@ -1941,12 +1941,12 @@ E. Template Specific Elements
 }
 
 .ts-time-line__horizontal .ts-time-line__item.ts-time-line__milestone .ts-box {
-    background-color: #f26d7d;
+    background-color: #4230e9;
     color: #fff;
 }
 
 .ts-time-line__horizontal .ts-time-line__item.ts-time-line__milestone .ts-box:after {
-    border-color: #f26d7d transparent transparent transparent;
+    border-color: #4230e9 transparent transparent transparent;
 }
 
 .ts-time-line__horizontal .ts-time-line__item.ts-time-line__milestone h5 {
