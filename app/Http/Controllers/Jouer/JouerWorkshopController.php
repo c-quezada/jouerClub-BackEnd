@@ -24,9 +24,9 @@ class JouerWorkshopController extends ApiController
 
     public function addWorkshop(Jouer $jouer, Workshop $workshops)
     {
-        $current_count_jouers = $workshop->jouers()->count();
+        $current_count_jouers = $workshops->jouers()->count();
 
-        if ($current_count_jouers <= $workshop->max_jouer) {
+        if ($current_count_jouers <= $workshops->max_jouer) {
             $flag = 1;
             $jouer_workshops      = $jouer->workshops()->get();
             $current_date_begin = Carbon::parse($workshops->time_begin);

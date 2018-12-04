@@ -71,8 +71,8 @@
                 <div class="row align-items-center">
                     <div class="col-sm-7">
                         <h3 class="ts-font-color__black ts-opacity__50">LLEVEMOS JUNTOS</h3>
-                        <h1>EL DEPORTE AMATAUR AL SIGUIENTE NIVEL!</h1>
-                        <a href="#how-it-works" class="btn btn-primary btn-lg ts-scroll" data-bg-color="#1b1464">Saber Más</a>
+                        <h1>EL DEPORTE AMATEUR AL SIGUIENTE NIVEL!</h1>
+                        <a href="#how-it-works" class="btn btn-primary btn-lg ts-scroll" data-bg-color="#0026ca">Saber Más</a>
                     </div>
                     <!--end col-sm-7 col-md-7-->
                     <div class="col-sm-5 d-none d-sm-block">
@@ -252,9 +252,7 @@
                         </div>
                         <!--end col-xl-5-->
                         <div class="col-md-7 col-xl-7 text-center" data-animate="ts-fadeInUp" data-delay="0.1s" data-offset="100">
-                            <div class="px-3">
-                                <img src="assets/img/img-screen-desktop.jpg" class="mw-100 ts-shadow__lg ts-border-radius__md" alt="">
-                            </div>
+                            <img src="{{ asset('images/logos/logo.png') }}" width="50%">
                         </div>
                         <!--end col-xl-7-->
                     </div>
@@ -306,7 +304,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-8 offset-md-2">
-                            <div class="p-5 text-center ts-border-radius__round-shape ts-shadow__lg" data-bg-color="#1b1464">
+                            <div class="p-5 text-center ts-border-radius__round-shape ts-shadow__lg" data-bg-color="#0026ca">
                                 <div class="bg-white p-5 ts-border-radius__round-shape">
                                     <div class="row">
                                         <div class="col-md-12">
@@ -402,11 +400,9 @@
         <!--*********************************************************************************************************-->
         <footer id="ts-footer">
 
-            <div class="map ts-height__600px" id="map"></div>
-
-            <section id="contact" class="ts-separate-bg-element" data-bg-image="assets/img/bg-desk.jpg" data-bg-image-opacity=".1" data-bg-color="#1b1464">
+            <section id="contact" class="ts-separate-bg-element" data-bg-color="#0026ca">
                 <div class="container">
-                    <div class="ts-box mb-0 p-5 ts-mt__n-10">
+                    <div class="ts-box">
                         <div class="row">
                             <div class="col-md-4">
                                 <h3>Un cafecito?</h3>
@@ -417,57 +413,11 @@
                                     </figure>
                                     <br>
                                     <figure>
-                                        <div class="font-weight-bold">Email:</div>
-                                        <a href="#">support@jouer-club.cl</a>
-                                    </figure>
-                                    <figure>
                                         <div class="font-weight-bold">Celular:</div>
                                         +569 6224 5462
                                     </figure>
                                 </address>
                                 <!--end address-->
-                            </div>
-                            <!--end col-md-4-->
-                            <div class="col-md-8">
-                                <h3>Escribenos, mejoremos juntos!</h3>
-                                <form id="form-contact" method="post" class="clearfix ts-form ts-form-email ts-inputs__transparent" data-php-path="assets/php/email.php">
-                                    <div class="row">
-                                        <div class="col-md-6 col-sm-6">
-                                            <div class="form-group">
-                                                <label for="form-contact-name">Nombre *</label>
-                                                <input type="text" class="form-control" id="form-contact-name" name="name" placeholder="su nombre" required>
-                                            </div>
-                                            <!--end form-group -->
-                                        </div>
-                                        <!--end col-md-6 col-sm-6 -->
-                                        <div class="col-md-6 col-sm-6">
-                                            <div class="form-group">
-                                                <label for="form-contact-email">Correo Electronico *</label>
-                                                <input type="email" class="form-control" id="form-contact-email" name="email" placeholder="ejemplo@ejemplo.cl" required>
-                                            </div>
-                                            <!--end form-group -->
-                                        </div>
-                                        <!--end col-md-6 col-sm-6 -->
-                                    </div>
-                                    <!--end row -->
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="form-contact-message">Mensaje *</label>
-                                                <textarea class="form-control" id="form-contact-message" rows="5" name="message" placeholder="Vamos! cuentanos." required></textarea>
-                                            </div>
-                                            <!--end form-group -->
-                                        </div>
-                                        <!--end col-md-12 -->
-                                    </div>
-                                    <!--end row -->
-                                    <div class="form-group clearfix">
-                                        <button type="submit" class="btn btn-primary float-right" id="form-contact-submit">Enviar</button>
-                                    </div>
-                                    <!--end form-group -->
-                                    <div class="form-contact-status"></div>
-                                </form>
-                                <!--end form-contact -->
                             </div>
                         </div>
                         <!--end row-->
@@ -494,7 +444,7 @@
 	<script src="{{ asset('/js/popper.min.js') }}"></script>
 	<script src="{{ asset('/bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('/js/imagesloaded.pkgd.min.js') }}"></script>
-    <script src="http://maps.google.com/maps/api/js?key=AIzaSyBEDfNcQRmKQEyulDN8nGWjLYPm8s4YB58"></script>
+    
 	<script src="{{ asset('/js/isInViewport.jquery.js') }}"></script>
 	<script src="{{ asset('/js/jquery.particleground.min.js') }}"></script>
 	<script src="{{ asset('/js/owl.carousel.min.js') }}"></script>
@@ -504,19 +454,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js"></script>
     <script src="{{ asset('/js/jquery.wavify.js') }}"></script>
     <script src="{{ asset('/js/custom.js') }}"></script>
-
-    <!--Google map-->
-
-    <script>
-    
-        var latitude = -33.405348;z
-        var longitude = -70.6848439;
-        var markerImage = "{{ asset('img/map-marker.png') }}";
-        var mapElement = "map";
-        var mapStyle = [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels.text","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#dbdbdb"},{"visibility":"on"}]}];
-        google.maps.event.addDomListener(window, 'load', simpleMap(latitude, longitude, markerImage, mapStyle, mapElement));
-    </script>
-
 </body>
 </html>
 

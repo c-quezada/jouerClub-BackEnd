@@ -1380,7 +1380,7 @@ ul.ts-list-divided li:last-child {
 -------------------------------------------*/
 
 body.has-loading-screen:before {
-    background-color: #000;
+    background-color: white;
     content: "";
     height: 100%;
     right: 0;
@@ -1393,7 +1393,7 @@ body.has-loading-screen:before {
 }
 
 body.has-loading-screen:after {
-    content: url("../assets/img/loading.svg");
+    content: url("../img/loading.svg");
     height: 2.5rem;
     width: 2.5rem;
     position: fixed;
