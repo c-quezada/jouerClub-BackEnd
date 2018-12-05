@@ -55,7 +55,7 @@
                             <a class="nav-item nav-link ts-scroll" href="#what-is-jouerclub">Acerca</a>
                             <a class="nav-item nav-link ts-scroll" href="#testimonials">Testimonios</a>
                             <a class="nav-item nav-link ts-scroll" href="#our-team">Equipo</a>
-                            <a class="nav-item nav-link ts-scroll" href="#form-contact">Contacto</a>
+                            <a class="nav-item nav-link ts-scroll" href="#contact">Contacto</a>
                             <a class="nav-item nav-link ts-scroll btn btn-info btn-sm text-white ml-3 px-3 ts-width__auto" href="#download">Descarga</a>
                         </div>
                         <!--end navbar-nav-->
@@ -77,19 +77,19 @@
                     <!--end col-sm-7 col-md-7-->
                     <div class="col-sm-5 d-none d-sm-block">
                         <div class="owl-carousel text-center" data-owl-nav="1" data-owl-loop="2">
-                            <img src="{{ asset('images/screenshots/create_meeting.png') }}" class="d-inline-block mw-100 p-md-5 p-lg-0 ts-width__auto" alt="image" width="360px" height="700px">
-                            <img src="{{ asset('images/screenshots/login_checked.png') }}" class="d-inline-block mw-100 p-md-5 p-lg-0 ts-width__auto" alt="image" width="360px" height="700px">
-                            <img src="{{ asset('images/screenshots/login.png') }}" class="d-inline-block mw-100 p-md-5 p-lg-0 ts-width__auto" alt="image" width="360px" height="700px">
-                            <img src="{{ asset('images/screenshots/meeting_detail.png') }}" class="d-inline-block mw-100 p-md-5 p-lg-0 ts-width__auto" alt="image" width="360px" height="700px">
-                            <img src="{{ asset('images/screenshots/meetings_404.png') }}" class="d-inline-block mw-100 p-md-5 p-lg-0 ts-width__auto" alt="image" width="360px" height="700px">
-                            <img src="{{ asset('images/screenshots/profile.png') }}" class="d-inline-block mw-100 p-md-5 p-lg-0 ts-width__auto" alt="image" width="360px" height="700px">
-                            <img src="{{ asset('images/screenshots/select_court.png') }}" class="d-inline-block mw-100 p-md-5 p-lg-0 ts-width__auto" alt="image" width="360px" height="700px">
-                            <img src="{{ asset('images/screenshots/select_skills.png') }}" class="d-inline-block mw-100 p-md-5 p-lg-0 ts-width__auto" alt="image" width="360px" height="700px">
-                            <img src="{{ asset('images/screenshots/select_teammates.png') }}" class="d-inline-block mw-100 p-md-5 p-lg-0 ts-width__auto" alt="image" width="360px" height="700px">
-                            <img src="{{ asset('images/screenshots/sportfield_services.png') }}" class="d-inline-block mw-100 p-md-5 p-lg-0 ts-width__auto" alt="image" width="360px" height="700px">
-                            <img src="{{ asset('images/screenshots/team_detail.png') }}" class="d-inline-block mw-100 p-md-5 p-lg-0 ts-width__auto" alt="image" width="360px" height="700px">
-                            <img src="{{ asset('images/screenshots/teams_404.png') }}" class="d-inline-block mw-100 p-md-5 p-lg-0 ts-width__auto" alt="image" width="360px" height="700px">
-                            <img src="{{ asset('images/screenshots/teams.png') }}" class="d-inline-block mw-100 p-md-5 p-lg-0 ts-width__auto" alt="image" width="360px" height="700px">
+                            <img src="{{ asset('images/screenshots/create_meeting.png') }}" class="d-inline-block mw-100 p-md-5 p-lg-0 ts-width__auto" alt="image" width="320px" height="670px">
+                            <img src="{{ asset('images/screenshots/login_checked.png') }}" class="d-inline-block mw-100 p-md-5 p-lg-0 ts-width__auto" alt="image" width="320px" height="670px">
+                            <img src="{{ asset('images/screenshots/login.png') }}" class="d-inline-block mw-100 p-md-5 p-lg-0 ts-width__auto" alt="image" width="320px" height="670px">
+                            <img src="{{ asset('images/screenshots/meeting_detail.png') }}" class="d-inline-block mw-100 p-md-5 p-lg-0 ts-width__auto" alt="image" width="320px" height="670px">
+                            <img src="{{ asset('images/screenshots/meetings_404.png') }}" class="d-inline-block mw-100 p-md-5 p-lg-0 ts-width__auto" alt="image" width="320px" height="670px">
+                            <img src="{{ asset('images/screenshots/profile.png') }}" class="d-inline-block mw-100 p-md-5 p-lg-0 ts-width__auto" alt="image" width="320px" height="670px">
+                            <img src="{{ asset('images/screenshots/select_court.png') }}" class="d-inline-block mw-100 p-md-5 p-lg-0 ts-width__auto" alt="image" width="320px" height="670px">
+                            <img src="{{ asset('images/screenshots/select_skills.png') }}" class="d-inline-block mw-100 p-md-5 p-lg-0 ts-width__auto" alt="image" width="320px" height="670px">
+                            <img src="{{ asset('images/screenshots/select_teammates.png') }}" class="d-inline-block mw-100 p-md-5 p-lg-0 ts-width__auto" alt="image" width="320px" height="670px">
+                            <img src="{{ asset('images/screenshots/sportfield_services.png') }}" class="d-inline-block mw-100 p-md-5 p-lg-0 ts-width__auto" alt="image" width="320px" height="670px">
+                            <img src="{{ asset('images/screenshots/team_detail.png') }}" class="d-inline-block mw-100 p-md-5 p-lg-0 ts-width__auto" alt="image" width="320px" height="670px">
+                            <img src="{{ asset('images/screenshots/teams_404.png') }}" class="d-inline-block mw-100 p-md-5 p-lg-0 ts-width__auto" alt="image" width="320px" height="670px">
+                            <img src="{{ asset('images/screenshots/teams.png') }}" class="d-inline-block mw-100 p-md-5 p-lg-0 ts-width__auto" alt="image" width="320px" height="670px">
                         </div>
                     </div>
                     <!--end col-sm-5 col-md-5 col-xl-5-->
@@ -101,7 +101,7 @@
             <div id="ts-dynamic-waves" class="ts-background">
                 <svg class="ts-svg ts-z-index__1 ts-flip-x" width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg">
                     <defs></defs>
-                    <path class="ts-dynamic-wave" id="wave-1" d="" data-wave-color="#fff" data-wave-height=".3" data-wave-bones="4" data-wave-speed="0.5"/>
+                    <path class="ts-dynamic-wave" id="wave-1" d="" data-wave-color="#fff" data-wave-height=".3" data-wave-bones="4" data-wave-speed="0.3"/>
                 </svg>
                 <svg class="ts-svg ts-z-index__1" width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg">
                     <defs></defs>
@@ -186,28 +186,26 @@
             <!--END PARTNERS ****************************************************************************************-->
 
             <!--HOW IT LOOKS ****************************************************************************************-->
-            <section id="products" class="pb-0 ts-block text-center ts-overflow__hidden ts-shape-mask__down" data-bg-color="#ededed" data-bg-image="{{ asset('img/bg-blurred-shape.jpg') }}" data-bg-repeat="no-repeat" data-bg-position="bottom" data-bg-size="inherit">
+            <section id="products" class="pb-0 ts-block text-center ts-overflow__hidden ts-shape-mask__down" data-bg-color="white" data-bg-image="{{ asset('images/page/background_1.jpg') }}" data-bg-repeat="no-repeat" data-bg-position="bottom" data-bg-size="inherit">
                 <div class="container">
-                    <div class="ts-title">
-                        <h2>Nuestros Productos</h2>
-                        <h5>y tú, ¿A qué perfil perteneces?</h5>
-                    </div>
+                    <h2 class="text-white">Nuestros Productos</h2>
+                    <h5 class="text-white"><strong>y tú, ¿A qué perfil perteneces?</strong></h5>
                     <!--end ts-title-->
 
                     <ul class="nav nav-tabs justify-content-center my-5" id="myTab" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="desktop-tab" data-toggle="tab" href="#jouer_app" role="tab" aria-controls="jouer_app" aria-selected="true">
-                                <h4>JOUER</h4>
+                                <h4 class="text-white">JOUER</h4>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="tablet-tab" data-toggle="tab" href="#cluber_app" role="tab" aria-controls="tablet" aria-selected="false">
-                                <h4>CLUBER</h4>
+                                <h4 class="text-white">CLUBER</h4>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="mobile-tab" data-toggle="tab" href="#coach_app" role="tab" aria-controls="mobile" aria-selected="false">
-                                <h4>COACH</h4>
+                                <h4 class="text-white">COACH</h4>
                             </a>
                         </li>
                         {{-- <li class="nav-item">
@@ -262,7 +260,7 @@
             </section>
             <!--END WHAT IS JOUERCLUB ********************************************************************************-->
 
-            <section id="testimonials" class="ts-block text-center" data-bg-color="#fff">
+            <section id="testimonials" class="ts-block text-center" data-bg-color="white">
                 <div class="container">
                     <div class="ts-title">
                         <h2>Testimonios</h2>
@@ -304,12 +302,12 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-8 offset-md-2">
-                            <div class="p-5 text-center ts-border-radius__round-shape ts-shadow__lg" data-bg-color="#0026ca">
-                                <div class="bg-white p-5 ts-border-radius__round-shape">
+                            <div class="p-3 text-center ts-border-radius__round-shape" data-bg-color="#0026ca">
+                                <div class="bg-white p-3 ts-border-radius__round-shape">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <a href="#">
-                                                <img src="{{ asset('img/get_it_on_google.png') }}" class="mw-100 py-3" alt="">
+                                                <img src="{{ asset('img/get_it_on_google.png') }}" class="mw-100 py-2" alt="">
                                             </a>
                                         </div>
                                     </div>
@@ -336,7 +334,7 @@
                                 </div>
                                 <!--end ts-card__image-->
                                 <div class="card-body">
-                                    <h5 class="mb-1">YERKO PAILEMILLA</h5>
+                                    <h5 class="mb-1">Yerko Pailemilla</h5>
                                     <h6 class="ts-opacity__50">CEO - MOBILE DEVELOPER</h6>
                                 </div>
                                 <!--end card-body-->
