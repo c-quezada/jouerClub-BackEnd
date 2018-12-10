@@ -32,10 +32,10 @@ class MeetingController extends ApiController
         $fields     = $request->all();
 
         $jouer = Jouer::findOrFail($request->jouer_id);
-        $addHour = Carbon::parse($time_begin)->addMinutes(59);
+        $addHour = Carbon::parse($request->time_begin)->addMinutes(59);
 
         if (Court::findOrFail($request->court_id)) {
-            if ($request->time_begin < Carbon::now() || $request->time_begin > $request->time_end || $request->time_end > $addHour) {
+            if ($request->time_begin < Carbon::now() || $request->time_begin > $request->time_end || $request->time_end < $addHour) {
                return $this->errorResponse('No es posible crear este encuentro. Procura que la fecha sea próxima o bien que la fecha de termino sea posterior a la de inicio.', 403);
             }
             $meeting = Meeting::create($fields); 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Workshop;
 
 use App\Workshop;
 use App\Coach;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Requests\WorkshopRequest;
 use App\Http\Controllers\ApiController;
@@ -39,7 +40,7 @@ class WorkshopController extends ApiController
         $addHour = Carbon::parse($request->time_begin)->addMinutes(59);
 
         if (Coach::findOrFail($request->coach_id)) {
-            if ($fields['time_begin'] <  $request->time_end &&  $request->time_end > $addHour) {
+            if ($request->time_begin > Carbon::now() && $request->time_begin <  $request->time_end &&  $request->time_end > $addHour) {
                 $workshop = Workshop::create($fields); 
                 return $this->showOne($workshop, 201);
             } else {
