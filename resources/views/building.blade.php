@@ -170,18 +170,10 @@
             <!--END HOW IT WORKS ************************************************************************************-->
 
             <!--PARTNERS ********************************************************************************************-->
-            <section id="partners" class="py-5 ts-block" data-bg-color="#f6f6f6">
-                <!--container-->
-                <div class="container">
-                    <!--block of logos-->
-                    <div class="d-block align-items-center text-center ts-partners ">
-                        <a href="#">
-                            <img src="{{ asset('images/logos/sponsor-logos.png') }}" alt="">
-                        </a>
-                    </div>
-                    <!--end logos-->
-                </div>
-                <!--end container-->
+            <section id="partners" class="py-5 ts-block text-center" data-bg-color="#f6f6f6">
+                <!--block of logos-->
+                    <img src="{{ asset('images/logos/sponsor-logos.png') }}" alt="INACAP" class="text-center">
+                <!--end logos-->           
             </section>
             <!--END PARTNERS ****************************************************************************************-->
 
@@ -223,11 +215,8 @@
                             <img src="{{ asset('images/screenshots/cluber_courts.png') }}" class="mw-100" width="1080px">
                         </div>
                         <div class="tab-pane fade" id="coach_app" role="tabpanel" aria-labelledby="coach_app">
-                            <img src="{{ asset('images/screenshots/meeting_detail.png') }}" class="mw-100" width="390px" height="730px">
+                            <img src="{{ asset('images/screenshots/Coach.jpeg') }}" class="mw-100" width="390px" height="730px">
                         </div>
-                        {{-- <div class="tab-pane fade" id="dev_app" role="tabpanel" aria-labelledby="dev_app">
-                            <img src="{{ asset('images/screenshots/meeting_detail.png') }}" class="mw-100" width="390px" height="730px">
-                        </div> --}}
                     </div>
 
                 </div>
@@ -306,7 +295,7 @@
                                 <div class="bg-white p-3 ts-border-radius__round-shape">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <a href="#">
+                                            <a href="https://play.google.com/store/apps/details?id=cl.jouer_club.jouer_jouerclub" target="blank">
                                                 <img src="{{ asset('img/get_it_on_google.png') }}" class="mw-100 py-2" alt="">
                                             </a>
                                         </div>
@@ -328,9 +317,36 @@
                     <!--end ts-title-->
                     <div class="row">
                         <div class="col-sm-12 col-lg-6">
+                                <div class="card" data-animate="ts-fadeInUp" data-delay=".1s">
+                                    <div class="ts-card__image ts-img-into-bg">
+                                        <img class="card-img-top" src="{{ asset('images/Christopher.jpeg') }}" alt="CTO">
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="mb-1">Christopher Quezada</h5>
+                                        <h6 class="ts-opacity__50">CTO - WEB DEVELOPER</h6>
+                                    </div>
+                                    <div class="card-footer bg-white">
+                                        <div class="ts-social-icons">
+                                            <a href="mailto:cpqm07@gmail.com">
+                                                <i class="fa fa-envelope"></i>
+                                            </a>
+                                            <a href="https://github.com/CPQM07">
+                                                <i class="fab fa-github"></i>
+                                            </a>
+                                            <a href="https://cl.linkedin.com/in/christopher-quezada-409308124">
+                                                <i class="fab fa-linkedin"></i>
+                                            </a>
+                                        </div>
+                                        <!--end social-icons-->
+                                    </div>
+                                </div>
+                                <!--end card-->
+                            </div>
+
+                        <div class="col-sm-12 col-lg-6">
                             <div class="card" data-animate="ts-fadeInUp">
                                 <div class="ts-card__image ts-img-into-bg">
-                                    <img class="card-img-top" src="{{ asset('images/team/yerko.png') }}" alt="CEO">
+                                    <img class="card-img-top" src="{{ asset('images/Yerko.jpeg') }}" alt="CEO">
                                 </div>
                                 <!--end ts-card__image-->
                                 <div class="card-body">
@@ -357,32 +373,6 @@
                             <!--end card-->
                         </div>
                         <!--end col-md-3-->
-                        <div class="col-sm-12 col-lg-6">
-                            <div class="card" data-animate="ts-fadeInUp" data-delay=".1s">
-                                <div class="ts-card__image ts-img-into-bg">
-                                    <img class="card-img-top" src="{{ asset('images/team/christopher.png') }}" alt="CEO">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="mb-1">Christopher Quezada</h5>
-                                    <h6 class="ts-opacity__50">CEO - WEB DEVELOPER</h6>
-                                </div>
-                                <div class="card-footer bg-white">
-                                    <div class="ts-social-icons">
-                                        <a href="mailto:cpqm07@gmail.com">
-                                            <i class="fa fa-envelope"></i>
-                                        </a>
-                                        <a href="https://github.com/CPQM07">
-                                            <i class="fab fa-github"></i>
-                                        </a>
-                                        <a href="https://cl.linkedin.com/in/christopher-quezada-409308124">
-                                            <i class="fab fa-linkedin"></i>
-                                        </a>
-                                    </div>
-                                    <!--end social-icons-->
-                                </div>
-                            </div>
-                            <!--end card-->
-                        </div>
                     </div>
                     <!--end row-->
                 </div>

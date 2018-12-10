@@ -36,11 +36,16 @@ class WorkshopController extends ApiController
         $fields['time_end']    = $request->time_end;
         $fields['status']      = $request->status;
 
-        if (Coach::findOrFail($request->coach_id)) {
-            $workshop = Workshop::create($fields); 
-            return $this->showOne($workshop, 201);
-        }
+        $addHour = Carbon::parse($request->time_begin)->addMinutes(59);
 
+        if (Coach::findOrFail($request->coach_id)) {
+            if ($fields['time_begin'] <  $request->time_end &&  $request->time_end > $addHour) {
+                $workshop = Workshop::create($fields); 
+                return $this->showOne($workshop, 201);
+            } else {
+                return $this->errorResponse('No es posible agendar el encuentro, procura que el horario de inicio sea antes que el de termino.', 400);
+            }
+        }
     }
 
     public function show(Workshop $workshop)

@@ -1,6 +1,7 @@
 <?php
 
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -15,12 +16,44 @@ class sportFieldSeeder extends Seeder
     {
 		DB::table('users')->insert([
 			[
-			'nickname' => 'jouerclub',
-			'email' => 'contacto@jouer-club.cl',
+			'nickname' => 'cluber_test',
+			'email' => 'cluber@jouer-club.cl',
 			'password' => '$2y$10$EcQ3h58VqspTqLYD5pRBnuEh6x/h9Wx3.rXUdpSzIgmyAVTczwU7m',
 			'code_verification' => 'secret',
+			'status' => 'verified',
 			'type' => 'cluber',
-			'phone' => '56962245462'
+			'phone' => '56962245462',
+			'created_at' => Carbon::now()
+			],
+			[
+			'nickname' => 'coach_test',
+			'email' => 'coachr@jouer-club.cl',
+			'password' => '$2y$10$EcQ3h58VqspTqLYD5pRBnuEh6x/h9Wx3.rXUdpSzIgmyAVTczwU7m',
+			'code_verification' => 'secret',
+			'status' => 'verified',
+			'type' => 'coach',
+			'phone' => '56962245463',
+			'created_at' => Carbon::now()
+			],
+			[
+			'nickname' => 'cpqm07',
+			'email' => 'cpqm07@gmail.com',
+			'password' => '$2y$10$EcQ3h58VqspTqLYD5pRBnuEh6x/h9Wx3.rXUdpSzIgmyAVTczwU7m',
+			'code_verification' => 'secret',
+			'status' => 'verified',
+			'type' => 'jouer',
+			'phone' => '56962245464',
+			'created_at' => Carbon::now()
+			],
+			[
+			'nickname' => 'yerkos',
+			'email' => 'yerkos@gmail.com',
+			'password' => '$2y$10$EcQ3h58VqspTqLYD5pRBnuEh6x/h9Wx3.rXUdpSzIgmyAVTczwU7m',
+			'code_verification' => 'secret',
+			'status' => 'verified',
+			'type' => 'jouer',
+			'phone' => '56962245465',
+			'created_at' => Carbon::now()
 			]
 		]);
 
